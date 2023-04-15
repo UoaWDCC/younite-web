@@ -1,0 +1,30 @@
+{
+  "name": "younite-strapi",
+  "private": true,
+  "version": "0.1.0",
+  "description": "The strapi CMS for Younite",
+  "scripts": {
+    "dev": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/strapi": "4.8.2",
+    "@strapi/plugin-users-permissions": "4.8.2",
+    "@strapi/plugin-i18n": "4.8.2",
+    "better-sqlite3": "8.0.1"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "fc5134ab-3925-4c0a-b4be-f0eb6b401458"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
