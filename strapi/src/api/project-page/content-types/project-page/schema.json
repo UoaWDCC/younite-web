@@ -1,0 +1,34 @@
+{
+  "attributes": {
+    "Blocks": {
+      "component": "content-block.content-block",
+      "repeatable": true,
+      "type": "component"
+    },
+    "Image": {
+      "allowedTypes": ["images"],
+      "multiple": false,
+      "required": false,
+      "type": "media"
+    },
+    "Slug": {
+      "type": "uid"
+    },
+    "Title": {
+      "required": true,
+      "type": "string"
+    }
+  },
+  "collectionName": "project_pages",
+  "info": {
+    "description": "",
+    "displayName": "Project Pages",
+    "pluralName": "project-pages",
+    "singularName": "project-page"
+  },
+  "kind": "collectionType",
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {}
+}
