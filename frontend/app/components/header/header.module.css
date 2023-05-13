@@ -27,6 +27,7 @@
   padding: 1rem;
   margin-right: 2.2rem;
   transition: color 0.4s ease-out;
+  letter-spacing: 1px;
 }
 
 .nav a:last-child {
