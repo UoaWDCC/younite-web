@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 2rem;
   min-height: 100vh;
 }
 
@@ -221,7 +221,6 @@
 
   .description p {
     align-items: center;
-    inset: 0 0 auto;
     padding: 2rem 1rem 1.4rem;
     border-radius: 0;
     border: none;
