@@ -1,53 +1,27 @@
 import { Inter } from "next/font/google";
 import Image from "next/image";
-import styles from "./page.module.css";
-import Header from "./components/header/header";
+import styles from "../page.module.css";
+import Header from "../components/header/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
-async function getData() {
-	const res = await fetch("http://localhost:1337/api/project-name", {
-		headers: {
-			authorization: "Bearer " + process.env.STRAPI_KEY,
-		},
-		cache: "no-cache",
-	});
+// async function getData() {
+// 	const res = await fetch("http://localhost:1337/api/project-name", {
+// 		headers: {
+// 			authorization: "Bearer " + process.env.STRAPI_KEY,
+// 		},
+// 		cache: "no-cache",
+// 	});
 
-	const json = await res.json();
-	return json;
-}
+// 	const json = await res.json();
+// 	return json;
+// }
 
 export default async function Home() {
-	const data = await getData();
-
-	console.log(data);
-
 	return (
 		<main className={styles.main}>
 			<Header />
-			<div className={styles.description}>
-				<p>
-					{JSON.stringify(data)}
-					<code className={styles.code}>app/page.tsx</code>
-				</p>
-				<div>
-					<a
-						href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						By{" "}
-						<Image
-							src="/vercel.svg"
-							alt="Vercel Logo"
-							className={styles.vercelLogo}
-							width={100}
-							height={24}
-							priority
-						/>
-					</a>
-				</div>
-			</div>
+			about us:)))
 
 			<div className={styles.center}>
 				<Image

@@ -39,9 +39,6 @@
   margin-right: 1.5rem;
 }
 
-.youniteLogo {
-  position: absolute;
-}
 
 @media (max-width:800px){
   .header{
