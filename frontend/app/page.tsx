@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 async function getData() {
-	const res = await fetch("http://localhost:1337/api/project-name", {
+	const res = await fetch("http://localhost:1337/api/project-pages", {
 		headers: {
 			authorization: "Bearer " + process.env.STRAPI_KEY,
 		},
@@ -13,7 +13,7 @@ async function getData() {
 	});
 
 	const json = await res.json();
-	return json.data.attributes.Name;
+	return json;
 }
 
 export default async function Home() {
@@ -25,7 +25,7 @@ export default async function Home() {
 		<main className={styles.main}>
 			<div className={styles.description}>
 				<p>
-					{data}
+					{JSON.stringify(data)}
 					<code className={styles.code}>app/page.tsx</code>
 				</p>
 				<div>
