@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_block_centered_text_blocks",
+  "info": {
+    "displayName": "Centered Text Block"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
