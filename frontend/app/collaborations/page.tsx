@@ -9,7 +9,7 @@ export default async function Home() {
 	return (
 		<main className={styles.main}>
 			<Header />
-			about us:)))
+			COLLABORATIONS
 
 			<div className={styles.center}>
 				<Image
