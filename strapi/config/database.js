@@ -1,9 +1,18 @@
 const path = require("path");
 
 module.exports = ({ env }) => {
-  const client = env("DATABASE_CLIENT", "sqlite");
+  const client =
+    process.env.NODE_ENV === "production"
+      ? env("DATABASE_CLIENT", "sqlite")
+      : "sqlite";
 
   const connections = {
+    sqlite: {
+      connection: {
+        filename: path.join(__dirname, "..", ".tmp/data.db"),
+      },
+      useNullAsDefault: true,
+    },
     postgres: {
       connection: {
         connectionString: env("DATABASE_URL"),
