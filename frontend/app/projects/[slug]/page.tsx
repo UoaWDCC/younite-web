@@ -1,5 +1,5 @@
-import Header from "@/app/components/header/header";
 import styles from "@/app/page.module.css";
+import Header from "@/components/header/header";
 import { z } from "zod";
 
 async function getData(slug: string) {
