@@ -1,24 +1,5 @@
 {
-  "attributes": {
-    "Blocks": {
-      "component": "content-block.content-block",
-      "repeatable": true,
-      "type": "component"
-    },
-    "Image": {
-      "allowedTypes": ["images"],
-      "multiple": false,
-      "required": false,
-      "type": "media"
-    },
-    "Slug": {
-      "type": "uid"
-    },
-    "Title": {
-      "required": true,
-      "type": "string"
-    }
-  },
+  "kind": "collectionType",
   "collectionName": "project_pages",
   "info": {
     "description": "",
@@ -26,9 +7,32 @@
     "pluralName": "project-pages",
     "singularName": "project-page"
   },
-  "kind": "collectionType",
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {}
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "title": {
+      "required": true,
+      "type": "string"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "content-block.centered-text-block",
+        "content-block.content-block"
+      ]
+    }
+  }
 }
