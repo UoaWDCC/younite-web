@@ -1,7 +1,7 @@
+import Header from "@/components/header/header";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import styles from "../page.module.css";
-import Header from "../components/header/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,7 +10,6 @@ export default async function Home() {
 		<main className={styles.main}>
 			<Header />
 			MEMBERS
-
 			<div className={styles.center}>
 				<Image
 					className={styles.logo}
@@ -24,7 +23,6 @@ export default async function Home() {
 					<Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
 				</div>
 			</div>
-
 			<div className={styles.grid}>
 				<a
 					href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
