@@ -1,5 +1,6 @@
 import Header from "@/app/components/header/header";
 import styles from "@/app/page.module.css";
+import { z } from "zod";
 
 async function getData(slug: string) {
 	const res = await fetch(
@@ -13,7 +14,15 @@ async function getData(slug: string) {
 	);
 
 	const json = await res.json();
-	return json.data[0];
+	const attributes = json.data[0].attributes;
+	const schema = z.object({
+		slug: z.string(),
+		title: z.string(),
+		image: z.any(),
+		blocks: z.array(z.any()),
+	});
+
+	return schema.parse(attributes);
 }
 
 export default async function Home({ params }: { params: { slug: string } }) {

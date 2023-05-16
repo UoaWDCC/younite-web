@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Image": {
+    "image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -20,14 +20,14 @@
         "images"
       ]
     },
-    "Slug": {
+    "slug": {
       "type": "uid"
     },
-    "Title": {
+    "title": {
       "required": true,
       "type": "string"
     },
-    "Blocks": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
         "content-block.centered-text-block",
