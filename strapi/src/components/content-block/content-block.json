@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_content_block_content_blocks",
+  "info": {
+    "displayName": "Text with Image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "alignment": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "center"
+      ]
+    }
+  }
+}

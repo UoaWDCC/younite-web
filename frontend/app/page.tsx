@@ -6,7 +6,7 @@ import Header from "./components/header/header";
 const inter = Inter({ subsets: ["latin"] });
 
 async function getData() {
-	const res = await fetch("http://localhost:1337/api/project-name", {
+	const res = await fetch("http://localhost:1337/api/project-pages", {
 		headers: {
 			authorization: "Bearer " + process.env.STRAPI_KEY,
 		},
