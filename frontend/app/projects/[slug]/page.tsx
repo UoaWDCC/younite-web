@@ -1,10 +1,11 @@
 import styles from "@/app/page.module.css";
+import ContentBlock from "@/components/ContentBlock";
 import Header from "@/components/header/header";
 import { z } from "zod";
 
 async function getData(slug: string) {
 	const res = await fetch(
-		`http://localhost:1337/api/project-pages?filters[slug][$eq]=${slug}&populate=*`,
+		`http://localhost:1337/api/project-pages?filters[slug][$eq]=${slug}&populate[blocks][populate]=*`,
 		{
 			headers: {
 				authorization: "Bearer " + process.env.STRAPI_KEY,
@@ -37,7 +38,7 @@ export default async function Home({ params }: { params: { slug: string } }) {
 					maxWidth: 700,
 				}}
 			>
-				{JSON.stringify(data)}
+				{data.blocks.map((block: any) => ContentBlock({ props: block }))}
 			</div>
 		</main>
 	);
