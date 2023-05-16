@@ -17,10 +17,10 @@ export default function Header() {
       </Link>
       <div className={styles.nav}>
         <Link href="about-us">ABOUT US</Link>
-        <Link href="#">BLOG</Link>
-        <Link href="#">MEMBERS</Link>
-        <Link href="#">COLLABORATIONS</Link>
-        <Link href="#">SIGN UP</Link>
+        <Link href="blog">BLOG</Link>
+        <Link href="members">MEMBERS</Link>
+        <Link href="collaborations">COLLABORATIONS</Link>
+        <Link href="signup">SIGN UP</Link>
       </div>
     </header>
   );
