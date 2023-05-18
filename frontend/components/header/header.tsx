@@ -7,7 +7,8 @@ export default function Header() {
 	return (
 		<header className={styles.header}>
 			<Link href="/">
-				<Image src={logo} alt="Younite Logo" width={110} priority />
+				{/* multiply by 16 for rem */}
+				<Image src={logo} alt="Younite Logo" height={8 * 16} priority />
 			</Link>
 			<nav className={styles.nav}>
 				<Link href="/about-us">ABOUT US</Link>
