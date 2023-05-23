@@ -14,8 +14,9 @@ async function getData() {
 	});
 
 	const json = await res.json();
-	return json;
+	return json.data;
 }
+
 
 export default async function Home() {
 	const data = await getData();
