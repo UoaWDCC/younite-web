@@ -3,7 +3,7 @@ export default function ImageWithText({ props }: { props: any }) {
 
 	return (
 		<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-			<div>{props.content}</div>
+			<div className="bg-amber-500">{props.content}</div>
 			<div>
 				<img
 					style={{ display: "block", width: "100%" }}
