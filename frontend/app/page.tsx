@@ -1,3 +1,4 @@
+import CarouselBase from "@/components/CarouselBase";
 import BGWaves from "@/components/svg/BGWaves";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
@@ -20,6 +21,14 @@ export default async function Home() {
 				</p>
 			</div>
 			<BGWaves className="w-full" />
+			<CarouselBase
+				wrapperClass="pl-gutter py-40 bg-white bg-opacity-50"
+				innerClass="gap-8"
+			>
+				<div className="w-80 bg-red-400 p-8">Slide 1</div>
+				<div className="w-80 bg-red-400 p-8">Slide 2</div>
+				<div className="w-80 bg-red-400 p-8">Slide 3</div>
+			</CarouselBase>
 		</main>
 	);
 }
