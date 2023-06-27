@@ -1,0 +1,42 @@
+.feedbackForm {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 40px; /* adjust as needed */
+    width: 80%;
+    max-width: 500px; /* adjust as needed */
+    color: #ffffff;
+    margin: auto;
+    position: relative;
+    bottom: 60px;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #D1D5DB;
+    margin-top: 10px;
+    margin-bottom: 20px; 
+    color: #000000;
+    background-color: #ffffff;
+  }
+  
+  .submitButton {
+    display: block; 
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #ffffff;
+    background-color: #000000;
+    margin: 10px auto;
+    cursor: pointer; 
+    transition: background-color 0.4s, color 1s;
+  }
+  
+  .submitButton:hover {
+    background-color: #ffeca1; 
+    color: #000000;
+  }
+  

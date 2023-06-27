@@ -1,5 +1,6 @@
 import BGWaves from "@/components/svg/BGWaves";
 import Header from "../components/header/header";
+import FeedbackForm from "../components/feedback/FeedbackForm";
 import styles from "./page.module.css";
 
 export default async function Home() {
@@ -20,6 +21,7 @@ export default async function Home() {
 				</p>
 			</div>
 			<BGWaves className="w-full" />
-		</main>
+			<FeedbackForm />
+		</main>	
 	);
 }
