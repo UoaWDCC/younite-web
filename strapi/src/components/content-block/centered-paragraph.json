@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_content_block_centered_paragraphs",
+  "info": {
+    "displayName": "centered paragraph"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    }
+  }
+}
