@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "public/younitelogo.png";
+import logo from "@/assets/younitelogo.png";
 import styles from "./header.module.css";
 
 export default function Header() {
