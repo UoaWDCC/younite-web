@@ -32,12 +32,7 @@ export default async function Home({ params }: { params: { slug: string } }) {
 	return (
 		<main className={styles.main}>
 			<Header />
-			<div
-				style={{
-					whiteSpace: "pre-wrap",
-					maxWidth: 700,
-				}}
-			>
+			<div>
 				{data.blocks.map((block: any) => ContentBlock({ props: block }))}
 			</div>
 		</main>

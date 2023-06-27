@@ -3,6 +3,7 @@
     "name": "A Strapi developer"
   },
   "dependencies": {
+    "@strapi/plugin-color-picker": "^4.10.5",
     "@strapi/plugin-i18n": "4.8.2",
     "@strapi/plugin-users-permissions": "4.8.2",
     "@strapi/strapi": "4.8.2",
