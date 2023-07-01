@@ -4,6 +4,7 @@ import BGWaves from "@/components/svg/BGWaves";
 import { z } from "zod";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
+import Footer from "@/components/footer/footer";
 
 async function getData() {
 	const res = await fetch(
@@ -48,6 +49,7 @@ export default async function Home() {
 				</p>
 			</div>
 			<BGWaves className="w-full" />
+
 			<ImageWithText props={data.textWithImage} />
 			<CarouselBase
 				wrapperClass="pl-gutter py-40 bg-white bg-opacity-50"
@@ -57,6 +59,7 @@ export default async function Home() {
 				<div className="w-80 bg-red-400 p-8">Slide 2</div>
 				<div className="w-80 bg-red-400 p-8">Slide 3</div>
 			</CarouselBase>
+      <Footer />
 		</main>
 	);
 }
