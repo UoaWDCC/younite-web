@@ -43,6 +43,8 @@
 # OS X
 ############################
 
+**/.DS_Store
+
 /strapi/.DS_Store
 /strapi/.AppleDouble
 /strapi/.LSOverride
