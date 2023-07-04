@@ -17,8 +17,8 @@ export default function BGWaves({ className }: { className?: string }) {
 			<path
 				d="M-12.5 96.1678C86.3798 9.10171 189.8 -5.90973 298.265 9.10171C406.73 24.1132 521.249 52.1345 609.03 126.191C696.811 200.247 722.036 273.803 803.763 362.87C885.49 451.938 1219.46 285.311 1290.09 285.311C1360.72 285.311 1389.47 423.416 1448.5 383.886"
 				stroke="#FAAB36"
-				stroke-width="8"
-				stroke-dasharray="16 16"
+				strokeWidth="8"
+				strokeDasharray="16 16"
 			/>
 			<defs>
 				<linearGradient
