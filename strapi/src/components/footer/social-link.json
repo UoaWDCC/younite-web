@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_footer_social_links",
+  "info": {
+    "displayName": "imageLink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
