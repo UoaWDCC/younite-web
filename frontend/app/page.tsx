@@ -1,10 +1,10 @@
 import CarouselBase from "@/components/CarouselBase";
 import ImageWithText from "@/components/blocks/ImageWithText";
+import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
 import { z } from "zod";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
-import Footer from "@/components/footer/footer";
 
 async function getData() {
 	const res = await fetch(
