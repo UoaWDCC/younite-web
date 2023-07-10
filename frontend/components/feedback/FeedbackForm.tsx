@@ -16,7 +16,7 @@ const FeedbackForm: React.FC = () => {
           </div>
           <div>
             <label className={styles.inputFieldLabel}>Message:</label>
-            <textarea required placeholder="Enter your message" className={styles.textareaField}></textarea>
+            <textarea required placeholder="Enter your feedback" className={styles.textareaField}></textarea>
           </div>
           <div className={styles.submitButtonContainer}>
             <input type="submit" value="Submit" className={styles.submitButton} />
