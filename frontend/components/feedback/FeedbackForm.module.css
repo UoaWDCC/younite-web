@@ -14,18 +14,20 @@
 .header {
   font-size: 28px;
   color: #1A1A1A;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   text-align: center;
   font-weight: bold;
 }
 
 .inputFieldLabel {
   font-size: 18px;
+  font-weight: 600;
   color: black;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .inputField {
+  font-size: 18px;
   width: 100%;
   padding: 8px;
   border-radius: 5px;
@@ -37,16 +39,10 @@
   transition: box-shadow 0.3s ease-in-out;
 }
 
-.inputField:focus {
-  outline: none;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-  transform: scale(1.02);
-  transition: transform 0.3s ease-in-out;
-}
-
 .textareaField {
-  height: 1200px;
-  resize: none;
+  font-size: 18px;
+  width: 100%;
+  min-height: 120px;
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #D1D5DB;
@@ -55,6 +51,17 @@
   color: #000000;
   background-color: #ffffff;
   transition: box-shadow 0.3s ease-in-out;
+}
+
+.textareaField:focus, .inputField:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+}
+
+.textareaField::placeholder, .inputField::placeholder {
+  font-size: 1.2rem; 
 }
 
 .submitButtonContainer {
@@ -75,7 +82,7 @@
   font-weight: bold;
   padding: 16px 24px;
   text-align: center;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  transition: all 0.25s cubic-bezier(.23, 1, 0.32, 1);
   user-select: none;
   touch-action: manipulation;
   width: 100%;
