@@ -51,14 +51,59 @@ export default async function Home() {
 			<BGWaves className="w-full" />
 
 			<ImageWithText props={data.textWithImage} />
-			<CarouselBase
-				wrapperClass="pl-gutter py-40 bg-white bg-opacity-50"
-				innerClass="gap-8"
-			>
-				<div className="w-80 bg-red-400 p-8">Slide 1</div>
-				<div className="w-80 bg-red-400 p-8">Slide 2</div>
-				<div className="w-80 bg-red-400 p-8">Slide 3</div>
-			</CarouselBase>
+			<div> 
+				<div className="overflow-hidden">
+					<CarouselBase
+						wrapperClass="flex pl-20 pr-24 pt-24 pb-40 bg-white bg-opacity-50 w-full m-0"
+						innerClass="gap-8"
+						>
+						<div className='w-60 h-64 rounded-xl text-blue-800 overflow-hidden'>
+							<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
+							<div className="h-16" style={{backgroundColor: "white"}}> 
+								<div className="pl-3 pt-1.5 font-semibold text-lg">
+									Rainbow High Tea
+								</div>
+								<div className="pl-3 text-base">
+									3rd May 2023
+								</div>
+							</div>
+						</div>
+						<div className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden">
+							<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
+							<div className="h-16" style={{backgroundColor: "white"}}> 
+								<div className="pl-3 pt-1.5 font-semibold text-lg">
+									Rainbow High Tea
+								</div>
+								<div className="pl-3 text-base">
+									3rd May 2023
+								</div>
+							</div>
+						</div>
+						<div className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden">
+							<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
+							<div className="h-16" style={{backgroundColor: "white"}}> 
+								<div className="pl-3 pt-1.5 font-semibold text-lg">
+									Rainbow High Tea
+								</div>
+								<div className="pl-3 text-base">
+									3rd May 2023
+								</div>
+							</div>
+						</div>
+						<div className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden">
+							<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
+							<div className="h-16" style={{backgroundColor: "white"}}> 
+								<div className="pl-3 pt-1.5 font-semibold text-lg">
+									Rainbow High Tea
+								</div>
+								<div className="pl-3 text-base">
+									3rd May 2023
+								</div>
+							</div>
+						</div>
+					</CarouselBase>
+				</div>
+			</div>
       <Footer />
 		</main>
 	);
