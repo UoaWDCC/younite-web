@@ -4,6 +4,7 @@ import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
 import { z } from "zod";
 import Header from "../components/header/header";
+import FeedbackForm from "../components/feedback/FeedbackForm";
 import styles from "./page.module.css";
 
 async function getData() {
@@ -49,6 +50,7 @@ export default async function Home() {
 				</p>
 			</div>
 			<BGWaves className="w-full" />
+			<FeedbackForm />
 
 			<ImageWithText props={data.textWithImage} />
 			<CarouselBase
