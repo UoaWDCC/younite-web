@@ -16,6 +16,7 @@ async function getData() {
 	);
 
 	const json = await res.json();
+	// each project comes with metadata so we need to take the attributes
 	const data = json.data.map((p: any) => p.attributes);
 
 	const schema = z.array(projectSchema);
