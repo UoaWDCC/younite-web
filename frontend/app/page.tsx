@@ -3,8 +3,8 @@ import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
 import { z } from "zod";
-import Header from "../components/header/header";
 import FeedbackForm from "../components/feedback/FeedbackForm";
+import Header from "../components/header/header";
 import styles from "./page.module.css";
 
 async function getData() {
@@ -61,7 +61,7 @@ export default async function Home() {
 				<div className="w-80 bg-red-400 p-8">Slide 2</div>
 				<div className="w-80 bg-red-400 p-8">Slide 3</div>
 			</CarouselBase>
-      <Footer />
+      	<Footer />
 		</main>
 	);
 }

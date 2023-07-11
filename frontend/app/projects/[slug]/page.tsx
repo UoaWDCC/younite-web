@@ -1,7 +1,7 @@
 import styles from "@/app/page.module.css";
 import ContentBlock from "@/components/ContentBlock";
 import Header from "@/components/header/header";
-import { z } from "zod";
+import { projectSchema } from "../schemas";
 
 async function getData(slug: string) {
 	const res = await fetch(
@@ -16,14 +16,8 @@ async function getData(slug: string) {
 
 	const json = await res.json();
 	const attributes = json.data[0].attributes;
-	const schema = z.object({
-		slug: z.string(),
-		title: z.string(),
-		image: z.any(),
-		blocks: z.array(z.any()),
-	});
 
-	return schema.parse(attributes);
+	return projectSchema.parse(attributes);
 }
 
 export default async function Home({ params }: { params: { slug: string } }) {
