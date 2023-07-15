@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "heroParagraph": {
+      "type": "text"
+    },
+    "blob1": {
+      "type": "richtext"
+    },
+    "blob2": {
+      "type": "richtext"
+    },
+    "blob3": {
+      "type": "richtext"
+    },
+    "textWithImage": {
+      "component": "content-block.content-block",
+      "repeatable": false,
+      "type": "component"
+    }
+  },
+  "collectionName": "home_pages",
+  "info": {
+    "displayName": "Home Page",
+    "pluralName": "home-pages",
+    "singularName": "home-page"
+  },
+  "kind": "singleType",
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {}
+}
