@@ -31,14 +31,15 @@ export default async function Home({ params }: { params: { slug: string } }) {
 
 	return (
 		<main className={styles.main}>
-			<Header />
+			{/* @ts-expect-error Server Component */}
+			<Header params={{slug: ""}} />
 			<div
 				style={{
 					whiteSpace: "pre-wrap",
 					maxWidth: 700,
 				}}
 			>
-				{data.blocks.map((block: any) => ContentBlock({ props: block }))}
+				{data.blocks.map((block: any) => ContentBlock({ 	props: block }))}
 			</div>
 		</main>
 	);
