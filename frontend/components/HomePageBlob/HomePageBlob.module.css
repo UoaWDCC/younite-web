@@ -1,0 +1,39 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .blob {
+    background-color: #ffffff; 
+    border-radius: 50%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #03143a; 
+    font-size: 18px; 
+  }
+  
+  .blob1 {
+    grid-column: 2 / span 4;
+  }
+  
+  .blob2 {
+    grid-column: 8 / span 4;
+  }
+  
+  .connector {
+    grid-column: 6 / span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .connector img {
+    width: 45px; 
+  }
