@@ -1,7 +1,8 @@
+import { getLargestImage } from "@/shared/util";
 import styles from "./ImageWithText.module.css";
 
 export default function ImageWithText({ props }: { props: any }) {
-  const imageUrl = props.image.data.attributes.formats.large.url;
+  const imageUrl = getLargestImage(props.image);
   console.log(props);
   return (
     <div

@@ -1,0 +1,15 @@
+{
+	"name": "younite-web",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "concurrently \"(cd ./frontend && npm run dev)\" \"(cd ./strapi && npm run dev)\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"concurrently": "^8.2.0"
+	}
+}

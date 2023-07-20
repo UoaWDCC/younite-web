@@ -1,0 +1,107 @@
+.feedbackForm {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 40px;
+  width: 80%;
+  max-width: 500px;
+  color: #ffffff;
+  margin: auto;
+  position: relative;
+  bottom: 60px;
+}
+
+.header {
+  font-size: 28px;
+  color: #1A1A1A;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.inputFieldLabel {
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.inputField {
+  font-size: 18px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #D1D5DB;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #000000;
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.textareaField {
+  font-size: 18px;
+  width: 100%;
+  min-height: 120px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #D1D5DB;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #000000;
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.textareaField:focus, .inputField:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+}
+
+.textareaField::placeholder, .inputField::placeholder {
+  font-size: 1.2rem; 
+}
+
+.submitButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.submitButton {
+  appearance: none;
+  border: 3px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 20px;
+  font-weight: bold;
+  padding: 16px 24px;
+  text-align: center;
+  transition: all 0.25s cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.submitButton:disabled {
+  pointer-events: none;
+}
+
+.submitButton:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.submitButton:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+

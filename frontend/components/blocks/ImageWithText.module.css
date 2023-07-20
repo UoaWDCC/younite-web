@@ -12,8 +12,9 @@
 .backgroundDots {
     display: flex;
     align-items: center;
+    background-color: #fab34a ;
     background-image:  linear-gradient(
-        to bottom, #fab34ac0, #fab34ac0
+        to bottom, #fab34adc, #fab44adc
     ), url(../../assets/Background_Dots.png);
 }
 

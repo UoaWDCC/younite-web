@@ -70,3 +70,12 @@ a {
 		scroll-behavior: smooth;
 	}
 }
+
+
+.__markdown h1 {
+	font-size: large;
+}
+
+.__markdown h2 {
+	font-size: medium;
+}
