@@ -1,11 +1,37 @@
 .heading{
-    color: red;
+    color: #014788;
+    font-size: 4rem;
+    align-content: center;
+    font-weight: bold;
 }
 
 .content{
-    color: red;
+    color: #014788;
+    font-size: 2rem;
+}
+.backgroundDots {
+    display: flex;
+    align-items: center;
+    background-image:  linear-gradient(
+        to bottom, #fab34ac0, #fab34ac0
+    ), url(../../assets/Background_Dots.png);
+}
+
+.backgroundCol {
+    padding: 3rem;
 }
 .backgroundImg {
      display: "block" ;
-     width: "100%" ;
+     width: 100%;
     }
+
+.Underline {
+    width:10rem;
+    text-align:left;
+    margin-left:0;
+    border-width: 0.2rem;
+    border-radius: 0.2rem;
+    border-color:#014788;
+    margin-bottom: 2rem;
+
+}
