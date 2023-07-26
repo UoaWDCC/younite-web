@@ -3,6 +3,7 @@ import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
 import { z } from "zod";
+import FeedbackForm from "../components/feedback/FeedbackForm";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
 
@@ -49,6 +50,7 @@ export default async function Home() {
 				</p>
 			</div>
 			<BGWaves className="w-full" />
+			<FeedbackForm />
 
 			<ImageWithText props={data.textWithImage} />
 			<div> 
@@ -105,6 +107,15 @@ export default async function Home() {
 				</div>
 			</div>
       <Footer />
+			<CarouselBase
+				wrapperClass="pl-gutter py-40 bg-white bg-opacity-50"
+				innerClass="gap-8"
+			>
+				<div className="w-80 bg-red-400 p-8">Slide 1</div>
+				<div className="w-80 bg-red-400 p-8">Slide 2</div>
+				<div className="w-80 bg-red-400 p-8">Slide 3</div>
+			</CarouselBase>
+      	<Footer />
 		</main>
 	);
 }
