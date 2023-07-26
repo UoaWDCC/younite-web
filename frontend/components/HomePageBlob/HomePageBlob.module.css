@@ -15,6 +15,7 @@
   color: #ffffff;
   font-size: 20px;
   padding: 25px 45px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 .whiteBlob {
@@ -45,15 +46,11 @@
 }
 
 .connector {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  grid-column: 6 / span 1;
+  
 }
 
 .connector img {
-  width: 45px;
-  height: 24px;
+ 
 }
 
 .button { 
@@ -78,9 +75,16 @@
   .blob2,
   .blob3 {
     grid-column: 1 / span 1; 
+    top: 0px;
   }
 
   .connector {
     display: none; 
   }
 }
+
+/* TO DO:
+implement connector
+connector responsive (hides and unhides)
+blobs are responsive
+*/
