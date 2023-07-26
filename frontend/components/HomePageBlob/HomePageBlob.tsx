@@ -8,7 +8,7 @@ const HomePageBlob: React.FC<{ blob1: string; blob2: string; blob3: string }> = 
         <p>{blob1}</p>
       </div>
       <div className={styles.connector}>
-        <img src= "connector.svg" alt="Connector SVG" />
+          <img src="../../connector.svg" alt="Connector SVG" />
       </div>
       <div className={`${styles.blob} ${styles.whiteBlob} ${styles.blob2}`}>
         <p>{blob2}</p>
