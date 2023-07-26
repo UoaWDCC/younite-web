@@ -6,6 +6,7 @@ import { z } from "zod";
 import FeedbackForm from "../components/feedback/FeedbackForm";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
+import HomePageBlob from "@/components/HomePageBlob/HomePageBlob";
 
 async function getData() {
 	const res = await fetch(
@@ -35,7 +36,7 @@ async function getData() {
 export default async function Home() {
 	const data = await getData();
 
-	return (
+	return (	
 		<main className={`${styles.main} bg-gradient-1`}>
 			<Header />
 			<div className="min-h-[55vh] flex flex-col items-center justify-center gap-6">
@@ -49,6 +50,7 @@ export default async function Home() {
 					{data.heroParagraph}
 				</p>
 			</div>
+			<HomePageBlob blob1={data.blob1} blob2={data.blob2} blob3={data.blob3} />
 			<BGWaves className="w-full" />
 			<FeedbackForm />
 
