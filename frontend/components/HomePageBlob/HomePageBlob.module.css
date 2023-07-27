@@ -1,10 +1,11 @@
 .container {
+  --connector-height: 2rem;
   display: grid;
   grid-template-columns: repeat(14, 1fr);
-  gap: 20px;
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
+  filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.15));
 }
 
 .blob {
@@ -13,7 +14,6 @@
   color: #ffffff;
   font-size: 20px;
   padding: 25px 45px;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 .whiteBlob {
@@ -28,12 +28,11 @@
   grid-column: 8 / span 4;
   color: #003366; 
   position: relative;
-  top: 50px;
 }
 
 .blob2 {
   position: relative;
-  top: 50px;
+  top: calc(var(--connector-height) - 3px);
   grid-column: 10 / span 4;
   color: #003366; 
 }
@@ -44,15 +43,13 @@
 }
 
 .connector {
-  /* grid-column: 9 / span 2;
-  scale: 1.8;
-  position: relative;
-  top: 50px; */
+  position: absolute;
+  bottom: 0;
+  right: 2rem;
+  transform: translateY(calc(100% - 2px));
+  height: var(--connector-height);
 }
-/* 
-.connector img {
- 
-} */
+
 
 .button { 
   margin-top: 15px; 
@@ -62,7 +59,6 @@
   font-size: 18 px;
   border: none;
   border-radius: 45px;
-  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
 
@@ -70,6 +66,7 @@
 @media screen and (max-width: 768px) {
   .container {
     grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
   }
 
   .blob1,
