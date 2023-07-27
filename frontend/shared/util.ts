@@ -4,5 +4,5 @@ export const getLargestImage = (img: any) => {
 	const largestFormat =
 		formats.large || formats.medium || formats.small || formats.thumbnail;
 
-	return largestFormat.url;
+	return `http://localhost:1337${largestFormat.url}`;
 };

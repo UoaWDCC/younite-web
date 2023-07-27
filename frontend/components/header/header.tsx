@@ -1,79 +1,51 @@
-import Image from "next/image";
+import { getLargestImage } from "@/shared/util";
 import Link from "next/link";
-import logo from "@/assets/younitelogo.png";
-import styles from "./header.module.css";
 import { z } from "zod";
-
+import styles from "./header.module.css";
 
 async function getHeaderData() {
-	const res = await fetch(
-		`http://localhost:1337/api/header?populate=*`,
-		{
-			headers: {
-				authorization: "Bearer " + process.env.STRAPI_KEY,
-			},
-			cache: "no-cache",
-		}
-	);
+	const res = await fetch(`http://localhost:1337/api/header?populate=*`, {
+		headers: {
+			authorization: "Bearer " + process.env.STRAPI_KEY,
+		},
+		cache: "no-cache",
+	});
 
 	const json = await res.json();
 	const attributes = json.data.attributes;
+
 	const schema = z.object({
 		Logo: z.any(),
-    	Links: z.array(
+		navigation: z.array(
 			z.object({
 				slug: z.string(),
-				title: z.string() })),
+				title: z.string(),
+			})
+		),
 	});
 
-	return schema.parse(attributes);		
+	return schema.parse(attributes);
 }
-
 
 export default async function Header() {
 	const data = await getHeaderData();
 
-	console.log(data);
+	const logoSrc = getLargestImage(data.Logo);
 
-	//const logoVar = data.Logo.data.attributes.formats.large.url;
-	//const linksSlug = data.Links[0].slug;
-	//const linksTitle = data.Links[0].title;
+	const links = data.navigation;
 
 	return (
 		<header className={styles.header}>
 			<Link href="/">
-				{/* multiply by 16 for rem */}
-				<Image src={data.Logo.url} alt="Younite Logo" height={8 * 16} priority />
+				<img src={logoSrc} alt="Younite Logo" className="h-32" />
 			</Link>
 			<nav className={styles.nav}>
-				<Link href="/about-us">ABOUT US</Link>
-				<Link href="/blog">BLOG</Link>
-				<Link href="/members">MEMBERS</Link>
-				<Link href="/collaborations">COLLABORATIONS</Link>
-				<Link href="/signup">SIGN UP</Link>
+				{links.map((link) => (
+					<Link href={link.slug} key={link.title}>
+						{link.title.toLocaleUpperCase()}
+					</Link>
+				))}
 			</nav>
 		</header>
 	);
 }
-
-
-
-// export default async function Header({ params }: { params: { slug: string } }) {
-// 	const data = await getHeaderData(params.slug);
-
-// 	return (
-// 		<header className={styles.header}>
-// 			<Link href="/">
-// 				{/* multiply by 16 for rem */}
-// 				<Image src={logo} alt="Younite Logo" height={8 * 16} priority />
-// 			</Link>
-// 			<nav className={styles.nav}>
-// 				<Link href="/about-us">ABOUT US</Link>
-// 				<Link href="/blog">BLOG</Link>
-// 				<Link href="/members">MEMBERS</Link>
-// 				<Link href="/collaborations">COLLABORATIONS</Link>
-// 				<Link href="/signup">SIGN UP</Link>
-// 			</nav>
-// 		</header>
-// 	);
-// }

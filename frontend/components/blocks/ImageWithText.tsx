@@ -7,10 +7,7 @@ export default function ImageWithText({ props }: { props: any }) {
 	return (
 		<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
 			<div>
-				<img
-					className={styles.backgroundImg}
-					src={`http://localhost:1337${imageUrl}`}
-				/>
+				<img className={styles.backgroundImg} src={imageUrl} />
 			</div>
 			<div>
 				<div className={styles.heading}>{props.Heading}</div>

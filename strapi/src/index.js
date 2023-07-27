@@ -73,27 +73,70 @@ module.exports = {
 
     const users = await strapi.db.query("admin::user").findMany({});
 
-    if (users.length !== 0) return;
+    if (users.length === 0) {
+      const defaultAdmin = {
+        firstname: "Younite",
+        lastname: "Team",
+        username: "Younite",
+        password: "Developer2023",
+        email: "ytao543@aucklanduni.ac.nz",
+        blocked: false,
+        isActive: true,
+      };
 
-    const defaultAdmin = {
-      firstname: "Younite",
-      lastname: "Team",
-      username: "Younite",
-      password: "Developer2023",
-      email: "ytao543@aucklanduni.ac.nz",
-      blocked: false,
-      isActive: true,
-    };
+      const superAdminRole = await getSuperAdminRole(strapi);
+      defaultAdmin.roles = [superAdminRole.id];
+      defaultAdmin.password = await strapi
+        .service("admin::auth")
+        ?.hashPassword(defaultAdmin.password);
 
-    const superAdminRole = await getSuperAdminRole(strapi);
-    defaultAdmin.roles = [superAdminRole.id];
-    defaultAdmin.password = await strapi
-      .service("admin::auth")
-      ?.hashPassword(defaultAdmin.password);
+      await strapi.db
+        .query("admin::user")
+        .create({ data: { ...defaultAdmin } });
 
-    await strapi.db.query("admin::user").create({ data: { ...defaultAdmin } });
+      const key = await createAPITokenIfNotExist(strapi);
+      writeTokenToEnv(key);
+    }
 
-    const key = await createAPITokenIfNotExist(strapi);
-    writeTokenToEnv(key);
+    // populate header links
+
+    let headerLinks = (
+      await strapi.entityService.findOne("api::header.header", 1, {
+        populate: { navigation: true },
+      })
+    ).navigation;
+
+    console.log(headerLinks);
+
+    if (headerLinks.length === 0) {
+      await strapi.entityService.update("api::header.header", 1, {
+        data: {
+          navigation: [
+            {
+              title: "About us",
+              slug: "/about",
+            },
+            {
+              title: "Blog",
+              slug: "/blog",
+            },
+            {
+              title: "Members",
+              slug: "/members",
+            },
+            {
+              title: "Collaborations",
+              slug: "/collaborations",
+            },
+            {
+              title: "Sign Up",
+              slug: "/",
+            },
+          ],
+        },
+      });
+
+      console.log("created header links");
+    }
   },
 };

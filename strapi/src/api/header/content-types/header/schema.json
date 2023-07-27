@@ -23,13 +23,10 @@
         "audios"
       ]
     },
-    "Links": {
-      "type": "dynamiczone",
-      "components": [
-        "misc.links"
-      ],
-      "required": true,
-      "max": 9
+    "navigation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "misc.links"
     }
   }
 }
