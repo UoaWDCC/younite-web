@@ -37,7 +37,8 @@ export default async function Home() {
 	const data = await getData();
 
 	return (	
-		<main className={`${styles.main} bg-gradient-1`}>
+		<main className={`${styles.main} bg-gradient-1 isolate`}>
+			<BGWaves className="w-full absolute -z-50 top-[60vh]" />
 			<Header />
 			<div className="min-h-[55vh] flex flex-col items-center justify-center gap-6">
 				<h1 className="uppercase flex flex-col items-center mx-auto">
@@ -51,7 +52,6 @@ export default async function Home() {
 				</p>
 			</div>
 			<HomePageBlob blob1={data.blob1} blob2={data.blob2} blob3={data.blob3} />
-			<BGWaves className="w-full" />
 			<FeedbackForm />
 
 			<ImageWithText props={data.textWithImage} />

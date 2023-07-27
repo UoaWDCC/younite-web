@@ -5,8 +5,6 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
-  /* position: relative;
-  top: 640px; */
 }
 
 .blob {
@@ -46,12 +44,15 @@
 }
 
 .connector {
-  
+  /* grid-column: 9 / span 2;
+  scale: 1.8;
+  position: relative;
+  top: 50px; */
 }
-
+/* 
 .connector img {
  
-}
+} */
 
 .button { 
   margin-top: 15px; 
@@ -84,7 +85,7 @@
 }
 
 /* TO DO:
-implement connector
+implement connector -- make it move dynamically with screen (try to hook it to blobs?)
 connector responsive (hides and unhides)
 blobs are responsive
 */

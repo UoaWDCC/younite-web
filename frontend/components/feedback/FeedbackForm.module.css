@@ -2,13 +2,10 @@
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   padding: 24px;
-  margin-bottom: 40px;
+  margin: 6rem auto;
   width: 80%;
   max-width: 500px;
   color: #ffffff;
-  margin: auto;
-  position: relative;
-  bottom: 60px;
 }
 
 .header {
