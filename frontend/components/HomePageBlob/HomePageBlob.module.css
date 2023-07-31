@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(14, 1fr);
   max-width: 100%;
-  margin: 0 auto;
+  margin: 6em auto 0 auto;  /* shifting the container downwards */
   padding: 20px;
   filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.15));
 }
@@ -50,6 +50,22 @@
   height: var(--connector-height);
 }
 
+.container {
+  /* ... (existing styles) ... */
+  position: relative; /* Add position relative to the container */
+}
+
+/* ... (existing styles) ... */
+
+.blob1 {
+  grid-column: 8 / span 4;
+  color: #003366;
+}
+
+.blob2 {
+  grid-column: 10 / span 4;
+  color: #003366;
+}
 
 .button { 
   margin-top: 15px; 
@@ -80,9 +96,3 @@
     display: none; 
   }
 }
-
-/* TO DO:
-implement connector -- make it move dynamically with screen (try to hook it to blobs?)
-connector responsive (hides and unhides)
-blobs are responsive
-*/
