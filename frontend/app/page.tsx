@@ -61,51 +61,20 @@ export default async function Home() {
 							wrapperClass="flex pt-24 pb-40 w-full m-0"
 							innerClass="gap-8"
 						>
-							<div className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden">
-								<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
-								<div className="h-16" style={{ backgroundColor: "white" }}>
-									<div className="pl-3 pt-1.5 font-semibold text-lg">
-										Rainbow High Tea
+							{Array.from({ length: 5 }).map((_, i) => (
+								<div
+									key={i}
+									className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden"
+								>
+									<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
+									<div className="h-16" style={{ backgroundColor: "white" }}>
+										<div className="pl-3 pt-1.5 font-semibold text-lg">
+											Rainbow High Tea
+										</div>
+										<div className="pl-3 text-base">3rd May 2023</div>
 									</div>
-									<div className="pl-3 text-base">3rd May 2023</div>
 								</div>
-							</div>
-							<div className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden">
-								<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
-								<div className="h-16" style={{ backgroundColor: "white" }}>
-									<div className="pl-3 pt-1.5 font-semibold text-lg">
-										Rainbow High Tea
-									</div>
-									<div className="pl-3 text-base">3rd May 2023</div>
-								</div>
-							</div>
-							<div className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden">
-								<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
-								<div className="h-16" style={{ backgroundColor: "white" }}>
-									<div className="pl-3 pt-1.5 font-semibold text-lg">
-										Rainbow High Tea
-									</div>
-									<div className="pl-3 text-base">3rd May 2023</div>
-								</div>
-							</div>
-							<div className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden">
-								<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
-								<div className="h-16" style={{ backgroundColor: "white" }}>
-									<div className="pl-3 pt-1.5 font-semibold text-lg">
-										Rainbow High Tea
-									</div>
-									<div className="pl-3 text-base">3rd May 2023</div>
-								</div>
-							</div>
-							<div className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden">
-								<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
-								<div className="h-16" style={{ backgroundColor: "white" }}>
-									<div className="pl-3 pt-1.5 font-semibold text-lg">
-										Rainbow High Tea
-									</div>
-									<div className="pl-3 text-base">3rd May 2023</div>
-								</div>
-							</div>
+							))}
 						</CarouselBase>
 					</div>
 				</div>
