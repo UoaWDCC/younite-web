@@ -23,6 +23,7 @@ body {
 
 body {
 	color: white;
+	font-family: "DM Sans", sans-serif;
 }
 
 a {
@@ -70,7 +71,6 @@ a {
 		scroll-behavior: smooth;
 	}
 }
-
 
 .__markdown h1 {
 	font-size: large;
