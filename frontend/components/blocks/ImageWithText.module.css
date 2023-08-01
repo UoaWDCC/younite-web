@@ -7,14 +7,14 @@
 
 .content {
 	color: #014788;
-	font-size: 1.25rem;
-	max-width: 55ch;
+	font-size: 1.125rem;
+	max-width: 45ch;
 }
 .backgroundDots {
 	display: flex;
 	align-items: center;
 	background-color: #fab34a;
-	background-image: linear-gradient(to bottom, #fab34aef, #fab44aef),
+	background-image: linear-gradient(to bottom, #ffc062f5, #ffc062f5),
 		url(../../assets/Background_Dots.png);
 }
 
