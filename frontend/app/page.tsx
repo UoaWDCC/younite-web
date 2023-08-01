@@ -6,6 +6,7 @@ import { z } from "zod";
 import FeedbackForm from "../components/feedback/FeedbackForm";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
+import HomePageBlob from "@/components/HomePageBlob/HomePageBlob";
 
 async function getData() {
 	const res = await fetch(
@@ -35,8 +36,9 @@ async function getData() {
 export default async function Home() {
 	const data = await getData();
 
-	return (
-		<main className={`${styles.main} bg-gradient-1`}>
+	return (	
+		<main className={`${styles.main} bg-gradient-1 isolate`}>
+			<BGWaves className="w-full absolute -z-50 top-[85vh]" />
 			<Header />
 			<div className="min-h-[55vh] flex flex-col items-center justify-center gap-6">
 				<h1 className="uppercase flex flex-col items-center mx-auto">
@@ -49,7 +51,7 @@ export default async function Home() {
 					{data.heroParagraph}
 				</p>
 			</div>
-			<BGWaves className="w-full" />
+			<HomePageBlob blob1={data.blob1} blob2={data.blob2} blob3={data.blob3}/>
 			<FeedbackForm />
 
 			<ImageWithText props={data.textWithImage} />

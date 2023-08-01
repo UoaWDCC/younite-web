@@ -2,7 +2,6 @@ import styles from './FeedbackForm.module.css';
 
 const FeedbackForm: React.FC = () => {
   return (
-    <div>
       <div className={styles.feedbackForm}>
         <h1 className={styles.header}>Submit Your Feedback!</h1>
         <form>
@@ -23,7 +22,6 @@ const FeedbackForm: React.FC = () => {
           </div>
         </form>
       </div>
-    </div>
   );
 };
 
