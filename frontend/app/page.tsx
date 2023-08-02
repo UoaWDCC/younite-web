@@ -6,6 +6,7 @@ import { z } from "zod";
 import FeedbackForm from "../components/feedback/FeedbackForm";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
+import MemberCard from "@/components/members/MemberCard";
 
 async function getData() {
 	const res = await fetch(
@@ -51,6 +52,8 @@ export default async function Home() {
 			</div>
 			<BGWaves className="w-full" />
 			<FeedbackForm />
+
+			<MemberCard name="John Doe" imgSrc="/younite-web/frontend/assets/kanyeWest.jpg" />
 
 			<ImageWithText props={data.textWithImage} />
 			<CarouselBase

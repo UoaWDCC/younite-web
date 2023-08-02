@@ -1,0 +1,8 @@
+.imageBorder{
+    color: #014788;
+    font-size: 2rem;
+}
+
+.image {
+    object-fit: contain;
+}
