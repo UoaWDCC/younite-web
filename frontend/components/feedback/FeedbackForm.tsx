@@ -7,7 +7,7 @@ const FeedbackForm: React.FC = () => {
         <form>
           <div>
             <label className={styles.inputFieldLabel}>Name:</label>
-            <input type="text" required placeholder="Enter your name" className={styles.inputField} />
+            <input type="text" required placeholder="Enter your full name" className={styles.inputField} />
           </div>
           <div>
             <label className={styles.inputFieldLabel}>Email:</label>
