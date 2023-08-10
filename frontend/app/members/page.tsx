@@ -44,18 +44,19 @@ export default async function Home() {
 
 				<div className="relative w-full max-w-6xl grid place-items-center">
 					<Image className="w-full max-w-5xl" src={MembersBanner} alt="" />
-					<div className="absolute bottom-8 right-0 p-16 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
+					<div className="absolute bottom-8 right-0 px-8 py-12 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
 						<RichText
 							props={{
 								text: "# Meet the 2023 YOUNITE Team!\n\nA group of young people eager to enact positive change in the Devonport-Takapuna community. Believing in youth voices and youth leadership.",
 							}}
 						/>
-						<button className="bg-b-blue px-5 py-3 rounded-full font-bold">
-							JOIN US NOW
+						<button className="bg-b-blue px-5 py-3 rounded-full font-bold mt-8">
+							MEET THE TEAM
 						</button>
 					</div>
 				</div>
 			</div>
+
 			<Footer />
 		</main>
 	);
