@@ -72,10 +72,20 @@ a {
 	}
 }
 
+.__markdown {
+	line-height: calc(1em + 1ex);
+}
+
+.__markdown * {
+	margin-bottom: min(0.75em, 1ex);
+}
+
 .__markdown h1 {
-	font-size: large;
+	font-size: x-large;
+	font-weight: bold;
 }
 
 .__markdown h2 {
 	font-size: medium;
+	font-weight: bold;
 }
