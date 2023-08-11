@@ -4,6 +4,8 @@ import Header from "@/components/header/header";
 import Image from "next/image";
 import MembersBanner from "../../assets/membersbanner.jpg";
 import styles from "./page.module.css";
+import Chairman from "./Chairman";
+import Teams from "./Teams";
 
 // async function getData() {
 // 	const res = await fetch(
@@ -56,7 +58,9 @@ export default async function Home() {
 					</div>
 				</div>
 			</div>
-
+			{/* adjust minimum height of components */}
+			<Chairman className="bg-blue-500 p-4 flex items-center justify-center h-[500px] min-h-[500px]" />
+			<Teams className="bg-green-500 p-6 flex items-center justify-center h-[500px] min-h-[500px]" />
 			<Footer />
 		</main>
 	);
