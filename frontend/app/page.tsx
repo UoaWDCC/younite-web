@@ -6,7 +6,6 @@ import BGWaves from "@/components/svg/BGWaves";
 import { z } from "zod";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
-import FeedbackForm from "@/components/feedback/FeedbackForm";
 
 async function getData() {
 	const res = await fetch(
@@ -52,7 +51,6 @@ export default async function Home() {
 				</p>
 			</div>
 			<HomePageBlob blob1={data.blob1} blob2={data.blob2} blob3={data.blob3} />
-			<FeedbackForm />
 
 			<ImageWithText props={data.textWithImage} />
 			<div>
