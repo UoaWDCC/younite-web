@@ -1,69 +1,55 @@
 import Header from "@/components/header/header";
 import { Inter } from "next/font/google";
+import Member from "@/assets/younitelogo.png";
 import Image from "next/image";
 import styles from "../page.module.css";
+import { getLargestImage } from "@/shared/util";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default async function Home() {
-	return (
-		<main className={styles.main}>
-			<Header />
-			MEMBERS
-			<div className={styles.center}>
-				<Image
-					className={styles.logo}
-					src="/next.svg"
-					alt="Next.js Logo"
-					width={180}
-					height={37}
-					priority
-				/>
-				<div className={styles.thirteen}>
-					<Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-				</div>
-			</div>
-			<div className={styles.grid}>
-				<a
-					href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className={styles.card}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={inter.className}>
-						Docs <span>-&gt;</span>
-					</h2>
-					<p className={inter.className}>
-						Find in-depth information about Next.js features and API.
-					</p>
-				</a>
+type Member = {
+  name: string;
+  role: string;
+  description: string;
+  funFact: string;
+};
 
-				<a
-					href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className={styles.card}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={inter.className}>
-						Templates <span>-&gt;</span>
-					</h2>
-					<p className={inter.className}>Explore the Next.js 13 playground.</p>
-				</a>
+const member: Member = {
+  name: "John Sutter",
+  role: "Sub-Committee Leader + Wellbeing Officer",
+  description:
+    "Hey, I’m Hunter (he/him) and I’m entering my legacy arc in Younite. I’m passionate about local politics and grassroots activism and excited to hand over the baton to the next group of young leaders. In my spare time I run and watch far too many movies (send me your Letterboxd lists!)",
+  funFact:
+    "I used to live in Costa Rica (although my spanish is now very bad). It’s great to meet you all!",
+};
 
-				<a
-					href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className={styles.card}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={inter.className}>
-						Deploy <span>-&gt;</span>
-					</h2>
-					<p className={inter.className}>
-						Instantly deploy your Next.js site to a shareable URL with Vercel.
-					</p>
-				</a>
-			</div>
-		</main>
-	);
+export default async function Members() {
+  return (
+    <main className={styles.main}>
+      <Header />
+      MEMBERS
+      <MemberModal member={member} visible={true} />
+    </main>
+  );
+}
+
+function MemberModal({
+  member,
+  visible,
+}: {
+  member: Member;
+  visible: boolean;
+}) {
+  const { name, role, description, funFact } = member;
+
+  return (
+    <div className="modal">
+      <div>
+        <Image className="member" src={Member} />
+      </div>
+      <div>
+        <h1>member</h1>
+      </div>
+    </div>
+  );
 }

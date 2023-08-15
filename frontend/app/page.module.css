@@ -29,3 +29,15 @@
 	font-weight: 700;
 	font-family: var(--font-mono);
 }
+
+.modal {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: 28rem;
+    min-width: 60rem;
+    background-color: #252525;
+    border-radius: 0.5rem;
+    overflow: auto;
+    color: white;
+}
