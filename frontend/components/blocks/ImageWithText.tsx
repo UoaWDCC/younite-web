@@ -3,7 +3,7 @@ import styles from "./ImageWithText.module.css";
 
 export default function ImageWithText({ props }: { props: any }) {
   const imageUrl = getLargestImage(props.image);
-  console.log(props);
+  console.log(props.image);
   return (
     <div
       style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
