@@ -1,11 +1,13 @@
+import ScribbleLeft from "@/assets/members/scribble-left.png";
+import ScribbleRight from "@/assets/members/scribble-right.png";
 import RichText from "@/components/blocks/RichText";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import Image from "next/image";
 import MembersBanner from "../../assets/membersbanner.jpg";
-import styles from "./page.module.css";
 import Chairman from "./Chairman";
 import Teams from "./Teams";
+import styles from "./page.module.css";
 
 // async function getData() {
 // 	const res = await fetch(
@@ -44,9 +46,9 @@ export default async function Home() {
 					<span className="text-8xl font-bold leading-[0.95]">2023 Team</span>
 				</h1>
 
-				<div className="relative w-full max-w-6xl grid place-items-center">
+				<div className="relative w-full grid place-items-center isolate">
 					<Image className="w-full max-w-5xl" src={MembersBanner} alt="" />
-					<div className="absolute bottom-8 right-0 px-8 py-12 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
+					<div className="absolute bottom-8 right-12 p-8 pr-16 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
 						<RichText
 							props={{
 								text: "# Meet the 2023 YOUNITE Team!\n\nA group of young people eager to enact positive change in the Devonport-Takapuna community. Believing in youth voices and youth leadership.",
@@ -56,6 +58,16 @@ export default async function Home() {
 							MEET THE TEAM
 						</button>
 					</div>
+					<Image
+						className="absolute bottom-0 left-0"
+						src={ScribbleLeft}
+						alt=""
+					/>
+					<Image
+						className="absolute top-0 right-0 -translate-y-12 -z-10"
+						src={ScribbleRight}
+						alt=""
+					/>
 				</div>
 			</div>
 			{/* adjust minimum height of components */}
