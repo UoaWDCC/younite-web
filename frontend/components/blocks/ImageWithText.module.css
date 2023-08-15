@@ -14,7 +14,7 @@
     align-items: center;
     background-color: #fab34a ;
     background-image:  linear-gradient(
-        to bottom, #fab34adc, #fab44adc
+        to bottom, #fab44af0, #fab44af0
     ), url(../../assets/Background_Dots.png);
 }
 
@@ -27,7 +27,7 @@
     }
 
 .Underline {
-    width:10rem;
+    width:5.4rem;
     text-align:left;
     margin-left:0;
     border-width: 0.2rem;
