@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_block_members",
+  "info": {
+    "displayName": "member"
+  },
+  "options": {},
+  "attributes": {
+    "memberName": {
+      "type": "string"
+    },
+    "memberPicture": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
