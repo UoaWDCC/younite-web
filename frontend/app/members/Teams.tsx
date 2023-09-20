@@ -75,35 +75,34 @@ export default function Teams() {
             style={{
                 background:
                     "radial-gradient(49.73% 34.21% at 25.21% 41.21%, rgba(253, 141, 93, 0.61) 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(66.83% 44.73% at 78.61% 81.23%, rgba(250, 171, 54, 0.65) 0%, rgba(255, 255, 255, 0.00) 97.76%), linear-gradient(180deg, #FFF 0%, #F4A5A0 100%)",
-            }}
-        >
-             <div className="flex justify-center space-x-6 mb-6">
-                {teams.map((team) => (
-                    <button
-                        key={team.attributes.teamName}
+            }}>
+            <div className="flex justify-center items-center space-x-4 mb-8">
+                {teams.map((team, index) => ( 
+                    <div key={index}>
+                        <button
                         onClick={() => setSelectedTeam(team.attributes.teamName)}
-                        className={selectedTeam === team.attributes.teamName ? "font-bold" : ""}
-                    >
+                        className={`px-4 py-2 text-xl transform transition-transform duration-150 border-transparent border ${selectedTeam === team.attributes.teamName ? "font-bold border-0" : "border-l-1 border-r-1"}`}>
                         {team.attributes.teamName}
-                    </button>
+                        </button>
+                    </div>
                 ))}
             </div>
     
             {selectedTeamDetails && (
                 <>
-                    <h2 className="text-4xl text-center mb-4">{selectedTeamDetails.attributes.teamName}</h2>
+                    <h2 className="text-5xl text-center mb-4">{selectedTeamDetails.attributes.teamName}</h2>
                     <p className="text-center max-w-5xl mx-auto mb-20">{selectedTeamDetails.attributes.description}</p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    {selectedTeamDetails?.attributes.members?.map((member) => (  // Ensure members exist within attributes
-        <div key={member.memberName} className="relative">
-            <img src={`http://localhost:1337${member.memberPicture.data.attributes.url}`} alt={member.memberName} className="w-full" />
-            <div className="absolute bottom-0 left-0 w-full bg-white text-center py-2">
-                {member.memberName}
-            </div>
-        </div>
-    ))}
-</div>
-                </>
+                        {selectedTeamDetails?.attributes.members?.map((member) => (  // Ensure members exist within attributes
+                        <div key={member.memberName} className="relative shadow-lg">
+                            <img src={`http://localhost:1337${member.memberPicture.data.attributes.url}`} alt={member.memberName} className="w-full" />
+                            <div className="absolute bottom-0 left-0 w-full bg-white text-center py-2 font-bold">
+                                {member.memberName}
+                            </div>
+                        </div>
+                        ))}
+                    </div>
+            </>
             )}
         </section>
     );    
