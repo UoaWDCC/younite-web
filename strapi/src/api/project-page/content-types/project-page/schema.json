@@ -3,7 +3,7 @@
   "collectionName": "project_pages",
   "info": {
     "description": "",
-    "displayName": "Project Pages",
+    "displayName": "Projects",
     "pluralName": "project-pages",
     "singularName": "project-page"
   },
@@ -32,8 +32,18 @@
       "components": [
         "content-block.centered-text-block",
         "content-block.content-block",
-        "content-block.centered-paragraph"
+        "content-block.centered-paragraph",
+        "content-block.rich-text"
       ]
+    },
+    "Date": {
+      "type": "date",
+      "required": true,
+      "default": "2023-09-07"
+    },
+    "Description": {
+      "type": "text",
+      "required": true
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_misc_members_role_sections",
+  "info": {
+    "displayName": "MembersRoleSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Members": {
+      "type": "component",
+      "repeatable": true,
+      "component": "misc.member"
+    },
+    "SectionName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

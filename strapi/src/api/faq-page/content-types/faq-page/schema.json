@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "faq_pages",
+  "info": {
+    "singularName": "faq-page",
+    "pluralName": "faq-pages",
+    "displayName": "FAQ Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "QuestionAnswer": {
+      "displayName": "FAQ Item",
+      "type": "component",
+      "repeatable": true,
+      "component": "faq-items.faq-item"
+    }
+  }
+}

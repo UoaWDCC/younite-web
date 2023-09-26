@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "Values": {
+      "displayName": "Value",
+      "type": "component",
+      "repeatable": true,
+      "component": "misc.value",
+      "required": true,
+      "max": 4,
+      "min": 4
+    },
+    "Timeline": {
+      "type": "dynamiczone",
+      "components": [
+        "project-timeline.text-timeline-item",
+        "project-timeline.image-timeline-item"
+      ],
+      "required": true
+    }
+  }
+}

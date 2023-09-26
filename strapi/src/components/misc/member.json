@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_misc_members",
+  "info": {
+    "displayName": "Member",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Role": {
+      "type": "string",
+      "required": true
+    },
+    "About": {
+      "type": "text",
+      "required": true
+    },
+    "funFact": {
+      "type": "text",
+      "required": false,
+      "unique": false
+    }
+  }
+}

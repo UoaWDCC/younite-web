@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_project_timeline_text_timeline_items",
+  "info": {
+    "displayName": "TextTimelineItem"
+  },
+  "options": {},
+  "attributes": {
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_misc_values",
+  "info": {
+    "displayName": "Value",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "ValueDescription": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ExpandedDescription": {
+      "type": "richtext",
+      "required": true
+    },
+    "ExpandedImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
