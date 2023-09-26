@@ -100,6 +100,39 @@ module.exports = {
 
     // populate header links
 
+    if (
+      (await strapi.entityService.findOne("api::header.header", 1, {
+        populate: { navigation: true },
+      })) === null
+    ) {
+      await strapi.entityService.create("api::header.header", {
+        data: {
+          navigation: [
+            {
+              title: "About us",
+              slug: "/about",
+            },
+            {
+              title: "Blog",
+              slug: "/blog",
+            },
+            {
+              title: "Members",
+              slug: "/members",
+            },
+            {
+              title: "Collaborations",
+              slug: "/collaborations",
+            },
+            {
+              title: "Sign Up",
+              slug: "/",
+            },
+          ],
+        },
+      });
+    }
+
     let headerLinks = (
       await strapi.entityService.findOne("api::header.header", 1, {
         populate: { navigation: true },
