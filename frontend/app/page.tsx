@@ -1,9 +1,9 @@
 import CarouselBase from "@/components/CarouselBase";
+import HomePageBlob from "@/components/HomePageBlob/HomePageBlob";
 import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
 import { z } from "zod";
-import FeedbackForm from "../components/feedback/FeedbackForm";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
 
@@ -36,7 +36,8 @@ export default async function Home() {
 	const data = await getData();
 
 	return (
-		<main className={`${styles.main} bg-gradient-1`}>
+		<main className={`${styles.main} bg-gradient-1 isolate`}>
+			<BGWaves className="w-full absolute -z-50 top-[85vh]" />
 			<Header />
 			<div className="min-h-[55vh] flex flex-col items-center justify-center gap-6">
 				<h1 className="uppercase flex flex-col items-center mx-auto">
@@ -49,18 +50,34 @@ export default async function Home() {
 					{data.heroParagraph}
 				</p>
 			</div>
-			<BGWaves className="w-full" />
-			<FeedbackForm />
+			<HomePageBlob blob1={data.blob1} blob2={data.blob2} blob3={data.blob3} />
 
 			<ImageWithText props={data.textWithImage} />
-			<CarouselBase
-				wrapperClass="pl-gutter py-40 bg-white bg-opacity-50"
-				innerClass="gap-8"
-			>
-				<div className="w-80 bg-red-400 p-8">Slide 1</div>
-				<div className="w-80 bg-red-400 p-8">Slide 2</div>
-				<div className="w-80 bg-red-400 p-8">Slide 3</div>
-			</CarouselBase>
+			<div>
+				<div className="bg-white bg-opacity-50">
+					<div className="overflow-hidden ml-20 mr-20 ">
+						<CarouselBase
+							wrapperClass="flex pt-24 pb-40 w-full m-0"
+							innerClass="gap-8"
+						>
+							{Array.from({ length: 5 }).map((_, i) => (
+								<div
+									key={i}
+									className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden"
+								>
+									<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
+									<div className="h-16" style={{ backgroundColor: "white" }}>
+										<div className="pl-3 pt-1.5 font-semibold text-lg">
+											Rainbow High Tea
+										</div>
+										<div className="pl-3 text-base">3rd May 2023</div>
+									</div>
+								</div>
+							))}
+						</CarouselBase>
+					</div>
+				</div>
+			</div>
 			<Footer />
 		</main>
 	);

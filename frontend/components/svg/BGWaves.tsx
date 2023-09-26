@@ -29,8 +29,8 @@ export default function BGWaves({ className }: { className?: string }) {
 					y2="706.098"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop offset="0.395831" stop-color="#FFE0B1" />
-					<stop offset="1" stop-color="#FFE0B1" stop-opacity="0" />
+					<stop offset="0.395831" stopColor="#FFE0B1" />
+					<stop offset="1" stopColor="#FFE0B1" stopOpacity="0" />
 				</linearGradient>
 				<linearGradient
 					id="paint1_linear_207_609"
@@ -40,8 +40,8 @@ export default function BGWaves({ className }: { className?: string }) {
 					y2="1026.55"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop offset="0.395831" stop-color="#FFE0B1" />
-					<stop offset="1" stop-color="#FFE0B1" stop-opacity="0" />
+					<stop offset="0.395831" stopColor="#FFE0B1" />
+					<stop offset="1" stopColor="#FFE0B1" stopOpacity="0" />
 				</linearGradient>
 			</defs>
 		</svg>

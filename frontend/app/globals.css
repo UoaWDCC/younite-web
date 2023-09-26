@@ -23,6 +23,7 @@ body {
 
 body {
 	color: white;
+	font-family: "DM Sans", sans-serif;
 }
 
 a {
@@ -37,7 +38,15 @@ a {
 }
 
 .bg-gradient-1 {
-	background: linear-gradient(255deg, #0085b9 20%, #fff0dc 100%);
+	background-color: #ffe2c8;
+	background-image: linear-gradient(
+		to bottom,
+		#0d66b7 0%,
+		#62bce0 48.87%,
+		#ffe2c8 94.91%
+	);
+	background-size: 100% 2400px;
+	background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 768px) {
@@ -71,11 +80,20 @@ a {
 	}
 }
 
+.__markdown {
+	line-height: calc(1em + 1ex);
+}
+
+.__markdown * {
+	margin-bottom: min(0.75em, 1ex);
+}
 
 .__markdown h1 {
-	font-size: large;
+	font-size: x-large;
+	font-weight: bold;
 }
 
 .__markdown h2 {
 	font-size: medium;
+	font-weight: bold;
 }
