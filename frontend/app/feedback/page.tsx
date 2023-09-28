@@ -1,4 +1,4 @@
-import FeedbackForm from "@/components/feedback/FeedbackForm.1";
+import FeedbackForm from "@/components/feedback/FeedbackForm";
 
 export default function Feedback() {
 	return <FeedbackForm />;
