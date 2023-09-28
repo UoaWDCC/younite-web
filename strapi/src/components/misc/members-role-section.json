@@ -14,7 +14,11 @@
     "SectionName": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
+    },
+    "Description": {
+      "type": "text",
+      "required": true
     }
   }
 }
