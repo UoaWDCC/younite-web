@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teams",
+  "info": {
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "Team",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "teamName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "members": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content-block.member"
+    }
+  }
+}
