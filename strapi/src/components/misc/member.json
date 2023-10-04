@@ -22,6 +22,14 @@
       "type": "text",
       "required": false,
       "unique": false
+    },
+    "Photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
