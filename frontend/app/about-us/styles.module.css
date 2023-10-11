@@ -1,0 +1,32 @@
+.valueCard {
+	position: relative;
+	border-radius: 0.8125rem;
+	border: 2px solid #000;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	padding: 2rem;
+	aspect-ratio: 1;
+}
+
+.valueCard:nth-of-type(1) {
+	background: linear-gradient(180deg, #faab36 45.83%, #ffc9c9 100%);
+	transform: rotate(-3.259deg);
+	z-index: 2;
+}
+
+.valueCard:nth-of-type(2) {
+	background: linear-gradient(180deg, #6cc3e5 0%, #75c5e2 59.9%, #ffdead 100%);
+	transform: rotate(3.414deg) translateY(1.5rem);
+	z-index: 1;
+}
+
+.valueCard:nth-of-type(3) {
+	background: linear-gradient(180deg, #c8f2ff 0%, #ffc062 68.75%);
+	transform: rotate(-1.517deg) translateY(6rem) translateX(-1.5rem);
+}
+
+.valueCard:nth-of-type(4) {
+	background: linear-gradient(0deg, #ace8ff 0%, #ace8ff 100%);
+	transform: rotate(-9.745deg) translateY(-2rem) translateX(-2rem);
+	grid-column-start: 2;
+	z-index: 2;
+}

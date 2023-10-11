@@ -1,69 +1,79 @@
+import flair from "@/assets/about-us/flair.png";
+import valueFlair1 from "@/assets/about-us/value1.png";
+import valueFlair2 from "@/assets/about-us/value2.png";
 import Header from "@/components/header/header";
-import { Inter } from "next/font/google";
 import Image from "next/image";
-import styles from "../page.module.css";
+import { z } from "zod";
+import styles from "./styles.module.css";
 
-const inter = Inter({ subsets: ["latin"] });
+async function getData() {
+	const res = await fetch(`http://localhost:1337/api/about-page?populate=*`, {
+		headers: {
+			authorization: "Bearer " + process.env.STRAPI_KEY,
+		},
+		cache: "no-cache",
+	});
+
+	const json = await res.json();
+	const attributes = json.data.attributes;
+
+	const schema = z.object({
+		Subtitle: z.string(),
+		Values: z.array(
+			z.object({
+				Name: z.string(),
+				ValueDescription: z.string(),
+				ExpandedDescription: z.string(),
+			})
+		),
+		Timeline: z.array(z.any()),
+	});
+
+	return schema.parse(attributes);
+}
 
 export default async function Home() {
+	const data = await getData();
+
 	return (
-		<main className={styles.main}>
+		<main
+			style={{
+				backgroundImage:
+					"linear-gradient(180deg, #0D66B7 0%, #62BCE0 48.87%, #FFE2C8 94.91%), linear-gradient(359deg, #6CC3E5 44.81%, rgba(255, 233, 204, 0.80) 56.29%, rgba(255, 202, 133, 0.00) 84.97%)",
+			}}
+			className="isolate"
+		>
 			<Header />
-			about us:)))
-			<div className={styles.center}>
-				<Image
-					className={styles.logo}
-					src="/next.svg"
-					alt="Next.js Logo"
-					width={180}
-					height={37}
-					priority
-				/>
-				<div className={styles.thirteen}>
-					<Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+			<Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
+			<section className="max-w-4xl mx-auto py-20 flex flex-col items-center text-center">
+				<h1 className="text-8xl font-bold leading-[0.95] uppercase mb-6">
+					Our Values
+				</h1>
+				<p className="mb-2 mx-6">{data.Subtitle}</p>
+				<p className="mb-16 mx-6">Click Below!</p>
+				<div className="grid grid-cols-3 grid-rows-2 text-black text-left mx-6">
+					{data.Values.map((value, i) => (
+						<div key={value.Name} className={styles.valueCard}>
+							<h2 className="mb-1 text-2xl font-black uppercase">
+								{value.Name}
+							</h2>
+							<p>{value.ValueDescription}</p>
+							{i !== 1 && (
+								<Image
+									src={i === 0 ? valueFlair1 : valueFlair2}
+									alt=""
+									className="absolute bottom-0 right-0 opacity-20 w-40"
+								/>
+							)}
+						</div>
+					))}
 				</div>
-			</div>
-			<div className={styles.grid}>
-				<a
-					href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className={styles.card}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={inter.className}>
-						Docs <span>-&gt;</span>
-					</h2>
-					<p className={inter.className}>
-						Find in-depth information about Next.js features and API.
-					</p>
-				</a>
-
-				<a
-					href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className={styles.card}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={inter.className}>
-						Templates <span>-&gt;</span>
-					</h2>
-					<p className={inter.className}>Explore the Next.js 13 playground.</p>
-				</a>
-
-				<a
-					href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className={styles.card}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={inter.className}>
-						Deploy <span>-&gt;</span>
-					</h2>
-					<p className={inter.className}>
-						Instantly deploy your Next.js site to a shareable URL with Vercel.
-					</p>
-				</a>
-			</div>
+			</section>
+			<section className="py-40 text-center">
+				<h2 className="text-8xl font-bold leading-[0.95] uppercase mb-6">
+					Our History
+				</h2>
+			</section>
 		</main>
 	);
 }
