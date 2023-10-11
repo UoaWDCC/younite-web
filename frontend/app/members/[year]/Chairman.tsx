@@ -1,10 +1,13 @@
+import Flair1 from "@/assets/members/flair1.png";
+import Flair2 from "@/assets/members/flair2.png";
+import { getLargestImage } from "@/shared/util";
 import Image from "next/image";
-import Flair1 from "../../assets/members/flair1.png";
-import Flair2 from "../../assets/members/flair2.png";
-import PlaceholderMem1 from "../../assets/members/memplaceolder1.png";
-import PlaceholderMem2 from "../../assets/members/memplaceolder2.png";
+import { Member } from "./page";
 
-const Chairman = () => {
+const Chairman = ({ chairs }: { chairs: Member[] }) => {
+	const chair1 = chairs[0];
+	const chair2 = chairs[1];
+
 	return (
 		<section
 			className="px-gutter py-20 text-b-dark-blue"
@@ -31,17 +34,11 @@ const Chairman = () => {
 						src={Flair2}
 						alt=""
 					/>
-					<Image className="w-full" src={PlaceholderMem2} alt="" />
+					<img className="w-full" src={getLargestImage(chair1.Photo)} alt="" />
 					<div className="bg-white px-8 py-6">
-						<h3 className="text-2xl font-bold drop-shadow-md">Lisa</h3>
-						<p className="text-black font-bold mb-3">Co-Chairman</p>
-						<p>
-							I’m Lisa (she/her), a 17 year old, in yr13 at Kristin. Through the
-							opportunities in Younite, I feel empowered & motivates as a Youth
-							voice representing our community. My greatest honour of being
-							Co-chair is facilitating passionate & unique individuals who are
-							able to come together to achieve fulfilling and selfless outcomes.
-						</p>
+						<h3 className="text-2xl font-bold drop-shadow-md">{chair1.Name}</h3>
+						<p className="text-black font-bold mb-3">{chair1.Role}</p>
+						<p>{chair1.About}</p>
 					</div>
 				</div>
 				<div className="relative row-start-2 col-span-12 md:col-span-7 md:col-start-7 drop-shadow-xl -translate-y-[30%] -z-10">
@@ -50,17 +47,11 @@ const Chairman = () => {
 						src={Flair1}
 						alt=""
 					/>
-					<Image className="w-full" src={PlaceholderMem1} alt="" />
+					<img className="w-full" src={getLargestImage(chair2.Photo)} alt="" />
 					<div className="bg-white px-8 py-6">
-						<h3 className="text-2xl font-bold drop-shadow-md">Lisa</h3>
-						<p className="text-black font-bold mb-3">Co-Chairman</p>
-						<p>
-							I’m Lisa (she/her), a 17 year old, in yr13 at Kristin. Through the
-							opportunities in Younite, I feel empowered & motivates as a Youth
-							voice representing our community. My greatest honour of being
-							Co-chair is facilitating passionate & unique individuals who are
-							able to come together to achieve fulfilling and selfless outcomes.
-						</p>
+						<h3 className="text-2xl font-bold drop-shadow-md">{chair2.Name}</h3>
+						<p className="text-black font-bold mb-3">{chair2.Role}</p>
+						<p>{chair2.About}</p>
 					</div>
 				</div>
 			</div>

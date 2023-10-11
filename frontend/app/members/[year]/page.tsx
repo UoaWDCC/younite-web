@@ -1,41 +1,60 @@
 import ScribbleLeft from "@/assets/members/scribble-left.png";
 import ScribbleRight from "@/assets/members/scribble-right.png";
+import MembersBanner from "@/assets/membersbanner.jpg";
 import RichText from "@/components/blocks/RichText";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import Image from "next/image";
-import MembersBanner from "../../assets/membersbanner.jpg";
+import { z } from "zod";
 import Chairman from "./Chairman";
 import Teams from "./Teams";
 import styles from "./page.module.css";
 
-// async function getData() {
-// 	const res = await fetch(
-// 		`http://localhost:1337/api/home-page?populate[textWithImage][populate]=*`,
-// 		{
-// 			headers: {
-// 				authorization: "Bearer " + process.env.STRAPI_KEY,
-// 			},
-// 			cache: "no-cache",
-// 		}
-// 	);
+const memberSchema = z.object({
+	Name: z.string(),
+	Role: z.string(),
+	About: z.string(),
+	funFact: z.nullable(z.string()),
+	Photo: z.any(),
+});
 
-// 	const json = await res.json();
-// 	const attributes = json.data.attributes;
+const roleSectionSchema = z.object({
+	SectionName: z.string(),
+	Description: z.string(),
+	Members: z.array(memberSchema),
+});
 
-// 	const schema = z.object({
-// 		heroParagraph: z.string(),
-// 		blob1: z.string(),
-// 		blob2: z.string(),
-// 		blob3: z.string(),
-// 		textWithImage: z.any(),
-// 	});
+export type Member = z.infer<typeof memberSchema>;
+export type RoleSection = z.infer<typeof roleSectionSchema>;
 
-// 	return schema.parse(attributes);
-// }
+async function getData(year: string) {
+	const res = await fetch(
+		`http://localhost:1337/api/member-teams?filters[CommitteeYear][$eq]=${year}&populate[Chairs][populate]=*&populate[RoleSection][populate][Members][populate]=*`,
+		{
+			headers: {
+				authorization: "Bearer " + process.env.STRAPI_KEY,
+			},
+			cache: "no-cache",
+		}
+	);
 
-export default async function Home() {
-	// const data = await getData();
+	const json = await res.json();
+	const attributes = json.data[0].attributes;
+
+	const schema = z.object({
+		CommitteeYear: z.number(),
+		Chairs: z.array(memberSchema),
+		RoleSection: z.array(roleSectionSchema),
+	});
+
+	return schema.parse(attributes);
+}
+
+export default async function Home({ params }: { params: { year: string } }) {
+	const data = await getData(params.year);
+
+	const chairs = data.Chairs;
+	const roleSections = data.RoleSection;
 
 	return (
 		<main className={`${styles.main} bg-gradient-1 isolate min-h-full`}>
@@ -71,8 +90,8 @@ export default async function Home() {
 				</div>
 			</div>
 			{/* adjust minimum height of components */}
-			<Chairman />
-			<Teams />
+			<Chairman chairs={chairs} />
+			<Teams teams={roleSections} />
 			<Footer />
 		</main>
 	);
