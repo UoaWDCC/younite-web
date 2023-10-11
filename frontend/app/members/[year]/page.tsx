@@ -8,7 +8,6 @@ import Image from "next/image";
 import { z } from "zod";
 import Chairman from "./Chairman";
 import Teams from "./Teams";
-import styles from "./page.module.css";
 
 const memberSchema = z.object({
 	Name: z.string(),
