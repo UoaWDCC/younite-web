@@ -4,14 +4,14 @@ import { z } from "zod";
 import styles from "./header.module.css";
 
 async function getHeaderData() {
-	const res = await fetch(`http://localhost:1337/api/header?populate=*`, {
+	const headerRes = await fetch(`http://localhost:1337/api/header?populate=*`, {
 		headers: {
 			authorization: "Bearer " + process.env.STRAPI_KEY,
 		},
 		cache: "no-cache",
 	});
 
-	const json = await res.json();
+	const json = await headerRes.json();
 	const attributes = json.data.attributes;
 
 	const schema = z.object({
@@ -24,7 +24,24 @@ async function getHeaderData() {
 		),
 	});
 
-	return schema.parse(attributes);
+	const membersRes = await fetch(`http://localhost:1337/api/member-teams`, {
+		headers: {
+			authorization: "Bearer " + process.env.STRAPI_KEY,
+		},
+		cache: "no-cache",
+	});
+
+	const json2 = await membersRes.json();
+	const data = json2.data
+		.map((p: any) => p.attributes)
+		.sort((a: any, b: any) => a.CommitteeYear - b.CommitteeYear);
+
+	const resData = schema.parse(attributes);
+
+	return {
+		...resData,
+		members: data,
+	};
 }
 
 export default async function Header() {
@@ -40,6 +57,21 @@ export default async function Header() {
 				<img src={logoSrc} alt="Younite Logo" className="h-32" />
 			</Link>
 			<nav className={styles.nav}>
+				<Link
+					className="group relative"
+					href={`/members/${data.members[0].CommitteeYear}`}
+				>
+					<span>MEMBERS</span>
+					<div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue">
+						{/* @ts-ignore */}
+						{data.members.map(({ CommitteeYear }) => (
+							<Link href={`/members/${CommitteeYear}`} key={CommitteeYear}>
+								{CommitteeYear}
+							</Link>
+						))}
+					</div>
+				</Link>
+
 				{links.map((link) => (
 					<Link href={link.slug} key={link.title}>
 						{link.title.toLocaleUpperCase()}
