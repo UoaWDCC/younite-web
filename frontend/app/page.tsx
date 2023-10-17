@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import CarouselBase from "@/components/CarouselBase";
 import HomePageBlob from "@/components/HomePageBlob/HomePageBlob";
 import ImageWithText from "@/components/blocks/ImageWithText";
