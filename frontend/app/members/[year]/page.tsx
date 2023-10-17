@@ -57,6 +57,7 @@ export default async function Home({ params }: { params: { year: string } }) {
 
 	return (
 		<main className={`bg-gradient-1 isolate min-h-full`}>
+			{/* @ts-ignore */}
 			<Header />
 			<div className="flex flex-col items-center justify-center gap-6">
 				<h1 className="uppercase flex flex-col items-center mx-auto mt-12 mb-24">

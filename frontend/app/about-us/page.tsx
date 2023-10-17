@@ -43,6 +43,7 @@ export default async function Home() {
 			}}
 			className="isolate"
 		>
+			{/* @ts-ignore */}
 			<Header />
 			<Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
 			<section className="max-w-4xl mx-auto py-20 flex flex-col items-center text-center">

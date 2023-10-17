@@ -25,6 +25,7 @@ export default async function Home({ params }: { params: { slug: string } }) {
 
 	return (
 		<main className={styles.main}>
+			{/* @ts-ignore */}
 			<Header />
 			<div>
 				{data.blocks.map((block: any) => ContentBlock({ props: block }))}
