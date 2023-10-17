@@ -1,0 +1,36 @@
+name: Deploy PROD
+
+on: [workflow_dispatch]
+
+jobs:
+  DeployFrontend:
+    runs-on: ubuntu-latest
+    environment: PROD
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.17.0
+
+      - name: Create env file
+        run: echo ${{ secrets.FRONTEND_ENV }} | base64 --decode > .env
+
+      - run: npm install
+
+      - run: npm run build
+
+      - uses: "google-github-actions/auth@v0"
+        with:
+          # Credentials stored inside WDCC organisation secrets
+          credentials_json: "${{ secrets.YOUNITE_DEPLOYMENT_SA_CREDENTIALS }}"
+
+      - id: "app-engine-deploy"
+        uses: "google-github-actions/deploy-appengine@v0"
+        with:
+          flags: --no-cache
+          project_id: wdcc-younite-prod
+          working_directory: ./frontend
