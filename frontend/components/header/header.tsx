@@ -60,12 +60,17 @@ export default async function Header() {
 				<Link
 					className="group relative"
 					href={`/members/${data.members[0].CommitteeYear}`}
+					prefetch
 				>
 					<span>MEMBERS</span>
 					<div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue">
 						{/* @ts-ignore */}
 						{data.members.map(({ CommitteeYear }) => (
-							<Link href={`/members/${CommitteeYear}`} key={CommitteeYear}>
+							<Link
+								href={`/members/${CommitteeYear}`}
+								key={CommitteeYear}
+								prefetch
+							>
 								{CommitteeYear}
 							</Link>
 						))}
@@ -73,7 +78,7 @@ export default async function Header() {
 				</Link>
 
 				{links.map((link) => (
-					<Link href={link.slug} key={link.title}>
+					<Link href={link.slug} key={link.title} prefetch>
 						{link.title.toLocaleUpperCase()}
 					</Link>
 				))}

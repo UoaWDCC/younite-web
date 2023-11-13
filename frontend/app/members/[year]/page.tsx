@@ -1,9 +1,9 @@
 import ScribbleLeft from "@/assets/members/scribble-left.png";
 import ScribbleRight from "@/assets/members/scribble-right.png";
-import MembersBanner from "@/assets/membersbanner.jpg";
 import RichText from "@/components/blocks/RichText";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import { getLargestImage } from "@/shared/util";
 import Image from "next/image";
 import { z } from "zod";
 import Chairman from "./Chairman";
@@ -28,7 +28,7 @@ export type RoleSection = z.infer<typeof roleSectionSchema>;
 
 async function getData(year: string) {
 	const res = await fetch(
-		`http://localhost:1337/api/member-teams?filters[CommitteeYear][$eq]=${year}&populate[Chairs][populate]=*&populate[RoleSection][populate][Members][populate]=*`,
+		`http://localhost:1337/api/member-teams?filters[CommitteeYear][$eq]=${year}&populate[Chairs][populate]=*&populate[RoleSection][populate][Members][populate]=*&populate[teamPhoto][populate]=*`,
 		{
 			headers: {
 				authorization: "Bearer " + process.env.STRAPI_KEY,
@@ -41,6 +41,8 @@ async function getData(year: string) {
 	const attributes = json.data[0].attributes;
 
 	const schema = z.object({
+		description: z.string(),
+		teamPhoto: z.any(),
 		CommitteeYear: z.number(),
 		Chairs: z.array(memberSchema),
 		RoleSection: z.array(roleSectionSchema),
@@ -62,20 +64,29 @@ export default async function Home({ params }: { params: { year: string } }) {
 			<div className="flex flex-col items-center justify-center gap-6">
 				<h1 className="uppercase flex flex-col items-center mx-auto mt-12 mb-24">
 					<span className="text-6xl leading-[0.95]">Meet the</span>
-					<span className="text-8xl font-bold leading-[0.95]">2023 Team</span>
+					<span className="text-8xl font-bold leading-[0.95]">
+						{data.CommitteeYear} Team
+					</span>
 				</h1>
 
 				<div className="relative w-full grid place-items-center isolate">
-					<Image className="w-full max-w-5xl" src={MembersBanner} alt="" />
+					<img
+						className="w-full max-w-5xl"
+						src={getLargestImage(data.teamPhoto)}
+						alt=""
+					/>
 					<div className="absolute bottom-8 right-12 p-8 pr-16 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
 						<RichText
 							props={{
-								text: "# Meet the 2023 YOUNITE Team!\n\nA group of young people eager to enact positive change in the Devonport-Takapuna community. Believing in youth voices and youth leadership.",
+								text: data.description,
 							}}
 						/>
-						<button className="bg-b-blue px-5 py-3 rounded-full font-bold mt-8">
+						<a
+							className="block mr-auto w-fit bg-b-blue px-5 py-3 rounded-full font-bold mt-8"
+							href="#chairs"
+						>
 							MEET THE TEAM
-						</button>
+						</a>
 					</div>
 					<Image
 						className="absolute bottom-0 left-0"

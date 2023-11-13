@@ -2,35 +2,47 @@
   "kind": "collectionType",
   "collectionName": "member_teams",
   "info": {
-    "singularName": "member-team",
-    "pluralName": "member-teams",
+    "description": "",
     "displayName": "Member Teams",
-    "description": ""
+    "pluralName": "member-teams",
+    "singularName": "member-team"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "CommitteeYear": {
-      "type": "integer",
-      "unique": true,
-      "required": true
-    },
     "Chairs": {
-      "type": "dynamiczone",
       "components": [
         "misc.member"
       ],
-      "required": true,
+      "max": 2,
       "min": 2,
-      "max": 2
+      "required": true,
+      "type": "dynamiczone"
+    },
+    "CommitteeYear": {
+      "required": true,
+      "type": "integer",
+      "unique": true
+    },
+    "teamPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "RoleSection": {
-      "type": "dynamiczone",
       "components": [
         "misc.members-role-section"
       ],
+      "required": true,
+      "type": "dynamiczone"
+    },
+    "description": {
+      "type": "richtext",
       "required": true
     }
   }
