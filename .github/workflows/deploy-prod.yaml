@@ -26,7 +26,7 @@ jobs:
       - uses: "google-github-actions/auth@v0"
         with:
           # Credentials stored inside WDCC organisation secrets
-          credentials_json: "${{ secrets.YOUNITE_DEPLOYMENT_SA_CREDENTIALS }}"
+          credentials_json: "${{ secrets.YOUNITE_GCP_DEPLOYMENT_SA_CREDENTIALS }}"
 
       - id: "app-engine-deploy"
         uses: "google-github-actions/deploy-appengine@v0"
