@@ -4,17 +4,21 @@ import flair from "@/assets/about-us/flair.png";
 import valueFlair1 from "@/assets/about-us/value1.png";
 import valueFlair2 from "@/assets/about-us/value2.png";
 import Header from "@/components/header/header";
+import { getLargestImage } from "@/shared/util";
 import Image from "next/image";
 import { z } from "zod";
 import styles from "./styles.module.css";
 
 async function getData() {
-	const res = await fetch(`http://localhost:1337/api/about-page?populate=*`, {
-		headers: {
-			authorization: "Bearer " + process.env.STRAPI_KEY,
-		},
-		cache: "no-cache",
-	});
+	const res = await fetch(
+		`http://localhost:1337/api/about-page?populate[Timeline][populate]=*&populate[Values][populate]=*`,
+		{
+			headers: {
+				authorization: "Bearer " + process.env.STRAPI_KEY,
+			},
+			cache: "no-cache",
+		}
+	);
 
 	const json = await res.json();
 	const attributes = json.data.attributes;
@@ -34,8 +38,29 @@ async function getData() {
 	return schema.parse(attributes);
 }
 
+type ImageTimeline = {
+	Date: Date;
+	Image: string;
+};
+
+type TextTimeline = {
+	Date: Date;
+	Title: string;
+	Description: string;
+};
+
+type TimelineElement = ImageTimeline | TextTimeline;
+
 export default async function Home() {
 	const data = await getData();
+
+	const timeline: TimelineElement[] = data.Timeline.map((e) => {
+		const date = new Date(e.Date);
+		return {
+			...e,
+			Date: date,
+		};
+	}).sort((a, b) => a.Date.getTime() - b.Date.getTime());
 
 	return (
 		<main
@@ -72,10 +97,40 @@ export default async function Home() {
 					))}
 				</div>
 			</section>
-			<section className="py-40 text-center">
-				<h2 className="text-8xl font-bold leading-[0.95] uppercase mb-6">
+			<section className="py-40 text-center px-4">
+				<h2 className="text-8xl font-bold leading-[0.95] uppercase mb-12">
 					Our History
 				</h2>
+				<div className="text-left max-w-xl mx-auto">
+					<ol className="relative border-s border-gray-100 text-b-dark-blue">
+						{timeline.map((e, i) => {
+							const isImage = "Image" in e;
+
+							return (
+								<li key={i} className="mb-10 ms-4">
+									<div className="absolute w-3 h-3 bg-gray-100 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+									<time className="mb-1 text-sm font-normal leading-none italic">
+										{e.Date.toLocaleDateString()}
+									</time>
+									{isImage ? (
+										<img
+											src={getLargestImage(e.Image)}
+											alt=""
+											className="w-full rounded-lg mb-4 shadow-xl"
+										/>
+									) : (
+										<div>
+											<h3 className="text-lg font-semibold">{e.Title}</h3>
+											<p className="mb-4 text-base font-normal ">
+												{e.Description}
+											</p>
+										</div>
+									)}
+								</li>
+							);
+						})}
+					</ol>
+				</div>
 			</section>
 		</main>
 	);
