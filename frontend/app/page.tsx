@@ -68,7 +68,7 @@ export default async function Home() {
 									key={i}
 									className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden"
 								>
-									<div className='h-48 bg-cover bg-[url("../assets/event1.png")]'></div>
+									<div className='h-48 bg-cover bg-[url("/event1.png")]'></div>
 									<div className="h-16" style={{ backgroundColor: "white" }}>
 										<div className="pl-3 pt-1.5 font-semibold text-lg">
 											Rainbow High Tea

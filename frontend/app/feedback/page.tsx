@@ -32,6 +32,7 @@ export default async function Feedback() {
 
 	return (
 		<div className="relative flex flex-col bg-gradient-1 min-h-screen h-full overflow-y-hidden isolate">
+			{/* @ts-ignore */}
 			<Header />
 			<svg
 				viewBox="0 0 1440 1027"
