@@ -22,7 +22,6 @@ async function getData() {
 	);
 
 	const json = await res.json();
-	console.log(json);
 	const attributes = json.data.attributes;
 
 	const schema = z.object({
