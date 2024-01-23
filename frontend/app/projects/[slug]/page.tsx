@@ -1,11 +1,12 @@
 import styles from "@/app/page.module.css";
 import ContentBlock from "@/components/ContentBlock";
 import Header from "@/components/header/header";
+import { apiURL } from "@/shared/util";
 import { projectSchema } from "../schemas";
 
 async function getData(slug: string) {
 	const res = await fetch(
-		`http://localhost:1337/api/project-pages?filters[slug][$eq]=${slug}&populate[blocks][populate]=*`,
+		`${apiURL}/api/project-pages?filters[slug][$eq]=${slug}&populate[blocks][populate]=*`,
 		{
 			headers: {
 				authorization: "Bearer " + process.env.STRAPI_KEY,

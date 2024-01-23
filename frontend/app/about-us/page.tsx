@@ -4,14 +4,14 @@ import flair from "@/assets/about-us/flair.png";
 import valueFlair1 from "@/assets/about-us/value1.png";
 import valueFlair2 from "@/assets/about-us/value2.png";
 import Header from "@/components/header/header";
-import { getLargestImage } from "@/shared/util";
+import { apiURL, getLargestImage } from "@/shared/util";
 import Image from "next/image";
 import { z } from "zod";
 import styles from "./styles.module.css";
 
 async function getData() {
 	const res = await fetch(
-		`http://localhost:1337/api/about-page?populate[Timeline][populate]=*&populate[Values][populate]=*`,
+		`${apiURL}/api/about-page?populate[Timeline][populate]=*&populate[Values][populate]=*`,
 		{
 			headers: {
 				authorization: "Bearer " + process.env.STRAPI_KEY,

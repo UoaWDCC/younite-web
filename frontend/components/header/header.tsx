@@ -1,10 +1,10 @@
-import { getLargestImage } from "@/shared/util";
+import { apiURL, getLargestImage } from "@/shared/util";
 import Link from "next/link";
 import { z } from "zod";
 import styles from "./header.module.css";
 
 async function getHeaderData() {
-	const headerRes = await fetch(`http://localhost:1337/api/header?populate=*`, {
+	const headerRes = await fetch(`${apiURL}/api/header?populate=*`, {
 		headers: {
 			authorization: "Bearer " + process.env.STRAPI_KEY,
 		},
@@ -24,7 +24,7 @@ async function getHeaderData() {
 		),
 	});
 
-	const membersRes = await fetch(`http://localhost:1337/api/member-teams`, {
+	const membersRes = await fetch(`${apiURL}/api/member-teams`, {
 		headers: {
 			authorization: "Bearer " + process.env.STRAPI_KEY,
 		},

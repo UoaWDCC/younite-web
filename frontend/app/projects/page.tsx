@@ -2,22 +2,19 @@ export const dynamic = "force-dynamic";
 
 import styles from "@/app/page.module.css";
 import Header from "@/components/header/header";
-import { getLargestImage } from "@/shared/util";
+import { apiURL, getLargestImage } from "@/shared/util";
 import Link from "next/link";
 import { z } from "zod";
 import { projectSchema } from "./schemas";
 
 async function getData() {
 	// all project pages
-	const res1 = await fetch(
-		`http://localhost:1337/api/project-pages?populate=*`,
-		{
-			headers: {
-				authorization: "Bearer " + process.env.STRAPI_KEY,
-			},
-			cache: "no-cache",
-		}
-	);
+	const res1 = await fetch(`${apiURL}/api/project-pages?populate=*`, {
+		headers: {
+			authorization: "Bearer " + process.env.STRAPI_KEY,
+		},
+		cache: "no-cache",
+	});
 
 	const json1 = await res1.json();
 	// each project comes with metadata so we need to take the attributes
@@ -26,15 +23,12 @@ async function getData() {
 	const schema = z.array(projectSchema);
 
 	// data for the projects page itself
-	const res2 = await fetch(
-		`http://localhost:1337/api/projects-page?populate=*`,
-		{
-			headers: {
-				authorization: "Bearer " + process.env.STRAPI_KEY,
-			},
-			cache: "no-cache",
-		}
-	);
+	const res2 = await fetch(`${apiURL}/api/projects-page?populate=*`, {
+		headers: {
+			authorization: "Bearer " + process.env.STRAPI_KEY,
+		},
+		cache: "no-cache",
+	});
 
 	const json2 = await res2.json();
 	const data2 = json2.data.attributes;

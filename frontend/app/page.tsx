@@ -5,13 +5,14 @@ import HomePageBlob from "@/components/HomePageBlob/HomePageBlob";
 import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
+import { apiURL } from "@/shared/util";
 import { z } from "zod";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
 
 async function getData() {
 	const res = await fetch(
-		`http://localhost:1337/api/home-page?populate[textWithImage][populate]=*`,
+		`${apiURL}/api/home-page?populate[textWithImage][populate]=*`,
 		{
 			headers: {
 				authorization: "Bearer " + process.env.STRAPI_KEY,
@@ -21,6 +22,7 @@ async function getData() {
 	);
 
 	const json = await res.json();
+	console.log(json);
 	const attributes = json.data.attributes;
 
 	const schema = z.object({

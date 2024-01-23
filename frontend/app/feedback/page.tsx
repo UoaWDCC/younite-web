@@ -1,10 +1,11 @@
 import FeedbackForm from "@/components/feedback/FeedbackForm";
 import Header from "@/components/header/header";
+import { apiURL } from "@/shared/util";
 import { IoChevronDown } from "react-icons/io5";
 import { z } from "zod";
 
 async function getData() {
-	const res = await fetch(`http://localhost:1337/api/faq-page?populate=*`, {
+	const res = await fetch(`${apiURL}/api/faq-page?populate=*`, {
 		headers: {
 			authorization: "Bearer " + process.env.STRAPI_KEY,
 		},
