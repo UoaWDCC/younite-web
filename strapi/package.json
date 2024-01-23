@@ -3,6 +3,7 @@
     "name": "A Strapi developer"
   },
   "dependencies": {
+    "@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.10.5",
     "@strapi/plugin-color-picker": "^4.10.5",
     "@strapi/plugin-i18n": "4.8.2",
     "@strapi/plugin-users-permissions": "4.8.2",
@@ -27,5 +28,8 @@
   "strapi": {
     "uuid": "fc5134ab-3925-4c0a-b4be-f0eb6b401458"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.0"
+  }
 }
