@@ -10,6 +10,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.10.5",
 		"concurrently": "^8.2.0"
 	}
 }
