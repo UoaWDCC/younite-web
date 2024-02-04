@@ -9,10 +9,12 @@ jobs:
   deploy-strapi:
     name: Deploy Strapi Staging
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only --config strapi/fly.staging.toml --dockerfile strapi/Dockerfile.staging
+      - run: cd /strapi
+      - run: flyctl deploy --remote-only --config fly.staging.toml --dockerfile Dockerfile.staging
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STRAPI_STAGING }}
   deploy-frontend:
@@ -21,7 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only --config frontend/fly.staging.toml --dockerfile frontend/Dockerfile.staging
+      - run: cd /frontend
+      - run: flyctl deploy --remote-only --config fly.staging.toml --dockerfile Dockerfile.staging
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_FRONTEND_STAGING }}
   deploy-storage:
@@ -30,6 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only --config storage/fly.staging.toml --dockerfile storage/Dockerfile.staging
+      - run: cd /storage
+      - run: flyctl deploy --remote-only --config fly.staging.toml --dockerfile Dockerfile.staging
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STORAGE_STAGING }}
