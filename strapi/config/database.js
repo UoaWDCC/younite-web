@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = ({ env }) => {
   const client =
     process.env.NODE_ENV === "production"
-      ? env("DATABASE_CLIENT", "sqlite")
+      ? env("DATABASE_CLIENT", "postgres")
       : "sqlite";
 
   const connections = {

@@ -156,3 +156,5 @@
 /strapi/dist
 /strapi/build
 /strapi/.strapi-updater.json
+
+/strapi/env_vars.*.yaml

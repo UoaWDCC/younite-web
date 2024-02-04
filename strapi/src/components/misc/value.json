@@ -12,7 +12,8 @@
       "unique": false
     },
     "ValueDescription": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Image": {
       "type": "media",
@@ -27,12 +28,12 @@
       "required": true
     },
     "ExpandedImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

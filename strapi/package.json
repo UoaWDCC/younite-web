@@ -3,12 +3,19 @@
     "name": "A Strapi developer"
   },
   "dependencies": {
+    "@krowten/strapi-provider-upload-s3": "^1.0.5",
     "@strapi/plugin-color-picker": "^4.10.5",
     "@strapi/plugin-i18n": "4.8.2",
     "@strapi/plugin-users-permissions": "4.8.2",
+    "@strapi/provider-upload-aws-s3": "^4.19.1",
     "@strapi/strapi": "4.8.2",
     "better-sqlite3": "8.0.1",
-    "pg": "^8.10.0"
+    "minio-for-strapi-v4": "^1.0.7",
+    "pg": "^8.10.0",
+    "pg-connection-string": "^2.6.2",
+    "strapi-provider-upload-minio-ce": "^1.2.0",
+    "strapi-provider-upload-tp-minio": "^3.0.0",
+    "strapi-provider-upload-ts-minio": "^3.1.0"
   },
   "description": "The strapi CMS for Younite",
   "engines": {
@@ -27,5 +34,8 @@
   "strapi": {
     "uuid": "fc5134ab-3925-4c0a-b4be-f0eb6b401458"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.0"
+  }
 }
