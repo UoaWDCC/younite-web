@@ -1,19 +1,5 @@
 module.exports = [
   "strapi::errors",
-  {
-    name: "strapi::security",
-    config: {
-      contentSecurityPolicy: {
-        useDefaults: true,
-        directives: {
-          "connect-src": ["'self'", "https:"],
-          "img-src": ["'self'", "data:", "blob:", "storage.googleapis.com"],
-          "media-src": ["'self'", "data:", "blob:", "storage.googleapis.com"],
-          upgradeInsecureRequests: null,
-        },
-      },
-    },
-  },
   "strapi::cors",
   "strapi::poweredBy",
   "strapi::logger",
@@ -21,4 +7,18 @@ module.exports = [
   "strapi::body",
   "strapi::favicon",
   "strapi::public",
+  {
+    name: "strapi::security",
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "connect-src": ["'self'", "https:"],
+          "img-src": ["'self'", "data:", "blob:", "younite-storage.fly.dev"],
+          "media-src": ["'self'", "data:", "blob:", "younite-storage.fly.dev"],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
 ];

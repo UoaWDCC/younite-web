@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = ({ env }) => {
   const client =
     process.env.NODE_ENV === "production"
-      ? env("DATABASE_CLIENT", "sqlite")
+      ? env("DATABASE_CLIENT", "postgres")
       : "sqlite";
 
   const connections = {
@@ -16,7 +16,7 @@ module.exports = ({ env }) => {
     postgres: {
       connection: {
         connectionString: env("DATABASE_URL"),
-        host: env("DATABASE_HOST", "127.0.0.1"),
+        host: env("DATABASE_HOST", "localhost"),
         port: env.int("DATABASE_PORT", 5432),
         database: env("DATABASE_NAME", "strapi"),
         user: env("DATABASE_USERNAME", "strapi"),
