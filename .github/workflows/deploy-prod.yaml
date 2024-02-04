@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only --config strapi/fly.production.toml
+      - run: flyctl deploy --remote-only --config strapi/fly.production.toml --dockerfile strapi/Dockerfile.production
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STRAPI }}
   deploy-frontend:
@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only --config frontend/fly.production.toml
+      - run: flyctl deploy --remote-only --config frontend/fly.production.toml --dockerfile frontend/Dockerfile.production
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_FRONTEND }}
   deploy-storage:
@@ -30,6 +30,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only --config storage/fly.production.toml
+      - run: flyctl deploy --remote-only --config storage/fly.production.toml --dockerfile storage/Dockerfile.production
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STORAGE }}
