@@ -6,6 +6,15 @@
 app = "younite"
 primary_region = "syd"
 
+[env]
+  STRAPI_URL="https://edit.younite.wdcc.co.nz"
+
+[[vm]]
+  memory = "1gb"
+  vm = "performance-1x"
+
+
+
 [http_service]
   internal_port = 3000
   force_https = true

@@ -1,10 +1,4 @@
-// export const apiURL =
-//   process.env.NODE_ENV === 'production'
-//     ? 'https://edit.younite.wdcc.co.nz'
-//     : 'http://localhost:1337';
-export const apiURL = 'https://edit.younite.wdcc.co.nz';
-
-console.log('apiURL', apiURL);
+export const apiURL = process.env.STRAPI_URL;
 
 export const getLargestImage = (img: any) => {
   try {

@@ -4,7 +4,6 @@
 #
 app = "younite-storage"
 primary_region = "syd"
-  
 
 [mounts]
   source="miniodata"
@@ -14,4 +13,4 @@ primary_region = "syd"
   internal_port = 9000
   auto_start_machines=true
   auto_stop_machines=true
-  min_machines_running = 0 
+  min_machines_running = 0
