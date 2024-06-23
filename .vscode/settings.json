@@ -2,6 +2,18 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "package.json": ".*, *.json, *.toml, Dockerfile*, next-env.d.ts, *.config.js"
-  }
+    // Nest all the config files under each package.json
+    "package.json": "*"
+  },
+  "files.exclude": {
+    // Generated files which we don't need to see in the explorer
+    // Comment out temporarily if you need to see them
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.cache": true,
+    "**/.tmp": true,
+    "**/build": true
+  },
+  "typescript.tsdk": "frontend\\node_modules\\.pnpm\\typescript@5.0.2\\node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
