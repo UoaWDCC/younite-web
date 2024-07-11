@@ -12,7 +12,6 @@
     "**/.next": true,
     "**/.cache": true,
     "**/.tmp": true,
-    "**/build": true,
-    "**/.github": true,
+    "**/build": true
   }
 }
