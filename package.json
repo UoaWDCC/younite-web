@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"i:all": "npm i && cd ./frontend && npm i && cd ../strapi && npm i",
+		"setup": "npm i && cd ./frontend && npm i && cd ../strapi && npm i",
 		"dev": "concurrently \"cd ./frontend && npm run dev\" \"cd ./strapi && npm run dev\""
 	},
 	"keywords": [],
@@ -15,5 +15,8 @@
 	},
 	"devDependencies": {
 		"concurrently": "^8.2.2"
+	},
+	"volta": {
+		"node": "18.17.0"
 	}
 }

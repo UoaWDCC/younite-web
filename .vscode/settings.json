@@ -12,8 +12,7 @@
     "**/.next": true,
     "**/.cache": true,
     "**/.tmp": true,
-    "**/build": true
-  },
-  "typescript.tsdk": "frontend\\node_modules\\.pnpm\\typescript@5.0.2\\node_modules\\typescript\\lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+    "**/build": true,
+    "**/.github": true,
+  }
 }
