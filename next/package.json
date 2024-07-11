@@ -1,6 +1,7 @@
 {
-  "name": "younite-frontend",
-  "version": "0.1.0",
+  "name": "younite-next",
+  "version": "1.0.0",
+  "description": "The Next.JS frontend for Younite",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
