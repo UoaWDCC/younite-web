@@ -2,6 +2,7 @@ import { apiURL, getLargestImage } from "@/shared/util";
 import Link from "next/link";
 import { z } from "zod";
 import styles from "./header.module.css";
+import Image from "next/image";
 
 async function getHeaderData() {
 	const headerRes = await fetch(`${apiURL}/api/header?populate=*`, {
@@ -54,31 +55,28 @@ export default async function Header() {
 	return (
 		<header className={styles.header}>
 			<Link href="/">
-				<img src={logoSrc} alt="Younite Logo" className="h-32" />
+				<Image src={logoSrc} alt="Younite Logo" className="h-32" />
 			</Link>
 			<nav className={styles.nav}>
-				<Link
+				<div
 					className="group relative"
-					href={`/members/${data.members[0].CommitteeYear}`}
-					prefetch
 				>
-					<span>MEMBERS</span>
+					<Link href={`/members/${data.members[0].CommitteeYear}`}>MEMBERS</Link>
 					<div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue">
 						{/* @ts-ignore */}
 						{data.members.map(({ CommitteeYear }) => (
 							<Link
 								href={`/members/${CommitteeYear}`}
 								key={CommitteeYear}
-								prefetch
 							>
 								{CommitteeYear}
 							</Link>
 						))}
 					</div>
-				</Link>
+				</div>
 
 				{links.map((link) => (
-					<Link href={link.slug} key={link.title} prefetch>
+					<Link href={link.slug} key={link.title}>
 						{link.title.toLocaleUpperCase()}
 					</Link>
 				))}
