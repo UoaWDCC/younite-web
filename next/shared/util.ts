@@ -7,7 +7,7 @@ export const getLargestImage = (img: any) => {
     const largestFormat =
       formats.large || formats.medium || formats.small || formats.thumbnail;
 
-    return largestFormat.url;
+    return `${apiURL}${largestFormat.url}`;
   } catch {
     return '';
   }
