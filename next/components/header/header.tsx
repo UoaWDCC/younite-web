@@ -55,7 +55,7 @@ export default async function Header() {
   return (
     <header className={styles.header}>
       <Link href="/">
-        <Image src={logoSrc} alt="Younite Logo" className="h-32 w-auto" width={128} height={128} />
+        <Image src={logoSrc} alt="Younite Logo" className="h-32 w-auto" height={128} width={256} />
       </Link>
       <nav className={styles.nav}>
         <div className="group relative">
