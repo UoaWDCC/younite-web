@@ -48,6 +48,7 @@ async function fetchJson<T>(url: string) {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_KEY}`,
     },
+    cache: "no-cache", // For development only
   });
 
   // Get JSON data from response and check for errors
