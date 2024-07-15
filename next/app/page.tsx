@@ -4,14 +4,14 @@ import HomePageBlob from "@/components/HomePageBlob/HomePageBlob";
 import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
+import { homePageSchema } from "@/schemas/single/HomePage";
 import fetchStrapi from "@/shared/strapi";
-import { HomePage, homePageSchema } from "@/types/pages/HomePage";
 import Image from "next/image";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
 
 export default async function Home() {
-  const data = await fetchStrapi<HomePage>("home-page", homePageSchema);
+  const data = await fetchStrapi("home-page", homePageSchema);
 
   return (
     <main className={`${styles.main} bg-gradient-1 isolate`}>

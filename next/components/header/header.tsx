@@ -1,61 +1,39 @@
-import { apiURL, getLargestImage } from "@/shared/util";
+import { headerSchema } from "@/schemas/single/Header";
+import fetchStrapi from "@/shared/strapi";
+import { getLargestImage } from "@/shared/util";
 import Image from "next/image";
 import Link from "next/link";
 import { z } from "zod";
 import styles from "./header.module.css";
 
 async function getHeaderData() {
-  const headerRes = await fetch(`${apiURL}/api/header?populate=*`, {
-    headers: {
-      authorization: "Bearer " + process.env.STRAPI_KEY,
-    },
-    cache: "no-cache",
-  });
-
-  const json = await headerRes.json();
-  const attributes = json.data.attributes;
-
-  const schema = z.object({
-    Logo: z.any(),
-    navigation: z.array(
-      z.object({
-        slug: z.string(),
-        title: z.string(),
-      })
-    ),
-  });
-
-  const membersRes = await fetch(`${apiURL}/api/member-teams`, {
-    headers: {
-      authorization: "Bearer " + process.env.STRAPI_KEY,
-    },
-    cache: "no-cache",
-  });
-
-  const json2 = await membersRes.json();
-  const data = json2.data
-    .map((p: any) => p.attributes)
-    .sort((a: any, b: any) => a.CommitteeYear - b.CommitteeYear);
-
-  const resData = schema.parse(attributes);
+  const resData = await fetchStrapi("header", headerSchema);
+  const membersData = await fetchStrapi("member-teams", z.any());
+  const members = membersData.sort(
+    (a: any, b: any) => a.CommitteeYear - b.CommitteeYear
+  );
 
   return {
     ...resData,
-    members: data,
+    members,
   };
 }
 
 export default async function Header() {
   const data = await getHeaderData();
-
   const logoSrc = getLargestImage(data.Logo);
-
   const links = data.navigation;
 
   return (
     <header className={styles.header}>
       <Link href="/">
-        <Image src={logoSrc} alt="Younite Logo" className="h-32 w-auto" height={128} width={256} />
+        <Image
+          src={logoSrc}
+          alt="Younite Logo"
+          className="h-32 w-auto"
+          height={128}
+          width={256}
+        />
       </Link>
       <nav className={styles.nav}>
         <div className="group relative">

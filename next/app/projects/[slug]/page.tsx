@@ -1,36 +1,25 @@
 import styles from "@/app/page.module.css";
 import ContentBlock from "@/components/ContentBlock";
 import Header from "@/components/header/header";
-import { apiURL } from "@/shared/util";
-import { projectSchema } from "../schemas";
+import { projectSchema } from "@/schemas/collection/Project";
+import fetchStrapi from "@/shared/strapi";
+import { notFound } from "next/navigation";
+import { z } from "zod";
 
-async function getData(slug: string) {
-	const res = await fetch(
-		`${apiURL}/api/project-pages?filters[slug][$eq]=${slug}&populate[blocks][populate]=*`,
-		{
-			headers: {
-				authorization: "Bearer " + process.env.STRAPI_KEY,
-			},
-			cache: "no-cache",
-		}
-	);
+export default async function ProjectPage({ params }: { params: { slug: string } }) {
+  const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
+    "filters[slug][$eq]": params.slug,
+  });
 
-	const json = await res.json();
-	const attributes = json.data[0].attributes;
+  const project = projects[0];
+  if (!project) notFound();
 
-	return projectSchema.parse(attributes);
-}
-
-export default async function Home({ params }: { params: { slug: string } }) {
-	const data = await getData(params.slug);
-
-	return (
-		<main className={styles.main}>
-			{/* @ts-ignore */}
-			<Header />
-			<div>
-				{data.blocks.map((block: any) => ContentBlock({ props: block }))}
-			</div>
-		</main>
-	);
+  return (
+    <main className={styles.main}>
+      <Header />
+      <div>
+        {project.blocks.map((block: any) => ContentBlock({ props: block }))}
+      </div>
+    </main>
+  );
 }
