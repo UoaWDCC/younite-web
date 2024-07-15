@@ -11,7 +11,7 @@ import { z } from "zod";
 import Chairman from "../../../components/members/Chairman";
 import Teams from "../../../components/members/Teams";
 
-export default async function Home({ params }: { params: { year: string } }) {
+export default async function MemberPage({ params }: { params: { year: string } }) {
 	const teams = await fetchStrapi("member-teams", z.array(teamSchema), {
 		"filters[CommitteeYear][$eq]": params.year,
 	});

@@ -15,7 +15,7 @@
 	align-items: center;
 	background-color: #fab34a;
 	background-image: linear-gradient(to bottom, #ffc062f5, #ffc062f5),
-		url(../../assets/Background_Dots.png);
+		url(@/assets/home/Background_Dots.png);
 }
 
 .backgroundCol {

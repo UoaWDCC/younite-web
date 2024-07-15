@@ -1,4 +1,4 @@
-import connector from "@/assets/connector.svg";
+import connector from "@/assets/home/connector.svg";
 import React from "react";
 import RichText from "../blocks/RichText";
 import styles from "./HomePageBlob.module.css";

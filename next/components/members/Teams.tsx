@@ -1,6 +1,5 @@
 "use client";
-import { Member } from "@/schemas/collection/team/Member";
-import { RoleSection } from "@/schemas/collection/team/RoleSection";
+import { Member, RoleSection } from "@/schemas/collection/Team";
 import { getLargestImage } from "@/util/image";
 import { motion } from "framer-motion";
 import { useState } from "react";

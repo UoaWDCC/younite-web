@@ -1,6 +1,6 @@
-import flair from "@/assets/about-us/flair.png";
-import valueFlair1 from "@/assets/about-us/value1.png";
-import valueFlair2 from "@/assets/about-us/value2.png";
+import flair from "@/assets/about/flair.png";
+import valueFlair1 from "@/assets/about/value1.png";
+import valueFlair2 from "@/assets/about/value2.png";
 import Header from "@/components/header/header";
 import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import { getLargestImage } from "@/util/image";

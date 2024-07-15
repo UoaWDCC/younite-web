@@ -1,4 +1,4 @@
-import event1 from "@/assets/event1.png";
+import event1 from "@/assets/home/event1.png";
 import CarouselBase from "@/components/home/CarouselBase";
 import HomePageBlob from "@/components/home/HomePageBlob";
 import ImageWithText from "@/components/blocks/ImageWithText";
