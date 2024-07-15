@@ -1,5 +1,12 @@
+import { z } from "zod";
+
+// Complicated type to account for Strapi either being a single or collection type
+type SingleOrCollection<T> = T extends any[]
+  ? { attributes: T extends (infer U)[] ? U : never }[]
+  : { attributes: T };
+
 type StrapiJson<T> = {
-  data: { attributes: T } | { attributes: T }[]; // Could be a Strapi single or collection type
+  data: SingleOrCollection<T>;
   error?: {
     status: number;
     name: string;
@@ -10,13 +17,14 @@ type StrapiJson<T> = {
 /**
  * Fetches data from the Strapi API
  *
- * @param endpoint - The endpoint to fetch from
+ * @param content - The Strapi content type to fetch
  * @param query - The query parameters to add to the url
- * @returns The unwrapped data from the API
- * @throws Error if the API returns an error
+ * @returns The (unwrapped) data from the API
+ * @throws Error if the API returns an error or the data does not match the schema
  */
 export default async function fetchStrapi<T>(
   content: string,
+  schema: z.ZodType<T>,
   query: Record<string, string> = {}
 ): Promise<T> {
   // Generate the query URL
@@ -42,9 +50,10 @@ export default async function fetchStrapi<T>(
 
   // Unwrap the data
   const data = json.data;
-  if (Array.isArray(data)) {
-    return data.map((item: { attributes: T }) => item.attributes) as T;
-  } else {
-    return data.attributes as T;
-  }
+  const unwrappedData = Array.isArray(data)
+    ? data.map((item) => item.attributes)
+    : data.attributes;
+
+  // Validate the data
+  return schema.parse(unwrappedData);
 }

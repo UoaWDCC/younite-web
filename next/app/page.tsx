@@ -21,7 +21,9 @@ async function getData() {
     textWithImage: z.any(),
   });
 
-  const res = await fetchStrapi<z.infer<typeof schema>>("home-page");
+  type Data = z.infer<typeof schema>;
+
+  const res = await fetchStrapi<Data>("home-page", schema);
   return schema.parse(res);
 }
 
