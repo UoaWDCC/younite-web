@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import styles from "@/app/page.module.css";
 import Header from "@/components/header/header";
 import { apiURL, getLargestImage } from "@/shared/util";

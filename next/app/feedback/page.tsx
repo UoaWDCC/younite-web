@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import FeedbackForm from "@/components/feedback/FeedbackForm";
 import Header from "@/components/header/header";
 import { apiURL } from "@/shared/util";

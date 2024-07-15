@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import flair from "@/assets/about-us/flair.png";
 import valueFlair1 from "@/assets/about-us/value1.png";
 import valueFlair2 from "@/assets/about-us/value2.png";

@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import event1 from "@/assets/event1.png";
 import CarouselBase from "@/components/CarouselBase";
 import HomePageBlob from "@/components/HomePageBlob/HomePageBlob";
