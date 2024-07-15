@@ -35,7 +35,7 @@ export default async function fetchStrapi<T>(
 
 function getQueryUrl(content: string, query: Record<string, string>) {
   const url = new URL(`${process.env.STRAPI_URL}/api/${content}`);
-  url.searchParams.append("populate", "*"); // Populate all fields
+  url.searchParams.append("populate", "deep,10"); // Populate all fields
   Object.entries(query).forEach(([key, value]) => {
     url.searchParams.append(key, value);
   });
