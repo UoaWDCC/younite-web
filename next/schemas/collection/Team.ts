@@ -1,6 +1,23 @@
 import { z } from "zod";
-import { memberSchema } from "../components/Member";
-import { roleSectionSchema } from "../components/RoleSection";
+
+export const memberSchema = z.object({
+  Name: z.string(),
+  Role: z.string(),
+  About: z.string(),
+  funFact: z.nullable(z.string()),
+  Photo: z.any(),
+});
+
+export type Member = z.infer<typeof memberSchema>;
+
+export const roleSectionSchema = z.object({
+  SectionName: z.string(),
+  Description: z.string(),
+  Members: z.array(memberSchema),
+});
+
+export type RoleSection = z.infer<typeof roleSectionSchema>;
+
 
 export const teamSchema = z.object({
   description: z.string(),

@@ -1,8 +1,8 @@
 import Flair1 from "@/assets/members/flair1.png";
 import Flair2 from "@/assets/members/flair2.png";
+import { Member } from "@/schemas/collection/team/Member";
 import { getLargestImage } from "@/util/image";
 import Image from "next/image";
-import { Member } from "@/schemas/components/Member";
 
 const Chairman = ({ chairs }: { chairs: Member[] }) => {
   const chair1 = chairs[0];
