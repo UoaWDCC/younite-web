@@ -7,28 +7,13 @@ import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
 import fetchStrapi from "@/shared/strapi";
+import { HomePage, homePageSchema } from "@/types/pages/HomePage";
 import Image from "next/image";
-import { z } from "zod";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
 
-async function getData() {
-  const schema = z.object({
-    heroParagraph: z.string(),
-    blob1: z.string(),
-    blob2: z.string(),
-    blob3: z.string(),
-    textWithImage: z.any(),
-  });
-
-  type Data = z.infer<typeof schema>;
-
-  const res = await fetchStrapi<Data>("home-page", schema);
-  return schema.parse(res);
-}
-
 export default async function Home() {
-  const data = await getData();
+  const data = await fetchStrapi<HomePage>("home-page", homePageSchema);
 
   return (
     <main className={`${styles.main} bg-gradient-1 isolate`}>
