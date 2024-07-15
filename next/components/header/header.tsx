@@ -1,5 +1,5 @@
 import { headerSchema } from "@/schemas/single/Header";
-import { getLargestImage } from "@/util/image";
+import { getLargestImageUrl } from "@/util/image";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +21,7 @@ async function getHeaderData() {
 
 export default async function Header() {
   const data = await getHeaderData();
-  const logoSrc = getLargestImage(data.Logo);
+  const logoSrc = getLargestImageUrl(data.Logo);
   const links = data.navigation;
 
   return (

@@ -1,8 +1,8 @@
-import { getLargestImage } from "@/util/image";
+import { getLargestImageUrl } from "@/util/image";
 import styles from "./ImageWithText.module.css";
 
 export default function ImageWithText({ props }: { props: any }) {
-  const imageUrl = getLargestImage(props.image);
+  const imageUrl = getLargestImageUrl(props.image);
 
   return (
     <div className="grid grid-cols-2 max-h-[80vh]">

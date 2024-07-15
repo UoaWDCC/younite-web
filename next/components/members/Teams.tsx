@@ -1,6 +1,6 @@
 "use client";
 import { Member, RoleSection } from "@/schemas/collection/Team";
-import { getLargestImage } from "@/util/image";
+import { getLargestImageUrl } from "@/util/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
@@ -47,7 +47,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
               onClick={() => setSelected(i)}
             >
               <img
-                src={getLargestImage(member.Photo)}
+                src={getLargestImageUrl(member.Photo)}
                 alt={member.Name}
                 className="w-full"
               />
@@ -96,7 +96,7 @@ function MemberModal({
       >
         <img
           className="max-h-[80vh] w-full object-cover"
-          src={getLargestImage(activeMember.Photo)}
+          src={getLargestImageUrl(activeMember.Photo)}
           alt=""
         />
         <div className="px-8 py-12 w-[65%]">

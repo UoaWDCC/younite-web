@@ -3,7 +3,7 @@ import valueFlair1 from "@/assets/about/value1.png";
 import valueFlair2 from "@/assets/about/value2.png";
 import Header from "@/components/header/header";
 import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
-import { getLargestImage } from "@/util/image";
+import { getLargestImageUrl } from "@/util/image";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import styles from "./styles.module.css";
@@ -71,7 +71,7 @@ export default async function AboutPage() {
                   </time>
                   {isImage ? (
                     <img
-                      src={getLargestImage(e.Image)}
+                      src={getLargestImageUrl(e.Image)}
                       alt=""
                       className="w-full rounded-lg mb-4 shadow-xl"
                     />

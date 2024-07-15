@@ -1,7 +1,7 @@
 import Flair1 from "@/assets/members/flair1.png";
 import Flair2 from "@/assets/members/flair2.png";
 import { Member } from "@/schemas/collection/team/Member";
-import { getLargestImage } from "@/util/image";
+import { getLargestImageUrl } from "@/util/image";
 import Image from "next/image";
 
 const Chairman = ({ chairs }: { chairs: Member[] }) => {
@@ -35,7 +35,11 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
             src={Flair2}
             alt=""
           />
-          <img className="w-full" src={getLargestImage(chair1.Photo)} alt="" />
+          <img
+            className="w-full"
+            src={getLargestImageUrl(chair1.Photo)}
+            alt=""
+          />
           <div className="bg-white px-8 py-6">
             <h3 className="text-2xl font-bold drop-shadow-md">{chair1.Name}</h3>
             <p className="text-black font-bold mb-3">{chair1.Role}</p>
@@ -48,7 +52,11 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
             src={Flair1}
             alt=""
           />
-          <img className="w-full" src={getLargestImage(chair2.Photo)} alt="" />
+          <img
+            className="w-full"
+            src={getLargestImageUrl(chair2.Photo)}
+            alt=""
+          />
           <div className="bg-white px-8 py-6">
             <h3 className="text-2xl font-bold drop-shadow-md">{chair2.Name}</h3>
             <p className="text-black font-bold mb-3">{chair2.Role}</p>

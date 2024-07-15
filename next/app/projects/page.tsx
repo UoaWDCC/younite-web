@@ -2,7 +2,7 @@ import styles from "@/app/page.module.css";
 import Header from "@/components/header/header";
 import { projectSchema } from "@/schemas/collection/Project";
 import { projectsPageSchema } from "@/schemas/single/ProjectsPage";
-import { getLargestImage } from "@/util/image";
+import { getLargestImageUrl } from "@/util/image";
 import fetchStrapi from "@/util/strapi";
 import Link from "next/link";
 import { z } from "zod";
@@ -19,7 +19,7 @@ export default async function ProjectsPage() {
       </div>
       <section className="h-[85vh] flex flex-col items-center justify-center relative">
         <img
-          src={getLargestImage(projectsPage.BackgroundImage)}
+          src={getLargestImageUrl(projectsPage.BackgroundImage)}
           alt=""
           className="absolute inset-0 -z-10 object-cover w-full h-full brightness-50"
         />
@@ -35,7 +35,7 @@ export default async function ProjectsPage() {
             className="relative py-40 flex pl-16 pr-16 justify-between items-center"
           >
             <img
-              src={getLargestImage(p.image)}
+              src={getLargestImageUrl(p.image)}
               alt=""
               className="absolute inset-0 -z-10 w-full h-full object-cover brightness-50"
             />

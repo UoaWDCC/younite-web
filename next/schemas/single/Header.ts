@@ -10,4 +10,4 @@ export const headerSchema = z.object({
   ),
 });
 
-export type Header = z.infer<typeof headerSchema>;
+export type HeaderType = z.infer<typeof headerSchema>;
