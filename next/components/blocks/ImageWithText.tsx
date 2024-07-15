@@ -1,4 +1,4 @@
-import { getLargestImage } from "@/shared/util";
+import { getLargestImage } from "@/util/image";
 import styles from "./ImageWithText.module.css";
 
 export default function ImageWithText({ props }: { props: any }) {

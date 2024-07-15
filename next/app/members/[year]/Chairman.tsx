@@ -1,6 +1,6 @@
 import Flair1 from "@/assets/members/flair1.png";
 import Flair2 from "@/assets/members/flair2.png";
-import { getLargestImage } from "@/shared/util";
+import { getLargestImage } from "@/util/image";
 import Image from "next/image";
 import { Member } from "./page";
 

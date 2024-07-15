@@ -2,7 +2,7 @@ import flair from "@/assets/about-us/flair.png";
 import valueFlair1 from "@/assets/about-us/value1.png";
 import valueFlair2 from "@/assets/about-us/value2.png";
 import Header from "@/components/header/header";
-import { apiURL, getLargestImage } from "@/shared/util";
+import { apiURL, getLargestImage } from "@/util/image";
 import Image from "next/image";
 import { z } from "zod";
 import styles from "./styles.module.css";

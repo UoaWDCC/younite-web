@@ -1,8 +1,7 @@
 "use client";
-import { Team } from "@/schemas/collection/Team";
 import { Member } from "@/schemas/components/Member";
 import { RoleSection } from "@/schemas/components/RoleSection";
-import { getLargestImage } from "@/shared/util";
+import { getLargestImage } from "@/util/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";

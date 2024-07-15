@@ -2,7 +2,7 @@ import styles from "@/app/page.module.css";
 import ContentBlock from "@/components/ContentBlock";
 import Header from "@/components/header/header";
 import { projectSchema } from "@/schemas/collection/Project";
-import fetchStrapi from "@/shared/strapi";
+import fetchStrapi from "@/util/strapi";
 import { notFound } from "next/navigation";
 import { z } from "zod";
 

@@ -5,7 +5,7 @@ import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
 import { homePageSchema } from "@/schemas/single/HomePage";
-import fetchStrapi from "@/shared/strapi";
+import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import Header from "../components/header/header";
 import styles from "./page.module.css";

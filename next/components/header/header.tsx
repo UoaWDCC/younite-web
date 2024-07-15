@@ -1,6 +1,6 @@
 import { headerSchema } from "@/schemas/single/Header";
-import fetchStrapi from "@/shared/strapi";
-import { getLargestImage } from "@/shared/util";
+import { getLargestImage } from "@/util/image";
+import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import Link from "next/link";
 import { z } from "zod";

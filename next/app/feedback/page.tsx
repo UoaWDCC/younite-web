@@ -1,7 +1,7 @@
 import FeedbackForm from "@/components/feedback/FeedbackForm";
 import Header from "@/components/header/header";
 import { feedbackPageSchema } from "@/schemas/single/FeedbackPage";
-import fetchStrapi from "@/shared/strapi";
+import fetchStrapi from "@/util/strapi";
 import { IoChevronDown } from "react-icons/io5";
 
 export default async function Feedback() {
