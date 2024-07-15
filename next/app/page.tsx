@@ -6,26 +6,13 @@ import HomePageBlob from "@/components/HomePageBlob/HomePageBlob";
 import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import BGWaves from "@/components/svg/BGWaves";
-import { apiURL } from "@/shared/util";
+import fetchStrapi from "@/shared/strapi";
 import Image from "next/image";
 import { z } from "zod";
 import Header from "../components/header/header";
 import styles from "./page.module.css";
 
 async function getData() {
-  const res = await fetch(
-    `${apiURL}/api/home-page?populate[textWithImage][populate]=*`,
-    {
-      headers: {
-        authorization: "Bearer " + process.env.STRAPI_KEY,
-      },
-      cache: "no-cache",
-    }
-  );
-
-  const json = await res.json();
-  const attributes = json.data.attributes;
-
   const schema = z.object({
     heroParagraph: z.string(),
     blob1: z.string(),
@@ -34,7 +21,8 @@ async function getData() {
     textWithImage: z.any(),
   });
 
-  return schema.parse(attributes);
+  const res = await fetchStrapi<z.infer<typeof schema>>("home-page");
+  return schema.parse(res);
 }
 
 export default async function Home() {
