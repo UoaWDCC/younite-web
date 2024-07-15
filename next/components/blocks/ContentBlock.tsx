@@ -1,6 +1,6 @@
-import CenteredTextBlock from "./blocks/CenteredText";
-import ImageWithText from "./blocks/ImageWithText";
-import RichText from "./blocks/RichText";
+import CenteredTextBlock from "./CenteredText";
+import ImageWithText from "./ImageWithText";
+import RichText from "./RichText";
 
 export default function ContentBlock({ props }: { props: any }) {
 	switch (props.__component) {

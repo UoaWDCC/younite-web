@@ -8,8 +8,8 @@ import { getLargestImage } from "@/util/image";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import { z } from "zod";
-import Chairman from "./Chairman";
-import Teams from "./Teams";
+import Chairman from "../../../components/members/Chairman";
+import Teams from "../../../components/members/Teams";
 
 export default async function Home({ params }: { params: { year: string } }) {
 	const teams = await fetchStrapi("member-teams", z.array(teamSchema), {

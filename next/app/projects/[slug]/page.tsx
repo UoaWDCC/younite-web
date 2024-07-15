@@ -1,5 +1,5 @@
 import styles from "@/app/page.module.css";
-import ContentBlock from "@/components/ContentBlock";
+import ContentBlock from "@/components/blocks/ContentBlock";
 import Header from "@/components/header/header";
 import { projectSchema } from "@/schemas/collection/Project";
 import fetchStrapi from "@/util/strapi";
