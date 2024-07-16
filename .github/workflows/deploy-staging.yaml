@@ -19,15 +19,15 @@ jobs:
         run: flyctl deploy --remote-only --config fly.staging.toml --dockerfile Dockerfile.staging
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STRAPI_STAGING }}
-  deploy-frontend:
-    name: Deploy Frontend Staging
+  deploy-next:
+    name: Deploy Next Staging
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: cd frontend
       - name: Fly Deploy
-        working-directory: ./frontend
+        working-directory: ./next
         run: flyctl deploy --remote-only --config fly.staging.toml --dockerfile Dockerfile.staging
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_FRONTEND_STAGING }}

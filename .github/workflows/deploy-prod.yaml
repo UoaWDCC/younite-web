@@ -17,14 +17,14 @@ jobs:
         run: flyctl deploy --remote-only --config fly.production.toml --dockerfile Dockerfile.production
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STRAPI }}
-  deploy-frontend:
-    name: Deploy Frontend Prod
+  deploy-next:
+    name: Deploy Next Prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Fly Deploy
-        working-directory: ./frontend
+        working-directory: ./next
         run: flyctl deploy --remote-only --config fly.production.toml --dockerfile Dockerfile.production
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_FRONTEND }}
