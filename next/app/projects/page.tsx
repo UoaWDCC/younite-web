@@ -4,6 +4,7 @@ import { projectSchema } from "@/schemas/collection/Project";
 import { projectsPageSchema } from "@/schemas/single/ProjectsPage";
 import { getLargestImageUrl } from "@/util/image";
 import fetchStrapi from "@/util/strapi";
+import Image from "next/image";
 import Link from "next/link";
 import { z } from "zod";
 
@@ -18,10 +19,12 @@ export default async function ProjectsPage() {
         <Header />
       </div>
       <section className="h-[85vh] flex flex-col items-center justify-center relative">
-        <img
+        <Image
           src={getLargestImageUrl(projectsPage.BackgroundImage)}
           alt=""
           className="absolute inset-0 -z-10 object-cover w-full h-full brightness-50"
+          width={1920}
+          height={1080}
         />
         <h1 className="uppercase flex flex-col items-center mx-auto mb-6 text-8xl font-bold leading-[0.95]">
           Projects
@@ -34,10 +37,12 @@ export default async function ProjectsPage() {
             key={p.slug}
             className="relative py-40 flex pl-16 pr-16 justify-between items-center"
           >
-            <img
+            <Image
               src={getLargestImageUrl(p.image)}
               alt=""
               className="absolute inset-0 -z-10 w-full h-full object-cover brightness-50"
+              width={1920}
+              height={1080}
             />
             <div className="absolute left-8 top-0 h-full w-[1px] bg-white" />
 

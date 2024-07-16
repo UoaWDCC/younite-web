@@ -1,13 +1,23 @@
+import { ImageType } from "@/schemas/Image";
 import { getLargestImageUrl } from "@/util/image";
+import Image from "next/image";
 import styles from "./ImageWithText.module.css";
 
-export default function ImageWithText({ props }: { props: any }) {
+type ImageWithTextProps = {
+  props: {
+    image: ImageType;
+    Heading: string;
+    content: string;
+  };
+};
+
+export default function ImageWithText({ props }: ImageWithTextProps) {
   const imageUrl = getLargestImageUrl(props.image);
 
   return (
     <div className="grid grid-cols-2 max-h-[80vh]">
       <div className="flex">
-        <img className={styles.backgroundImg} src={imageUrl} />
+        <Image className={styles.backgroundImg} src={imageUrl} alt={props.Heading} width={500} height={500} />
       </div>
       <div className={styles.backgroundDots}>
         <div className={styles.backgroundCol}>

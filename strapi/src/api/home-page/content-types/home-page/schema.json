@@ -1,32 +1,38 @@
 {
-  "attributes": {
-    "heroParagraph": {
-      "type": "text"
-    },
-    "blob1": {
-      "type": "richtext"
-    },
-    "blob2": {
-      "type": "richtext"
-    },
-    "blob3": {
-      "type": "richtext"
-    },
-    "textWithImage": {
-      "component": "content-block.content-block",
-      "repeatable": false,
-      "type": "component"
-    }
-  },
+  "kind": "singleType",
   "collectionName": "home_pages",
   "info": {
     "displayName": "Home Page",
     "pluralName": "home-pages",
-    "singularName": "home-page"
+    "singularName": "home-page",
+    "description": ""
   },
-  "kind": "singleType",
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {}
+  "pluginOptions": {},
+  "attributes": {
+    "heroParagraph": {
+      "type": "text",
+      "required": true
+    },
+    "blob1": {
+      "type": "richtext",
+      "required": true
+    },
+    "blob2": {
+      "type": "richtext",
+      "required": true
+    },
+    "blob3": {
+      "type": "richtext",
+      "required": true
+    },
+    "textWithImage": {
+      "component": "content-block.content-block",
+      "repeatable": false,
+      "type": "component",
+      "required": true
+    }
+  }
 }

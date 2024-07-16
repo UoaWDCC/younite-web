@@ -15,13 +15,15 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title",
+      "required": true
     },
     "title": {
       "required": true,

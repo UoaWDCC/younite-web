@@ -3,7 +3,6 @@ import valueFlair1 from "@/assets/about/value1.png";
 import valueFlair2 from "@/assets/about/value2.png";
 import Header from "@/components/header/header";
 import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
-import { getLargestImageUrl } from "@/util/image";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import styles from "./styles.module.css";
@@ -70,10 +69,12 @@ export default async function AboutPage() {
                     {e.Date.toLocaleDateString()}
                   </time>
                   {isImage ? (
-                    <img
-                      src={getLargestImageUrl(e.Image)}
+                    <Image
+                      src={e.Image}
                       alt=""
                       className="w-full rounded-lg mb-4 shadow-xl"
+                      width={200}
+                      height={200}
                     />
                   ) : (
                     <div>

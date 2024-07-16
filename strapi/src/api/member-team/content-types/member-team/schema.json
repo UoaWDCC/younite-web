@@ -39,7 +39,8 @@
         "misc.members-role-section"
       ],
       "required": true,
-      "type": "dynamiczone"
+      "type": "dynamiczone",
+      "min": 1
     },
     "description": {
       "type": "richtext",

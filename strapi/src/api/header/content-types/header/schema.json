@@ -15,7 +15,7 @@
     "Logo": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -26,7 +26,9 @@
     "navigation": {
       "type": "component",
       "repeatable": true,
-      "component": "misc.links"
+      "component": "misc.links",
+      "required": true,
+      "min": 1
     }
   }
 }
