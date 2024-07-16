@@ -2,15 +2,18 @@
 	"name": "younite-web",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+  "private": true,
 	"scripts": {
-		"dev": "concurrently \"(cd ./frontend && npm run dev)\" \"(cd ./strapi && npm run dev)\""
+		"setup": "npm i && cd ./next && npm i && cd ../strapi && npm i",
+		"dev": "concurrently \"cd ./next && npm run dev\" \"cd ./strapi && npm run dev\""
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
 	"dependencies": {
-		"@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.10.5",
-		"concurrently": "^8.2.0"
+		"@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.10.5"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.2"
+	},
+	"volta": {
+		"node": "18.17.0"
 	}
 }

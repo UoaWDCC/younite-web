@@ -3,40 +3,40 @@
 /node_modules
 
 # dependencies
-/frontend/node_modules
-/frontend/.pnp
-/frontend/.pnp.js
+/next/node_modules
+/next/.pnp
+/next/.pnp.js
 
 # testing
-/frontend/coverage
+/next/coverage
 
 # next.js
-/frontend/.next/
-/frontend/out/
+/next/.next/
+/next/out/
 
 # production
-/frontend/build
+/next/build
 
 # misc
-/frontend/.DS_Store
-/frontend/*.pem
+/next/.DS_Store
+/next/*.pem
 
 # debug
-/frontend/npm-debug.log*
-/frontend/yarn-debug.log*
-/frontend/yarn-error.log*
-/frontend/.pnpm-debug.log*
+/next/npm-debug.log*
+/next/yarn-debug.log*
+/next/yarn-error.log*
+/next/.pnpm-debug.log*
 
 # local env files
-/frontend/.env*.local
-/frontend/.env
+/next/.env*.local
+/next/.env
 
 # vercel
-/frontend/.vercel
+/next/.vercel
 
 # typescript
-/frontend/*.tsbuildinfo
-/frontend/next-env.d.ts
+/next/*.tsbuildinfo
+/next/next-env.d.ts
 
 
 ############################
