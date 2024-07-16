@@ -37,7 +37,11 @@ export default async function Header() {
       </Link>
       <nav className={styles.nav}>
         <div className="group relative">
-          <Link href={`/members/${data.members[0].CommitteeYear}`}>
+          <Link
+            href={
+              data.members[0] ? `/members/${data.members[0].CommitteeYear}` : "/"
+            }
+          >
             MEMBERS
           </Link>
           <div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue">
