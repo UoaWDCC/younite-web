@@ -1,4 +1,4 @@
-import ChloeComponent from "../../../../components/dev/ChloeComponent";
+import ChloeComponent from "@/components/dev/ChloeComponent";
 
 export default function Chloe() { 
     return ( 
