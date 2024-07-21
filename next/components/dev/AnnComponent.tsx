@@ -1,3 +1,3 @@
 export default function AnnComponent() {
-  return <div>Hellohello</div>;
+  return <div style={{ color: "green" }}>Hellohello</div>;
 }
