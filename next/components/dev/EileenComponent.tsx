@@ -1,3 +1,9 @@
+"use client";
+
+import { useState } from "react";
+
 export default function EileenComponent() {
-    return <div>Eileen</div>;
-  }
+  const [state, setState] = useState(null);
+  
+  return <div>Eileen</div>;
+}
