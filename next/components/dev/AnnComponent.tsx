@@ -1,3 +1,7 @@
 export default function AnnComponent() {
-  return <div style={{ color: "green" }}>Hellohello</div>;
+  return (
+    <div>
+      <p className="text-emerald-600"> Hellohello</p>;
+    </div>
+  );
 }
