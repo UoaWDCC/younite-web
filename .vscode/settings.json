@@ -1,17 +1,52 @@
 {
+  /**
+   * Nate: This is a configuration file for the VSCode IDE
+   *
+   * I've basically copy and pasted my settings here cause it's
+   * hard to get started with them when you're just starting out.
+   * Would recommend you copy over the settings you like to your
+   * user settings! (F1 -> Preferences: Open User Settings (JSON))
+   */
+
+  // Nest all the config files under each package.json
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    // Nest all the config files under each package.json
     "package.json": "*"
   },
+
+  // Exclude some build files from the explorer to avoid clutter
   "files.exclude": {
-    // Generated files which we don't need to see in the explorer
     // Comment out temporarily if you need to see them
     "**/node_modules": true,
     "**/.next": true,
     "**/.cache": true,
     "**/.tmp": true,
     "**/build": true
-  }
+  },
+
+  // Auto Save
+  "files.autoSave": "afterDelay",
+  "files.autoSaveWhenNoErrors": true,
+  "files.autoSaveDelay": 500,
+
+  // Formatting
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "eslint.format.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "files.trimTrailingWhitespace": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "explicit"
+  },
+
+  // Web-Dev Specific Settings
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.experimental.updateImportsOnPaste": true
 }
