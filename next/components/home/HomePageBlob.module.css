@@ -1,104 +1,104 @@
 .container {
-	--connector-height: 2rem;
-	display: grid;
-	grid-template-columns: repeat(14, 1fr);
-	max-width: 100%;
-	margin: 6em auto 0 auto; /* shifting the container downwards */
-	padding: 20px;
-	padding-bottom: 6rem;
-	filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.15));
+  --connector-height: 2rem;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  max-width: 100%;
+  margin: 6em auto 0 auto; /* shifting the container downwards */
+  padding: 20px;
+  padding-bottom: 6rem;
+  filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.15));
 }
 
 .blob {
-	display: block;
-	border-radius: 20px;
-	color: #ffffff;
-	font-size: 1.125rem;
-	padding: 2rem;
+  display: block;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 1.125rem;
+  padding: 2rem;
 }
 
 .blob :is(h1, h2, h3) {
-	font-size: 1.5rem;
-	font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .whiteBlob {
-	background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .orangeBlob {
-	background-color: #ffaa00;
+  background-color: #ffaa00;
 }
 
 .blob1 {
-	grid-column: 8 / span 4;
-	color: #003366;
-	position: relative;
+  grid-column: 8 / span 4;
+  color: #003366;
+  position: relative;
 }
 
 .blob2 {
-	position: relative;
-	top: calc(var(--connector-height) - 3px);
-	grid-column: 10 / span 4;
-	color: #003366;
+  position: relative;
+  top: calc(var(--connector-height) - 3px);
+  grid-column: 10 / span 4;
+  color: #003366;
 }
 
 .blob3 {
-	grid-column: 2 / span 4;
-	color: #003366;
+  grid-column: 2 / span 4;
+  color: #003366;
 }
 
 .connector {
-	position: absolute;
-	bottom: 0;
-	right: 2rem;
-	transform: translateY(calc(100% - 2px));
-	height: var(--connector-height);
+  position: absolute;
+  bottom: 0;
+  right: 2rem;
+  transform: translateY(calc(100% - 2px));
+  height: var(--connector-height);
 }
 
 .container {
-	/* ... (existing styles) ... */
-	position: relative; /* Add position relative to the container */
+  /* ... (existing styles) ... */
+  position: relative; /* Add position relative to the container */
 }
 
 /* ... (existing styles) ... */
 
 .blob1 {
-	grid-column: 8 / span 4;
-	color: #003366;
+  grid-column: 8 / span 4;
+  color: #003366;
 }
 
 .blob2 {
-	grid-column: 10 / span 4;
-	color: #003366;
+  grid-column: 10 / span 4;
+  color: #003366;
 }
 
 .button {
-	margin-top: 15px;
-	padding: 12px 25px;
-	background-color: #47c2ff;
-	color: #003366;
-	font-size: 18 px;
-	border: none;
-	border-radius: 45px;
-	cursor: pointer;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background-color: #47c2ff;
+  color: #003366;
+  font-size: 18 px;
+  border: none;
+  border-radius: 45px;
+  cursor: pointer;
 }
 
 /* mobile responsiveness */
 @media screen and (max-width: 768px) {
-	.container {
-		grid-template-columns: repeat(1, 1fr);
-		gap: 1rem;
-	}
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
 
-	.blob1,
-	.blob2,
-	.blob3 {
-		grid-column: 1 / span 1;
-		top: 0px;
-	}
+  .blob1,
+  .blob2,
+  .blob3 {
+    grid-column: 1 / span 1;
+    top: 0px;
+  }
 
-	.connector {
-		display: none;
-	}
+  .connector {
+    display: none;
+  }
 }

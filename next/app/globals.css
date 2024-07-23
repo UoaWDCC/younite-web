@@ -3,101 +3,101 @@
 @tailwind utilities;
 
 :root {
-	--font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-		"Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-		"Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-	--gutter: 25px;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --gutter: 25px;
 }
 
 * {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
 body {
-	max-width: 100vw;
-	overflow-x: hidden;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
-	color: white;
-	font-family: "DM Sans", sans-serif;
+  color: white;
+  font-family: "DM Sans", sans-serif;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
-	html {
-		color-scheme: dark;
-	}
+  html {
+    color-scheme: dark;
+  }
 }
 
 .bg-gradient-1 {
-	background-color: #ffe2c8;
-	background-image: linear-gradient(
-		to bottom,
-		#0d66b7 0%,
-		#62bce0 48.87%,
-		#ffe2c8 94.91%
-	);
-	background-size: 100% 2400px;
-	background-repeat: no-repeat;
+  background-color: #ffe2c8;
+  background-image: linear-gradient(
+    to bottom,
+    #0d66b7 0%,
+    #62bce0 48.87%,
+    #ffe2c8 94.91%
+  );
+  background-size: 100% 2400px;
+  background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 768px) {
-	:root {
-		--gutter: 45px;
-	}
+  :root {
+    --gutter: 45px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-	:root {
-		--gutter: 85px;
-	}
+  :root {
+    --gutter: 85px;
+  }
 }
 
 @media screen and (min-width: 1800px) {
-	:root {
-		--gutter: 140px;
-	}
+  :root {
+    --gutter: 140px;
+  }
 }
 
 @media screen and (min-width: 2048px) {
-	:root {
-		--gutter: 12vw;
-	}
+  :root {
+    --gutter: 12vw;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-	html,
-	body {
-		scroll-behavior: smooth;
-	}
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
 }
 
 .__markdown {
-	line-height: calc(1em + 1ex);
+  line-height: calc(1em + 1ex);
 }
 
 .__markdown * {
-	margin-bottom: min(0.75em, 1ex);
+  margin-bottom: min(0.75em, 1ex);
 }
 
 .__markdown h1 {
-	font-size: x-large;
-	font-weight: bold;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .__markdown h2 {
-	font-size: medium;
-	font-weight: bold;
+  font-size: medium;
+  font-weight: bold;
 }
 
 details[open] .summary-arrow {
-	transform: rotate(180deg);
+  transform: rotate(180deg);
 }

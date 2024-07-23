@@ -10,7 +10,7 @@ async function getHeaderData() {
   const resData = await fetchStrapi("header", headerSchema);
   const membersData = await fetchStrapi("member-teams", z.any());
   const members = membersData.sort(
-    (a: any, b: any) => a.CommitteeYear - b.CommitteeYear
+    (a: any, b: any) => a.CommitteeYear - b.CommitteeYear,
   );
 
   return {
@@ -39,7 +39,9 @@ export default async function Header() {
         <div className="group relative">
           <Link
             href={
-              data.members[0] ? `/members/${data.members[0].CommitteeYear}` : "/"
+              data.members[0]
+                ? `/members/${data.members[0].CommitteeYear}`
+                : "/"
             }
           >
             MEMBERS

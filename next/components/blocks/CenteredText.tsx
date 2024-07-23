@@ -1,9 +1,9 @@
 export default function CenteredTextBlock({ props }: { props: any }) {
-	console.log(props);
+  console.log(props);
 
-	return (
-		<div>
-			<div>{props.text}</div>
-		</div>
-	);
+  return (
+    <div>
+      <div>{props.text}</div>
+    </div>
+  );
 }

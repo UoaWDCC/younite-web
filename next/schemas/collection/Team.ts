@@ -18,7 +18,6 @@ export const roleSectionSchema = z.object({
 
 export type RoleSection = z.infer<typeof roleSectionSchema>;
 
-
 export const teamSchema = z.object({
   description: z.string(),
   teamPhoto: z.any(),

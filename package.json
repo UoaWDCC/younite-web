@@ -1,21 +1,21 @@
 {
-	"name": "younite-web",
-	"version": "1.0.0",
-	"description": "",
-	"private": true,
-	"scripts": {
-		"setup": "npm i && cd ./next && npm i && cd ../strapi && npm i",
-		"dev": "concurrently \"cd ./next && npm run dev\" \"cd ./strapi && npm run dev\"",
-		"lint": "prettier --write ."
-	},
-	"dependencies": {
-		"@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.10.5"
-	},
-	"devDependencies": {
-		"concurrently": "^8.2.2",
-		"prettier": "^3.3.3"
-	},
-	"volta": {
-		"node": "18.17.0"
-	}
+  "name": "younite-web",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "setup": "npm i && cd ./next && npm i && cd ../strapi && npm i",
+    "dev": "concurrently \"cd ./next && npm run dev\" \"cd ./strapi && npm run dev\"",
+    "lint": "prettier --write next/"
+  },
+  "dependencies": {
+    "@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.10.5"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.3.3"
+  },
+  "volta": {
+    "node": "18.17.0"
+  }
 }

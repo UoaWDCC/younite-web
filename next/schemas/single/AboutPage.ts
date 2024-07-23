@@ -25,7 +25,7 @@ export const aboutPageSchema = z.object({
       Name: z.string(),
       ValueDescription: z.string(),
       ExpandedDescription: z.string(),
-    })
+    }),
   ),
   Timeline: z.array(z.any()),
 });
