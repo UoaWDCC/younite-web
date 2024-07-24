@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import FAQ from "./FAQ";
+import FeedbackForm from "./FeedbackForm";
 
 export default function ActiveSection({
   data,
@@ -13,12 +15,6 @@ export default function ActiveSection({
 }) {
   const QAs = data.QuestionAnswer;
   const [activeSection, setActiveSection] = useState<"FAQ" | "Contact">("FAQ");
-
-  if (activeSection == "FAQ") {
-    console.log("FAQ");
-  } else {
-    console.log("Contact");
-  }
 
   return (
     <div className="flex py-24 w-full max-w-5xl mx-auto gap-12">
@@ -36,6 +32,7 @@ export default function ActiveSection({
           Contact
         </button>
       </div>
+      <div>{activeSection == "FAQ" ? <FAQ QAs={QAs} /> : <FeedbackForm />}</div>
     </div>
   );
 }

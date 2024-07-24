@@ -1,6 +1,6 @@
 export default function FeedbackForm() {
   async function handleSubmit(data: FormData) {
-    "use server";
+    "use client";
     const name = data.get("name");
     const email = data.get("email");
     const message = data.get("message");
