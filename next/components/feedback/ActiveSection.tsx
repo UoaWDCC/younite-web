@@ -32,7 +32,9 @@ export default function ActiveSection({
           Contact
         </button>
       </div>
-      <div>{activeSection == "FAQ" ? <FAQ QAs={QAs} /> : <FeedbackForm />}</div>
+      <div className="flex-1 mr-40">
+        {activeSection == "FAQ" ? <FAQ QAs={QAs} /> : <FeedbackForm />}
+      </div>
     </div>
   );
 }
