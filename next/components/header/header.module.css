@@ -1,35 +1,35 @@
 .header {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	width: 100%;
-	align-items: center;
-	padding: 0.25rem var(--gutter);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0.25rem var(--gutter);
 }
 
 .nav {
-	display: flex;
-	align-items: center;
-	gap: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
 }
 
 .nav a {
-	font-size: 0.9rem;
-	transition: color 0.4s ease-out;
-	letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: color 0.4s ease-out;
+  letter-spacing: 1px;
 }
 
 .nav a:last-child {
-	border: 1px solid white;
-	border-radius: 999px;
-	padding: 0.25rem 1rem;
+  border: 1px solid white;
+  border-radius: 999px;
+  padding: 0.25rem 1rem;
 }
 
 @media (max-width: 800px) {
-	.header {
-		flex-direction: column;
-	}
-	.youniteLogo {
-		position: relative;
-	}
+  .header {
+    flex-direction: column;
+  }
+  .youniteLogo {
+    position: relative;
+  }
 }

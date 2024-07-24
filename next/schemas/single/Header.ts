@@ -6,7 +6,7 @@ export const headerSchema = z.object({
     z.object({
       slug: z.string(),
       title: z.string(),
-    })
+    }),
   ),
 });
 
