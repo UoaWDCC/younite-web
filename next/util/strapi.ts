@@ -29,6 +29,7 @@ export default async function fetchStrapi<T>(
 ): Promise<T> {
   const url = getQueryUrl(content, query);
   const json = await fetchJson<T>(url);
+  console.log(json.data);
   const unwrappedData = unwrapJsonData<T>(json);
   return schema.parse(unwrappedData);
 }
