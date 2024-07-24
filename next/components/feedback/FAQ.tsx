@@ -1,7 +1,10 @@
-"use client";
 import { IoChevronDown } from "react-icons/io5";
 
-export default function FAQ() {
+export default function FAQ({
+  QAs,
+}: {
+  QAs: { Question: string; Answer: string }[];
+}) {
   <div className="w-full">
     <h1 className="text-3xl font-bold mb-10">Frequently Asked Questions</h1>
     <div className="flex flex-col gap-6">

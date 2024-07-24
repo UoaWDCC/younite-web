@@ -1,8 +1,7 @@
-import FeedbackForm from "@/components/feedback/FeedbackForm";
+import ActiveSection from "@/components/feedback/ActiveSection";
 import Header from "@/components/header/header";
 import { feedbackPageSchema } from "@/schemas/single/FeedbackPage";
 import fetchStrapi from "@/util/strapi";
-import { IoChevronDown } from "react-icons/io5";
 
 export default async function Feedback() {
   const data = await fetchStrapi("faq-page", feedbackPageSchema);
@@ -58,35 +57,7 @@ export default async function Feedback() {
           </linearGradient>
         </defs>
       </svg>
-      <div className="flex py-24 w-full max-w-5xl mx-auto gap-12">
-        <div className="flex flex-col items-end whitespace-nowrap">
-          <p className="font-bold text-7xl mb-2">FAQ</p>
-          <p className="uppercase text-4xl font-bold">& Contact</p>
-        </div>
-        <div className="w-full">
-          <h2 className="text-3xl font-bold mb-10">
-            Frequently Asked Questions
-          </h2>
-          <div className="flex flex-col gap-6">
-            {QAs.map((QA) => {
-              return (
-                <details
-                  key={QA.Question}
-                  className=" bg-white rounded-md text-b-dark-blue w-full"
-                >
-                  <div className="p-4">{QA.Answer}</div>
-                  <summary className="list-none cursor-pointer flex justify-between items-center border-b border-b-dark-blue p-4">
-                    <h2>{QA.Question}</h2>
-                    <IoChevronDown className="w-6 h-6 summary-arrow transition-transform" />
-                  </summary>
-                </details>
-              );
-            })}
-          </div>
-          <h2 className="text-3xl font-bold mb-8 mt-16">Contact Form</h2>
-          <FeedbackForm />
-        </div>
-      </div>
+      <ActiveSection data={data} />
     </div>
   );
 }
