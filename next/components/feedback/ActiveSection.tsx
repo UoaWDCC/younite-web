@@ -15,19 +15,13 @@ export default function ActiveSection({
 }) {
   const QAs = data.QuestionAnswer;
   const [activeSection, setActiveSection] = useState<"FAQ" | "Contact">("FAQ");
-  const [top_label, setTopLabel] = useState<"FAQ" | "Contact">("FAQ");
-  const [bottom_label, setBottomLabel] = useState<"FAQ" | "Contact">("Contact");
 
   function handleClick() {
     // added this fn
     if (activeSection == "Contact") {
       setActiveSection("FAQ");
-      setTopLabel("FAQ");
-      setBottomLabel("Contact");
     } else {
       setActiveSection("Contact");
-      setTopLabel("Contact");
-      setBottomLabel("FAQ");
     }
   }
 
@@ -38,13 +32,13 @@ export default function ActiveSection({
           className="uppercase font-bold text-7xl mb-2"
           onClick={() => setActiveSection(activeSection)} // changed this to activeSection
         >
-          {top_label}
+          {activeSection == "FAQ" ? "FAQ" : "Contact"}
         </button>
         <button
           className="uppercase text-4xl font-bold"
           onClick={() => handleClick()} // changed this to handleClick
         >
-          {bottom_label}
+          {activeSection == "FAQ" ? "Contact" : "FAQ"}
         </button>
       </div>
       <div className="flex-1 mr-40">
