@@ -34,7 +34,7 @@ export default async function MemberPage({
             {team.CommitteeYear} Team
           </span>
         </h1>
-
+        <Header />
         <div className="relative w-full grid place-items-center isolate">
           <img
             className="w-full max-w-5xl"
@@ -69,7 +69,6 @@ export default async function MemberPage({
       {/* adjust minimum height of components */}
       <Chairman chairs={chairs} />
       <Teams teams={roleSections} />
-      <Footer />
     </main>
   );
 }

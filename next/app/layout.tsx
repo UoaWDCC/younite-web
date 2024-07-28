@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import "./globals.css";
+import Header from "@/components/header/header";
+import Footer from "@/components/footer/footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -28,7 +30,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
