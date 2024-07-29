@@ -31,7 +31,10 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <main className="bg-gradient-1 z-0 isolate">
+        <Header/>
         {children}
+        </main>
         <Footer />
       </body>
     </html>

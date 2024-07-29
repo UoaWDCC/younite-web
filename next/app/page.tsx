@@ -14,10 +14,11 @@ export default async function Home() {
   const data = await fetchStrapi("home-page", homePageSchema);
 
   return (
-    <main className={`${styles.main} bg-gradient-1 isolate`}>
+    // <main className={`${styles.main} bg-gradient-1 isolate`}>
+    <main>
       <BGWaves className="w-full absolute -z-50 top-[85vh]" />
       {/* @ts-ignore */}
-      <Header />
+
       <div className="min-h-[55vh] flex flex-col items-center justify-center gap-6">
         <h1 className="uppercase flex flex-col items-center mx-auto">
           <span className="text-6xl leading-[0.95]">A Youth Board</span>
