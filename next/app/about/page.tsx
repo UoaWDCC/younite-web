@@ -19,15 +19,8 @@ export default async function AboutPage() {
   }).sort((a, b) => a.Date.getTime() - b.Date.getTime());
 
   return (
-    <main
-      style={{
-        backgroundImage:
-          "linear-gradient(180deg, #0D66B7 0%, #62BCE0 48.87%, #FFE2C8 94.91%), linear-gradient(359deg, #6CC3E5 44.81%, rgba(255, 233, 204, 0.80) 56.29%, rgba(255, 202, 133, 0.00) 84.97%)",
-      }}
-      className="isolate"
-    >
+    <main className="isolate">
       {/* @ts-ignore */}
-      <Header />
       <Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
       <section className="max-w-4xl mx-auto py-20 flex flex-col items-center text-center">
         <h1 className="text-8xl font-bold leading-[0.95] uppercase mb-6">

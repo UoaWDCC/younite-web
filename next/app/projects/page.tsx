@@ -16,7 +16,6 @@ export default async function ProjectsPage() {
     <main className={styles.main}>
       <div className="absolute top-0 w-full z-50">
         {/* @ts-ignore */}
-        <Header />
       </div>
       <section className="h-[85vh] flex flex-col items-center justify-center relative">
         <Image
