@@ -21,11 +21,13 @@ export default async function ProjectsPage() {
       <section className="h-[85vh] flex flex-col items-center justify-center relative">
         <Image
           src={getLargestImageUrl(projectsPage.BackgroundImage)}
-          alt=""
-          className="absolute inset-0 -z-10 object-cover w-full h-full brightness-50"
+          alt="Projects page background image"
+          className="absolute inset-0 -z-10 object-cover object-[center_bottom] w-full h-full brightness-50"
+          // changed background image to crop the top - on my screen the height in general looks cropped though
           width={1920}
           height={1080}
         />
+        <br/><br/><br/><br/><br/>
         <h1 className="uppercase flex flex-col items-center mx-auto mb-6 text-8xl font-bold leading-[0.95]">
           Projects
         </h1>
