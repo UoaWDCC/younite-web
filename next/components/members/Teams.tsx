@@ -105,7 +105,7 @@ function MemberModal({
             {activeMember.Role}
           </h3>
           <p className="mb-12 max-w-[75ch]">{activeMember.About}</p>
-          <p className="max-w-[75ch]">{activeMember.funFact}</p>
+          <p className="max-w-[75ch] italic text-[14px]">{activeMember.funFact}</p>
         </div>
       </motion.div>
       <button onClick={callback} className="absolute top-4 right-4">
