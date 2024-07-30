@@ -29,7 +29,7 @@ export default async function ProjectsPage() {
         <h1 className="uppercase flex flex-col items-center mx-auto mb-6 text-8xl font-bold leading-[0.95]">
           Projects
         </h1>
-        <p className="max-w-[55ch] mb-20">{projectsPage.Subtitle}</p>
+        <p className="max-w-[55ch] mb-20 text-center">{projectsPage.Subtitle}</p>
       </section>
       <div>
         {projects.map((p) => (
