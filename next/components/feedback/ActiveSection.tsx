@@ -14,6 +14,7 @@ export default function ActiveSection({
   };
 }) {
   const QAs = data.QuestionAnswer;
+  const [style, setStyle] = useState<string>();
   const [activeSection, setActiveSection] = useState<"FAQ" | "Contact">("FAQ");
 
   function handleClick() {
@@ -23,19 +24,24 @@ export default function ActiveSection({
     } else {
       setActiveSection("Contact");
     }
+
+    setStyle("opacity-0");
+    setTimeout(() => {
+      setStyle("animate-[fadeIn_1s_ease-in]");
+    }, 20);
   }
 
   return (
     <div className="flex py-24 w-full max-w-5xl mx-auto gap-12">
       <div className="flex flex-col items-end">
         <button
-          className="uppercase font-bold text-7xl mb-2 animate-[fadeIn_1s_ease-in]"
+          className={"ml-5 uppercase font-bold text-7xl mb-2 " + style}
           onClick={() => setActiveSection(activeSection)} // changed this to activeSection
         >
           {activeSection == "FAQ" ? "FAQ" : "Contact"}
         </button>
         <button
-          className="uppercase text-4xl font-bold animate-[fadeIn_1s_ease-in]"
+          className={"ml-5 uppercase text-4xl font-bold " + style}
           onClick={() => handleClick()} // changed this to handleClick
         >
           {activeSection == "FAQ" ? "Contact" : "FAQ"}
