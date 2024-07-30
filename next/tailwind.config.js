@@ -19,6 +19,12 @@ module.exports = {
         "b-orange": "#FAAB36",
         "b-light-orange": "#FABD6E",
       },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+      },
     },
   },
   plugins: [],

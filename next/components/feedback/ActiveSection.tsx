@@ -29,13 +29,13 @@ export default function ActiveSection({
     <div className="flex py-24 w-full max-w-5xl mx-auto gap-12">
       <div className="flex flex-col items-end">
         <button
-          className="uppercase font-bold text-7xl mb-2"
+          className="uppercase font-bold text-7xl mb-2 animate-[fadeIn_1s_ease-in]"
           onClick={() => setActiveSection(activeSection)} // changed this to activeSection
         >
           {activeSection == "FAQ" ? "FAQ" : "Contact"}
         </button>
         <button
-          className="uppercase text-4xl font-bold"
+          className="uppercase text-4xl font-bold animate-[fadeIn_1s_ease-in]"
           onClick={() => handleClick()} // changed this to handleClick
         >
           {activeSection == "FAQ" ? "Contact" : "FAQ"}

@@ -13,7 +13,8 @@ export default function FAQ({
           return (
             <details
               key={QA.Question}
-              className=" bg-white rounded-md text-b-dark-blue w-full">
+              className=" bg-white rounded-md text-b-dark-blue w-full"
+            >
               <div className="p-4">{QA.Answer}</div>
               <summary className="list-none cursor-pointer flex justify-between items-center border-b border-b-dark-blue p-4">
                 <h2>{QA.Question}</h2>
