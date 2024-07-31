@@ -24,9 +24,7 @@ export default async function MemberPage({
   const roleSections = team.RoleSection;
 
   return (
-    <main className={`bg-gradient-1 isolate min-h-full`}>
-      {/* @ts-ignore */}
-      <Header />
+    <>
       <div className="flex flex-col items-center justify-center gap-6">
         <h1 className="uppercase flex flex-col items-center mx-auto mt-12 mb-24">
           <span className="text-6xl leading-[0.95]">Meet the</span>
@@ -34,7 +32,6 @@ export default async function MemberPage({
             {team.CommitteeYear} Team
           </span>
         </h1>
-        <Header />
         <div className="relative w-full grid place-items-center isolate">
           <img
             className="w-full max-w-5xl"
@@ -69,6 +66,6 @@ export default async function MemberPage({
       {/* adjust minimum height of components */}
       <Chairman chairs={chairs} />
       <Teams teams={roleSections} />
-    </main>
+    </>
   );
 }

@@ -1,7 +1,6 @@
 import flair from "@/assets/about/flair.png";
 import valueFlair1 from "@/assets/about/value1.png";
 import valueFlair2 from "@/assets/about/value2.png";
-import Header from "@/components/header/header";
 import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
@@ -20,7 +19,6 @@ export default async function AboutPage() {
 
   return (
     <main className="isolate">
-      {/* @ts-ignore */}
       <Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
       <section className="max-w-4xl mx-auto py-20 flex flex-col items-center text-center">
         <h1 className="text-8xl font-bold leading-[0.95] uppercase mb-6">

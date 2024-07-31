@@ -9,9 +9,7 @@ export default async function Feedback() {
   const QAs = data.QuestionAnswer;
 
   return (
-    <div className="relative flex flex-col bg-gradient-1 min-h-screen h-full overflow-y-hidden isolate">
-      {/* @ts-ignore */}
-      <Header />
+    <div className="relative">
       <svg
         viewBox="0 0 1440 1027"
         fill="none"

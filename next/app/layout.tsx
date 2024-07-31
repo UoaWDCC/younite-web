@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import "./globals.css";
@@ -18,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className="bg-gradient-1 z-0 isolate flex flex-col min-h-svh">
+      <body className="bg-gradient-1 isolate flex flex-col min-h-svh">
         <Header />
         <main className="grow overflow-auto">{children}</main>
         <Footer />
