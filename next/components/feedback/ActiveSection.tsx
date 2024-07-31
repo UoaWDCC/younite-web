@@ -37,6 +37,7 @@ export default function ActiveSection({
         <button
           className={"ml-5 uppercase font-bold text-7xl mb-2 " + style}
           onClick={() => setActiveSection(activeSection)} // changed this to activeSection
+          disabled={true}
         >
           {activeSection == "FAQ" ? "FAQ" : "Contact"}
         </button>
@@ -47,7 +48,7 @@ export default function ActiveSection({
           {activeSection == "FAQ" ? "Contact" : "FAQ"}
         </button>
       </div>
-      <div className="flex-1 mr-40">
+      <div className="flex-1 mr-5">
         {activeSection == "FAQ" ? <FAQ QAs={QAs} /> : <FeedbackForm />}
       </div>
     </div>
