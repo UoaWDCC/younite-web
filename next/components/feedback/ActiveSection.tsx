@@ -36,7 +36,6 @@ export default function ActiveSection({
       <div className="flex flex-col items-end">
         <button
           className={"ml-5 uppercase font-bold text-7xl mb-2 " + style}
-          onClick={() => setActiveSection(activeSection)} // changed this to activeSection
           disabled={true}
         >
           {activeSection == "FAQ" ? "FAQ" : "Contact"}
