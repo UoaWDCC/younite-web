@@ -3,7 +3,7 @@ import { useState } from "react";
 import FAQ from "./FAQ";
 import Image from "next/image";
 import FeedbackForm from "./FeedbackForm";
-import selection_arrow from "@/assets/feedback/selection_arrow.png";
+import selectionArrow from "@/assets/feedback/selectionArrow.png";
 
 export default function ActiveSection({
   data,
@@ -20,8 +20,6 @@ export default function ActiveSection({
   const [activeSection, setActiveSection] = useState<"FAQ" | "Contact">("FAQ");
 
   function handleClick() {
-    // added this fn
-
     setStyle("opacity-0 animate-[fadeOut_1s_ease-in]");
 
     setTimeout(() => {
@@ -48,7 +46,7 @@ export default function ActiveSection({
         </button>
         <div className="flex items-center">
           <Image
-            src={selection_arrow}
+            src={selectionArrow}
             alt="Selection arrow"
             className={"inline-block " + style}
           />
@@ -56,7 +54,7 @@ export default function ActiveSection({
             className={
               "text-b-dark-blue ml-5 uppercase text-4xl font-bold " + style
             }
-            onClick={() => handleClick()} // changed this to handleClick
+            onClick={() => handleClick()}
           >
             {activeSection == "FAQ" ? "Contact" : "FAQ"}
           </button>
