@@ -18,9 +18,9 @@ export default async function AboutPage() {
   }).sort((a, b) => a.Date.getTime() - b.Date.getTime());
 
   return (
-    <main className="isolate">
+    <>
       <Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
-      <section className="max-w-4xl mx-auto py-20 flex flex-col items-center text-center">
+      <section className="max-w-4xl mx-auto mt-header pt-12 flex flex-col items-center text-center">
         <h1 className="text-8xl font-bold leading-[0.95] uppercase mb-6">
           Our Values
         </h1>
@@ -81,6 +81,6 @@ export default async function AboutPage() {
           </ol>
         </div>
       </section>
-    </main>
+    </>
   );
 }

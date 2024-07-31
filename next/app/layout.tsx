@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className="bg-gradient-1 isolate flex flex-col min-h-svh">
         <Header />
-        <main className="grow overflow-auto">{children}</main>
+        <main className="grow overflow-y-auto overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

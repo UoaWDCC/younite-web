@@ -56,7 +56,7 @@ export default async function Feedback() {
           </linearGradient>
         </defs>
       </svg>
-      <div className="flex py-24 w-full max-w-5xl mx-auto gap-12">
+      <div className="flex pt-12 pb-24 w-full max-w-5xl mx-auto mt-header gap-12">
         <div className="flex flex-col items-end whitespace-nowrap">
           <p className="font-bold text-7xl mb-2">FAQ</p>
           <p className="uppercase text-4xl font-bold">& Contact</p>
