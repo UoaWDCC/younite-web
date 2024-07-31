@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import "./globals.css";
-import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
+import "./globals.css";
 
 export const metadata = {
   title: "Create Next App",
@@ -17,12 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <main className="bg-gradient-1 z-0 isolate">
-        <Header/>
-        {children}
-        </main>
+    <html lang="en" className="h-full">
+      <body className="bg-gradient-1 z-0 isolate flex flex-col min-h-svh">
+        <Header />
+        <main className="grow overflow-auto">{children}</main>
         <Footer />
       </body>
     </html>
