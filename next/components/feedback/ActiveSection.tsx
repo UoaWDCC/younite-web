@@ -1,9 +1,9 @@
 "use client";
+import selectionArrow from "@/assets/feedback/selectionArrow.png";
+import Image from "next/image";
 import { useState } from "react";
 import FAQ from "./FAQ";
-import Image from "next/image";
 import FeedbackForm from "./FeedbackForm";
-import selectionArrow from "@/assets/feedback/selectionArrow.png";
 
 export default function ActiveSection({
   data,
@@ -20,7 +20,7 @@ export default function ActiveSection({
   const [activeSection, setActiveSection] = useState<"FAQ" | "Contact">("FAQ");
 
   function handleClick() {
-    setStyle("opacity-0 animate-[fadeOut_1s_ease-in]");
+    setStyle("opacity-0 animate-[fadeOut_0.3s_ease-in]");
 
     setTimeout(() => {
       if (activeSection == "Contact") {
@@ -28,11 +28,11 @@ export default function ActiveSection({
       } else {
         setActiveSection("Contact");
       }
-    }, 1000);
+    }, 300);
 
     setTimeout(() => {
-      setStyle("animate-[fadeIn_1s_ease-in]");
-    }, 1000);
+      setStyle("animate-[fadeIn_0.3s_ease-in]");
+    }, 300);
   }
 
   return (
