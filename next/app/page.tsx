@@ -15,7 +15,7 @@ export default async function Home() {
 
   return (
     // <main className={`${styles.main} bg-gradient-1 isolate`}>
-    <main>
+    <>
       <BGWaves className="w-full absolute -z-50 top-[85vh]" />
       {/* @ts-ignore */}
 
@@ -60,6 +60,6 @@ export default async function Home() {
           </div>
         </div>
       </div>
-    </main>
+    </>
   );
 }

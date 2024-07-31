@@ -7,7 +7,7 @@ export default function HighBackgroundTest() {
       alt="Background image"
       width={1980}
       height={1080}
-      className="border border-red-500 mt-unheader"
+      className="border border-red-500 mt-header"
     />
   );
 }

@@ -20,7 +20,10 @@ module.exports = {
         "b-light-orange": "#FABD6E",
       },
       margin: {
-        unheader: "-8.5rem",
+        header: "8.5rem",
+      },
+      padding: {
+        header: "8.5rem",
       },
     },
   },
