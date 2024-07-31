@@ -19,16 +19,20 @@ export default function ActiveSection({
 
   function handleClick() {
     // added this fn
-    if (activeSection == "Contact") {
-      setActiveSection("FAQ");
-    } else {
-      setActiveSection("Contact");
-    }
 
-    setStyle("opacity-0");
+    setStyle("opacity-0 animate-[fadeOut_1s_ease-in]");
+
+    setTimeout(() => {
+      if (activeSection == "Contact") {
+        setActiveSection("FAQ");
+      } else {
+        setActiveSection("Contact");
+      }
+    }, 1000);
+
     setTimeout(() => {
       setStyle("animate-[fadeIn_1s_ease-in]");
-    }, 20);
+    }, 1000);
   }
 
   return (
@@ -41,7 +45,9 @@ export default function ActiveSection({
           {activeSection == "FAQ" ? "FAQ" : "Contact"}
         </button>
         <button
-          className={"ml-5 uppercase text-4xl font-bold " + style}
+          className={
+            "text-b-dark-blue ml-5 uppercase text-4xl font-bold " + style
+          }
           onClick={() => handleClick()} // changed this to handleClick
         >
           {activeSection == "FAQ" ? "Contact" : "FAQ"}
