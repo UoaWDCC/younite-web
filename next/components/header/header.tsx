@@ -1,8 +1,9 @@
+"use client"
 import { headerSchema } from "@/schemas/single/Header";
-import { getLargestImageUrl } from "@/util/image";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { z } from "zod";
 import styles from "./header.module.css";
 
@@ -19,10 +20,33 @@ async function getHeaderData() {
   };
 }
 
-export default async function Header() {
-  const data = await getHeaderData();
-  const logoSrc = getLargestImageUrl(data.Logo);
-  const links = data.navigation;
+export interface HeaderData {
+  members: any;
+  navigation: Navigation["link"];
+  Logo?: any;
+}
+
+export interface Navigation {
+  link: {
+    slug: string;
+    title: string;
+  }[];
+}
+
+export default function Header() {
+  const [data, setData] = useState<HeaderData>();
+  const [logoSrc, setLogoSrc] = useState<any>();
+  const [links, setLinks] = useState<Navigation["link"]>();
+
+  useEffect(() => {
+    async function fetchData() {
+      const result = await getHeaderData();
+      setData(result);
+      setLogoSrc(result.Logo)
+      setLinks(result.navigation)
+    }
+    fetchData();
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -39,7 +63,7 @@ export default async function Header() {
         <div className="group relative">
           <Link
             href={
-              data.members[0]
+              data?.members[0]
                 ? `/members/${data.members[0].CommitteeYear}`
                 : "/"
             }
@@ -56,7 +80,7 @@ export default async function Header() {
           </div>
         </div>
 
-        {links.map((link) => (
+        {links?.map((link) => (
           <Link href={link.slug} key={link.title}>
             {link.title.toLocaleUpperCase()}
           </Link>
