@@ -13,7 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: cd strapi
       - name: Fly Deploy
         working-directory: ./strapi
         run: flyctl deploy --remote-only --config fly.staging.toml --dockerfile Dockerfile.staging
@@ -25,7 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: cd frontend
       - name: Fly Deploy
         working-directory: ./next
         run: flyctl deploy --remote-only --config fly.staging.toml --dockerfile Dockerfile.staging
@@ -37,7 +35,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: cd storage
       - name: Fly Deploy
         working-directory: ./storage
         run: flyctl deploy --remote-only --config fly.staging.toml --dockerfile Dockerfile.staging
