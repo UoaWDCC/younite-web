@@ -60,7 +60,7 @@ export default function ActiveSection({
           </div>
         </div>
       </div>
-      <div className="flex-1 mr-5">
+      <div className={`flex-1 mr-5 ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}>
         {activeSection == "FAQ" ? <FAQ QAs={QAs} /> : <FeedbackForm />}
       </div>
     </div>
