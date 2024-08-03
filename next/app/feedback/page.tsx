@@ -8,14 +8,14 @@ export default async function Feedback() {
   const QAs = data.QuestionAnswer;
 
   return (
-    <div className="relative flex flex-col bg-gradient-1 min-h-screen h-full overflow-y-hidden isolate">
+    <div className="flex flex-col bg-gradient-1 min-h-screen h-full overflow-y-hidden isolate">
       {/* @ts-ignore */}
       <Header />
       <svg
         viewBox="0 0 1440 1027"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute bottom-0 -z-10 w-full h-96"
+        className="fixed bottom-0 -z-10 w-full h-96"
         preserveAspectRatio="xMidYMin slice"
       >
         <path
