@@ -38,9 +38,9 @@ export default function ActiveSection({
   return (
     <div className="flex py-24 w-full max-w-5xl mx-auto gap-12">
       <div className="flex flex-col">
-        <div className="flex flex-col items-end w-80">
+        <div className="flex flex-col items-end w-80 ml-5">
           <button
-            className={`text-wrap ml-5 uppercase font-bold text-7xl mb-2 ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}
+            className={`text-wrap uppercase font-bold text-7xl mb-2 ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}
             disabled={true}
           >
             {activeSection == "FAQ" ? "FAQ" : "Contact"}
@@ -52,7 +52,7 @@ export default function ActiveSection({
               className={`inline-block ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}
             />
             <button
-              className={`text-b-dark-blue ml-5 uppercase text-4xl font-bold ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}
+              className={`text-b-dark-blue ml-2 uppercase text-4xl font-bold ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}
               onClick={() => handleClick()}
             >
               {activeSection == "FAQ" ? "Contact" : "FAQ"}
