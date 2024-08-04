@@ -2,6 +2,7 @@
 
 /node_modules
 /strapi/types
+/strapi/.strapi
 
 # dependencies
 /next/node_modules

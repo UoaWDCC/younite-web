@@ -20,6 +20,7 @@ export default async function ProjectPage({
 
   return (
     <main className={styles.main}>
+      {/* @ts-ignore */}
       <Header />
       <div>
         {project.blocks.map((block: any) => ContentBlock({ props: block }))}
