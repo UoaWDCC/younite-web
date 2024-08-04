@@ -28,19 +28,18 @@ export default function ActiveSection({
       } else {
         setActiveSection("Contact");
       }
-    }, 300);
-
-    setTimeout(() => {
       setStyleClick(false);
     }, 300);
   }
 
   return (
-    <div className="flex py-24 w-full max-w-5xl mx-auto gap-12">
+    <div
+      className={`flex py-24 w-full max-w-5xl mx-auto gap-12 ${styleClick ? "animate-[fadeOut_0.3s_ease-in_forwards]" : "animate-[fadeIn_0.3s_ease-in_forwards]"}`}
+    >
       <div className="flex flex-col">
         <div className="flex flex-col items-end w-80 ml-5">
           <button
-            className={`text-wrap uppercase font-bold text-7xl mb-2 ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}
+            className={`text-wrap uppercase font-bold text-7xl mb-2`}
             disabled={true}
           >
             {activeSection == "FAQ" ? "FAQ" : "Contact"}
@@ -49,10 +48,10 @@ export default function ActiveSection({
             <Image
               src={selectionArrow}
               alt="Selection arrow"
-              className={`inline-block ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}
+              className="inline-block"
             />
             <button
-              className={`text-b-dark-blue ml-2 uppercase text-4xl font-bold ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}
+              className="text-b-dark-blue ml-2 uppercase text-4xl font-bold"
               onClick={() => handleClick()}
             >
               {activeSection == "FAQ" ? "Contact" : "FAQ"}
@@ -60,7 +59,7 @@ export default function ActiveSection({
           </div>
         </div>
       </div>
-      <div className={`flex-1 mr-5 ${styleClick ? "animate-[fadeOut_0.3s_ease-in]" : "animate-[fadeIn_0.3s_ease-in]"}`}>
+      <div className="flex-1 mr-5">
         {activeSection == "FAQ" ? <FAQ QAs={QAs} /> : <FeedbackForm />}
       </div>
     </div>
