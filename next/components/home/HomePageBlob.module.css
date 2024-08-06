@@ -17,11 +17,6 @@
   padding: 2rem;
 }
 
-.blob :is(h1, h2, h3) {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 .whiteBlob {
   background-color: #ffffff;
 }

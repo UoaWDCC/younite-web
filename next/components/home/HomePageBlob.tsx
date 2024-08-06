@@ -1,36 +1,24 @@
-import connector from "@/assets/home/connector.svg";
-import React from "react";
 import RichText from "../blocks/RichText";
+import Blob from "./Blob";
+import ConnectorBlob from "./ConnectorBlob";
 import styles from "./HomePageBlob.module.css";
-import Image from "next/image";
 
-const HomePageBlob: React.FC<{
+type Props = {
   blob1: string;
   blob2: string;
   blob3: string;
-}> = ({ blob1, blob2, blob3 }) => {
-  return (
-    <div className={styles.container}>
-      <div className={`${styles.blob} ${styles.whiteBlob} ${styles.blob1}`}>
-        <RichText props={{ text: blob1 }} />
-        <Image
-          draggable={false}
-          className={styles.connector}
-          src={connector}
-          alt=""
-          width={60}
-          height={32}
-        />
-      </div>
-      <div className={`${styles.blob} ${styles.whiteBlob} ${styles.blob2}`}>
-        <RichText props={{ text: blob2 }} />
-        <button className={styles.button}>JOIN US NOW</button>
-      </div>
-      <div className={`${styles.blob} ${styles.orangeBlob} ${styles.blob3}`}>
-        <RichText props={{ text: blob3 }} />
-      </div>
-    </div>
-  );
 };
 
-export default HomePageBlob;
+export default function HomePageBlob({ blob1, blob2, blob3 }: Props) {
+  return (
+    <div className={styles.container}>
+      <Blob className={`bg-white ${styles.blob1}`}>{blob1}</Blob>
+      <ConnectorBlob />
+      <Blob className={`bg-white ${styles.blob2}`}>
+        <RichText props={{ text: blob2 }} />
+        <button className={styles.button}>JOIN US NOW</button>
+      </Blob>
+      <Blob className={`bg-[#ffaa00] ${styles.blob3}`}>{blob3}</Blob>
+    </div>
+  );
+}
