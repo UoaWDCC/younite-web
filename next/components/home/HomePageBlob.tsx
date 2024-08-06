@@ -9,7 +9,7 @@ type Props = {
   blob3: string;
 };
 
-export default function HomePageBlob({ blob1, blob2, blob3 }: Props) {
+export default function HomePageBlobs({ blob1, blob2, blob3 }: Props) {
   return (
     <div className={styles.container}>
       <Blob className={`bg-white ${styles.blob1}`}>{blob1}</Blob>

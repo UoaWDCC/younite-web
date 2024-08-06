@@ -3,7 +3,7 @@ import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import CarouselBase from "@/components/home/CarouselBase";
-import HomePageBlob from "@/components/home/HomePageBlob";
+import HomePageBlobs from "@/components/home/HomePageBlob";
 import BGWaves from "@/components/svg/BGWaves";
 import { homePageSchema } from "@/schemas/single/HomePage";
 import fetchStrapi from "@/util/strapi";
@@ -29,7 +29,7 @@ export default async function Home() {
           {data.heroParagraph}
         </p>
       </div>
-      <HomePageBlob blob1={data.blob1} blob2={data.blob2} blob3={data.blob3} />
+      <HomePageBlobs blob1={data.blob1} blob2={data.blob2} blob3={data.blob3} />
 
       <ImageWithText props={data.textWithImage} />
       <div>
