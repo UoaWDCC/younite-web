@@ -73,6 +73,9 @@ function MemberModal({
   activeMember?: Member;
   callback: () => void;
 }) {
+  
+  console.log("active", activeMember?.Photo) //--> Activemember is undefined when not selecting modal. Delete this later, this is for debugging
+
   if (!activeMember) return null;
 
   return (
@@ -96,7 +99,7 @@ function MemberModal({
       >
         <img
           className="max-h-[80vh] w-full object-cover"
-          src={getLargestImageUrl(activeMember.Photo)}
+          src={"http://127.0.0.1:1337/uploads/poor_cat_0da116ce22.jpg"}
           alt=""
         />
         <div className="px-8 py-12 w-[65%]">
