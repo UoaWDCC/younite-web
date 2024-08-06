@@ -23,7 +23,7 @@ export default async function MemberPage({
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-6 mt-header pt-12">
+      <div className="flex flex-col items-center justify-center gap-6 mt-header pt-24">
         <h1 className="uppercase flex flex-col items-center mx-auto mb-24">
           <span className="text-6xl leading-[0.95]">Meet the</span>
           <span className="text-8xl font-bold leading-[0.95]">

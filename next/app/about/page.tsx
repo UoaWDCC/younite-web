@@ -20,7 +20,7 @@ export default async function AboutPage() {
   return (
     <>
       <Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
-      <section className="max-w-4xl mx-auto mt-header pt-12 flex flex-col items-center text-center">
+      <section className="max-w-4xl mx-auto mt-header pt-24 flex flex-col items-center text-center">
         <h1 className="text-8xl font-bold leading-[0.95] uppercase mb-6">
           Our Values
         </h1>
