@@ -1,21 +1,26 @@
 import { useState } from "react";
-import { IoCheckmarkCircle } from "react-icons/io5";
+import { IoBanSharp, IoCheckmarkCircle } from "react-icons/io5";
 
 export default function FeedbackForm() {
-  const [submit, useSubmit] = useState<boolean>(false);
+  const [submit, useSubmit] = useState<"true" | "false" | "finished">("false");
 
   async function handleSubmit(data: FormData) {
-    "use client";
-    const name = data.get("name");
-    const email = data.get("email");
-    const message = data.get("message");
-    useSubmit(true);
+    ("use client");
 
-    console.log({
-      name,
-      email,
-      message,
-    });
+    if (submit === "true") {
+      useSubmit("finished");
+    } else if (submit === "false") {
+      const name = data.get("name");
+      const email = data.get("email");
+      const message = data.get("message");
+      useSubmit("true");
+
+      console.log({
+        name,
+        email,
+        message,
+      });
+    }
   }
 
   return (
@@ -44,10 +49,15 @@ export default function FeedbackForm() {
           placeholder="Enter your feedback"
           className="mb-4 bg-white px-4 py-2 rounded-md shadow-md text-b-dark-blue"
         ></textarea>
-        {submit ? (
+        {submit === "true" ? (
           <div className="mb-4 flex items-center animate-[fadeIn_0.3s_ease-in_forwards]">
             <IoCheckmarkCircle />
             <p>Your response has been recorded!</p>
+          </div>
+        ) : submit === "finished" ? (
+          <div className="mb-4 flex items-center animate-[fadeIn_0.3s_ease-in_forwards]">
+            <IoBanSharp />
+            <p>You have already submitted this response.</p>
           </div>
         ) : undefined}
         <input
