@@ -21,15 +21,15 @@ export default async function ProjectsPage() {
       <section className="h-[85vh] flex flex-col items-center justify-center relative">
         <Image
           src={getLargestImageUrl(projectsPage.BackgroundImage)}
-          alt=""
-          className="absolute inset-0 -z-10 object-cover w-full h-full brightness-50"
+          alt="Projects page background image"
+          className="absolute inset-0 -z-10 object-cover object-[center_bottom] w-full h-full brightness-50"
           width={1920}
           height={1080}
         />
-        <h1 className="uppercase flex flex-col items-center mx-auto mb-6 text-8xl font-bold leading-[0.95]">
+        <h1 className="uppercase flex flex-col items-center mx-auto mb-6 text-8xl font-bold font-sora leading-[0.95]">
           Projects
         </h1>
-        <p className="max-w-[55ch] mb-20">{projectsPage.Subtitle}</p>
+        <p className="max-w-[55ch] text-center">{projectsPage.Subtitle}</p>
       </section>
       <div>
         {projects.map((p) => (
