@@ -34,7 +34,7 @@ export default function ActiveSection({
 
   return (
     <div
-      className={`flex py-24 w-full max-w-5xl mx-auto gap-12 ${styleClick ? "animate-[fadeOut_0.3s_ease-in_forwards]" : "animate-[fadeIn_0.3s_ease-in_forwards]"}`}
+      className={`flex w-full max-w-5xl mb-24 mx-auto gap-12 ${styleClick ? "animate-[fadeOut_0.3s_ease-in_forwards]" : "animate-[fadeIn_0.3s_ease-in_forwards]"}`}
     >
       <div className="flex flex-col">
         <div className="flex flex-col items-end w-80 ml-5">
