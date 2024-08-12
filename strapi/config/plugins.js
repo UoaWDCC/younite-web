@@ -1,3 +1,6 @@
+const { config } = require("process");
+const email = require("../src/api/email/controllers/email");
+
 module.exports = ({ env }) => {
   const productionConfig =
     process.env.NODE_ENV === "production"
@@ -21,6 +24,19 @@ module.exports = ({ env }) => {
                 uploadStream: {},
                 delete: {},
               },
+            },
+          },
+          email: {
+            config: {
+              provider: "mailgun",
+              providerOptions: {
+                key: env("MAILGUN_API_KEY"),
+                domain: env("MAILGUN_DOMAIN"),
+              },
+            },
+            settings: {
+              defaultFrom: "younitereply@gmail.com",
+              defaultReplyTo: "younitereply@gmail.com",
             },
           },
         }

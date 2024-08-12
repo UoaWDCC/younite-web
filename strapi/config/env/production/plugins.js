@@ -1,7 +1,3 @@
-const { url } = require("inspector");
-const { config } = require("process");
-const { default: email } = require("../../../src/api/email/routes/email");
-
 module.exports = ({ env }) => ({
   // ...
   email: {
@@ -12,10 +8,9 @@ module.exports = ({ env }) => ({
         domain: env('MAILGUN_DOMAIN'), // Required
       },
       settings: {
-        defaultFrom: 'myemail@protonmail.com',
-        defaultReplyTo: 'myemail@protonmail.com',
+        defaultFrom: 'younitereply@gmail.com',
+        defaultReplyTo: 'younitereply@gmail.com',
       },
     },
   },
-  // ...
 });
