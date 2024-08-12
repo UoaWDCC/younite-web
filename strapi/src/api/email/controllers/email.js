@@ -8,12 +8,13 @@ module.exports = {
       console.log("send email");
       const { name, senderEmail, body } = ctx.request.body;
 
-      const status = await strapi.plugins["email"].services.email.send({
+      await strapi.plugins["email"].services.email.send({
         to: "younitedev@gmail.com",
         from: senderEmail,
         replyTo: "younitedev@gmail.com",
         subject: "test",
         text: "test text",
+        html: `hi`,
       });
       ctx.response.status = 200;
     } catch (err) {

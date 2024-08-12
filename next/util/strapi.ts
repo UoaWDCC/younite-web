@@ -66,3 +66,8 @@ function unwrapJsonData<T>(json: StrapiJson<T>) {
     : data.attributes;
   return unwrappedData;
 }
+
+//
+export async function sendEmail<T>(name: string, email: string, message: string, url: string) {
+  const response = await fetch(url,)
+}
