@@ -7,6 +7,7 @@ module.exports = {
     try {
       console.log("send email");
       const { name, senderEmail, body } = ctx.request.body;
+      console.log(ctx.request.body);
 
       await strapi.plugins["email"].services.email.send({
         to: "younitedev@gmail.com",

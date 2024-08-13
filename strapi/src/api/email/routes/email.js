@@ -7,7 +7,7 @@ module.exports = {
     {
       method: "POST",
       path: "/email",
-      handler: "email.sendEmail",
+      handler: "api::email.email.sendEmail",
       config: {
         auth: false,
       },
