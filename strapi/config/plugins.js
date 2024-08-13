@@ -26,6 +26,8 @@ module.exports = ({ env }) => {
               },
             },
           },
+        }
+      : {
           email: {
             config: {
               provider: "mailgun",
@@ -37,10 +39,10 @@ module.exports = ({ env }) => {
             settings: {
               defaultFrom: "younitereply@gmail.com",
               defaultReplyTo: "younitereply@gmail.com",
+              testAddress: "younitereply@gmail.com",
             },
           },
-        }
-      : {};
+        };
 
   return {
     "strapi-plugin-populate-deep": {

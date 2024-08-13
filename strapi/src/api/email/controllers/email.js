@@ -10,12 +10,11 @@ module.exports = {
       console.log(ctx.request.body);
 
       await strapi.plugins["email"].services.email.send({
-        to: "younitedev@gmail.com",
-        from: senderEmail,
-        replyTo: "younitedev@gmail.com",
+        to: "younitereply@gmail.com",
+        from: "younitereply@gmail.com",
+        replyTo: "younitereply@gmail.com",
         subject: "test",
         text: "test text",
-        html: `hi`,
       });
       ctx.response.status = 200;
     } catch (err) {
