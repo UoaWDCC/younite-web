@@ -20,14 +20,14 @@ export default async function Home() {
       <Header />
       <div className="min-h-[55vh] flex flex-col items-center justify-center gap-6">
         <h1 className="uppercase flex flex-col items-center justify-center ">
-          <span className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl leading-[0.95] text-center">
+          <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl leading-[0.95] text-center">
             A Youth Board
           </span>
-          <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold leading-[0.95] text-center">
+          <span className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold leading-[0.95] text-center">
             For The Future
           </span>
         </h1>
-        <p className="text-lg max-w-[50ch] text-center mb-16 leading-relaxed">
+        <p className="text-sm xs:text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl max-w-[50ch] text-center mb-16 leading-relaxed">
           {data.heroParagraph}
         </p>
       </div>
