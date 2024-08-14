@@ -30,9 +30,10 @@ export default async function Header() {
         <Image
           src={logoSrc}
           alt="Younite Logo"
-          className="h-32 w-auto"
+          className="h-20 w-auto"
           height={128}
           width={256}
+          priority
         />
       </Link>
       <nav className={styles.nav}>

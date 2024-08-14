@@ -1,8 +1,6 @@
 import ScribbleLeft from "@/assets/members/scribble-left.png";
 import ScribbleRight from "@/assets/members/scribble-right.png";
 import RichText from "@/components/blocks/RichText";
-import Footer from "@/components/footer/footer";
-import Header from "@/components/header/header";
 import { teamSchema } from "@/schemas/collection/Team";
 import { getLargestImageUrl } from "@/util/image";
 import fetchStrapi from "@/util/strapi";
@@ -24,17 +22,14 @@ export default async function MemberPage({
   const roleSections = team.RoleSection;
 
   return (
-    <main className={`bg-gradient-1 isolate min-h-full`}>
-      {/* @ts-ignore */}
-      <Header />
-      <div className="flex flex-col items-center justify-center gap-6">
-        <h1 className="uppercase flex flex-col items-center mx-auto mt-12 mb-24">
+    <>
+      <div className="flex flex-col items-center justify-center gap-6 mt-header pt-24">
+        <h1 className="uppercase flex flex-col items-center mx-auto mb-24">
           <span className="text-6xl leading-[0.95]">Meet the</span>
           <span className="text-8xl font-bold leading-[0.95]">
             {team.CommitteeYear} Team
           </span>
         </h1>
-
         <div className="relative w-full grid place-items-center isolate">
           <img
             className="w-full max-w-5xl"
@@ -69,7 +64,6 @@ export default async function MemberPage({
       {/* adjust minimum height of components */}
       <Chairman chairs={chairs} />
       <Teams teams={roleSections} />
-      <Footer />
-    </main>
+    </>
   );
 }
