@@ -49,10 +49,10 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             >
               <Image
               className="w-full"
-              src="http://127.0.0.1:1337/uploads/poor_cat_0da116ce22.jpg"
+              src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png"
               alt={member.Name}
-              objectFit="cover" 
-              width={100}  
+              objectFit="cover"
+              width={100}
               height={100}
               />
               {/* <img
@@ -82,7 +82,7 @@ function MemberModal({
   activeMember?: Member;
   callback: () => void;
 }) {
-  
+
   if (!activeMember) return null;
 
   return (
@@ -106,10 +106,10 @@ function MemberModal({
       >
         <Image
           className="max-h-[80vh] w-full object-cover"
-          src="http://127.0.0.1:1337/uploads/poor_cat_0da116ce22.jpg" //Its supposed to be src={getLargestImageUrl(member.Photo)}
+          src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png" //Its supposed to be src={getLargestImageUrl(member.Photo)}
           alt=""
-          objectFit="cover" 
-          width={100}  
+          objectFit="cover"
+          width={100}
           height={100}
         />
         <div className="px-8 py-12 w-[65%]">
