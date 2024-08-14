@@ -3,7 +3,7 @@ import { useState } from "react";
 import { IoBanSharp, IoCheckmarkCircle } from "react-icons/io5";
 
 export default function FeedbackForm() {
-  const [submit, useSubmit] = useState<"true" | "false" | "finished">("false");
+  const [submit, useSubmit] = useState<"true" | "false" | "finished" | "error">("false");
 
   async function handleSubmit(data: FormData) {
     ("use client");
@@ -18,9 +18,11 @@ export default function FeedbackForm() {
       const message = data.get("message") as string;
       const res = await sendEmail(name, email, message);
 
-      console.log(res);
-
-      useSubmit("true");
+      if (res === 201) {
+        useSubmit("true");
+      } else {
+        useSubmit("error");
+      }
     }
   }
 

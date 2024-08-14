@@ -9,7 +9,8 @@ module.exports = {
     try {
       //note: JSON.parse only works for requests sent directly from the frontend
       //if sending from Postman, JSON.parse is not needed
-      const reqBody = JSON.parse(ctx.request.body);
+      const reqBody = ctx.request.body;
+
 
       const { name, senderEmail, body } = reqBody;
       console.log(name + " " + senderEmail + " " + body);
@@ -35,10 +36,11 @@ module.exports = {
           body: _.pick(reqBody, ["name", "email", "body"]),
         },
       );
-      ctx.response.status = 200;
+
+      return ctx.response.status = 201;
     } catch (err) {
-      console.log(err);
-      ctx.response.status = 400;
+      console.log(400);
+      return ctx.response.status = 400;
     }
   },
 };
