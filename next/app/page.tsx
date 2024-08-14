@@ -19,9 +19,11 @@ export default async function Home() {
       {/* @ts-ignore */}
       <Header />
       <div className="min-h-[55vh] flex flex-col items-center justify-center gap-6">
-        <h1 className="uppercase flex flex-col items-center mx-auto">
-          <span className="text-6xl leading-[0.95]">A Youth Board</span>
-          <span className="text-8xl font-bold leading-[0.95]">
+        <h1 className="uppercase flex flex-col items-center justify-center ">
+          <span className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl leading-[0.95] text-center">
+            A Youth Board
+          </span>
+          <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold leading-[0.95] text-center">
             For The Future
           </span>
         </h1>
