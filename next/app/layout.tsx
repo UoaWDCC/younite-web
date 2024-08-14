@@ -1,4 +1,5 @@
-/* eslint-disable @next/next/no-page-custom-font */
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
 import "./globals.css";
 
 export const metadata = {
@@ -10,25 +11,17 @@ export const metadata = {
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return (
-		<html lang="en" suppressHydrationWarning>
-			<head>
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link
-					rel="preconnect"
-					href="https://fonts.gstatic.com"
-					crossOrigin="anonymous"
-				/>
-				<link
-					href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;0,9..40,900;1,9..40,400&family=Work+Sans:wght@400;700&display=swap"
-					rel="stylesheet"
-				/>
-			</head>
-			<body>{children}</body>
-		</html>
-	);
+  return (
+    <html lang="en" className="h-full">
+      <body className="bg-gradient-1 isolate flex flex-col min-h-svh">
+        <Header />
+        <main className="grow overflow-y-auto overflow-x-hidden">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
 }

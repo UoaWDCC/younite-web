@@ -10,7 +10,7 @@ async function getHeaderData() {
   const resData = await fetchStrapi("header", headerSchema);
   const membersData = await fetchStrapi("member-teams", z.any());
   const members = membersData.sort(
-    (a: any, b: any) => a.CommitteeYear - b.CommitteeYear
+    (a: any, b: any) => a.CommitteeYear - b.CommitteeYear,
   );
 
   return {
@@ -30,16 +30,19 @@ export default async function Header() {
         <Image
           src={logoSrc}
           alt="Younite Logo"
-          className="h-32 w-auto"
+          className="h-20 w-auto"
           height={128}
           width={256}
+          priority
         />
       </Link>
       <nav className={styles.nav}>
         <div className="group relative">
           <Link
             href={
-              data.members[0] ? `/members/${data.members[0].CommitteeYear}` : "/"
+              data.members[0]
+                ? `/members/${data.members[0].CommitteeYear}`
+                : "/"
             }
           >
             MEMBERS

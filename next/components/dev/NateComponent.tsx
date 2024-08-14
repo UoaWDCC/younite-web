@@ -1,7 +1,9 @@
+"use client";
+
+import { useState } from "react";
+
 export default function NateComponent() {
-  return (
-    <div>
-      <h1>Nate's Component</h1>
-    </div>
-  );
+  const [state, setState] = useState(null);
+
+  return <div>Nate</div>;
 }
