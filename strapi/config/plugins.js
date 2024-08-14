@@ -37,8 +37,8 @@ module.exports = ({ env }) => {
               },
             },
             settings: {
-              defaultFrom: "younitereply@gmail.com",
-              defaultReplyTo: "younitereply@gmail.com",
+              defaultFrom: env("DEFAULT_EMAIL_FROM"),
+              defaultReplyTo: env("DEFAULT_EMAIL_TO"),
               testAddress: "younitereply@gmail.com",
             },
           },
