@@ -4,6 +4,7 @@ import { getLargestImageUrl } from "@/util/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import Image from 'next/image';
 
 export default function Teams({ teams }: { teams: RoleSection[] }) {
   const [active, setActive] = useState(0);
@@ -46,11 +47,19 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
               className="relative shadow-lg"
               onClick={() => setSelected(i)}
             >
-              <img
+              <Image
+              className="w-full"
+              src="http://127.0.0.1:1337/uploads/poor_cat_0da116ce22.jpg"
+              alt={member.Name}
+              objectFit="cover" 
+              width={100}  
+              height={100}
+              />
+              {/* <img
                 src={getLargestImageUrl(member.Photo)}
                 alt={member.Name}
                 className="w-full"
-              />
+              /> */}
               <div className="absolute bottom-0 left-0 w-full bg-white text-center py-2 font-bold">
                 {member.Name}
               </div>
@@ -74,8 +83,6 @@ function MemberModal({
   callback: () => void;
 }) {
   
-  console.log("active", activeMember?.Photo) //--> Activemember is undefined when not selecting modal. Delete this later, this is for debugging
-
   if (!activeMember) return null;
 
   return (
@@ -97,10 +104,13 @@ function MemberModal({
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", bounce: 0, duration: 0.15 }}
       >
-        <img
+        <Image
           className="max-h-[80vh] w-full object-cover"
-          src={"http://127.0.0.1:1337/uploads/poor_cat_0da116ce22.jpg"}
+          src="http://127.0.0.1:1337/uploads/poor_cat_0da116ce22.jpg" //Its supposed to be src={getLargestImageUrl(member.Photo)}
           alt=""
+          objectFit="cover" 
+          width={100}  
+          height={100}
         />
         <div className="px-8 py-12 w-[65%]">
           <h2 className="mb-4 text-3xl font-bold">{activeMember.Name}</h2>
