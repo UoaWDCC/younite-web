@@ -67,7 +67,13 @@ function unwrapJsonData<T>(json: StrapiJson<T>) {
   return unwrappedData;
 }
 
-//
-export async function sendEmail<T>(name: string, email: string, message: string, url: string) {
-  const response = await fetch(url,)
+export async function sendEmail<T>(name: string, email: string, body: string) {
+  const url = `http://localhost:1337/api/email`;
+
+  const response = await fetch(url, {
+    method: "POST",
+    body: JSON.stringify({ name: name, senderEmail: email, body: body }),
+  });
+
+  return response.status;
 }

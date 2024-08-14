@@ -7,10 +7,12 @@ module.exports = {
 
   async sendEmail(ctx) {
     try {
-      // const { name, senderEmail, body } = ctx.request.body;
-      console.log(ctx.request.body);
+      //note: JSON.parse only works for requests sent directly from the frontend
+      //if sending from Postman, JSON.parse is not needed
+      const reqBody = JSON.parse(ctx.request.body);
 
-      const body = ctx.request.body;
+      const { name, senderEmail, body } = reqBody;
+      console.log(name + " " + senderEmail + " " + body);
 
       const emailTemplate = {
         subject: "Feedback Received From <%= body.name %>",
@@ -24,13 +26,13 @@ module.exports = {
         {
           to: process.env.DEFAULT_EMAIL_TO,
           from: process.env.DEFAULT_EMAIL_FROM,
-          replyTo: body.email,
+          replyTo: reqBody.email,
           subject: "name",
           text: "test text",
         },
         emailTemplate,
         {
-          body: _.pick(body, ["name", "body"]),
+          body: _.pick(reqBody, ["name", "email", "body"]),
         },
       );
       ctx.response.status = 200;

@@ -1,3 +1,4 @@
+import { sendEmail } from "@/util/strapi";
 import { useState } from "react";
 import { IoBanSharp, IoCheckmarkCircle } from "react-icons/io5";
 
@@ -10,16 +11,16 @@ export default function FeedbackForm() {
     if (submit === "true") {
       useSubmit("finished");
     } else if (submit === "false") {
-      const name = data.get("name");
-      const email = data.get("email");
-      const message = data.get("message");
-      useSubmit("true");
+      //   const {name, email, message} = data;
 
-      console.log({
-        name,
-        email,
-        message,
-      });
+      const name = data.get("name") as string;
+      const email = data.get("email") as string;
+      const message = data.get("message") as string;
+      const res = await sendEmail(name, email, message);
+
+      console.log(res);
+
+      useSubmit("true");
     }
   }
 
