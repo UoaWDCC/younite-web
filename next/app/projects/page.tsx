@@ -26,7 +26,7 @@ export default async function ProjectsPage() {
           width={1920}
           height={1080}
         />
-        <h1 className="uppercase flex flex-col items-center mx-auto mb-6 text-8xl font-bold font-sora leading-[0.95]">
+        <h1 className="uppercase flex flex-col items-center mx-auto mb-6 text-8xl font-extrabold font-sora leading-[0.95]">
           Projects
         </h1>
         <p className="max-w-[55ch] text-center">{projectsPage.Subtitle}</p>
@@ -53,7 +53,7 @@ export default async function ProjectsPage() {
                 year: "numeric",
               })}
             </span>
-            <div className="max-w-[55ch]">
+            <div className="max-w-[55ch] left-[60%] text-left absolute">
               <Link
                 className="font-bold text-5xl mb-6 block"
                 href={`/projects/${p.slug}`}
@@ -61,12 +61,12 @@ export default async function ProjectsPage() {
                 {p.title}
               </Link>
               <p className="mb-4">{p.Description}</p>
-              <Link
+              {/* <Link
                 className="ml-auto underline italic block"
                 href={`/projects/${p.slug}`}
               >
                 Read More
-              </Link>
+              </Link> */}
             </div>
           </div>
         ))}
