@@ -6,13 +6,11 @@ export default function FeedbackForm() {
   const [submit, useSubmit] = useState<"true" | "false" | "finished" | "error">("false");
 
   async function handleSubmit(data: FormData) {
-    ("use client");
+    "use client";
 
     if (submit === "true") {
       useSubmit("finished");
     } else if (submit === "false") {
-      //   const {name, email, message} = data;
-
       const name = data.get("name") as string;
       const email = data.get("email") as string;
       const message = data.get("message") as string;
@@ -61,6 +59,11 @@ export default function FeedbackForm() {
           <div className="mb-4 flex items-center animate-[fadeIn_0.3s_ease-in_forwards]">
             <IoBanSharp />
             <p>You have already submitted this response.</p>
+          </div>
+        ) : submit === "error" ? (
+          <div className="mb-4 flex items-center animate-[fadeIn_0.3s_ease-in_forwards]">
+            <IoBanSharp />
+            <p>Server error. Please try again later.</p>
           </div>
         ) : undefined}
         <input

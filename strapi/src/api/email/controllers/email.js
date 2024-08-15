@@ -11,7 +11,6 @@ module.exports = {
       //if sending from Postman, JSON.parse is not needed
       const reqBody = ctx.request.body;
 
-
       const { name, senderEmail, body } = reqBody;
       console.log(name + " " + senderEmail + " " + body);
 

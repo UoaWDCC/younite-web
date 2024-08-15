@@ -1,3 +1,4 @@
+import { emailSchema } from "@/schemas/single/Email";
 import { z } from "zod";
 
 // Complicated type to account for Strapi either being a single or collection type
@@ -69,6 +70,14 @@ function unwrapJsonData<T>(json: StrapiJson<T>) {
 
 export async function sendEmail<T>(name: string, email: string, body: string) {
   const url = `http://localhost:1337/api/email`;
+
+  try {
+    const verifySchema = await emailSchema.parse(
+      JSON.stringify({ name: name, senderEmail: email, body: body }),
+    );
+  } catch (err) {
+    return 400;
+  }
 
   const response = await fetch(url, {
     method: "POST",
