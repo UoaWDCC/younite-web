@@ -12,7 +12,6 @@ module.exports = {
       const reqBody = ctx.request.body;
 
       const { name, senderEmail, body } = reqBody;
-      console.log(name + " " + senderEmail + " " + body);
 
       const emailTemplate = {
         subject: "Feedback Received From <%= body.name %>",
@@ -27,8 +26,6 @@ module.exports = {
           to: process.env.DEFAULT_EMAIL_TO,
           from: process.env.DEFAULT_EMAIL_FROM,
           replyTo: reqBody.email,
-          subject: "name",
-          text: "test text",
         },
         emailTemplate,
         {
