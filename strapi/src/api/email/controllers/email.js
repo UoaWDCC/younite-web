@@ -5,7 +5,7 @@ const { sanitize } = require("@strapi/utils");
 module.exports = {
   async sendEmail(ctx) {
     try {
-      const reqBody = ctx.request.body;
+      // const reqBody = await sanitize.contentAPI.input(ctx.request.body);
       const validateBody = await EmailSchema.validate(reqBody, {
         stripUnknown: true,
       });
@@ -22,16 +22,17 @@ module.exports = {
         {
           to: process.env.DEFAULT_EMAIL_TO,
           from: process.env.DEFAULT_EMAIL_FROM,
-          replyTo: reqBody.email,
+          replyTo: validateBody.email,
         },
         emailTemplate,
         {
-          body: _.pick(reqBody, ["name", "email", "body"]),
+          body: _.pick(validateBody, ["name", "email", "body"]),
         },
       );
 
       return (ctx.response.status = 201);
     } catch (err) {
+      console.log(err);
       return (ctx.response.status = 400);
     }
   },
