@@ -5,6 +5,33 @@ import { IoBanSharp, IoCheckmarkCircle } from "react-icons/io5";
 export default function FeedbackForm() {
   const [submit, useSubmit] = useState<"true" | "false" | "finished" | "error">("false");
 
+  function ResponseStatus() {
+    if (submit == "true") {
+      return (
+        <div className="mb-4 flex items-center animate-[fadeIn_0.3s_ease-in_forwards]">
+          <IoCheckmarkCircle />
+          <p>Your response has been recorded!</p>
+        </div>
+      );
+    } else if (submit == "finished") {
+      return (
+        <div className="mb-4 flex items-center animate-[fadeIn_0.3s_ease-in_forwards]">
+          <IoBanSharp />
+          <p>You have already submitted this response.</p>
+        </div>
+      );
+    } else if (submit == "error") {
+      return (
+        <div className="mb-4 flex items-center animate-[fadeIn_0.3s_ease-in_forwards]">
+          <IoBanSharp />
+          <p>Server error. Please try again later.</p>
+        </div>
+      );
+    } else {
+      return undefined;
+    }
+  }
+
   async function handleSubmit(data: FormData) {
     "use client";
 
@@ -50,7 +77,8 @@ export default function FeedbackForm() {
           placeholder="Enter your feedback"
           className="mb-4 bg-white px-4 py-2 rounded-md shadow-md text-b-dark-blue"
         ></textarea>
-        {submit === "true" ? (
+        <ResponseStatus />
+        {/* {submit === "true" ? (
           <div className="mb-4 flex items-center animate-[fadeIn_0.3s_ease-in_forwards]">
             <IoCheckmarkCircle />
             <p>Your response has been recorded!</p>
@@ -65,7 +93,7 @@ export default function FeedbackForm() {
             <IoBanSharp />
             <p>Server error. Please try again later.</p>
           </div>
-        ) : undefined}
+        ) : undefined} */}
         <input
           className="font-bold first:mx-auto px-12 py-3 bg-b-blue text-b-dark-blue rounded-full shadow-md cursor-pointer"
           type="submit"
