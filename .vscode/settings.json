@@ -18,7 +18,7 @@
   // Exclude some build files from the explorer to avoid clutter
   "files.exclude": {
     // Comment out temporarily if you need to see them
-    // "**/node_modules": true,
+    "**/node_modules": true,
     "**/.next": true,
     "**/.cache": true,
     "**/.tmp": true,
