@@ -1,9 +1,14 @@
 const _ = require("lodash");
+const { EmailSchema } = require("../../../../validation/email");
+const { sanitize } = require("@strapi/utils");
 
 module.exports = {
   async sendEmail(ctx) {
     try {
       const reqBody = ctx.request.body;
+      const validateBody = await EmailSchema.validate(reqBody, {
+        stripUnknown: true,
+      });
 
       const emailTemplate = {
         subject: "Feedback Received From <%= body.name %>",
@@ -25,10 +30,9 @@ module.exports = {
         },
       );
 
-      return ctx.response.status = 201;
+      return (ctx.response.status = 201);
     } catch (err) {
-      console.log(400);
-      return ctx.response.status = 400;
+      return (ctx.response.status = 400);
     }
   },
 };
