@@ -70,6 +70,7 @@ function unwrapJsonData<T>(json: StrapiJson<T>) {
 
 export async function sendEmail<T>(name: string, email: string, body: string) {
   const url = new URL(`${process.env.STRAPI_URL}/api/email`);
+
   const data = { name: name, senderEmail: email, body: body };
 
   try {

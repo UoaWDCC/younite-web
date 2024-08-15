@@ -1,17 +1,9 @@
 const _ = require("lodash");
 
 module.exports = {
-  async getEmail(ctx) {
-    ctx.response.body = "hi";
-  },
-
   async sendEmail(ctx) {
     try {
-      //note: JSON.parse only works for requests sent directly from the frontend
-      //if sending from Postman, JSON.parse is not needed
       const reqBody = ctx.request.body;
-
-      const { name, senderEmail, body } = reqBody;
 
       const emailTemplate = {
         subject: "Feedback Received From <%= body.name %>",
