@@ -69,26 +69,25 @@ function unwrapJsonData<T>(json: StrapiJson<T>) {
 }
 
 export async function sendEmail<T>(name: string, email: string, body: string) {
-  const url = `http://localhost:1337/api/email`;
-
+  const url = new URL(`${process.env.STRAPI_URL}/api/email`);
   const data = { name: name, senderEmail: email, body: body };
 
   try {
     const verifySchema = emailSchema.parse(data);
-
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.STRAPI_KEY}`,
       },
+      cache: "no-cache", // For development only
       body: JSON.stringify({ name: name, senderEmail: email, body: body }),
     });
 
     return response.status;
   } catch (err) {
     if (err instanceof ZodError) {
-
+      return 400;
     }
   }
-
 }
