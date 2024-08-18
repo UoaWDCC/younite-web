@@ -46,7 +46,7 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
             <p>{chair1.About}</p>
           </div>
         </div>
-        <div className="relative row-start-2 col-span-12 md:col-span-7 md:col-start-7 drop-shadow-xl -translate-y-[30%] -z-10">
+        <div className="md:relative row-start-2 col-span-12 md:col-span-7 md:col-start-7 drop-shadow-xl md:-translate-y-[30%] -z-10">
           <Image
             className="w-full absolute bottom-0 -left-full h-80 object-contain"
             src={Flair1}
