@@ -29,7 +29,7 @@ export default async function AboutPage() {
         <div className="grid grid-cols-3 grid-rows-2 text-black text-left mx-6">
           {data.Values.map((value, i) => (
             <div key={value.Name} className={styles.valueCard}>
-              <h2 className="mb-1 text-2xl font-black uppercase">
+              <h2 className="mb-1 text-sm text-center md:text-left sm:text-lg md:text-2xl font-black uppercase">
                 {value.Name}
               </h2>
               <p>{value.ValueDescription}</p>

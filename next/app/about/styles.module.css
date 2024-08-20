@@ -26,7 +26,7 @@
 
 .valueCard:nth-of-type(4) {
   background: linear-gradient(0deg, #ace8ff 0%, #ace8ff 100%);
-  transform: rotate(-9.745deg) translateY(-2rem) translateX(-2rem);
+  transform: rotate(-9.745deg) translateY(-1rem) translateX(-2rem);
   grid-column-start: 2;
   z-index: 2;
 }
