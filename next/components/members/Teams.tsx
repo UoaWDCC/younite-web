@@ -85,7 +85,7 @@ function MemberModal({
         transition={{ type: "spring", bounce: 0, duration: 0.3 }}
       ></motion.div>
       <motion.div
-        className="md:h-fit md:w-full h-lvh w-lvh outline max-w-6xl grid grid-cols-[2fr_3fr] text-b-dark-blue"
+        className="md:h-fit md:w-full h-lvh w-lvh md:max-w-6xl grid grid-cols-[2fr_3fr] text-b-dark-blue"
         style={{
           background:
             "radial-gradient(47.21% 33.08% at 23.96% 39.49%, rgba(253, 141, 93, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(66.83% 44.73% at 78.61% 81.23%, rgba(250, 171, 54, 0.20) 0%, rgba(255, 255, 255, 0.00) 97.76%), linear-gradient(180deg, #FFF 0%, #F6D09E 100%)",

@@ -31,7 +31,7 @@ export default async function Home() {
       </div>
       <HomePageBlobs blob1={data.blob1} blob2={data.blob2} blob3={data.blob3} />
 
-      <ImageWithText props={data.textWithImage} />
+      <ImageWithText props={data.textWithImage}/>
       <div>
         <div className="bg-white bg-opacity-50">
           <div className="overflow-hidden ml-20 mr-20 ">
