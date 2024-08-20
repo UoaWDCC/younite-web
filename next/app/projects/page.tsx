@@ -22,7 +22,7 @@ export default async function ProjectsPage() {
         <Image
           src={getLargestImageUrl(projectsPage.BackgroundImage)}
           alt="Projects page background image"
-          className="absolute inset-0 -z-10 object-cover object-[center_bottom] w-full h-full brightness-50"
+          className="absolute inset-0 -z-10 object-cover w-full h-full brightness-50"
           width={1920}
           height={1080}
         />
