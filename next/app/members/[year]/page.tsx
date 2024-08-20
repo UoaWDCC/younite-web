@@ -36,7 +36,7 @@ export default async function MemberPage({
             src={getLargestImageUrl(team.teamPhoto)}
             alt=""
           />
-          <div className="absolute md:bottom-8 md:right-12 m-3 p-8 pr-16 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
+          <div className="md:absolute md:bottom-8 md:right-12 m-3 p-8 pr-16 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
             <RichText
               props={{
                 text: team.description,
