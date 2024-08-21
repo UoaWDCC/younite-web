@@ -1,13 +1,5 @@
 const _ = require("lodash");
 const { EmailSchema } = require("../../../../validation/email");
-const { text } = require("body-parser");
-const { log } = require("console");
-const { response } = require("express");
-const { request } = require("http");
-const { env } = require("process");
-const plugins = require("../../../../config/plugins");
-const { sendEmail } = require("./email");
-const email = require("./email");
 
 module.exports = {
   async sendEmail(ctx) {
