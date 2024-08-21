@@ -1,6 +1,9 @@
 "use client";
+import selectionArrow from "@/assets/feedback/selectionArrow.png";
+import Image from "next/image";
 import { useState } from "react";
-import { IoChevronDown } from "react-icons/io5";
+import FAQ from "./FAQ";
+import FeedbackForm from "./FeedbackForm";
 
 export default function ActiveSection({
   data,
@@ -13,32 +16,51 @@ export default function ActiveSection({
   };
 }) {
   const QAs = data.QuestionAnswer;
+  const [styleClick, setStyleClick] = useState<boolean>();
   const [activeSection, setActiveSection] = useState<"FAQ" | "Contact">("FAQ");
 
+  function handleClick() {
+    setStyleClick(true);
+
+    setTimeout(() => {
+      if (activeSection == "Contact") {
+        setActiveSection("FAQ");
+      } else {
+        setActiveSection("Contact");
+      }
+      setStyleClick(false);
+    }, 300);
+  }
+
   return (
-    <div className="flex py-24 w-full max-w-5xl mx-auto gap-12">
-      <div className="flex flex-col items-end">
-        <button className="font-bold text-7xl mb-2">FAQ</button>
-        <button className="uppercase text-4xl font-bold">Contact</button>
-      </div>
-      <div className="w-full">
-        <h1 className="text-3xl font-bold mb-10">Frequently Asked Questions</h1>
-        <div className="flex flex-col gap-6">
-          {QAs.map((QA) => {
-            return (
-              <details
-                key={QA.Question}
-                className=" bg-white rounded-md text-b-dark-blue w-full"
-              >
-                <div className="p-4">{QA.Answer}</div>
-                <summary className="list-none cursor-pointer flex justify-between items-center border-b border-b-dark-blue p-4">
-                  <h2>{QA.Question}</h2>
-                  <IoChevronDown className="w-6 h-6 summary-arrow transition-transform" />
-                </summary>
-              </details>
-            );
-          })}
+    <div
+      className={`flex w-full max-w-5xl mb-24 mx-auto gap-12 ${styleClick ? "animate-[fadeOut_0.3s_ease-in_forwards]" : "animate-[fadeIn_0.3s_ease-in_forwards]"}`}
+    >
+      <div className="flex flex-col">
+        <div className="flex flex-col items-end w-80 ml-5">
+          <button
+            className={`text-wrap uppercase font-bold text-7xl mb-2`}
+            disabled={true}
+          >
+            {activeSection == "FAQ" ? "FAQ" : "Contact"}
+          </button>
+          <div className="flex items-center">
+            <Image
+              src={selectionArrow}
+              alt="Selection arrow"
+              className="inline-block"
+            />
+            <button
+              className="text-b-dark-blue ml-2 uppercase text-4xl font-bold"
+              onClick={() => handleClick()}
+            >
+              {activeSection == "FAQ" ? "Contact" : "FAQ"}
+            </button>
+          </div>
         </div>
+      </div>
+      <div className="flex-1 mr-5">
+        {activeSection == "FAQ" ? <FAQ QAs={QAs} /> : <FeedbackForm />}
       </div>
     </div>
   );

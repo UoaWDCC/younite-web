@@ -1,6 +1,4 @@
-import styles from "@/app/page.module.css";
 import ContentBlock from "@/components/blocks/ContentBlock";
-import Header from "@/components/header/header";
 import { projectSchema } from "@/schemas/collection/Project";
 import fetchStrapi from "@/util/strapi";
 import { notFound } from "next/navigation";
@@ -18,12 +16,5 @@ export default async function ProjectPage({
   const project = projects[0];
   if (!project) notFound();
 
-  return (
-    <main className={styles.main}>
-      <Header />
-      <div>
-        {project.blocks.map((block: any) => ContentBlock({ props: block }))}
-      </div>
-    </main>
-  );
+  return project.blocks.map((block: any) => ContentBlock({ props: block }));
 }

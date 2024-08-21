@@ -1,10 +1,14 @@
-# Younite's Display Website
+# Younite Display Website
 
 Project initiated by WDCC in 2023.
 
-[Guide to getting started](https://drive.google.com/file/d/17aVWCT-alB2iuaeKjuLV3gN6rzv407Ox/view?usp=sharing)
+[Project Wiki](https://github.com/UoaWDCC/younite-web/wiki) (including getting started)
 
-## Team Leadership
+## Contacts
 
-- Stephen Stuart (Project Manager)
-- Matthew Tao (Tech Lead)
+- Yvonne Liew (PM):
+- Nate Williamson (TL): nwil508@aucklanduni.ac.nz
+- Team email (unmonitored): younite@projects.wdcc.co.nz
+- Client email: younitechair@gmail.com
+
+Or contact WDCC at projects@wdcc.co.nz
