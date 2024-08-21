@@ -1,7 +1,6 @@
 import flair from "@/assets/about/flair.png";
 import valueFlair1 from "@/assets/about/value1.png";
 import valueFlair2 from "@/assets/about/value2.png";
-import Header from "@/components/header/header";
 import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
@@ -19,17 +18,9 @@ export default async function AboutPage() {
   }).sort((a, b) => a.Date.getTime() - b.Date.getTime());
 
   return (
-    <main
-      style={{
-        backgroundImage:
-          "linear-gradient(180deg, #0D66B7 0%, #62BCE0 48.87%, #FFE2C8 94.91%), linear-gradient(359deg, #6CC3E5 44.81%, rgba(255, 233, 204, 0.80) 56.29%, rgba(255, 202, 133, 0.00) 84.97%)",
-      }}
-      className="isolate"
-    >
-      {/* @ts-ignore */}
-      <Header />
+    <>
       <Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
-      <section className="max-w-4xl mx-auto py-20 flex flex-col items-center text-center">
+      <section className="max-w-4xl mx-auto mt-header pt-24 flex flex-col items-center text-center">
         <h1 className="text-8xl font-bold leading-[0.95] uppercase mb-6">
           Our Values
         </h1>
@@ -90,6 +81,6 @@ export default async function AboutPage() {
           </ol>
         </div>
       </section>
-    </main>
+    </>
   );
 }

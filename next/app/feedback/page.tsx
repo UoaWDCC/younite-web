@@ -1,5 +1,4 @@
 import ActiveSection from "@/components/feedback/ActiveSection";
-import Header from "@/components/header/header";
 import { feedbackPageSchema } from "@/schemas/single/FeedbackPage";
 import fetchStrapi from "@/util/strapi";
 
@@ -8,9 +7,7 @@ export default async function Feedback() {
   const QAs = data.QuestionAnswer;
 
   return (
-    <div className="flex flex-col bg-gradient-1 min-h-screen h-full overflow-y-hidden isolate">
-      {/* @ts-ignore */}
-      <Header />
+    <div className="relative mt-header pt-24">
       <svg
         viewBox="0 0 1440 1027"
         fill="none"

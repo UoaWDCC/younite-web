@@ -1,4 +1,3 @@
-import styles from "@/app/page.module.css";
 import Header from "@/components/header/header";
 import { projectSchema } from "@/schemas/collection/Project";
 import { projectsPageSchema } from "@/schemas/single/ProjectsPage";
@@ -13,12 +12,8 @@ export default async function ProjectsPage() {
   const projects = await fetchStrapi("project-pages", z.array(projectSchema));
 
   return (
-    <main className={styles.main}>
-      <div className="absolute top-0 w-full z-50">
-        {/* @ts-ignore */}
-        <Header />
-      </div>
-      <section className="h-[85vh] flex flex-col items-center justify-center relative">
+    <>
+      <section className="h-[85vh] flex flex-col items-center relative">
         <Image
           src={getLargestImageUrl(projectsPage.BackgroundImage)}
           alt=""
@@ -26,7 +21,7 @@ export default async function ProjectsPage() {
           width={1920}
           height={1080}
         />
-        <h1 className="uppercase flex flex-col items-center mx-auto mb-6 text-8xl font-bold leading-[0.95]">
+        <h1 className="uppercase flex flex-col items-center mx-auto mt-header pt-24 mb-6 text-8xl font-bold leading-[0.95]">
           Projects
         </h1>
         <p className="max-w-[55ch] mb-20">{projectsPage.Subtitle}</p>
@@ -71,6 +66,6 @@ export default async function ProjectsPage() {
           </div>
         ))}
       </div>
-    </main>
+    </>
   );
 }
