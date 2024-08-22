@@ -121,7 +121,7 @@ export default async function AboutPage() {
               }
 
               return (
-                <li key={i} className="flex-none mb-10 ms-20 ml-10 ">
+                <li key={i} className="flex-none mb-10 ml-10 mr-20 ">
                   <div className="absolute w-0.5 h-10 bg-gray-100 mb-1.5 -top-0 border border-white"></div>
 
                   <time className="mb-1 text-sm font-normal leading-none italic">
@@ -160,5 +160,5 @@ export default async function AboutPage() {
 
 // to do
 // fix alternation of elements
-// align vertical line with middle of elements
-// fix overflow in text boxes
+// align vertical line with middle of elements - make the line part of the box element
+// fix overflow in text boxes - if text is more than max width, show ...
