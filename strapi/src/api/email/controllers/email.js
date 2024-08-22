@@ -23,7 +23,7 @@ module.exports = {
         {
           to: process.env.DEFAULT_EMAIL_TO,
           from: process.env.DEFAULT_EMAIL_FROM,
-          replyTo: validateBody.email,
+          replyTo: validateBody.senderEmail,
         },
         emailTemplate,
         {
@@ -31,7 +31,7 @@ module.exports = {
         },
       );
 
-      _.return((ctx.response.status = 201));
+      return (ctx.response.status = 201);
     } catch (err) {
       console.log(err);
       return (ctx.response.status = 400);

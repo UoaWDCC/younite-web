@@ -1,7 +1,3 @@
-const path = require("path");
-const { config } = require("process");
-const { routes } = require("./email");
-
 module.exports = {
   routes: [
     {
