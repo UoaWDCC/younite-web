@@ -63,11 +63,17 @@ export default async function Header() {
             }}
           >
             {/* Render sorted members */}
-            {data.members.map(({ CommitteeYear }: { CommitteeYear: number }) => (
-              <Link href={`/members/${CommitteeYear}`} key={CommitteeYear}>
-                {CommitteeYear}
-              </Link>
-            ))}
+            {data.members.map(
+              ({ CommitteeYear }: { CommitteeYear: number }) => (
+                <Link
+                  href={`/members/${CommitteeYear}`}
+                  key={CommitteeYear}
+                  className="my-1 min-w-16 text-center"
+                >
+                  {CommitteeYear}
+                </Link>
+              ),
+            )}
           </div>
         </div>
 

@@ -23,12 +23,6 @@
   letter-spacing: 1px;
 }
 
-.nav a:last-child {
-  border: 1px solid white;
-  border-radius: 999px;
-  padding: 0.25rem 1rem;
-}
-
 @media (max-width: 800px) {
   .header {
     flex-direction: column;
