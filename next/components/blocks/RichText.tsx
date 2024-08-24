@@ -1,9 +1,6 @@
 import React, { Children } from "react";
 import ReactMarkdown from "react-markdown";
-
-type RichTextProps = {
-  text: String;
-};
+import style from "./RichText.module.css";
 
 export default function RichText({
   children,
@@ -15,7 +12,9 @@ export default function RichText({
     <div>
       {Children.map(childrenArray, (c) => {
         if (typeof c === "string") {
-          return <ReactMarkdown>{c}</ReactMarkdown>;
+          return (
+            <ReactMarkdown className={style.reactMarkdown}>{c}</ReactMarkdown>
+          );
         }
         return c;
       })}
