@@ -19,7 +19,7 @@ export default function HomePageBlobs({ blob1, blob2, blob3 }: Props) {
         {blob2}
         <button className={styles.button}>JOIN US NOW</button>
       </Blob>
-      <Blob className="bg-[#ffaa00] text-black row-start-4 col-start-2 col-span-4">
+      <Blob className="bg-[#ffaa00] row-start-4 col-start-2 col-span-4">
         {blob3}
       </Blob>
     </div>
