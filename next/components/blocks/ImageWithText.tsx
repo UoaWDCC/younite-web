@@ -15,9 +15,10 @@ export default function ImageWithText({ props }: ImageWithTextProps) {
   const imageUrl = getLargestImageUrl(props.image);
 
   return (
+    //
     // grid grid-cols-2 max-h-[80vh]
-    <div className="flex flex-col md:flex-row">
-      <div className="flex">
+    <div className="flex outline flex-col md:flex-row md:items-stretch">
+      {/* <div className="flex"> */}
         <Image
           className={styles.backgroundImg}
           src={imageUrl}
@@ -25,7 +26,7 @@ export default function ImageWithText({ props }: ImageWithTextProps) {
           width={500}
           height={500}
         />
-      </div>
+      {/* </div> */}
       <div className={styles.backgroundDots}>
         <div className={styles.backgroundCol}>
           <div className={styles.heading}>{props.Heading}</div>
