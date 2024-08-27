@@ -55,13 +55,8 @@ export default async function Header() {
             MEMBERS
           </Link>
           <div
-            className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue"
-            style={{
-              flexDirection: "column",       // Stack the years vertically
-              alignItems: "center",          // Center the text horizontally
-              padding: "0.25rem 0.5rem",     // Adjust padding to fit the text better
-            }}
-          >
+            className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
+            {/* align years vertically */}
             {/* Render sorted members */}
             {data.members.map(
               ({ CommitteeYear }: { CommitteeYear: number }) => (
