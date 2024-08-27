@@ -17,11 +17,16 @@ export default async function HistoryTest() {
   //   };
   // }).sort((a, b) => a.Date.getTime() - b.Date.getTime());
 
-  const timeline: TimelineElement[] =
+  const timeline: TimelineElement[] = [
+  ]
 
+  // ({ Date: Date; Image: string; Date: Date; Title: string; Description: string; })
 
   return (
-    <HistoryComponent timelineElements={timeline}/>
+    // <HistoryComponent timelineElements= []/>
+    <div>
+      Hi
+    </div>
   )
 
 }
