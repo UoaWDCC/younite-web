@@ -6,49 +6,41 @@ interface ModalProps {
   title: string;
   description: string;
   imageUrl: string;
-  // signUpUrl: string;
+  signUpUrl: string;
 }
 
-const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl }) => {
+const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, signUpUrl }) => {
   return (
-    // <div>
-    //   <h2>{title}</h2>
-    //   <p>{description}</p>
-    //   <Image
-    //         src={imageUrl}
-    //         alt="Project Image"
-    //          width={100}
-    //          height={100}
-    //         />
-    // </div>
 
     <div className="fixed inset-0 flex items-center justify-center z-50">
         <div className="bg-white bg-opacity-67 rounded-lg overflow-hidden w-96 relative shadow-lg">
           <div className="relative w-full h-48">
-          <Image
-            src={imageUrl}
-            alt="Project Image"
-            layout="fill"
-            objectFit="cover"
-          />
+            <Image
+              src={imageUrl}
+              alt="Project Image"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
 
-        <div className="p-6 bg-gradient-to-t from-orange-200 to-blue-200">
-          <h2 className="text-white text-xl font-bold mb-4 text-center"> PROJECT TITLE </h2>
-          <p className="text-white text-center mb-6">
-            A group of young people eager to enact positive change in the
-            Devonport-Takapuna community. Believing in youth voices and youth
-            leadership.
-          </p>
+        <div className="p-6 bg-gradient-to-t from-blue-200 to-orange-200">
+          <h2 className="text-white text-xl font-bold mb-4 text-center"> {title} </h2>
+          <p className="text-white text-center mb-6"> {description}  </p>
 
           <a
-            href="/signup" // Replace with your sign-up URL
-            className="block bg-blue-500 text-white text-center py-2 rounded-lg"
+            href={signUpUrl}
+            className="block bg-white text-black text-center py-2 rounded-lg"
           >
             Click Here to Sign up
           </a>
         </div>
 
-        </div>
+        {/* <button
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+        >
+          &#x2715;
+        </button> */}
+
       </div>
     </div>
   );
