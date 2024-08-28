@@ -79,7 +79,7 @@ module.exports = {
         lastname: "Team",
         username: "Younite",
         password: "Developer2023",
-        email: "ytao543@aucklanduni.ac.nz",
+        email: "543@aucklanduni.ac.nz",
         blocked: false,
         isActive: true,
       };

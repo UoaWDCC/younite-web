@@ -16,20 +16,22 @@ export default async function Home() {
   return (
     <>
       <BGWaves className="w-full absolute -z-50 top-[85vh]" />
+      {/* @ts-ignore */}
+      <Header />
       <div className="min-h-[55vh] flex flex-col items-center gap-6 mt-header pt-24">
-        <h1 className="uppercase flex flex-col items-center">
-          <span className="text-6xl leading-[0.95]">A Youth Board</span>
-          <span className="text-8xl font-bold leading-[0.95]">
+        <h1 className="uppercase flex flex-col items-center mx-auto justify-center">
+          <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl leading-[0.95] text-center">A Youth Board</span>
+          <span className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold leading-[0.95] text-center">
             For The Future
           </span>
         </h1>
-        <p className="text-lg max-w-[50ch] text-center mb-16 leading-relaxed">
+        <p className="text-sm xs:text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl max-w-[50ch] text-center mb-16 leading-relaxed">
           {data.heroParagraph}
         </p>
       </div>
       <HomePageBlobs blob1={data.blob1} blob2={data.blob2} blob3={data.blob3} />
 
-      <ImageWithText props={data.textWithImage} />
+      <ImageWithText props={data.textWithImage}/>
       <div>
         <div className="bg-white bg-opacity-50">
           <div className="overflow-hidden ml-20 mr-20 ">
