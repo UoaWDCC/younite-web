@@ -5,7 +5,7 @@ export const feedbackPageSchema = z.object({
     z.object({
       Question: z.string(),
       Answer: z.string(),
-    })
+    }),
   ),
 });
 

@@ -25,7 +25,7 @@ type StrapiJson<T> = {
 export default async function fetchStrapi<T>(
   content: string,
   schema: z.ZodType<T>,
-  query: Record<string, string> = {}
+  query: Record<string, string> = {},
 ): Promise<T> {
   const url = getQueryUrl(content, query);
   const json = await fetchJson<T>(url);

@@ -1,9 +1,6 @@
 name: Deploy to Production
 
-on:
-  push:
-    branches:
-      - main
+on: [workflow_dispatch]
 
 jobs:
   deploy-strapi:
@@ -14,7 +11,7 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Fly Deploy
         working-directory: ./strapi
-        run: flyctl deploy --remote-only --config fly.production.toml --dockerfile Dockerfile.production
+        run: flyctl deploy --remote-only --config fly.production.toml --dockerfile Dockerfile
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STRAPI }}
   deploy-next:
@@ -25,7 +22,7 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Fly Deploy
         working-directory: ./next
-        run: flyctl deploy --remote-only --config fly.production.toml --dockerfile Dockerfile.production
+        run: flyctl deploy --remote-only --config fly.production.toml --dockerfile Dockerfile
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_FRONTEND }}
   deploy-storage:
@@ -36,6 +33,6 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Fly Deploy
         working-directory: ./storage
-        run: flyctl deploy --remote-only --config fly.production.toml --dockerfile Dockerfile.production
+        run: flyctl deploy --remote-only --config fly.production.toml --dockerfile Dockerfile
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_STORAGE }}

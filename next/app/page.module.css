@@ -1,36 +1,31 @@
 .description {
-	/* display: inherit;
-	justify-content: inherit;
-	align-items: inherit; */
-	display: flex; 
-	justify-content: center;
-	align-items: center;
-	font-size: 0.85rem;
-	max-width: var(--max-width);
-	width: 100%;
-	z-index: 2;
-	font-family: var(--font-mono);
-	padding: 1rem;
-	box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  max-width: var(--max-width);
+  width: 100%;
+  z-index: 2;
+  font-family: var(--font-mono);
 }
 
 .description a {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .description p {
-	position: relative;
-	margin: 0;
-	padding: 1rem;
-	background-color: rgba(var(--callout-rgb), 0.5);
-	border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-	border-radius: var(--border-radius);
+  position: relative;
+  margin: 0;
+  padding: 1rem;
+  background-color: rgba(var(--callout-rgb), 0.5);
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border-radius: var(--border-radius);
 }
 
 .code {
-	font-weight: 700;
-	font-family: var(--font-mono);
+  font-weight: 700;
+  font-family: var(--font-mono);
 }

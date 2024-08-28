@@ -17,7 +17,13 @@ export default function ImageWithText({ props }: ImageWithTextProps) {
   return (
     <div className="grid grid-cols-2 max-h-[80vh]">
       <div className="flex">
-        <Image className={styles.backgroundImg} src={imageUrl} alt={props.Heading} width={500} height={500} />
+        <Image
+          className={styles.backgroundImg}
+          src={imageUrl}
+          alt={props.Heading}
+          width={500}
+          height={500}
+        />
       </div>
       <div className={styles.backgroundDots}>
         <div className={styles.backgroundCol}>
