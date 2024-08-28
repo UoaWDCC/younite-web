@@ -20,8 +20,8 @@ export default async function Home() {
       <Header />
       <div className="min-h-[55vh] flex flex-col items-center gap-6 mt-header pt-24">
         <h1 className="uppercase flex flex-col items-center mx-auto justify-center">
-          <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl leading-[0.95] text-center">A Youth Board</span>
-          <span className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold leading-[0.95] text-center">
+          <span className="text-2xl xs:text-3xl sm:text-4xl lg:text-6xl xl:text-8xl leading-[0.95] text-center">A Youth Board</span>
+          <span className="text-3xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-9xl font-bold leading-[0.95] text-center">
             For The Future
           </span>
         </h1>
