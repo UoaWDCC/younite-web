@@ -9,9 +9,20 @@ export default async function ProjectPage({
 }: {
   params: { slug: string };
 }) {
-  const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
-    "filters[slug][$eq]": params.slug,
-  });
+  let projects = null;
+  let firstDay = new Date(new Date().getFullYear(), 0, 1);
+  let lastDay = new Date(new Date().getFullYear(), 11, 31);
+
+  if (params.slug === JSON.stringify(new Date().getFullYear())) {
+    projects = await fetchStrapi("project-pages", z.array(projectSchema), {
+      "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
+      "[$lte]": lastDay.toISOString().split("T")[0],
+    });
+  } else {
+    projects = await fetchStrapi("project-pages", z.array(projectSchema), {
+      "filters[Date][$lte]": lastDay.toISOString().split("T")[0],
+    });
+  }
 
   const project = projects[0];
   if (!project) notFound();

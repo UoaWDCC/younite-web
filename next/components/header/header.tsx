@@ -77,8 +77,8 @@ export default async function Header() {
             PROJECTS
           </Link>
           <div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue">
-            {data.projects.map(({ Year }) => (
-              <Link href={`/projects/${Year}`} key={Year}>
+            {data.projects.map(({ Year, slug }) => (
+              <Link href={`/projects/${slug}`} key={Year}>
                 {Year}
               </Link>
             ))}
