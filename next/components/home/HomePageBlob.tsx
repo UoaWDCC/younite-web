@@ -1,3 +1,4 @@
+import RichText from "../blocks/RichText";
 import Blob from "./Blob";
 import ConnectorBlob from "./ConnectorBlob";
 import styles from "./HomePageBlob.module.css";
@@ -16,11 +17,11 @@ export default function HomePageBlobs({ blob1, blob2, blob3 }: Props) {
       <Blob className="bg-white col-start-8 col-span-4">{blob1}</Blob>
       <ConnectorBlob className="col-start-10 col-end-12 justify-self-center hidden md:block" />
       <Blob className="bg-white col-start-10 col-span-4">
-        {blob2}
+        <RichText text={blob2} />
         <button className={styles.button}>JOIN US NOW</button>
       </Blob>
       <Blob className="bg-[#ffaa00] row-start-4 col-start-2 col-span-4">
-        {blob3}
+        <RichText text={blob3} />
       </Blob>
     </div>
   );
