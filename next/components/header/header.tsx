@@ -13,9 +13,21 @@ async function getHeaderData() {
     (a: any, b: any) => a.CommitteeYear - b.CommitteeYear,
   );
 
+  const currentYear = new Date().getFullYear();
+  const projects = [
+    {
+      Year: JSON.stringify(currentYear),
+      slug: JSON.stringify(currentYear),
+    },
+    {
+      Year: "Past Years",
+      slug: "past",
+    },
+  ];
   return {
     ...resData,
     members,
+    projects,
   };
 }
 
@@ -23,6 +35,7 @@ export default async function Header() {
   const data = await getHeaderData();
   const logoSrc = getLargestImageUrl(data.Logo);
   const links = data.navigation;
+  console.log(data);
 
   return (
     <header className={styles.header}>
@@ -52,6 +65,21 @@ export default async function Header() {
             {data.members.map(({ CommitteeYear }) => (
               <Link href={`/members/${CommitteeYear}`} key={CommitteeYear}>
                 {CommitteeYear}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="group relative">
+          <Link
+            href={data.projects[0] ? `/members/${data.projects[0].Year}` : "/"}
+          >
+            PROJECTS
+          </Link>
+          <div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue">
+            {data.projects.map(({ Year }) => (
+              <Link href={`/projects/${Year}`} key={Year}>
+                {Year}
               </Link>
             ))}
           </div>
