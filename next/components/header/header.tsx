@@ -72,7 +72,7 @@ export default async function Header() {
 
         <div className="group relative">
           <Link
-            href={data.projects[0] ? `/members/${data.projects[0].Year}` : "/"}
+            href={data.projects[0] ? `/projects/${data.projects[0].Year}` : "/"}
           >
             PROJECTS
           </Link>
