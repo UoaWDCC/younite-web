@@ -1,7 +1,7 @@
 export default function PreviousProjects({ projects }: { projects: any }) {
   return (
     <div className="flex flex-col mt-header">
-      <p>Past Projects</p>
+      <p className="">Past Projects</p>
     </div>
   );
 }
