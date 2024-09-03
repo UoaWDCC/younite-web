@@ -10,7 +10,7 @@ export default function HistoryText({
   hasLineAbove,
 }: HistoryTextProps) {
   const line = (
-    <div className="bg-white w-[1px] h-[50px]">{/* fill, background */}</div>
+    <div className="bg-white w-1 h-[50px]">{/* fill, background */}</div>
   );
 
   return (
