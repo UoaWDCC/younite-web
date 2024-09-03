@@ -38,6 +38,7 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
           <h2 className="text-white text-xl font-bold mb-4 text-center"> {title} </h2>
           <p className="text-white text-center mb-6"> {description}  </p>
 
+        {/* sign up buttons */}
         {urls.map((url, index) => (
           <div key={index} className="text-center">
             <a
@@ -73,8 +74,5 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
     </div>
   );
 };
-
-
-
 
 export default ProjectModal;
