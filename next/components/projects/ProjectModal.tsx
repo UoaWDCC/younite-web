@@ -15,11 +15,11 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
     <div className="fixed inset-0 flex items-center justify-center z-50 ">
         <div className="rounded-lg overflow-hidden w-96 relative shadow-lg"
         style = {{
-          border: '10px solid rgba(255, 255, 255, 0.67)',
+          border: '12px solid rgba(255, 255, 255, 0.67)',
         }}>
           <button
             // onClick={onClose}
-            className="absolute top-4 right-4 text-2xl text-white z-30">
+            className="absolute top-4 right-4 text-2xl font-bold text-white z-30">
               &#x2715;
             </button>
 
@@ -35,7 +35,7 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
         <div className="p-6"
         style={{
             background: 'linear-gradient(to top, #A2D6E5, #FABD6E)'}}>
-          <h2 className="text-white text-[30px] font-bold mb-4 text-center relative z-20"> {title} </h2>
+          <h2 className="text-white text-[25px] font-bold mb-4 text-center relative z-20"> {title} </h2>
           <p className="text-white text-center mb-6 relative z-20"> {description}  </p>
 
           <a
