@@ -3,6 +3,7 @@ import {
   TextTimelineElement,
   TimelineElement,
 } from "@/schemas/single/AboutPage";
+import { getLargestImageUrl } from "@/util/image";
 import HistoryImage from "./HistoryImage";
 import HistoryText from "./HistoryText";
 
@@ -61,7 +62,7 @@ function elementToComponent(
     const imageElement = element as ImageTimelineElement;
     return (
       <HistoryImage
-        src={imageElement.Image}
+        src={getLargestImageUrl(imageElement.Image)}
         hasLineAbove={position === "bottom"}
       />
     );

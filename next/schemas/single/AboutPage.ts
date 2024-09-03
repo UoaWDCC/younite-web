@@ -1,8 +1,9 @@
 import { z } from "zod";
+import { imageSchema } from "../Image";
 
 export const imageTimelineSchema = z.object({
   Date: z.date(),
-  Image: z.string(),
+  Image: imageSchema,
   __component: z.string(),
 });
 
