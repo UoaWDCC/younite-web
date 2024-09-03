@@ -27,6 +27,7 @@ export default async function ProjectsPage() {
         <p className="max-w-[55ch] mb-20">{projectsPage.Subtitle}</p>
       </section>
       <div>
+        
         {projects.map((p) => (
           <div
             key={p.slug}
