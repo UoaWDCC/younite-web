@@ -1,4 +1,4 @@
-import HistoryComponent from "@/components/history/History";
+import History from "@/components/history/History";
 import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 
@@ -16,7 +16,7 @@ export default async function HistoryTest() {
 
   return (
     <div className="mt-56">
-      <HistoryComponent timelineElements={timelineElements} />
+      <History timelineElements={timelineElements} />
     </div>
   );
 }
