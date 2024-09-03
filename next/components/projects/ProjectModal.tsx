@@ -6,7 +6,7 @@ interface ModalProps {
   title: string;
   description: string;
   imageUrl: string;
-  signUpUrl: string;
+  signUpUrl: string[];
 }
 
 const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, signUpUrl }) => {
@@ -26,7 +26,7 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
         <div className="p-6 bg-gradient-to-t from-blue-200 to-orange-200">
           <h2 className="text-white text-xl font-bold mb-4 text-center"> {title} </h2>
           <p className="text-white text-center mb-6"> {description}  </p>
-
+        {signUpUrl.map((url, index) => (}
           <a
             href={signUpUrl}
             className="block bg-white text-black text-center py-2 rounded-lg"
