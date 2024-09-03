@@ -18,33 +18,18 @@ export default function HistoryComponent({
     (a, b) => a.Date.getTime() - b.Date.getTime(),
   );
 
-  // Map timeline elements to components
-  const timelineCcomponents = sortedTimelineElements.map((element) => {
-    if (element.__component == "project-timeline.text-timeline-item") {
-      // Text components
-      const textElement = element as TextTimelineElement;
-      return (
-        <HistoryText
-          title={textElement.Title}
-          description={textElement.Description}
-          hasLineAbove={true}
-        />
-      );
-    } else {
-      // Image components
-      const imageElement = element as ImageTimelineElement;
-      return <HistoryImage src={imageElement.Image} hasLineAbove={true} />;
-    }
-  });
-
-  // Split components into top and bottom
+  // Split timeline + map TimelineElements -> components
   const topTimeline: React.ReactNode[] = [];
   const bottomTimeline: React.ReactNode[] = [];
-  for (let i = 0; i < timelineCcomponents.length; i++) {
+  for (let i = 0; i < sortedTimelineElements.length; i++) {
     if (i % 2 == 0) {
-      topTimeline.push(timelineCcomponents[i]);
+      // Even elements go on top
+      topTimeline.push(elementToComponent(sortedTimelineElements[i], "top"));
     } else {
-      bottomTimeline.push(timelineCcomponents[i]);
+      // Odd elements go on bottom
+      bottomTimeline.push(
+        elementToComponent(sortedTimelineElements[i], "bottom"),
+      );
     }
   }
 
@@ -55,4 +40,30 @@ export default function HistoryComponent({
       <div className="flex">{bottomTimeline}</div>
     </div>
   );
+}
+
+function elementToComponent(
+  element: TimelineElement,
+  position: "top" | "bottom",
+): React.ReactNode {
+  if (element.__component == "project-timeline.text-timeline-item") {
+    // Text components
+    const textElement = element as TextTimelineElement;
+    return (
+      <HistoryText
+        title={textElement.Title}
+        description={textElement.Description}
+        hasLineAbove={position === "bottom"}
+      />
+    );
+  } else {
+    // Image components
+    const imageElement = element as ImageTimelineElement;
+    return (
+      <HistoryImage
+        src={imageElement.Image}
+        hasLineAbove={position === "bottom"}
+      />
+    );
+  }
 }
