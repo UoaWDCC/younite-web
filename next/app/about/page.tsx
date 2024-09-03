@@ -1,7 +1,7 @@
 import flair from "@/assets/about/flair.png";
 import valueFlair1 from "@/assets/about/value1.png";
 import valueFlair2 from "@/assets/about/value2.png";
-import HistoryContent from "@/components/history/HistoryContent";
+import HistoryText from "@/components/history/HistoryText";
 import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
@@ -96,10 +96,7 @@ export default async function AboutPage() {
                     //   </p>
                     // </div>
                     // <HistoryContent({e.Title}) />
-                    <HistoryContent
-                      title={e.Title}
-                      description={e.Description}
-                    />
+                    <HistoryText title={e.Title} description={e.Description} />
                   )}
                 </li>
               );
@@ -137,10 +134,7 @@ export default async function AboutPage() {
                       height={200}
                     />
                   ) : (
-                    <HistoryContent
-                      title={e.Title}
-                      description={e.Description}
-                    />
+                    <HistoryText title={e.Title} description={e.Description} />
                   )}
                 </li>
               );

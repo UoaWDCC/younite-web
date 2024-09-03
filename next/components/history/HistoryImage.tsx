@@ -12,13 +12,6 @@ export default function HistoryImage({ src, hasLineAbove }: HistoryImageProps) {
       <img src={src} />
       {!hasLineAbove && line}
     </div>
-
-    // <div>
-    //   <img src={src}/>
-    //   <div className="">
-    //     {/* fill, background */}
-    //   </div>
-    // </div>
   );
 }
 
