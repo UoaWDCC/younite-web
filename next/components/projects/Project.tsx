@@ -1,4 +1,10 @@
-export default function PreviousProjects({ projects }: { projects: any }) {
+export default function Project({
+  year,
+  projects,
+}: {
+  year: string | number;
+  projects: any;
+}) {
   return (
     <div className="flex flex-col mt-header items-center justify-center text-center">
       <div className="fixed bottom-0 -z-10 w-full h-full">
@@ -31,7 +37,11 @@ export default function PreviousProjects({ projects }: { projects: any }) {
           </defs>
         </svg>
       </div>
-      <p className="text-6xl font-bold leading-[0.95]">PREVIOUS PROJECTS</p>
+      {year == new Date().getFullYear() ? (
+        <p className="text-6xl font-bold leading-[0.95]">CURRENT PROJECTS</p>
+      ) : (
+        <p className="text-6xl font-bold leading-[0.95]">PREVIOUS PROJECTS</p>
+      )}
       <div className="max-w-4xl">
         <p className="text-base p-10 text-wrap">
           A group of young people eager to enact growing change in the Devonport

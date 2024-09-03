@@ -1,5 +1,4 @@
-import PreviousProjects from "@/components/projects/PreviousProjects";
-import YearProjects from "@/components/projects/YearProjects";
+import Project from "@/components/projects/Project";
 import { projectSchema } from "@/schemas/collection/Project";
 import fetchStrapi from "@/util/strapi";
 import { notFound } from "next/navigation";
@@ -22,13 +21,12 @@ export default async function ProjectPage({
 
     const project = projects[0];
     if (!project) notFound();
-    return <YearProjects year={parseInt(params.slug)} projects={projects} />;
   } else {
     projects = await fetchStrapi("project-pages", z.array(projectSchema), {
       "filters[Date][$lte]": lastDay.toISOString().split("T")[0],
     });
-    const project = projects[0];
-    if (!project) notFound();
-    return <PreviousProjects projects={projects} />;
   }
+  const project = projects[0];
+  if (!project) notFound();
+  return <Project year={parseInt(params.slug)} projects={projects} />;
 }
