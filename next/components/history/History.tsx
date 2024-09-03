@@ -35,9 +35,9 @@ export default function HistoryComponent({
   }
 
   return (
-    <div>
+    <div className="mx-16">
       <div className="flex items-end">{topTimeline}</div>
-      <div className="bg-white h-1 w-1/2" />
+      <div className="bg-white h-1 w-full" />
       <div className="flex items-start">{bottomTimeline}</div>
     </div>
   );

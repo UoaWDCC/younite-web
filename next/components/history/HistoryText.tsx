@@ -13,9 +13,9 @@ export default function HistoryText({
 }: HistoryTextProps) {
   return (
     <LineWrapper hasLineAbove={hasLineAbove}>
-      <div className="bg-[#FAAB36] p-5 rounded-3xl shadow-lg h-[170px] w-auto max-w-[500px] overflow-hidden py-1">
+      <div className="bg-b-orange text-b-dark-blue px-6 py-4 rounded-3xl shadow-lg h-full w-full overflow-hidden">
         {" "}
-        <h1 className="text-lg font-semibold mb-2 pt-2.5">{title}</h1>
+        <h1 className="text-lg font-semibold mb-2">{title}</h1>
         <p className="mb-4 text-base font-normal ">{description}</p>
       </div>
     </LineWrapper>

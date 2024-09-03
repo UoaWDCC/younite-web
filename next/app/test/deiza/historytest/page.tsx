@@ -15,7 +15,7 @@ export default async function HistoryTest() {
   });
 
   return (
-    <div className="mt-56 ml-32">
+    <div className="mt-56">
       <HistoryComponent timelineElements={timelineElements} />
     </div>
   );
