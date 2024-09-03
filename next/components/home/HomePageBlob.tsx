@@ -18,7 +18,9 @@ export default function HomePageBlobs({ blob1, blob2, blob3 }: Props) {
       <ConnectorBlob className="col-start-10 col-end-12 justify-self-center hidden md:block" />
       <Blob className="bg-white col-start-10 col-span-4">
         <RichText text={blob2} />
-        <button className={styles.button}>JOIN US NOW</button>
+        <button className="bg-[#92E0FE] rounded-full py-2 px-12 font-bold">
+          JOIN US NOW
+        </button>
       </Blob>
       <Blob className="bg-[#ffaa00] row-start-4 col-start-2 col-span-4">
         <RichText text={blob3} />
