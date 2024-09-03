@@ -1,6 +1,3 @@
-const { config } = require("process");
-const email = require("../src/api/email/controllers/email");
-
 module.exports = ({ env }) => {
   const productionConfig =
     process.env.NODE_ENV === "production"
@@ -27,27 +24,26 @@ module.exports = ({ env }) => {
             },
           },
         }
-      : {
-          email: {
-            config: {
-              provider: "mailgun",
-              providerOptions: {
-                key: env("MAILGUN_API_KEY"),
-                domain: env("MAILGUN_DOMAIN"),
-              },
-            },
-            settings: {
-              defaultFrom: env("DEFAULT_EMAIL_FROM"),
-              defaultReplyTo: env("DEFAULT_EMAIL_TO"),
-              testAddress: "younitereply@gmail.com",
-            },
-          },
-        };
+      : {};
 
   return {
     "strapi-plugin-populate-deep": {
       config: {
         defaultDepth: 5,
+      },
+    },
+    email: {
+      config: {
+        provider: "mailgun",
+        providerOptions: {
+          key: env("MAILGUN_API_KEY"),
+          domain: env("MAILGUN_DOMAIN"),
+        },
+      },
+      settings: {
+        defaultFrom: env("DEFAULT_EMAIL_FROM"),
+        defaultReplyTo: env("DEFAULT_EMAIL_TO"),
+        testAddress: env("RECIEVER_EMAIL"),
       },
     },
     ...productionConfig,
