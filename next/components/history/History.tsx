@@ -32,7 +32,7 @@ export default function History({ timelineElements }: HistoryComponentProps) {
         ))}
       </div>
       <div className="bg-white h-1 w-full" />
-      <div className="flex items-start ml-[10.5rem]">
+      <div className="flex items-start ml-[12rem]">
         {bottomTimeline.map((element) => (
           <HistoryComponent element={element} position="bottom" />
         ))}
