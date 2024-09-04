@@ -6,7 +6,7 @@ export default function CurrentImageComponent({
   title,
 }: {
   src: string;
-  alt: string;
+  alt?: string;
   title: string;
 }) {
   return (
@@ -14,7 +14,7 @@ export default function CurrentImageComponent({
       <div>
         <Image
           src={src}
-          alt={alt}
+          alt={alt || ""}
           className="absolute inset-0 -z-10 w-full h-full object-cover brightness-50 rounded-[50px]"
           width={100}
           height={100}

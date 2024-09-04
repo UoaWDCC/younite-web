@@ -20,7 +20,6 @@ export default function Page() {
       <div>
         <OldImageComponent
           src={"/younitelogo.png"}
-          alt={"a"}
           title={"example title"}
         />
       </div>
