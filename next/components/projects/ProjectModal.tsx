@@ -34,16 +34,18 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
             />
           </div>
 
-        <div className="p-6 bg-gradient-to-t from-blue-200 to-orange-200">
-          <h2 className="text-white text-xl font-bold mb-4 text-center"> {title} </h2>
-          <p className="text-white text-center mb-6"> {description}  </p>
+        <div className="p-6"
+        style={{
+          background: 'linear-gradient(to top, #A2D6E5, #FABD6E)'}}>
+          <h2 className="text-white text-[27px] text-xl font-bold mb-4 text-center relative z-20"> {title} </h2>
+          <p className="text-white text-center mb-6 relative z-20"> {description}  </p>
 
         {/* sign up buttons links */}
         {urls.map((url, index) => (
           <div key={index} className="text-center">
             <a
               href={url}
-              className="block w-40 text-[12.5px] font-bold bg-white text-black text-center py-2 rounded-3xl relative z-20"
+              className= "mx-auto block w-40 text-[12.5px] font-bold bg-white text-black text-center py-2 rounded-3xl relative z-20"
               target="_blank"
             >
               Click Here to Sign Up
@@ -56,7 +58,7 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
             <Image
             src={blobleft}
             alt="BlobLeft"
-            width={140} // Adjust width as needed
+            width={140}
             height={140}
             />
             </div>
@@ -65,7 +67,7 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
             <Image
             src={blobright}
             alt="BlobRight"
-            width={140} // Adjust width as needed
+            width={140}
             height={140}
             />
             </div>
