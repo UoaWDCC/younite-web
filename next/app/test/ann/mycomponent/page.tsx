@@ -5,15 +5,25 @@
 // }
 
 import CurrentImageComponent from "@/components/project_page_images/CurrentImageComponent";
+import OldImageComponent from "@/components/project_page_images/OldImageComponent";
 
 export default function Page() {
   return (
     <div>
-      <CurrentImageComponent
-        src={"/younitelogo.png"}
-        alt={"a"}
-        title={"example title"}
-      />
+      <div>
+        <CurrentImageComponent
+          src={"/younitelogo.png"}
+          alt={"a"}
+          title={"example title"}
+        />
+      </div>
+      <div>
+        <OldImageComponent
+          src={"/younitelogo.png"}
+          alt={"a"}
+          title={"example title"}
+        />
+      </div>
     </div>
   );
 }

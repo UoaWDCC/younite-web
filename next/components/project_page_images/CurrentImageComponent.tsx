@@ -10,20 +10,17 @@ export default function CurrentImageComponent({
   title: string;
 }) {
   return (
-    <div>
+    <div className="w-[100px] h-[100px] relative">
       <div>
         <Image
           src={src}
           alt={alt}
           className="absolute inset-0 -z-10 w-full h-full object-cover brightness-50 rounded-[50px]"
-          width={950}
-          height={620}
+          width={100}
+          height={100}
         />
       </div>
       <div>{title}</div>
     </div>
   );
 }
-
-// use size for entire div
-// styling of code
