@@ -21,6 +21,7 @@ module.exports = {
       },
       margin: {
         header: "8.5rem",
+        footer: "11.05rem",
       },
       padding: {
         header: "8.5rem",
