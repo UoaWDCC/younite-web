@@ -4,25 +4,22 @@
 //   return <AnnComponent />;
 // }
 
-import CurrentImageComponent from "@/components/project_page_images/CurrentImageComponent";
-import OldImageComponent from "@/components/project_page_images/OldImageComponent";
+import ProjectsImage from "@/components/projects/ProjectsImage";
 
 export default function Page() {
   return (
-    <div>
-      <div>
-        <CurrentImageComponent
-          src={"/younitelogo.png"}
-          alt={"a"}
-          title={"example title"}
-        />
-      </div>
-      <div>
-        <OldImageComponent
-          src={"/younitelogo.png"}
-          title={"example title"}
-        />
-      </div>
+    <div className="mt-96">
+      <ProjectsImage
+        src={"/younitelogo.png"}
+        alt={"a"}
+        title={"Current Project"}
+        type={"current"}
+      />
+      <ProjectsImage
+        src={"/younitelogo.png"}
+        title={"Old Project"}
+        type={"old"}
+      />
     </div>
   );
 }
