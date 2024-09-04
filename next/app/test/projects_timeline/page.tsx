@@ -1,6 +1,5 @@
-import Timeline from "@/components/projects/Timeline";
 import DateBlob from "@/components/projects/DateBlob";
-import styles from "./styles.module.css";
+import Timeline from "@/components/projects/Timeline";
 
 export default async function TestPage() {
   var timelineData = [
@@ -9,17 +8,27 @@ export default async function TestPage() {
     { date: "July 18 2023" },
   ];
 
-  return (
-    <div className="flex flex-row items-center justify-center outline">
-      <Timeline />
-      <div className="w-2/3 mt-header">
-      {timelineData.map((data, idx) => (
-        <div className="flex outline items-center">
-          <div className="border-l-3 w-16 h-1 bg-white"></div>
-          <DateBlob data={data} key={idx} />
-        </div>
-      ))}
-      </div>
-    </div>
-  );
+//   return (
+//     <div className="flex flex-row items-center justify-center outline">
+//       <Timeline />
+//       <div className="w-2/3 mt-header">
+//       {timelineData.map((data, idx) => (
+//         <div className="flex outline items-center">
+//           <div className="border-l-3 w-16 h-1 bg-white"></div>
+//           <DateBlob data={data} key={idx} />
+//         </div>
+//       ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+return (
+  <div className="flex flex-row items-center justify-center">
+  <Timeline />
+  <div>
+    <DateBlob data={timelineData[0]}/>
+  </div>
+  </div>
+)
 }
