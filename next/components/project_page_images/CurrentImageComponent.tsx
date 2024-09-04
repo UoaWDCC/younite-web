@@ -1,16 +1,29 @@
-import ImageComponent from "./ImageComponent";
+import Image from "next/image";
 
 export default function CurrentImageComponent({
   src,
   alt,
+  title,
 }: {
   src: string;
   alt: string;
+  title: string;
 }) {
-  return <ImageComponent src={src} alt={alt} width={950} height={620} />;
+  return (
+    <div>
+      <div>
+        <Image
+          src={src}
+          alt={alt}
+          className="absolute inset-0 -z-10 w-full h-full object-cover brightness-50 rounded-[50px]"
+          width={950}
+          height={620}
+        />
+      </div>
+      <div>{title}</div>
+    </div>
+  );
 }
 
-// note:
-// having the same code for current and old image components (except for the w/h) doesn't seem
-// efficient, so maybe we can get rid of the current/old components and just have the basic
-// image component?
+// use size for entire div
+// styling of code
