@@ -3,77 +3,47 @@ import {
   TextTimelineElement,
   TimelineElement,
 } from "@/schemas/single/AboutPage";
+import { getLargestImageUrl } from "@/util/image";
 import HistoryImage from "./HistoryImage";
 import HistoryText from "./HistoryText";
+import FloatingDate from "./FloatingDate";
 
 type HistoryComponentProps = {
-  timelineElements: TimelineElement[];
+  element: TimelineElement;
+  position: "top" | "bottom";
 };
 
 export default function HistoryComponent({
-  timelineElements,
+  element,
+  position,
 }: HistoryComponentProps) {
-  const fullTimeline: TimelineElement[] = timelineElements
-    .map((element) => {
-      const date = new Date(element.Date);
-      return {
-        ...element,
-        Date: date,
-      };
-    })
-    .sort((a, b) => a.Date.getTime() - b.Date.getTime());
-
-  const topTimeline: TimelineElement[] = [];
-  const bottomTimeline: TimelineElement[] = [];
-
-  for (let i = 0; i < fullTimeline.length; i++) {
-    if (i % 2 == 0) {
-      topTimeline.push(fullTimeline[i]);
-    } else {
-      bottomTimeline.push(fullTimeline[i]);
-    }
-  }
-
-  // console.log("top timeline", topTimeline);
-  // console.log(bottomTimeline);
-
-  const topReactNodes = topTimeline.map((element) => {
-    if (element.__component == "project-timeline.text-timeline-item") {
-      const textElement = element as TextTimelineElement;
-      return (
-        <HistoryText
-          title={textElement.Title}
-          description={textElement.Description}
-          hasLineAbove={true}
-        />
-      );
-    } else {
-      const imageElement = element as ImageTimelineElement;
-      return <HistoryImage src={imageElement.Image} hasLineAbove={true} />;
-    }
-  });
-
-  const bottomReactNodes = bottomTimeline.map((element) => {
-    if (element.__component == "project-timeline.text-timeline-item") {
-      const textElement = element as TextTimelineElement;
-      return (
-        <HistoryText
-          title={textElement.Title}
-          description={textElement.Description}
-          hasLineAbove={false}
-        />
-      );
-    } else {
-      const imageElement = element as ImageTimelineElement;
-      return <HistoryImage src={imageElement.Image} hasLineAbove={false} />;
-    }
-  });
+  const line = <div className="bg-white w-1 h-14" />;
+  const hasLineAbove = position === "bottom";
 
   return (
-    <div>
-      <div className="flex">{topReactNodes}</div>
-      <div className="bg-white h-[1px] w-1/2 mt-80 mx-32" />;
-      <div className="flex">{bottomReactNodes}</div>
+    <div className="relative flex flex-col items-center mx-12 h-56 w-72">
+      {hasLineAbove && line}
+      {elementToComponent(element)}
+      {!hasLineAbove && line}
+      <FloatingDate date={element.Date} position={position} />
     </div>
   );
+}
+
+// TimelineElement -> React component
+function elementToComponent(element: TimelineElement): React.ReactNode {
+  if (element.__component == "project-timeline.text-timeline-item") {
+    // Text components
+    const textElement = element as TextTimelineElement;
+    return (
+      <HistoryText
+        title={textElement.Title}
+        description={textElement.Description}
+      />
+    );
+  } else {
+    // Image components
+    const imageElement = element as ImageTimelineElement;
+    return <HistoryImage src={getLargestImageUrl(imageElement.Image)} />;
+  }
 }

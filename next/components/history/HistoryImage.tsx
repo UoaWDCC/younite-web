@@ -1,17 +1,17 @@
+import Image from "next/image";
+
 type HistoryImageProps = {
   src: string;
-  hasLineAbove: boolean;
 };
 
-export default function HistoryImage({ src, hasLineAbove }: HistoryImageProps) {
-  const line = <div className="bg-white w-[1px] h-[50px]">{/* fill, background */}</div>;
-
+export default function HistoryImage({ src }: HistoryImageProps) {
   return (
-    <div>
-      {hasLineAbove && line}
-      <img src={src} />
-      {!hasLineAbove && line}
-    </div>
+    <Image
+      src={src}
+      alt=""
+      width={256}
+      height={170}
+      className="h-full w-auto rounded-3xl shadow-lg"
+    />
   );
 }
-
