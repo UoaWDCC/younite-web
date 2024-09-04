@@ -7,7 +7,7 @@ export default function Project({
 }) {
   return (
     <div className="flex flex-col mt-header items-center justify-center text-center w-full">
-      <div className="fixed bottom-0 mb-footer -z-10 -left-48 w-1/3">
+      <div className="fixed bottom-0 mb-footer -z-10 -left-52 w-1/3">
         <svg
           width="691"
           height="685"
@@ -15,7 +15,7 @@ export default function Project({
           fill="none"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="relative w-full h-full left-0 bottom-3"
+          className="relative w-full h-full left-0 bottom-60"
         >
           <path
             fill-rule="evenodd"
