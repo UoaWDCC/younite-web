@@ -23,6 +23,8 @@ export default function FeedbackForm() {
         } else {
           useSubmit("error");
         }
+      } else {
+        useSubmit("false");
       }
     } catch (err) {
       useSubmit("error");
