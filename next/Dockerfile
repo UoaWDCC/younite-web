@@ -9,9 +9,6 @@ LABEL fly_launch_runtime="Next.js"
 # Next.js app lives here
 WORKDIR /app
 
-# Set production environment
-ENV NODE_ENV="production"
-
 # Install pnpm
 # ARG PNPM_VERSION=8.3.1
 # RUN npm install -g pnpm@$PNPM_VERSION
@@ -32,7 +29,15 @@ RUN npm install
 COPY --link . .
 
 # Build application
-RUN npm run build
+ARG STRAPI_KEY
+ENV STRAPI_KEY=${STRAPI_KEY}
+
+ENV NODE_ENV="production"
+ENV STRAPI_URL="https://younite-strapi-staging.fly.dev"
+
+RUN --mount=type=secret,id=STRAPI_KEY \
+    STRAPI_KEY="$(cat /run/secrets/STRAPI_KEY)" \
+    npm run build
 
 # Remove development dependencies
 # RUN pnpm prune --prod
