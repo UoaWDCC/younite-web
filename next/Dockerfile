@@ -35,9 +35,7 @@ ENV STRAPI_KEY=${STRAPI_KEY}
 ENV NODE_ENV="production"
 ENV STRAPI_URL="https://younite-strapi-staging.fly.dev"
 
-RUN --mount=type=secret,id=STRAPI_KEY \
-    STRAPI_KEY="$(cat /run/secrets/STRAPI_KEY)" \
-    npm run build
+RUN npm run build
 
 # Remove development dependencies
 # RUN pnpm prune --prod
