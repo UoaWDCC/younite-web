@@ -1,6 +1,7 @@
 import { default as blobleft, default as blobright } from '@/assets/projects/blobleft.png';
 import Image from 'next/image';
 import React from 'react';
+import { Project } from "@/schemas/collection/Project";
 
 interface ModalProps {
   // onClose: () => void;
