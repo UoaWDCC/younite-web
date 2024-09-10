@@ -61,9 +61,11 @@ export default function Project({
               y2="-54.7657"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0.08" stop-color="#6CC3E5" />
-              <stop offset="0.475" stop-color="#FFE9CC" stop-opacity="0.8" />
-              <stop offset="0.785" stop-color="#FFCA85" stop-opacity="0" />
+              
+              <stop offset="0" stop-color="#0D66B7" />
+              <stop offset="0.80" stop-color="#62BCE0" stop-opacity="0.8" />
+              <stop offset="0.95" stop-color="#FFE2C8" stop-opacity="1" />
+
             </linearGradient>
           </defs>
         </svg>
@@ -78,6 +80,7 @@ export default function Project({
           A group of young people eager to enact growing change in the Devonport
           Takapuna comunity following in youth voices and youth leadership.
         </p>
+        <div className="h-[2800px]"></div>
       </div>
     </div>
   );
