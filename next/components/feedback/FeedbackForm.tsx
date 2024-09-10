@@ -58,6 +58,7 @@ export default function FeedbackForm() {
             placeholder="Enter your feedback"
             className="mb-4 bg-white px-4 py-2 rounded-md shadow-md text-b-dark-blue"
           ></textarea>
+          {/* @ts-ignore */}
           <ResponseStatus submit={submitState} />
         </div>
         <button

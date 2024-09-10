@@ -1,6 +1,6 @@
 module.exports = ({ env }) => {
   const productionConfig =
-    process.env.NODE_ENV === "production"
+    process.env.NODE_ENV === "temp" // Should be production
       ? {
           upload: {
             config: {
