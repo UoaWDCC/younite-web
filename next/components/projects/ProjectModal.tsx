@@ -16,7 +16,7 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 ">
-        <div className="rounded-lg overflow-hidden w-96 relative shadow-lg"
+        <div className="rounded-lg overflow-hidden w-[27rem] relative shadow-lg"
         style = {{
           border: '12px solid rgba(255, 255, 255, 0.67)',
         }}>
@@ -26,7 +26,7 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
               &#x2715;
             </button>
 
-          <div className="relative w-full h-32 relative z-20 ">
+          <div className="relative w-full h-[7rem] relative z-20 ">
             <Image
               src={imageUrl}
               alt="Project Image"
@@ -38,15 +38,15 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
         <div className="p-6"
         style={{
           background: 'linear-gradient(to top, #A2D6E5, #FABD6E)'}}>
-          <h2 className="text-white text-[27px] text-xl font-bold mb-4 text-center relative z-20"> {title} </h2>
-          <p className="text-white text-center mb-6 relative z-20"> {description}  </p>
+          <h2 className="text-white text-[28px] text-xl font-bold mb-5 mt-2 text-center relative z-20"> {title} </h2>
+          <p className="text-white text-[16px] text-center mb-6 relative z-20"> {description}  </p>
 
         {/* sign up buttons links */}
         {urls.map((url, index) => (
           <div key={index} className="text-center">
             <a
               href={url}
-              className= "mx-auto block w-40 text-[12.5px] font-bold bg-white text-black text-center py-2 rounded-3xl relative z-20"
+              className= "mx-auto block w-48 text-[12.5px] mt-2 font-bold bg-white text-black text-center py-2 rounded-3xl relative z-20"
               target="_blank"
             >
               {signUpText[index]}
