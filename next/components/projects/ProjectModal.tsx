@@ -8,9 +8,10 @@ interface ModalProps {
   description: string;
   imageUrl: string;
   signUpUrl: string[];
+  signUpText: string[];
 }
 
-const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, signUpUrl =[] }) => {
+const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, signUpUrl, signUpText =[] }) => {
   const urls = Array.isArray(signUpUrl) ? signUpUrl : [signUpUrl];
 
   return (
@@ -48,7 +49,7 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
               className= "mx-auto block w-40 text-[12.5px] font-bold bg-white text-black text-center py-2 rounded-3xl relative z-20"
               target="_blank"
             >
-              Click Here to Sign Up
+              {signUpText[index]}
             </a>
           </div>
         ))}
