@@ -29,7 +29,7 @@ RUN npm install
 COPY --link . .
 
 # Build application
-ARG STRAPI_KEY
+# ARG STRAPI_KEY
 ENV STRAPI_KEY=${STRAPI_KEY}
 
 ENV NODE_ENV="production"
