@@ -3,17 +3,18 @@ import Image from 'next/image';
 import React from 'react';
 import { Project } from "@/schemas/collection/Project";
 
-interface ModalProps {
+export type ModalProps = {
   // onClose: () => void;
   title: string;
   description: string;
   imageUrl: string;
-  signUpUrl: string[];
-  signUpText: string[];
+  signupobjects: {
+    signUpUrl: string;
+    signUpText: string;
+  }[];
 }
 
-const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, signUpUrl, signUpText =[] }) => {
-  const urls = Array.isArray(signUpUrl) ? signUpUrl : [signUpUrl];
+const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, signupobjects = [] }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 ">
@@ -39,18 +40,18 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
         <div className="p-6"
         style={{
           background: 'linear-gradient(to top, #A2D6E5, #FABD6E)'}}>
-          <h2 className="text-white text-[28px] text-xl font-bold mb-5 mt-2 text-center relative z-20"> {title} </h2>
+          <h1 className="text-white text-[27px] text-xl font-[1000] mb-5 mt-2 text-center relative z-20"> {title} </h1>
           <p className="text-white text-[16px] text-center mb-6 relative z-20"> {description}  </p>
 
         {/* sign up buttons links */}
-        {urls.map((url, index) => (
+        {signupobjects.map((signupobject, index) => (
           <div key={index} className="text-center">
             <a
-              href={url}
+              href={signupobject.signUpUrl}
               className= "mx-auto block w-48 text-[12.5px] mt-2 font-bold bg-white text-black text-center py-2 rounded-3xl relative z-20"
               target="_blank"
             >
-              {signUpText[index]}
+              {signupobject.signUpText}
             </a>
           </div>
         ))}
