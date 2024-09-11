@@ -13,14 +13,13 @@ async function getHeaderData() {
     (a: any, b: any) => a.CommitteeYear - b.CommitteeYear,
   );
 
-  const currentYear = new Date().getFullYear();
   const projects = [
     {
-      Year: JSON.stringify(currentYear),
-      slug: JSON.stringify(currentYear),
+      Title: new Date().getFullYear(),
+      slug: "current",
     },
     {
-      Year: "Past Years",
+      Title: "Past",
       slug: "past",
     },
   ];
@@ -77,9 +76,9 @@ export default async function Header() {
             PROJECTS
           </Link>
           <div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue">
-            {data.projects.map(({ Year, slug }) => (
-              <Link href={`/projects/${slug}`} key={Year}>
-                {Year}
+            {data.projects.map(({ Title, slug }) => (
+              <Link href={`/projects/${slug}`} key={Title}>
+                {Title}
               </Link>
             ))}
           </div>

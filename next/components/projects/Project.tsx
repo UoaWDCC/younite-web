@@ -1,13 +1,7 @@
-export default function Project({
-  year,
-  projects,
-}: {
-  year: string | number;
-  projects: any;
-}) {
+export default function Project({ year, projects }: { year: string; projects: any }) {
   return (
     <div className="flex flex-col mt-header items-center justify-center text-center w-full">
-      <div className="fixed bottom-0 mb-footer -z-10 -left-52 w-1/3">
+      <div className="fixed bottom-0 -z-10 -left-52 w-1/4">
         <svg
           width="691"
           height="685"
@@ -68,7 +62,7 @@ export default function Project({
           </defs>
         </svg>
       </div>
-      {year == new Date().getFullYear() ? (
+      {year == "current" ? (
         <p className="text-6xl font-bold leading-[0.95]">CURRENT PROJECTS</p>
       ) : (
         <p className="text-6xl font-bold leading-[0.95]">PREVIOUS PROJECTS</p>

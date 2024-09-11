@@ -28,5 +28,5 @@ export default async function ProjectPage({
   }
   const project = projects[0];
   if (!project) notFound();
-  return <Project year={parseInt(params.slug)} projects={projects} />;
+  return <Project year={params.slug} projects={projects} />;
 }
