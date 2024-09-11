@@ -8,6 +8,8 @@ export default async function TestPage() {
     { date: new Date("2023-11-30") },
   ];
 
+
+
   //   return (
   //     <div className="flex flex-row items-center justify-center outline">
   //       <Timeline />
@@ -30,9 +32,9 @@ export default async function TestPage() {
         {timelineElements.map(
           (
             timelineElement,
-            idx, // check if index is even or not, and pass in length prop depending
+            index // check if index is even or not, and pass in length prop depending
           ) => (
-            <DateBlob timelineElement={timelineElement} key={idx} />
+            <DateBlob timelineElement={timelineElement} isEven={index % 2 == 0} />
           ),
         )}
       </div>
