@@ -1,6 +1,6 @@
 module.exports = ({ env }) => {
   const productionConfig =
-    process.env.NODE_ENV === "production"
+    process.env.NODE_ENV === "production" // Should be process.env.NODE_ENV === "production"
       ? {
           upload: {
             config: {
@@ -30,6 +30,20 @@ module.exports = ({ env }) => {
     "strapi-plugin-populate-deep": {
       config: {
         defaultDepth: 5,
+      },
+    },
+    email: {
+      config: {
+        provider: "mailgun",
+        providerOptions: {
+          key: env("MAILGUN_API_KEY"),
+          domain: env("MAILGUN_DOMAIN"),
+        },
+      },
+      settings: {
+        defaultFrom: env("DEFAULT_EMAIL_FROM"),
+        defaultReplyTo: env("DEFAULT_EMAIL_TO"),
+        testAddress: env("RECIEVER_EMAIL"),
       },
     },
     ...productionConfig,
