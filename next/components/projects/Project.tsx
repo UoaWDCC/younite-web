@@ -55,12 +55,9 @@ export default function Project({ year, projects }: { year: string; projects: an
               y2="-54.7657"
               gradientUnits="userSpaceOnUse"
             >
-
-              <stop offset="0" stop-color="#6CC3E5" stop-opacity="1"/>
+              <stop offset="0" stop-color="#6CC3E5" stop-opacity="1" />
               <stop offset="0.95" stop-color="#62BCE0" stop-opacity="0.8" />
               <stop offset="1" stop-color="#FFE2C8" stop-opacity="1" />
-
-
             </linearGradient>
           </defs>
         </svg>
