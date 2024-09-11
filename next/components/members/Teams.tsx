@@ -73,19 +73,22 @@ function MemberModal({
   activeMember?: Member;
   callback: () => void;
 }) {
+  
+  console.log("active", activeMember?.Photo) //--> Activemember is undefined when not selecting modal. Delete this later, this is for debugging
+
   if (!activeMember) return null;
 
   return (
     <div className="fixed inset-0 grid place-items-center isolate">
       <motion.div
-        className="absolute -z-10 w-full h-full bg-black backdrop-blur-md bg-opacity-40"
+        className="absolute -z-10 w-lvh h-lvh md:w-full md:h-full bg-black backdrop-blur-md bg-opacity-40"
         onClick={callback}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", bounce: 0, duration: 0.3 }}
       ></motion.div>
       <motion.div
-        className="h-fit w-full max-w-6xl grid grid-cols-[2fr_3fr] text-b-dark-blue"
+        className="md:h-fit md:w-full h-lvh w-lvh md:max-w-6xl grid grid-cols-[2fr_3fr] text-b-dark-blue"
         style={{
           background:
             "radial-gradient(47.21% 33.08% at 23.96% 39.49%, rgba(253, 141, 93, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(66.83% 44.73% at 78.61% 81.23%, rgba(250, 171, 54, 0.20) 0%, rgba(255, 255, 255, 0.00) 97.76%), linear-gradient(180deg, #FFF 0%, #F6D09E 100%)",
@@ -96,7 +99,7 @@ function MemberModal({
       >
         <img
           className="max-h-[80vh] w-full object-cover"
-          src={getLargestImageUrl(activeMember.Photo)}
+          src={"http://127.0.0.1:1337/uploads/poor_cat_0da116ce22.jpg"}
           alt=""
         />
         <div className="px-8 py-12 w-[65%]">
@@ -105,7 +108,7 @@ function MemberModal({
             {activeMember.Role}
           </h3>
           <p className="mb-12 max-w-[75ch]">{activeMember.About}</p>
-          <p className="max-w-[75ch]">{activeMember.funFact}</p>
+          <p className="max-w-[75ch] italic text-[14px]">{activeMember.funFact}</p>
         </div>
       </motion.div>
       <button onClick={callback} className="absolute top-4 right-4">
