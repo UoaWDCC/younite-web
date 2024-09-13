@@ -10,6 +10,16 @@ const nextConfig = {
         protocol: "http",
         hostname: "127.0.0.1",
       },
+      {
+        // Staging
+        protocol: "https",
+        hostname: "younite-storage-staging.fly.dev",
+      },
+      {
+        // Production
+        protocol: "https",
+        hostname: "younite-storage.fly.dev",
+      },
     ],
   },
 };
