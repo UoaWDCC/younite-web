@@ -30,10 +30,10 @@ COPY --link . .
 
 # Build application
 ARG STRAPI_KEY
+ARG STRAPI_URL
 ENV STRAPI_KEY=${STRAPI_KEY}
-
+ENV STRAPI_URL=${STRAPI_URL}
 ENV NODE_ENV="production"
-ENV STRAPI_URL="https://younite-strapi-staging.fly.dev"
 
 RUN npm run build
 
