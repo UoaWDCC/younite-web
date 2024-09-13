@@ -6,6 +6,9 @@
 app = "younite-strapi"
 primary_region = "syd"
 
+[env]
+  STRAPI_URL="https://edit.younite.wdcc.co.nz"
+
 [[vm]]
   size = "shared-cpu-2x"
   memory = "1gb"
