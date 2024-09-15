@@ -10,7 +10,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -18,8 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="bg-gradient-1 isolate flex flex-col min-h-svh">
+        {/* @ts-ignore */}
         <Header />
-        <main className="grow overflow-y-auto overflow-x-hidden">{children}</main>
+        <main className="grow overflow-y-auto overflow-x-hidden">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
