@@ -6,9 +6,11 @@ export default async function TestPage() {
     { date: new Date("2023-12-25") },
     { date: new Date("2023-10-27") },
     { date: new Date("2023-11-30") },
+    { date: new Date("2023-11-30") },
+    { date: new Date("2023-11-30") },
+    { date: new Date("2023-11-30") },
+    { date: new Date("2023-11-30") },
   ];
-
-
 
   //   return (
   //     <div className="flex flex-row items-center justify-center outline">
@@ -26,18 +28,22 @@ export default async function TestPage() {
   // }
 
   return (
-    <div className="flex flex-row items-center justify-center">
-      <Timeline />
+    <div className="flex right-2 flex-col items-left mt-header">
+      <div className="h-4 w-4 bg-white rounded-full"></div>
       <div>
         {timelineElements.map(
           (
             timelineElement,
-            index // check if index is even or not, and pass in length prop depending
+            index, // check if index is even or not, and pass in length prop depending
           ) => (
-            <DateBlob timelineElement={timelineElement} isEven={index % 2 == 0} />
+            <DateBlob
+              timelineElement={timelineElement}
+              isEven={index % 2 == 0}
+            />
           ),
         )}
       </div>
+      <div className="h-4 w-4 bg-white rounded-full"></div>
     </div>
   );
 }
