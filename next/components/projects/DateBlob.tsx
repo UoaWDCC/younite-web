@@ -1,10 +1,6 @@
-import { TimelineElement } from "@/schemas/single/AboutPage";
-
 type DateBlobProps = {
   date: Date;
 };
-
-
 
 const options = {
   year: "numeric",
