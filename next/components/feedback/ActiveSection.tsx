@@ -34,17 +34,17 @@ export default function ActiveSection({
 
   return (
     <div
-      className={`flex w-full max-w-5xl mb-24 mx-auto gap-12 ${styleClick ? "animate-[fadeOut_0.3s_ease-in_forwards]" : "animate-[fadeIn_0.3s_ease-in_forwards]"}`}
+      className={`flex flex-col md:flex-row w-full max-w-5xl mb-24 mx-auto gap-12 ${styleClick ? "animate-[fadeOut_0.3s_ease-in_forwards]" : "animate-[fadeIn_0.3s_ease-in_forwards]"}`}
     >
-      <div className="flex flex-col">
-        <div className="flex flex-col items-end w-80 ml-5">
+      <div className="flex flex-col items-center md:items-left">
+        <div className="flex flex-col md:items-end w-80 ml-5">
           <button
             className={`text-wrap uppercase font-bold text-7xl mb-2`}
             disabled={true}
           >
             {activeSection == "FAQ" ? "FAQ" : "Contact"}
           </button>
-          <div className="flex items-center">
+          <div className="flex items-center justify-center">
             <Image
               src={selectionArrow}
               alt="Selection arrow"
@@ -59,7 +59,7 @@ export default function ActiveSection({
           </div>
         </div>
       </div>
-      <div className="flex-1 mr-5">
+      <div className="flex-1 mr-5 ml-5">
         {activeSection == "FAQ" ? <FAQ QAs={QAs} /> : <FeedbackForm />}
       </div>
     </div>
