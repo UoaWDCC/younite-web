@@ -84,23 +84,14 @@ export default async function Header() {
         </div>
 
         <div className="group relative">
-          <Link
-            href={
-              data.projects[0] ? `/projects/${data.projects[0].Title}` : "/"
-            }
-          >
-            PROJECTS
-          </Link>
+          <Link href="/projects/active">PROJECTS</Link>
           <div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
-            {data.projects.map(({ Title, slug }) => (
-              <Link
-                href={`/projects/${slug}`}
-                key={Title}
-                className="my-1 min-w-16 text-center"
-              >
-                {Title}
-              </Link>
-            ))}
+            <Link href="/projects/active" className="my-1 min-w-16 text-center">
+              Active
+            </Link>
+            <Link href="/projects/past" className="my-1 min-w-16 text-center">
+              Past
+            </Link>
           </div>
         </div>
 
