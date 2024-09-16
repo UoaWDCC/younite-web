@@ -9,6 +9,6 @@ export default function ContentBlock({ props }: { props: any }) {
     case "content-block.content-block":
       return ImageWithText({ props });
     case "content-block.centered-paragraph":
-      return RichText({ props });
+      return RichText({ text: props });
   }
 }
