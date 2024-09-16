@@ -1,7 +1,7 @@
 "use client";
 import { Member, RoleSection } from "@/schemas/collection/Team";
-import { getLargestImageUrl } from "@/util/image";
 import { motion } from "framer-motion";
+import Image from 'next/image';
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 
@@ -46,11 +46,19 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
               className="relative shadow-lg"
               onClick={() => setSelected(i)}
             >
-              <img
+              <Image
+              className="w-full"
+              src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png" //Instead or URL, supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
+              alt={member.Name}
+              objectFit="cover"
+              width={100}
+              height={100}
+              />
+              {/* <img
                 src={getLargestImageUrl(member.Photo)}
                 alt={member.Name}
                 className="w-full"
-              />
+              /> */}
               <div className="absolute bottom-0 left-0 w-full bg-white text-center py-2 font-bold">
                 {member.Name}
               </div>
@@ -73,19 +81,20 @@ function MemberModal({
   activeMember?: Member;
   callback: () => void;
 }) {
+
   if (!activeMember) return null;
 
   return (
     <div className="fixed inset-0 grid place-items-center isolate">
       <motion.div
-        className="absolute -z-10 w-full h-full bg-black backdrop-blur-md bg-opacity-40"
+        className="absolute -z-10 w-lvh h-lvh md:w-full md:h-full bg-black backdrop-blur-md bg-opacity-40"
         onClick={callback}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", bounce: 0, duration: 0.3 }}
       ></motion.div>
       <motion.div
-        className="h-fit w-full max-w-6xl grid grid-cols-[2fr_3fr] text-b-dark-blue"
+        className="md:h-fit md:w-full h-lvh w-lvh md:max-w-6xl grid grid-cols-[2fr_3fr] text-b-dark-blue"
         style={{
           background:
             "radial-gradient(47.21% 33.08% at 23.96% 39.49%, rgba(253, 141, 93, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(66.83% 44.73% at 78.61% 81.23%, rgba(250, 171, 54, 0.20) 0%, rgba(255, 255, 255, 0.00) 97.76%), linear-gradient(180deg, #FFF 0%, #F6D09E 100%)",
@@ -94,10 +103,13 @@ function MemberModal({
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", bounce: 0, duration: 0.15 }}
       >
-        <img
+        <Image
           className="max-h-[80vh] w-full object-cover"
-          src={getLargestImageUrl(activeMember.Photo)}
+          src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png" //Instead of URL, its supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
           alt=""
+          objectFit="cover"
+          width={100}
+          height={100}
         />
         <div className="px-8 py-12 w-[65%]">
           <h2 className="mb-4 text-3xl font-bold">{activeMember.Name}</h2>
@@ -105,7 +117,7 @@ function MemberModal({
             {activeMember.Role}
           </h3>
           <p className="mb-12 max-w-[75ch]">{activeMember.About}</p>
-          <p className="max-w-[75ch]">{activeMember.funFact}</p>
+          <p className="max-w-[75ch] italic text-[14px]">{activeMember.funFact}</p>
         </div>
       </motion.div>
       <button onClick={callback} className="absolute top-4 right-4">

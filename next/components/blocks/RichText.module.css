@@ -1,0 +1,14 @@
+/* Space everything out */
+.reactMarkdown * + * {
+  margin: 0.5em;
+}
+
+.reactMarkdown h1 {
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.reactMarkdown h2 {
+  font-size: large;
+}
+
