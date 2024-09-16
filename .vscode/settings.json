@@ -21,7 +21,7 @@
     "**/node_modules": true,
     "**/.next": true,
     "**/.cache": true,
-    // "**/.tmp": true,
+    "**/.tmp": true,
     "**/build": true
   },
 
