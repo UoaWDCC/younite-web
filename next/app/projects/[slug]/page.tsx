@@ -18,9 +18,6 @@ export default async function ProjectPage({
       "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
       "[$lte]": lastDay.toISOString().split("T")[0],
     });
-
-    const project = projects[0];
-    if (!project) notFound();
   } else {
     projects = await fetchStrapi("project-pages", z.array(projectSchema), {
       "filters[Date][$lte]": lastDay.toISOString().split("T")[0],

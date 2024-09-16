@@ -9,7 +9,7 @@ export default function Project({
 }) {
   return (
     <div className="h-full w-full">
-      <div className="absolute z-10 top-2/4 w-1/6 -left-44">
+      <div className="absolute z-10 top-[60%] w-1/6 -left-44">
         <BGBlob />
       </div>
       <div className="mt-header">

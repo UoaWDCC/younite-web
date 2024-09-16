@@ -66,8 +66,7 @@ export default async function Header() {
           >
             MEMBERS
           </Link>
-          <div
-            className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
+          <div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
             {/* align years vertically */}
             {/* Render sorted members */}
             {data.members.map(
@@ -92,9 +91,13 @@ export default async function Header() {
           >
             PROJECTS
           </Link>
-          <div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue">
+          <div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
             {data.projects.map(({ Title, slug }) => (
-              <Link href={`/projects/${slug}`} key={Title}>
+              <Link
+                href={`/projects/${slug}`}
+                key={Title}
+                className="my-1 min-w-16 text-center"
+              >
                 {Title}
               </Link>
             ))}
