@@ -1,11 +1,13 @@
+import { ProjectType } from "@/schemas/collection/Project";
 import BGBlob from "../svg/BGBlob";
+import Timeline from "./Timeline";
 
 export default function Project({
   year,
   projects,
 }: {
   year: string;
-  projects: any;
+  projects: ProjectType[];
 }) {
   return (
     <div className="h-full w-full">
@@ -31,6 +33,9 @@ export default function Project({
             </p>
           </div>
         </div>
+      </div>
+      <div >
+        <Timeline timelineElements={projects} />
       </div>
     </div>
   );
