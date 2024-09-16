@@ -13,7 +13,7 @@ export default async function TestPage() {
   ];
 
   return (
-    <div className="flex flex-col mt-header">
+    <div className="flex flex-col mt-header pl-[10%] pt-[5%] pb-[5%]">
       <div className="h-4 w-4 bg-white rounded-full"></div>
       <div>
         {timelineElements.map((timelineElement, index) => (
