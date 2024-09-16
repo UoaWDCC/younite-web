@@ -3,10 +3,10 @@ import BGBlob from "../svg/BGBlob";
 import Timeline from "./Timeline";
 
 export default function Project({
-  year,
+  type,
   projects,
 }: {
-  year: string;
+  type: "current" | "old";
   projects: ProjectType[];
 }) {
   return (
@@ -16,7 +16,7 @@ export default function Project({
       </div>
       <div className="mt-header">
         <div className="flex flex-col items-center justify-center text-center w-full">
-          {year == "current" ? (
+          {type == "current" ? (
             <p className="text-6xl font-bold leading-[0.95]">
               CURRENT PROJECTS
             </p>
@@ -34,7 +34,7 @@ export default function Project({
           </div>
         </div>
       </div>
-      <div >
+      <div>
         <Timeline timelineElements={projects} />
       </div>
     </div>
