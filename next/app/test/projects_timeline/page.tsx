@@ -15,15 +15,6 @@ const timelineElements = [
 export default async function TestPage() {
 
   return (
-    // <div className="flex flex-col mt-header pl-[10%] pt-[5%] pb-[5%]">
       <Timeline timelineElements={timelineElements} />
-      /* <div className="h-4 w-4 bg-white rounded-full"></div>
-      <div>
-        {timelineElements.map((timelineElement, index) => (
-          <DateBlob timelineElement={timelineElement} isEven={index % 2 == 0} />
-        ))}
-      </div>
-      <div className="h-4 w-4 bg-white rounded-full"></div> */
-    // </div>
   );
 }
