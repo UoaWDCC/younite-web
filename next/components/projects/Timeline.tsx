@@ -14,7 +14,7 @@ const Timeline = ({
       <div className="h-4 w-4 bg-white rounded-full"></div>
       <div>
         {timelineElements.map((timelineElement, index) => (
-          <div>
+          <div className="flex items-center gap-20">
             <DateBlob
               timelineElement={timelineElement}
               isEven={index % 2 == 0}
