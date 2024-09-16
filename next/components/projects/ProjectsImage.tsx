@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function CurrentImageComponent({
+export default function ImageComponent({
   src,
   alt,
   title,
