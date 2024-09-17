@@ -13,5 +13,5 @@ export default async function CurrentProjectPage() {
   });
 
   if (projects.length === 0) notFound();
-  return <Project type={"current"} projects={projects} />;
+  return <Project type={"old"} projects={projects} />;
 }
