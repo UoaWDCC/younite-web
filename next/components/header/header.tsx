@@ -20,9 +20,20 @@ async function getHeaderData() {
         .sort((a, b) => b.CommitteeYear - a.CommitteeYear) // Sort in descending order
     : []; // Default to an empty array if not an array
 
+  const projects = [
+    {
+      Title: new Date().getFullYear(),
+      slug: "current",
+    },
+    {
+      Title: "Past",
+      slug: "past",
+    },
+  ];
   return {
     ...resData,
     members,
+    projects,
   };
 }
 
@@ -30,6 +41,7 @@ export default async function Header() {
   const data = await getHeaderData();
   const logoSrc = getLargestImageUrl(data.Logo);
   const links = data.navigation;
+  console.log(data);
 
   return (
     <header className={styles.header}>
@@ -54,8 +66,7 @@ export default async function Header() {
           >
             MEMBERS
           </Link>
-          <div
-            className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
+          <div className="group-hover:flex hidden absolute top-full bg-white drop-shadow-xl p-2 rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
             {/* align years vertically */}
             {/* Render sorted members */}
             {data.members.map(
@@ -69,6 +80,18 @@ export default async function Header() {
                 </Link>
               ),
             )}
+          </div>
+        </div>
+
+        <div className="group relative">
+          <Link href="/projects/active">PROJECTS</Link>
+          <div className="group-hover:flex hidden absolute top-full bg-white p-2 drop-shadow-xl rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
+            <Link href="/projects/active" className="my-1 min-w-16 text-center">
+              Active
+            </Link>
+            <Link href="/projects/past" className="my-1 min-w-16 text-center">
+              Past
+            </Link>
           </div>
         </div>
 
