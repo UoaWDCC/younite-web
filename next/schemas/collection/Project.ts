@@ -1,12 +1,12 @@
 import { z } from "zod";
+import { imageSchema } from "../Image";
 
 export const projectSchema = z.object({
   slug: z.string(),
   title: z.string(),
-  Date: z.any(),
-  image: z.any(),
-  blocks: z.array(z.any()),
+  Date: z.coerce.date(),
+  image: imageSchema,
   Description: z.string(),
 });
 
-export type Project = z.infer<typeof projectSchema>;
+export type ProjectType = z.infer<typeof projectSchema>;

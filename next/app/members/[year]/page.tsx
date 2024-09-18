@@ -25,8 +25,8 @@ export default async function MemberPage({
     <>
       <div className="flex flex-col items-center justify-center gap-6 mt-header pt-24">
         <h1 className="uppercase flex flex-col items-center mx-auto mb-24">
-          <span className="text-6xl leading-[0.95]">Meet the</span>
-          <span className="text-8xl font-bold leading-[0.95]">
+          <span className="md:text-6xl text-5xl leading-[0.95]">Meet the</span>
+          <span className="md:text-8xl text-6xl text-center font-bold leading-[0.95]">
             {team.CommitteeYear} Team
           </span>
         </h1>
@@ -36,12 +36,8 @@ export default async function MemberPage({
             src={getLargestImageUrl(team.teamPhoto)}
             alt=""
           />
-          <div className="absolute bottom-8 right-12 p-8 pr-16 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
-            <RichText
-              props={{
-                text: team.description,
-              }}
-            />
+          <div className="md:absolute md:bottom-8 md:right-12 m-3 p-8 pr-16 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
+            <RichText text={team.description} />
             <a
               className="block mr-auto w-fit bg-b-blue px-5 py-3 rounded-full font-bold mt-8"
               href="#chairs"
@@ -50,12 +46,12 @@ export default async function MemberPage({
             </a>
           </div>
           <Image
-            className="absolute bottom-0 left-0"
+            className="absolute bottom-0 left-0 hidden md:visible"
             src={ScribbleLeft}
             alt=""
           />
           <Image
-            className="absolute top-0 right-0 -translate-y-12 -z-10"
+            className="absolute top-0 right-0 -translate-y-12 -z-10 hidden md:visible"
             src={ScribbleRight}
             alt=""
           />

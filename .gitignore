@@ -110,7 +110,7 @@
 # Logs and databases
 ############################
 
-# /strapi/.tmp # Dev only: allow shared database
+/strapi/.tmp
 /strapi/*.log
 /strapi/*.sql
 /strapi/*.sqlite
@@ -125,7 +125,7 @@
 /strapi/ssl
 /strapi/.idea
 /strapi/nbproject
-# /strapi/public/uploads/* # Dev only: allow shared images
+/strapi/public/uploads/*
 !/strapi/public/uploads/.gitkeep
 
 ############################
