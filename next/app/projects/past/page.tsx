@@ -6,8 +6,7 @@ import { z } from "zod";
 
 export default async function CurrentProjectPage() {
   const firstDay = new Date(new Date().getFullYear(), 0, 1);
-  const lastDay = new Date(new Date().getFullYear(), 11, 31);
-
+  
   const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
     "filters[Date][$lt]": firstDay.toISOString().split("T")[0],
   });
