@@ -37,11 +37,7 @@ export default async function MemberPage({
             alt=""
           />
           <div className="md:absolute md:bottom-8 md:right-12 m-3 p-8 pr-16 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
-            <RichText
-              props={{
-                text: team.description,
-              }}
-            />
+            <RichText text={team.description} />
             <a
               className="block mr-auto w-fit bg-b-blue px-5 py-3 rounded-full font-bold mt-8"
               href="#chairs"
