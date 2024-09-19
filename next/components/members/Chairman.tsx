@@ -29,9 +29,9 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
       </p>
 
       <div className="grid grid-cols-[repeat(13,minmax(0,1fr))] grid-rows-2 max-w-6xl isolate mx-auto">
-        <div className="relative col-span-12 md:col-span-7 drop-shadow-xl">
+        <div className="relative col-span-12 ml-5 md:col-span-7 drop-shadow-xl">
           <Image
-            className="w-full absolute top-0 -right-full h-72 object-contain"
+            className="w-full max-md:hidden outline md:visible absolute top-0 -right-full h-72 object-contain"
             src={Flair2}
             alt=""
           />
@@ -46,9 +46,9 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
             <p>{chair1.About}</p>
           </div>
         </div>
-        <div className="relative row-start-2 col-span-12 md:col-span-7 md:col-start-7 drop-shadow-xl -translate-y-[30%] -z-10">
+        <div className="md:relative ml-5 row-start-2 col-span-12 md:col-span-7 md:col-start-7 drop-shadow-xl md:-translate-y-[30%] -z-10">
           <Image
-            className="w-full absolute bottom-0 -left-full h-80 object-contain"
+            className="w-full max-md:hidden absolute bottom-0 -left-full h-80 object-contain"
             src={Flair1}
             alt=""
           />

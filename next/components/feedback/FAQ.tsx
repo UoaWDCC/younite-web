@@ -7,7 +7,9 @@ export default function FAQ({
 }) {
   return (
     <div className="w-full">
-      <h1 className="text-3xl font-bold mb-10">Frequently Asked Questions</h1>
+      <h1 className="text-2xl xs:text-3xl md:text-left text-center font-bold mb-10">
+        Frequently Asked Questions
+      </h1>
       <div className="flex flex-col gap-6">
         {QAs.map((QA) => {
           return (
@@ -26,5 +28,4 @@ export default function FAQ({
       </div>
     </div>
   );
-
 }

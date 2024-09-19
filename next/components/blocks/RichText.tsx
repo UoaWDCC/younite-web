@@ -1,8 +1,6 @@
-import React from "react";
 import ReactMarkdown from "react-markdown";
+import style from "./RichText.module.css";
 
-const RichText = ({ props }: any) => {
-  return <ReactMarkdown>{props.text}</ReactMarkdown>;
-};
-
-export default RichText;
+export default function RichText({ text }: { text: string }) {
+  return <ReactMarkdown className={style.reactMarkdown}>{text}</ReactMarkdown>;
+}
