@@ -1,8 +1,8 @@
-import React from "react";
+"use client";
+
 import { useModal } from "./ModalContextProvider";
 
 export default function Modal() {
-
   const { isOpen, content, close } = useModal();
 
   if (!isOpen) {
@@ -10,7 +10,7 @@ export default function Modal() {
   }
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 animate-popUp backdrop-blur-md">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 animate-popUp backdrop-blur-md z-50">
       <div className="bg-gray-600 p-6 rounded-lg shadow-lg relative">
         <button
           onClick={close}

@@ -1,6 +1,5 @@
 "use client";
 
-import Modal from "@/components/modal/Modal";
 import { useModal } from "@/components/modal/ModalContextProvider";
 
 export default function ModalController() {
@@ -23,8 +22,6 @@ export default function ModalController() {
       >
         Open Modal
       </button>
-
-      <Modal />
     </div>
   );
 }

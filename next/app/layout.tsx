@@ -1,5 +1,6 @@
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import Modal from "@/components/modal/Modal";
 import ModalContextProvider from "@/components/modal/ModalContextProvider";
 import "./globals.css";
 
@@ -26,6 +27,7 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
+          <Modal />
         </ModalContextProvider>
       </body>
     </html>
