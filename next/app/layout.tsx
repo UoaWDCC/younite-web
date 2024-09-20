@@ -1,5 +1,6 @@
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import ModalContextProvider from "@/components/modal/ModalContextProvider";
 import "./globals.css";
 
 export const metadata = {
@@ -18,12 +19,14 @@ export default async function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="bg-gradient-1 isolate flex flex-col min-h-svh">
-        {/* @ts-ignore */}
-        <Header />
-        <main className="grow overflow-y-auto overflow-x-hidden">
-          {children}
-        </main>
-        <Footer />
+        <ModalContextProvider>
+          {/* @ts-ignore */}
+          <Header />
+          <main className="grow overflow-y-auto overflow-x-hidden">
+            {children}
+          </main>
+          <Footer />
+        </ModalContextProvider>
       </body>
     </html>
   );
