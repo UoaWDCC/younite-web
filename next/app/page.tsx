@@ -16,8 +16,6 @@ export default async function Home() {
   return (
     <>
       <BGWaves className="w-full absolute -z-50 top-[85vh]" />
-      {/* @ts-ignore */}
-      <Header />
       <div className="min-h-[55vh] flex flex-col items-center gap-6 mt-header pt-24">
         <h1 className="uppercase flex flex-col items-center mx-auto justify-center">
           <span className="text-2xl xs:text-3xl sm:text-4xl lg:text-6xl xl:text-8xl leading-[0.95] text-center">A Youth Board</span>
