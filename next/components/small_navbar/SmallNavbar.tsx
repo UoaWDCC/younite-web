@@ -41,7 +41,7 @@ const SmallNavbar = async () => {
   const logoSrc = getLargestImageUrl(data.Logo);
 
   return (
-    <header className="text-white p-4">
+    <header className="text-white p-4 sm:hidden">
       <div className="flex justify-between items-center">
         <div className="text-lg font-bold">
           <Link href="/">
