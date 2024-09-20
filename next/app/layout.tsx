@@ -1,5 +1,6 @@
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import SmallNavbar from "@/components/small_navbar/SmallNavbar";
 import "./globals.css";
 
 export const metadata = {
@@ -19,7 +20,10 @@ export default async function RootLayout({
     <html lang="en" className="h-full">
       <body className="bg-gradient-1 isolate flex flex-col min-h-svh">
         {/* @ts-ignore */}
-        <Header />
+        {/* <div className="md:h-0 invisible outline">
+          <Header />
+        </div> */}
+        <SmallNavbar />
         <main className="grow overflow-y-auto overflow-x-hidden">
           {children}
         </main>
