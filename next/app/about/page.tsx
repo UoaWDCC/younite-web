@@ -19,8 +19,6 @@ export default async function AboutPage() {
     };
   }).sort((a, b) => a.Date.getTime() - b.Date.getTime());
 
-  console.log(timeline);
-
   return (
     <>
       <Image src={flair} alt="" className="absolute -z-10 top-[70%]" />

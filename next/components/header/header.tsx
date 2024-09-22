@@ -41,7 +41,6 @@ export default async function Header() {
   const data = await getHeaderData();
   const logoSrc = getLargestImageUrl(data.Logo);
   const links = data.navigation;
-  console.log(data);
 
   return (
     <header className={styles.header}>
