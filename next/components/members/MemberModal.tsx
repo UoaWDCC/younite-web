@@ -5,10 +5,8 @@ import { motion } from "framer-motion";
 
 function MemberModal({
   activeMember,
-  callback,
 }: {
   activeMember?: Member;
-  callback: () => void;
 }) {
   if (!activeMember) return null;
 
@@ -16,7 +14,6 @@ function MemberModal({
     <div className="fixed inset-0 grid place-items-center isolate">
       <motion.div
         className="absolute -z-10 w-lvh h-lvh md:w-full md:h-full bg-black backdrop-blur-md bg-opacity-40"
-        onClick={callback}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", bounce: 0, duration: 0.3 }}
@@ -50,7 +47,7 @@ function MemberModal({
           </p>
         </div>
       </motion.div>
-      <button onClick={callback} className="absolute top-4 right-4">
+      <button className="absolute top-4 right-4">
         <IoClose className="w-10 h-10" />
       </button>
     </div>

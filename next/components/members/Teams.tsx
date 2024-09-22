@@ -1,16 +1,18 @@
 "use client";
 import { Member, RoleSection } from "@/schemas/collection/Team";
-import { motion } from "framer-motion";
-import Image from 'next/image';
+import Image from "next/image";
 import { useState } from "react";
-import { IoClose } from "react-icons/io5";
 import MemberModal from "./MemberModal";
+import { useModal } from "../modal/ModalContextProvider";
 
 export default function Teams({ teams }: { teams: RoleSection[] }) {
   const [active, setActive] = useState(0);
-  console.log("Active", active);
-
   const activeTeam = teams[active];
+  const { open } = useModal();
+
+  function handleCardClick(member: Member) {
+    open(<MemberModal activeMember={member} />);
+  }
 
   return (
     <>
@@ -44,21 +46,16 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             <button
               key={member.Name}
               className="relative shadow-lg"
-              // onClick={() => setSelected(i) // replaced with open
+              onClick={() => handleCardClick(member)}
             >
               <Image
-              className="w-full"
-              src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png" //Instead or URL, supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
-              alt={member.Name}
-              objectFit="cover"
-              width={100}
-              height={100}
-              />
-              {/* <img
-                src={getLargestImageUrl(member.Photo)}
-                alt={member.Name}
                 className="w-full"
-              /> */}
+                src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png" //Instead or URL, supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
+                alt={member.Name}
+                objectFit="cover"
+                width={100}
+                height={100}
+              />
               <div className="absolute bottom-0 left-0 w-full bg-white text-center py-2 font-bold">
                 {member.Name}
               </div>
@@ -66,10 +63,6 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
           ))}
         </div>
       </section>
-      {/* <MemberModal
-        activeMember={activeTeam.Members[selected] || undefined}
-        callback={() => setSelected(-1)}
-      /> */}
     </>
   );
 }
