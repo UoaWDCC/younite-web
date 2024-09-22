@@ -8,10 +8,9 @@ import MemberModal from "./MemberModal";
 
 export default function Teams({ teams }: { teams: RoleSection[] }) {
   const [active, setActive] = useState(0);
+  console.log("Active", active);
 
   const activeTeam = teams[active];
-
-  const [selected, setSelected] = useState(-1);
 
   return (
     <>
@@ -45,7 +44,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             <button
               key={member.Name}
               className="relative shadow-lg"
-              onClick={() => setSelected(i)}
+              // onClick={() => setSelected(i) // replaced with open
             >
               <Image
               className="w-full"
@@ -67,10 +66,10 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
           ))}
         </div>
       </section>
-      <MemberModal
+      {/* <MemberModal
         activeMember={activeTeam.Members[selected] || undefined}
         callback={() => setSelected(-1)}
-      />
+      /> */}
     </>
   );
 }
