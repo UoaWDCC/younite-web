@@ -1,26 +1,24 @@
 import Image from "next/image";
-import { useModal } from "../modal/ModalContextProvider";
+
+type ImageComponentProps = {
+  src: string;
+  alt?: string;
+  title: string;
+  type: "current" | "old";
+  openModal: () => void;
+};
 
 export default function ImageComponent({
   src,
   alt = "",
   title,
   type,
-}: {
-  src: string;
-  alt?: string;
-  title: string;
-  type: "current" | "old";
-}) {
+  openModal,
+}: ImageComponentProps) {
   const width = type === "current" ? 150 : 100;
-  const { open } = useModal();
-
-  function handleClick() {
-    open(<div>Temp</div>);
-  }
 
   return (
-    <div className={`w-[${width}px] h-[100px] relative`} onClick={handleClick}>
+    <div className={`w-[${width}px] h-[100px] relative`} onClick={openModal}>
       <div>
         <Image
           src={src}
