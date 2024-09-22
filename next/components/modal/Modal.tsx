@@ -10,16 +10,28 @@ export default function Modal() {
   }
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 animate-popUp backdrop-blur-md z-50">
-      <div className="bg-gray-600 p-6 rounded-lg shadow-lg relative">
-        <button
-          onClick={close}
-          className="absolute top-2 right-2 text-white hover:text-gray-800"
-        >
-          &times;
-        </button>
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 animate-popUp backdrop-blur-md z-50"
+      onClick={close}
+    >
+      <div
+        className="rounded-lg overflow-hidden w-[27rem] relative shadow-lg border-[12px] border-slate-200 hover:border-slate-100"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <CloseButton onClick={close} />
         {content}
       </div>
     </div>
+  );
+}
+
+function CloseButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="absolute top-4 right-4 text-2xl font-bold text-white hover:text-gray-300 z-20"
+    >
+      &#x2715; {/* X icon */}
+    </button>
   );
 }
