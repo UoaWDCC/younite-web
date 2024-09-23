@@ -11,15 +11,12 @@ export default function Modal() {
 
   return (
     <motion.div
-      className="absolute w-lvh h-lvh md:w-full md:h-full bg-black backdrop-blur-md bg-opacity-40"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ type: "spring", bounce: 0, duration: 0.3 }}
+      onClick={close}
     >
-      <div
-        className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md z-50"
-        onClick={close}
-      >
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +30,6 @@ export default function Modal() {
             {content}
           </div>
         </motion.div>
-      </div>
     </motion.div>
   );
 }
