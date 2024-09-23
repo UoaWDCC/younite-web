@@ -18,15 +18,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className="bg-gradient-1 isolate flex flex-col min-h-svh">
+    <html lang="en" className="h-full overflow-hidden">
+      <body className="h-full">
         <ModalContextProvider>
-          {/* @ts-ignore */}
-          <Header />
-          <main className="grow overflow-y-auto overflow-x-hidden">
-            {children}
-          </main>
-          <Footer />
+          <div className="bg-gradient-1 isolate flex flex-col min-h-svh overflow-y-auto">
+            {/* @ts-ignore */}
+            <Header />
+            <main className="grow overflow-x-hidden">{children}</main>
+            <Footer />
+          </div>
           <Modal />
         </ModalContextProvider>
       </body>
