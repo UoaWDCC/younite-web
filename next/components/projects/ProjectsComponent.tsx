@@ -10,11 +10,13 @@ import ImageComponent from "./ProjectsImage";
 type ProjectsComponentProps = {
   timelineElement: ProjectType;
   isEven: boolean;
+  type: "current" | "old";
 };
 
 export default function ProjectsComponent({
   timelineElement,
   isEven,
+  type,
 }: ProjectsComponentProps) {
   const { open } = useModal();
   const { title, Description } = timelineElement;
@@ -31,12 +33,14 @@ export default function ProjectsComponent({
   }
 
   return (
-    <div className="flex items-center gap-20">
+    <div className="flex items-center pl-[6px] p-4">
+      {/* Vertical line, -my-4 to 'undo' the p-4 */}
+      <div className="bg-white w-1 self-stretch -my-4" />
       <DateBlob timelineElement={timelineElement} isEven={isEven} />
       <ImageComponent
         src={getLargestImageUrl(timelineElement.image)}
         title={timelineElement.title}
-        type={"current"}
+        type={type}
         openModal={openModal}
       />
     </div>

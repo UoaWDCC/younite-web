@@ -18,7 +18,7 @@ export default function ImageComponent({
   const width = type === "current" ? 150 : 100;
 
   return (
-    <div className={`w-[${width}px] h-[100px] relative`} onClick={openModal}>
+    <div className={`w-[${width}px] h-[100px] relative ml-8`} onClick={openModal}>
       <div>
         <Image
           src={src}
