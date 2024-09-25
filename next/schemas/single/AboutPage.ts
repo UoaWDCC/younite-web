@@ -1,14 +1,17 @@
 import { z } from "zod";
+import { imageSchema } from "../Image";
 
-const imageTimelineSchema = z.object({
+export const imageTimelineSchema = z.object({
   Date: z.date(),
-  Image: z.string(),
+  Image: imageSchema,
+  __component: z.string(),
 });
 
-const textTimelineSchema = z.object({
+export const textTimelineSchema = z.object({
   Date: z.date(),
   Title: z.string(),
   Description: z.string(),
+  __component: z.string(),
 });
 
 export const timelineElementSchema = z.union([
@@ -16,6 +19,8 @@ export const timelineElementSchema = z.union([
   textTimelineSchema,
 ]);
 
+export type ImageTimelineElement = z.infer<typeof imageTimelineSchema>;
+export type TextTimelineElement = z.infer<typeof textTimelineSchema>;
 export type TimelineElement = z.infer<typeof timelineElementSchema>;
 
 export const aboutPageSchema = z.object({
