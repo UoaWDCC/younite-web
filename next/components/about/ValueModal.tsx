@@ -23,27 +23,31 @@ const ValueModal: React.FC<ModalProps> = ({ title, description, imageUrl }) => {
             &#x2715;
           </button>
 
-        <div className="flex-1 flex flex-col justify-center p-8">
-          <h1 className="font-bold text-[30px] text-white mb-4">{title}</h1>
+        {/* Left side of the modal text title */}
+        <div className="flex-1 flex flex-col justify-center p-8 text-center relative z-30">
+          <h1 className="font-extrabold text-[30px] text-white mb-4">{title}</h1>
           <p className="text-white text-base">{description}</p>
         </div>
 
-            <div className="flex-1 relative">
-              <div className="w-full h-full overflow-hidden rounded-lg" style={{clipPath: 'polygon(30% 0%, 100% 100%, 0%, 100%)'}}>
+        {/* Right side of the modal image */}
+        <div className="flex-1 relative">
+          <div className="w-full h-full overflow-hidden rounded-lg" style={{clipPath: 'path("M 0 0 L 60% 0 Q 100% 25% 100% 50% Q 100% 75% 60% 100% L 0 100% Z")',}}>
               <Image
                 src={imageUrl}
                 alt="Value Image"
                 width={500}
                 height={500}
+                layout="responsive"
+                objectFit='cover'
               />
             </div>
-
-              {/* Transparent overlay on image*/}
-              <div className="absolute inset-0 bg-white opacity-30 rounded-xl"></div>
+          {/* Transparent overlay on image*/}
+          <div className="absolute inset-0 bg-white opacity-30 rounded-xl"></div>
           </div>
         </div>
     </div>
   );
-}
+};
 
 export default ValueModal;
+
