@@ -41,8 +41,8 @@ const SmallNavbar = async () => {
   const logoSrc = getLargestImageUrl(data.Logo);
 
   return (
-    <header className="text-white p-4 sm:hidden">
-      <div className="flex justify-between items-center">
+    <header className="text-white w-full p-4 sm:hidden absolute">
+      <div className="flex justify-between items-center w-full">
         <div className="text-lg font-bold">
           <Link href="/">
             <Image
@@ -69,7 +69,7 @@ const SmallNavbar = async () => {
                 strokeLinejoin="round"
                 strokeWidth={2}
                 d="M4 6h16 M4 12h16 M4 18h16"
-                />
+              />
             </svg>
           </button>
         </div>
