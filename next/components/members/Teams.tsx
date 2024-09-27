@@ -87,14 +87,14 @@ function MemberModal({
   return (
     <div className="fixed inset-0 grid place-items-center isolate">
       <motion.div
-        className="absolute -z-10 w-full h-full bg-black backdrop-blur-md bg-opacity-40"
+        className="absolute -z-10 w-lvh h-lvh md:w-full md:h-full bg-black backdrop-blur-md bg-opacity-40"
         onClick={callback}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", bounce: 0, duration: 0.3 }}
       ></motion.div>
       <motion.div
-        className="h-fit w-full max-w-6xl grid grid-cols-[2fr_3fr] text-b-dark-blue"
+        className="md:h-fit md:w-full h-lvh w-lvh md:max-w-6xl grid grid-cols-[2fr_3fr] text-b-dark-blue"
         style={{
           background:
             "radial-gradient(47.21% 33.08% at 23.96% 39.49%, rgba(253, 141, 93, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(66.83% 44.73% at 78.61% 81.23%, rgba(250, 171, 54, 0.20) 0%, rgba(255, 255, 255, 0.00) 97.76%), linear-gradient(180deg, #FFF 0%, #F6D09E 100%)",

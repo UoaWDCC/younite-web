@@ -9,13 +9,31 @@ import styles from "./header.module.css";
 async function getHeaderData() {
   const resData = await fetchStrapi("header", headerSchema);
   const membersData = await fetchStrapi("member-teams", z.any());
-  const members = membersData.sort(
-    (a: any, b: any) => a.CommitteeYear - b.CommitteeYear,
-  );
 
+  // Ensure membersData is an array and sort in descending order
+  const members = Array.isArray(membersData)
+    ? membersData
+        .map((item: any) => ({
+          ...item,
+          CommitteeYear: Number(item.CommitteeYear), // Convert to number for sorting
+        }))
+        .sort((a, b) => b.CommitteeYear - a.CommitteeYear) // Sort in descending order
+    : []; // Default to an empty array if not an array
+
+  const projects = [
+    {
+      Title: new Date().getFullYear(),
+      slug: "current",
+    },
+    {
+      Title: "Past",
+      slug: "past",
+    },
+  ];
   return {
     ...resData,
     members,
+    projects,
   };
 }
 
@@ -40,20 +58,39 @@ export default async function Header() {
         <div className="group relative">
           <Link
             href={
-              data.members[0]
+              data.members.length > 0
                 ? `/members/${data.members[0].CommitteeYear}`
                 : "/"
             }
           >
             MEMBERS
           </Link>
-          <div className="group-hover:flex hidden absolute top-full bg-white p-2 rounded-md items-center text-b-dark-blue">
-            {/* @ts-ignore */}
-            {data.members.map(({ CommitteeYear }) => (
-              <Link href={`/members/${CommitteeYear}`} key={CommitteeYear}>
-                {CommitteeYear}
-              </Link>
-            ))}
+          <div className="group-hover:flex hidden absolute top-full bg-white drop-shadow-xl p-2 rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
+            {/* align years vertically */}
+            {/* Render sorted members */}
+            {data.members.map(
+              ({ CommitteeYear }: { CommitteeYear: number }) => (
+                <Link
+                  href={`/members/${CommitteeYear}`}
+                  key={CommitteeYear}
+                  className="my-1 min-w-16 text-center"
+                >
+                  {CommitteeYear}
+                </Link>
+              ),
+            )}
+          </div>
+        </div>
+
+        <div className="group relative">
+          <Link href="/projects/active">PROJECTS</Link>
+          <div className="group-hover:flex hidden absolute top-full bg-white p-2 drop-shadow-xl rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
+            <Link href="/projects/active" className="my-1 min-w-16 text-center">
+              Active
+            </Link>
+            <Link href="/projects/past" className="my-1 min-w-16 text-center">
+              Past
+            </Link>
           </div>
         </div>
 

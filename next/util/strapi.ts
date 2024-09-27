@@ -1,4 +1,5 @@
-import { z } from "zod";
+import { emailSchema } from "@/schemas/single/Email";
+import { z, ZodError } from "zod";
 
 // Complicated type to account for Strapi either being a single or collection type
 type SingleOrCollection<T> = T extends any[]
@@ -65,4 +66,29 @@ function unwrapJsonData<T>(json: StrapiJson<T>) {
     ? data.map((item) => item.attributes)
     : data.attributes;
   return unwrappedData;
+}
+
+export async function sendEmail<T>(name: string, email: string, body: string) {
+  const url = new URL(`${process.env.STRAPI_URL}/api/email`);
+
+  const data = { name: name, senderEmail: email, body: body };
+
+  try {
+    const verifySchema = emailSchema.parse(data);
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.STRAPI_KEY}`,
+      },
+      cache: "no-cache", // For development only
+      body: JSON.stringify({ name: name, senderEmail: email, body: body }),
+    });
+
+    return response.status;
+  } catch (err) {
+    if (err instanceof ZodError) {
+      return 400;
+    }
+  }
 }

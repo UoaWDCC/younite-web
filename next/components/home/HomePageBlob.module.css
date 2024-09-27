@@ -1,14 +1,3 @@
-.button {
-  margin-top: 15px;
-  padding: 12px 25px;
-  background-color: #47c2ff;
-  color: #003366;
-  font-size: 18 px;
-  border: none;
-  border-radius: 45px;
-  cursor: pointer;
-}
-
 /* mobile responsiveness */
 @media screen and (max-width: 768px) {
   .container {
