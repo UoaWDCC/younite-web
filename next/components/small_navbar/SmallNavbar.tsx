@@ -6,12 +6,12 @@ import { useState } from "react";
 import { getLargestImageUrl } from "@/util/image";
 
 interface HeaderData {
-    navigation?: Array<{
-      title: string;
-      slug: string;
-    }>;
-    Logo?: any;
-  members?: Array<{
+  navigation: Array<{
+    title: string;
+    slug: string;
+  }>;
+  Logo?: any;
+  members: Array<{
     CommitteeYear: number;
     // Add other member properties
   }>;
@@ -27,14 +27,17 @@ interface SmallNavbarProps {
 export default function SmallNavbar({ data }: SmallNavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const logoSrc = getLargestImageUrl(data?.Logo);
+  const links = data?.navigation;
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    console.log("state changed");
+    console.log(menuOpen);
   };
 
   return (
-    <header className="text-white w-full p-4 sm:hidden absolute">
+    <header
+      className={`text-white w-full p-4 sm:hidden ${menuOpen ? "relative" : "absolute"}`}
+    >
       <div className="flex justify-between items-center w-full">
         <div className="text-lg font-bold">
           <Link href="/">
@@ -66,33 +69,48 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
             </svg>
           </button>
         </div>
-        <nav
-          className={`md:flex md:items-center hidden absolute md:static left-0 w-full md:w-auto bg-gray-800 md:bg-transparent`}
-        >
-          <ul className="flex flex-col md:flex-row">
-            <li className="p-2">
-              <Link href="/" className="hover:text-gray-400">
-                Home
-              </Link>
-            </li>
-            <li className="p-2">
-              <Link href="/about" className="hover:text-gray-400">
-                About
-              </Link>
-            </li>
-            <li className="p-2">
-              <Link href="/services" className="hover:text-gray-400">
-                Services
-              </Link>
-            </li>
-            <li className="p-2">
-              <Link href="/contact" className="hover:text-gray-400">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </div>
+
+      {menuOpen && (
+        <div
+          className="top-full left-0 w-full"
+        >
+          <div className="flex flex-col justify-items-stretch md:flex-row">
+              <Link className="my-2"
+                href={
+                  data.members.length > 0
+                    ? `/members/${data.members[0].CommitteeYear}`
+                    : "/"
+                }
+              >
+                MEMBERS
+              </Link >
+            {links.map((link) => (
+              <Link className="mb-2" href={link.slug} key={link.title}>
+                {link.title.toLocaleUpperCase()}
+              </Link>
+            ))}
+
+            <div className="group relative">
+              <Link href="/projects/active">PROJECTS</Link>
+              <div className="group-hover:flex hidden absolute top-full bg-white p-2 drop-shadow-xl rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
+                <Link
+                  href="/projects/active"
+                  className="my-1 min-w-16 text-center"
+                >
+                  Active
+                </Link>
+                <Link
+                  href="/projects/past"
+                  className="my-1 min-w-16 text-center"
+                >
+                  Past
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
