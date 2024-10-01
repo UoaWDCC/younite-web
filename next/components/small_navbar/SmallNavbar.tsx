@@ -26,12 +26,17 @@ interface SmallNavbarProps {
 }
 export default function SmallNavbar({ data }: SmallNavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
   const logoSrc = getLargestImageUrl(data?.Logo);
   const links = data?.navigation;
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    console.log(menuOpen);
+    setProjectsOpen(false);
+  };
+
+  const toggleProjects = () => {
+    setProjectsOpen(!projectsOpen);
   };
 
   return (
@@ -72,41 +77,42 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
       </div>
 
       {menuOpen && (
-        <div
-          className="top-full left-0 w-full"
-        >
-          <div className="flex flex-col justify-items-stretch md:flex-row">
-              <Link className="my-2"
-                href={
-                  data.members.length > 0
-                    ? `/members/${data.members[0].CommitteeYear}`
-                    : "/"
-                }
-              >
-                MEMBERS
-              </Link >
+        <div className="top-full absolute left-0 w-full m-2 -mt-4">
+          <div className="flex flex-col justify-items-stretch ml-2">
+            <Link
+              className="my-2"
+              href={
+                data.members.length > 0
+                  ? `/members/${data.members[0].CommitteeYear}`
+                  : "/"
+              }
+            >
+              MEMBERS
+            </Link>
             {links.map((link) => (
               <Link className="mb-2" href={link.slug} key={link.title}>
                 {link.title.toLocaleUpperCase()}
               </Link>
             ))}
 
-            <div className="group relative">
-              <Link href="/projects/active">PROJECTS</Link>
-              <div className="group-hover:flex hidden absolute top-full bg-white p-2 drop-shadow-xl rounded-md items-center text-b-dark-blue flex-col py-1 px-2">
-                <Link
-                  href="/projects/active"
-                  className="my-1 min-w-16 text-center"
-                >
-                  Active
-                </Link>
-                <Link
-                  href="/projects/past"
-                  className="my-1 min-w-16 text-center"
-                >
-                  Past
-                </Link>
-              </div>
+            <div>
+              <button onClick={toggleProjects}>PROJECTS</button>
+              {projectsOpen && (
+                <div className="flex absolute top-full items-center flex-col py-1 ml-4">
+                  <Link
+                    href="/projects/active"
+                    className="my-1 min-w-16 text-center"
+                  >
+                    ACTIVE
+                  </Link>
+                  <Link
+                    href="/projects/past"
+                    className="my-1 min-w-16 text-center"
+                  >
+                    PAST
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
