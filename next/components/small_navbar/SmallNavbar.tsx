@@ -1,44 +1,37 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import fetchStrapi from "@/util/strapi";
-import { headerSchema } from "@/schemas/single/Header";
+import { useState } from "react";
 import { getLargestImageUrl } from "@/util/image";
-import { z } from "zod";
 
-async function getHeaderData() {
-  const resData = await fetchStrapi("header", headerSchema);
-  const membersData = await fetchStrapi("member-teams", z.any());
-
-  // Ensure membersData is an array and sort in descending order
-  const members = Array.isArray(membersData)
-    ? membersData
-        .map((item: any) => ({
-          ...item,
-          CommitteeYear: Number(item.CommitteeYear), // Convert to number for sorting
-        }))
-        .sort((a, b) => b.CommitteeYear - a.CommitteeYear) // Sort in descending order
-    : []; // Default to an empty array if not an array
-
-  const projects = [
-    {
-      Title: new Date().getFullYear(),
-      slug: "current",
-    },
-    {
-      Title: "Past",
-      slug: "past",
-    },
-  ];
-  return {
-    ...resData,
-    members,
-    projects,
-  };
+interface HeaderData {
+    navigation?: Array<{
+      title: string;
+      slug: string;
+    }>;
+    Logo?: any;
+  members?: Array<{
+    CommitteeYear: number;
+    // Add other member properties
+  }>;
+  projects?: Array<{
+    Title: string;
+    slug: string;
+  }>;
 }
 
-const SmallNavbar = async () => {
-  const data = await getHeaderData();
-  const logoSrc = getLargestImageUrl(data.Logo);
+interface SmallNavbarProps {
+  data: HeaderData;
+}
+export default function SmallNavbar({ data }: SmallNavbarProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const logoSrc = getLargestImageUrl(data?.Logo);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    console.log("state changed");
+  };
 
   return (
     <header className="text-white w-full p-4 sm:hidden absolute">
@@ -56,7 +49,7 @@ const SmallNavbar = async () => {
           </Link>
         </div>
         <div className="md:hidden">
-          <button aria-label="Toggle Menu">
+          <button onClick={toggleMenu}>
             <svg
               className="w-6 h-6"
               fill="none"
@@ -102,6 +95,4 @@ const SmallNavbar = async () => {
       </div>
     </header>
   );
-};
-
-export default SmallNavbar;
+}

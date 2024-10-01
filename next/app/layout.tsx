@@ -1,7 +1,7 @@
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
-import SmallNavbar from "@/components/small_navbar/SmallNavbar";
 import "./globals.css";
+import SmallNavbarFetcher from "@/components/small_navbar/SmallNavbarFetcher";
 
 export const metadata = {
   title: "Create Next App",
@@ -23,7 +23,7 @@ export default async function RootLayout({
         <div className=" invisible sm:visible outline">
           <Header />
         </div>
-        <SmallNavbar />
+        <SmallNavbarFetcher />
         <main className="grow overflow-y-auto overflow-x-hidden">
           {children}
         </main>
