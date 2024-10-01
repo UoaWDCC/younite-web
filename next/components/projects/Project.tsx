@@ -1,13 +1,18 @@
 import { ProjectType } from "@/schemas/collection/Project";
 import BGBlob from "../svg/BGBlob";
+import SeeMore from "./SeeMore";
 import Timeline from "./Timeline";
 
 export default function Project({
   type,
   projects,
+  setPage,
+  nextPageAvailable
 }: {
   type: "current" | "old";
   projects: ProjectType[];
+  setPage: () => any;
+  nextPageAvailable: boolean;
 }) {
   return (
     <div className="h-full w-full">
@@ -32,6 +37,7 @@ export default function Project({
       </div>
       <div>
         <Timeline timelineElements={projects} />
+        <SeeMore loadMore={setPage} nextPageAvailable={nextPageAvailable}/>
       </div>
     </div>
   );
