@@ -8,7 +8,7 @@ interface ModalProps {
   imageUrl: string;
 }
 
-const ValueModal: React.FC<ModalProps> = ({ title, description, imageUrl }) => {
+const ValueModal = ({ title, description, imageUrl }: ModalProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="rounded-xl overflow-hidden w-[44rem] h-[27rem] relative flex"
