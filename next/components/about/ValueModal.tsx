@@ -2,7 +2,6 @@ import Image from 'next/image';
 import React from 'react';
 
 interface ModalProps {
-  // onClose: () => void;
   title: string;
   description: string;
   imageUrl: string;
@@ -18,7 +17,6 @@ const ValueModal = ({ title, description, imageUrl }: ModalProps) => {
       }}>
 
         <button
-          // onClick={onClose}
           className="absolute top-2 right-4 text-2xl font-bold text-white z-30">
             &#x2715;
           </button>
@@ -41,6 +39,7 @@ const ValueModal = ({ title, description, imageUrl }: ModalProps) => {
                 objectFit='cover'
               />
             </div>
+            
           {/* Transparent overlay on image*/}
           <div className="absolute inset-0 bg-white opacity-30 rounded-xl"></div>
           </div>
