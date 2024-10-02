@@ -6,7 +6,7 @@
   align-items: center;
   padding: 0.25rem var(--gutter);
   position: absolute;
-  z-index: 1000;
+  z-index: 30;
   isolation: isolate;
   height: 8.5rem;
 }
@@ -23,12 +23,6 @@
   letter-spacing: 1px;
 }
 
-.nav a:last-child {
-  border: 1px solid white;
-  border-radius: 999px;
-  padding: 0.25rem 1rem;
-}
-
 @media (max-width: 800px) {
   .header {
     flex-direction: column;
@@ -37,3 +31,4 @@
     position: relative;
   }
 }
+

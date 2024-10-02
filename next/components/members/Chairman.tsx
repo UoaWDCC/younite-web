@@ -29,12 +29,12 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
       </p>
 
       <div className="grid grid-cols-[repeat(13,minmax(0,1fr))] grid-rows-2 max-w-6xl isolate mx-auto">
-        <div className="relative col-span-12 md:col-span-7 drop-shadow-xl">
-          <div className="absolute top-20 -right-[35em] w-96">
+        <div className="relative col-span-12 ml-5 md:col-span-7 drop-shadow-xl">
+          <div className="absolute top-20 max-md:hidden md:visible -right-[35em] w-96">
             <p className="text-xl rotate-12 margin-auto text-center">{chair1.funFact}</p>
           </div>
           <Image
-            className="top-24 -right-96 h-64 w-80 object-contain absolute"
+            className="top-24 -right-96 max-md:hidden md:visible h-64 w-80 object-contain absolute"
             src={Flair2}
             alt=""
           />
@@ -49,12 +49,12 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
             <p>{chair1.About}</p>
           </div>
         </div>
-        <div className="relative row-start-2 col-span-12 md:col-span-7 md:col-start-7 drop-shadow-xl -translate-y-[30%] -z-10">
-          <div className="absolute bottom-40 -left-[32em] w-96">
+        <div className="md:relative ml-5 row-start-2 col-span-12 md:col-span-7 md:col-start-7 drop-shadow-xl md:-translate-y-[30%] -z-10">
+          <div className="max-md:hidden absolute bottom-40 -left-[32em] w-96">
             <p className="text-xl -rotate-12 margin-auto text-center">{chair2.funFact}</p>
           </div>
           <Image
-            className="w-80 absolute bottom-48 -left-96 h-64 object-contain"
+            className="w-80 absolute max-md:hidden bottom-48 -left-96 h-64 object-contain"
             src={Flair1}
             alt=""
           />

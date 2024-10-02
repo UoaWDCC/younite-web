@@ -21,6 +21,7 @@ module.exports = {
       },
       margin: {
         header: "8.5rem",
+        footer: "11.05rem",
       },
       padding: {
         header: "8.5rem",
@@ -34,7 +35,22 @@ module.exports = {
           "0%": { opacity: 1 },
           "100%": { opacity: 0 },
         },
+        popUp: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
       },
+      animation: {
+        popUp: "popUp 0.5s ease-in-out",
+      },
+    },
+    screens: {
+      xs: "500px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
   },
   plugins: [],
