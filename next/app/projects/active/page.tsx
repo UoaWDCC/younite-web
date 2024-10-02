@@ -1,7 +1,8 @@
 "use client";
-import fetchPaginationStrapi from "@/app/test/fetchPaginationStrapi/fetchPaginationStrapi";
+// import fetchPaginationStrapi from "@/app/test/fetchPaginationStrapi/fetchPaginationStrapi";
 import Project from "@/components/projects/Project";
 import { ProjectType } from "@/schemas/collection/Project";
+import { fetchPaginationStrapi } from "@/util/strapi";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -9,12 +10,19 @@ export default function CurrentProjectPage() {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [projectsData, setProjectsData] = useState<ProjectType[]>([]);
   const [nextPageAvailable, setNextPageAvailable] = useState<boolean>(true);
-  const fetchProjects = async () => {
+
+  const firstDay = new Date(new Date().getFullYear(), 0, 1);
+  const lastDay = new Date(new Date().getFullYear(), 11, 31);
+
+  async function fetchNextProjects() {
     try {
-      const nextProjects = await fetchPaginationStrapi({
-        pageNumber: pageNumber,
-        pageSize: 2,
+      const nextProjects = await fetchPaginationStrapi(pageNumber, 2, {
+        "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
+        "[$lte]": lastDay.toISOString().split("T")[0],
       });
+
+      console.log("next projects: ");
+      console.log(nextProjects);
 
       if (nextProjects.length === 0) {
         setNextPageAvailable(false);
@@ -24,10 +32,22 @@ export default function CurrentProjectPage() {
     } catch (err) {
       console.log(err);
     }
-  };
+  }
 
   useEffect(() => {
-    fetchProjects();
+    async function getFirstProjects() {
+      const firstProjects = await fetchPaginationStrapi({
+        pageNumber: 1,
+        pageSize: 2,
+      });
+      setProjectsData(firstProjects);
+    }
+
+    if (pageNumber === 1) {
+      getFirstProjects();
+    }
+
+    fetchNextProjects();
   }, [pageNumber]);
 
   function addPageNumber() {

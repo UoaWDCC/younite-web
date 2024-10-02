@@ -1,3 +1,4 @@
+import { projectSchema } from "@/schemas/collection/Project";
 import { emailSchema } from "@/schemas/single/Email";
 import { z, ZodError } from "zod";
 
@@ -34,6 +35,27 @@ export default async function fetchStrapi<T>(
   return schema.parse(unwrappedData);
 }
 
+export async function fetchPaginationStrapi<T>(
+  pageNumber: number,
+  pageSize: number,
+  query: Record<string, string> = {},
+) {
+  const firstDay = new Date(new Date().getFullYear(), 0, 1);
+  const lastDay = new Date(new Date().getFullYear(), 11, 31);
+  //note: this value for less and greater than needs to be changed depending on what is querying this!
+  const url = getQueryUrl("projects-pages", {
+    "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
+    "[$lte]": lastDay.toISOString().split("T")[0],
+    "pagination[page]": pageNumber.toString(),
+    "pagination[pageSize]": pageSize.toString(),
+  });
+  const json = await fetchJson<T>(url);
+  const pagesRemaining = json.meta.pagination.total;
+  const unwrappedData = unwrapJsonData(json);
+  const nextProjects = projectSchema.parse(unwrappedData);
+  return { nextProjects, pagesRemaining };
+}
+
 function getQueryUrl(content: string, query: Record<string, string>) {
   const url = new URL(`${process.env.STRAPI_URL}/api/${content}`);
   url.searchParams.append("populate", "deep,10"); // Populate all fields
@@ -53,7 +75,7 @@ async function fetchJson<T>(url: string) {
   });
 
   // Get JSON data from response and check for errors
-  const json = (await res.json()) as StrapiJson<T>;
+  const json = await res.json(); //as StrapiJson<T>
   if (json.error) {
     throw new Error(`${json.error.status} ${json.error.message}`);
   }
