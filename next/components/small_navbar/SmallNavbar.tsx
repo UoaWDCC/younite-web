@@ -27,16 +27,23 @@ interface SmallNavbarProps {
 export default function SmallNavbar({ data }: SmallNavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const [membersOpen, setMembersOpen] = useState(false);
   const logoSrc = getLargestImageUrl(data?.Logo);
   const links = data?.navigation;
 
+  console.log(links);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     setProjectsOpen(false);
+    setMembersOpen(false);
   };
 
   const toggleProjects = () => {
     setProjectsOpen(!projectsOpen);
+  };
+
+  const toggleMembers = () => {
+    setMembersOpen(!membersOpen);
   };
 
   return (
@@ -93,16 +100,27 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
       {menuOpen && (
         <div className="top-full absolute left-0 w-full m-2 -mt-4">
           <div className="flex flex-col justify-items-stretch ml-2">
-            <Link
-              className="my-2"
-              href={
-                data.members.length > 0
-                  ? `/members/${data.members[0].CommitteeYear}`
-                  : "/"
-              }
-            >
-              MEMBERS
-            </Link>
+            <div>
+              <button onClick={toggleMembers} className="mb-2">
+                MEMBERS
+              </button>
+              {membersOpen && (
+                <div className="flex flex-col">
+                  {data.members.map(
+                    ({ CommitteeYear }: { CommitteeYear: number }) => (
+                      <Link
+                        href={`/members/${CommitteeYear}`}
+                        key={CommitteeYear}
+                        className="mb-2 ml-4 min-w-16"
+                      >
+                        {CommitteeYear}
+                      </Link>
+                    ),
+                  )}
+                </div>
+              )}
+            </div>
+
             {links.map((link) => (
               <Link className="mb-2" href={link.slug} key={link.title}>
                 {link.title.toLocaleUpperCase()}
@@ -113,16 +131,10 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
               <button onClick={toggleProjects}>PROJECTS</button>
               {projectsOpen && (
                 <div className="flex absolute top-full items-center flex-col py-1 ml-4">
-                  <Link
-                    href="/projects/active"
-                    className="my-1 min-w-16 text-center"
-                  >
+                  <Link href="/projects/active" className="my-1 min-w-16">
                     ACTIVE
                   </Link>
-                  <Link
-                    href="/projects/past"
-                    className="my-1 min-w-16 text-center"
-                  >
+                  <Link href="/projects/past" className="my-1 min-w-16">
                     PAST
                   </Link>
                 </div>
