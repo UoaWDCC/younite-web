@@ -31,7 +31,7 @@ export default function Project({
         </div>
       </div>
       <div>
-        <Timeline timelineElements={projects} />
+        <Timeline timelineElements={projects} type={type} />
       </div>
     </div>
   );
