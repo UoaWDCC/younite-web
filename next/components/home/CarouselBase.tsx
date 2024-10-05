@@ -1,7 +1,7 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback } from "react";
-import { BodyScrollLocker } from "../carousel/BodyScrollLocker";
+import { BodyScrollLocker } from "../scroller/BodyScrollLocker";
 import ScrollButtons from "./ScrollButtons";
 
 export default function CarouselBase({
