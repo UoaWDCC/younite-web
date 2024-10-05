@@ -2,8 +2,8 @@ import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import Modal from "@/components/modal/Modal";
 import ModalContextProvider from "@/components/modal/ModalContextProvider";
-import { GlobalPageScroller } from "@/components/scroller/GlobalPageScroller";
-import ScrollContextProvider from "@/components/scroller/ScrollContextProvider";
+import { GlobalPageScroller } from "@/components/scrollers/GlobalPageScroller";
+import ScrollContextProvider from "@/components/scrollers/ScrollContextProvider";
 import "./globals.css";
 
 export const metadata = {

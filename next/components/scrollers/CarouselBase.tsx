@@ -1,8 +1,8 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback } from "react";
-import { BodyScrollLocker } from "../scroller/BodyScrollLocker";
-import ScrollButtons from "./ScrollButtons";
+import { BodyScrollLocker } from "./BodyScrollLocker";
+import ScrollButtons from "./CarouselButtons";
 
 export default function CarouselBase({
   children,
@@ -23,16 +23,11 @@ export default function CarouselBase({
   }, [emblaApi]);
 
   function handleScroll(event: React.WheelEvent<HTMLDivElement>) {
-    // event.preventDefault();
-    event.stopPropagation();
     if (!emblaApi) return;
-
-    const deltaY = event.deltaY;
-    if (deltaY < 0) {
-      // Scrolled up
+    const scrolledUp = event.deltaY < 0;
+    if (scrolledUp) {
       scrollPrev();
-    } else if (deltaY > 0) {
-      // Scrolled down
+    } else {
       scrollNext();
     }
   }
