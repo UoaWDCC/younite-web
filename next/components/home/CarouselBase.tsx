@@ -9,8 +9,8 @@ export default function CarouselBase({
   innerClass,
 }: React.PropsWithChildren<{ wrapperClass?: string; innerClass?: string }>) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    skipSnaps: true,
     align: "start",
+    dragFree: true,
   });
 
   const scrollPrev = useCallback(() => {
@@ -27,9 +27,9 @@ export default function CarouselBase({
         <p className="text-center sm:text-left sm:mb-0 mb-5">Upcoming Events</p>
         <ScrollButtons scrollPrev={scrollPrev} scrollNext={scrollNext} />
       </div>
-      <div className={`overflow-hidden ${wrapperClass}`} ref={emblaRef}>
+      <div className={`overflow-hidden cursor-grab active:cursor-grabbing ${wrapperClass}`} ref={emblaRef}>
         <div
-          className={`flex gap-gutter cursor-grab active:cursor-grabbing ${innerClass}`}
+          className={`flex gap-gutter ${innerClass}`}
         >
           {children}
         </div>
