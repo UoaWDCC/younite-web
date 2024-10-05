@@ -21,18 +21,43 @@ export default function CarouselBase({
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
+  function handleScroll(event: React.WheelEvent<HTMLDivElement>) {
+    // event.preventDefault();
+    event.stopPropagation();
+    if (!emblaApi) return;
+
+    const deltaY = event.deltaY;
+    if (deltaY < 0) {
+      // Scrolled up
+      scrollPrev();
+    } else if (deltaY > 0) {
+      // Scrolled down
+      scrollNext();
+    }
+  }
+
   return (
     <div>
       <div className="text-blue-800 font-semibold text-4xl pr-6 pt-28 flex flex-col sm:flex-row justify-between">
         <p className="text-center sm:text-left sm:mb-0 mb-5">Upcoming Events</p>
         <ScrollButtons scrollPrev={scrollPrev} scrollNext={scrollNext} />
       </div>
-      <div className={`overflow-hidden cursor-grab active:cursor-grabbing ${wrapperClass}`} ref={emblaRef}>
-        <div
-          className={`flex gap-gutter ${innerClass}`}
-        >
-          {children}
-        </div>
+      <div
+        className={`overflow-hidden cursor-grab active:cursor-grabbing ${wrapperClass}`}
+        ref={emblaRef}
+        onWheel={handleScroll}
+        // onMouseEnter={(e) => {
+        //   console.log("mouse enter");
+        //   e.stopPropagation();
+        //   e.preventDefault();
+        // }}
+        // onScroll={(e) => {
+        //   console.log("scrolling");
+        //   e.stopPropagation();
+        //   e.preventDefault();
+        // }}
+      >
+        <div className={`flex gap-gutter ${innerClass}`}>{children}</div>
       </div>
     </div>
   );
