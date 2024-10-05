@@ -1,6 +1,7 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback } from "react";
+import { BodyScrollLocker } from "../carousel/BodyScrollLocker";
 import ScrollButtons from "./ScrollButtons";
 
 export default function CarouselBase({
@@ -42,23 +43,15 @@ export default function CarouselBase({
         <p className="text-center sm:text-left sm:mb-0 mb-5">Upcoming Events</p>
         <ScrollButtons scrollPrev={scrollPrev} scrollNext={scrollNext} />
       </div>
-      <div
-        className={`overflow-hidden cursor-grab active:cursor-grabbing ${wrapperClass}`}
-        ref={emblaRef}
-        onWheel={handleScroll}
-        // onMouseEnter={(e) => {
-        //   console.log("mouse enter");
-        //   e.stopPropagation();
-        //   e.preventDefault();
-        // }}
-        // onScroll={(e) => {
-        //   console.log("scrolling");
-        //   e.stopPropagation();
-        //   e.preventDefault();
-        // }}
-      >
-        <div className={`flex gap-gutter ${innerClass}`}>{children}</div>
-      </div>
+      <BodyScrollLocker>
+        <div
+          className={`overflow-hidden cursor-grab active:cursor-grabbing ${wrapperClass}`}
+          ref={emblaRef}
+          onWheel={handleScroll}
+        >
+          <div className={`flex gap-gutter ${innerClass}`}>{children}</div>
+        </div>
+      </BodyScrollLocker>
     </div>
   );
 }
