@@ -35,28 +35,8 @@ export default async function fetchStrapi<T>(
   return schema.parse(unwrappedData);
 }
 
-export async function fetchPaginationStrapi<T>(
-  pageNumber: number,
-  pageSize: number,
-  query: Record<string, string> = {},
-) {
-  const firstDay = new Date(new Date().getFullYear(), 0, 1);
-  const lastDay = new Date(new Date().getFullYear(), 11, 31);
-  //note: this value for less and greater than needs to be changed depending on what is querying this!
-  const url = getQueryUrl("projects-pages", {
-    "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
-    "[$lte]": lastDay.toISOString().split("T")[0],
-    "pagination[page]": pageNumber.toString(),
-    "pagination[pageSize]": pageSize.toString(),
-  });
-  const json = await fetchJson<T>(url);
-  const pagesRemaining = json.meta.pagination.total;
-  const unwrappedData = unwrapJsonData(json);
-  const nextProjects = projectSchema.parse(unwrappedData);
-  return { nextProjects, pagesRemaining };
-}
 
-function getQueryUrl(content: string, query: Record<string, string>) {
+export function getQueryUrl(content: string, query: Record<string, string>) {
   const url = new URL(`${process.env.STRAPI_URL}/api/${content}`);
   url.searchParams.append("populate", "deep,10"); // Populate all fields
   Object.entries(query).forEach(([key, value]) => {
@@ -67,6 +47,7 @@ function getQueryUrl(content: string, query: Record<string, string>) {
 
 async function fetchJson<T>(url: string) {
   // Fetch data from Strapi API
+  console.log("key json:" + process.env.STRAPI_KEY);
   const res = await fetch(url, {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_KEY}`,
@@ -75,14 +56,14 @@ async function fetchJson<T>(url: string) {
   });
 
   // Get JSON data from response and check for errors
-  const json = await res.json(); //as StrapiJson<T>
+  const json = (await res.json()) as StrapiJson<T>;
   if (json.error) {
     throw new Error(`${json.error.status} ${json.error.message}`);
   }
   return json;
 }
 
-function unwrapJsonData<T>(json: StrapiJson<T>) {
+export function unwrapJsonData<T>(json: StrapiJson<T>) {
   const data = json.data;
   const unwrappedData = Array.isArray(data)
     ? data.map((item) => item.attributes)
@@ -92,7 +73,6 @@ function unwrapJsonData<T>(json: StrapiJson<T>) {
 
 export async function sendEmail<T>(name: string, email: string, body: string) {
   const url = new URL(`${process.env.STRAPI_URL}/api/email`);
-
   const data = { name: name, senderEmail: email, body: body };
 
   try {

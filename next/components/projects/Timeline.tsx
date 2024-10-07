@@ -8,7 +8,6 @@ const Timeline = ({
 }: {
   timelineElements: ProjectType[];
 }) => {
-  console.log(timelineElements);
   return (
     <div className="flex flex-col pl-[10%] pt-[5%] pb-[5%]">
       <div className="h-4 w-4 bg-white rounded-full"></div>
