@@ -35,7 +35,7 @@ export default function CarouselBase({
   return (
     <div>
       <div className="text-blue-800 font-semibold text-4xl pr-6 pt-28 flex flex-col sm:flex-row justify-between">
-        <p className="text-center sm:text-left sm:mb-0 mb-5">Upcoming Events</p>
+        <p className="text-center sm:text-left sm:mb-0 mb-5">Recent Projects</p>
         <ScrollButtons scrollPrev={scrollPrev} scrollNext={scrollNext} />
       </div>
       <BodyScrollLocker>
