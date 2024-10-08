@@ -13,13 +13,28 @@ import { projectSchema } from "@/schemas/collection/Project";
 export default async function Home() {
   const data = await fetchStrapi("home-page", homePageSchema);
 
+
+  // active projects
+  // const firstDay = new Date(new Date().getFullYear(), 0, 1);
+  // const lastDay = new Date(new Date().getFullYear(), 11, 31);
+
+  // const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
+  //   "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
+  //   "[$lte]": lastDay.toISOString().split("T")[0],
+  // });
+
+  // past projects
   const firstDay = new Date(new Date().getFullYear(), 0, 1);
-  const lastDay = new Date(new Date().getFullYear(), 11, 31);
 
   const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
-    "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
-    "[$lte]": lastDay.toISOString().split("T")[0],
+    "filters[Date][$lt]": firstDay.toISOString().split("T")[0],
   });
+
+  console.log("----------");
+  console.log(projects[0].title);
+  console.log("----------");
+
+  const name = "Test";
 
   return (
     <>
@@ -49,14 +64,17 @@ export default async function Home() {
               innerClass="gap-8"
             >
               {Array.from({ length: 5 }).map((_, i) => (
-                // <div key={i}>
-                //   <ProjectCard name={} date={} src={event1}/>
+                <div key={i}>
+                  <ProjectCard name={name}
+                  // date={projects[i].Date}
+                  // src={event1}
+                  />
+                </div>
+
+                // <div>
+                //   key{i}
                 // </div>
 
-                <div>
-                  key{i}
-                </div>
-                
                 // <div
                 //   key={i}
                 //   className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden"
