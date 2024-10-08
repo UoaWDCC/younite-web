@@ -12,8 +12,8 @@ export default function Project({
   lastDay,
 }: {
   type: "current" | "old";
-  firstDay: Date | null;
-  lastDay: Date | null;
+  firstDay: Date;
+  lastDay: Date;
 }) {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [projectsData, setProjectsData] = useState<ProjectType[]>([]);
@@ -21,6 +21,7 @@ export default function Project({
 
   async function fetchNextProjects() {
     try {
+
       const data = await fetchPaginationStrapi(
         pageNumber,
         2,
