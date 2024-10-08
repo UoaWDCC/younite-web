@@ -1,40 +1,10 @@
 "use client";
-import fetchPaginationStrapi from "@/app/test/fetchPaginationStrapi/fetchPaginationStrapi";
 import Project from "@/components/projects/Project";
-import { projectSchema, ProjectType } from "@/schemas/collection/Project";
-import fetchStrapi from "@/util/strapi";
-import { notFound } from "next/navigation";
-import { useEffect, useState } from "react";
-import { z } from "zod";
+import { createDate } from "@/util/date";
 
 export default async function CurrentProjectPage() {
-  const firstDay = new Date(new Date().getFullYear(), 0, 1);
-  const [pageNumber, setPageNumber] = useState<number>(1);
-  const [projectsData, setProjectsData] = useState<ProjectType[]>([]);
+  const firstDay = createDate(0, 0, -5);
+  const lastDay = createDate(-1, 0, 0);
 
-  const fetchProjects = async () => {
-    try {
-      const nextProjects = await fetchPaginationStrapi({
-        pageNumber: pageNumber,
-        pageSize: 5,
-      });
-
-      setProjectsData([...projectsData, ...nextProjects]);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    fetchProjects();
-  }, [pageNumber]);
-
-  let projects = await fetchStrapi("project-pages", z.array(projectSchema), {
-    "filters[Date][$lt]": firstDay.toISOString().split("T")[0],
-  });
-
-  if (projects.length === 0) notFound();
-  return (
-    <Project type={"old"} projects={projects} setPage={() => setPageNumber} />
-  );
+  return <Project type={"old"} firstDay={firstDay} lastDay={lastDay} />;
 }

@@ -15,9 +15,9 @@ export async function fetchPaginationStrapi(
       "pagination[page]": pageNumber.toString(),
       "pagination[pageSize]": pageSize.toString(),
     });
+    console.log("url: " + url);
 
     const json = await fetchJsonNoErr(url);
-    console.log(json);
     const pagesRemaining =
       json.meta.pagination.pageCount - json.meta.pagination.page;
 
@@ -29,7 +29,6 @@ export async function fetchPaginationStrapi(
 }
 
 async function fetchJsonNoErr(url: string) {
-  console.log("key: no ERR" + process.env.STRAPI_KEY);
   const res = await fetch(url, {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_KEY}`,
