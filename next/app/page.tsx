@@ -1,14 +1,25 @@
 import event1 from "@/assets/home/event1.png";
 import ImageWithText from "@/components/blocks/ImageWithText";
+import ProjectCard from "@/components/home/carousel/ProjectCard";
 import HomePageBlobs from "@/components/home/HomePageBlob";
 import CarouselBase from "@/components/scrollers/CarouselBase";
 import BGWaves from "@/components/svg/BGWaves";
 import { homePageSchema } from "@/schemas/single/HomePage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
+import { z } from "zod";
+import { projectSchema } from "@/schemas/collection/Project";
 
 export default async function Home() {
   const data = await fetchStrapi("home-page", homePageSchema);
+
+  const firstDay = new Date(new Date().getFullYear(), 0, 1);
+  const lastDay = new Date(new Date().getFullYear(), 11, 31);
+
+  const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
+    "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
+    "[$lte]": lastDay.toISOString().split("T")[0],
+  });
 
   return (
     <>
@@ -38,12 +49,14 @@ export default async function Home() {
               innerClass="gap-8"
             >
               {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i}>
-                  
+                // <div key={i}>
+                //   <ProjectCard name={} date={} src={event1}/>
+                // </div>
+
+                <div>
+                  key{i}
                 </div>
-
-
-
+                
                 // <div
                 //   key={i}
                 //   className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden"
