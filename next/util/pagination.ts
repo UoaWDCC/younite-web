@@ -10,8 +10,8 @@ export async function fetchPaginationStrapi(
 ) {
   try {
     const url = getQueryUrl("project-pages", {
-      "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
-      "[$lte]": lastDay.toISOString().split("T")[0],
+      "filters[Date][$gte]": firstDay.toISOString().split("T")[0] ?? "",
+      "filters[Date][$lte]": lastDay.toISOString().split("T")[0] ?? "",
       "pagination[page]": pageNumber.toString(),
       "pagination[pageSize]": pageSize.toString(),
     });

@@ -2,9 +2,11 @@
 import Project from "@/components/projects/Project";
 import { createDate } from "@/util/date";
 
-export default async function CurrentProjectPage() {
+export default async function PastProjectPage() {
   const firstDay = createDate(0, 0, -5);
   const lastDay = createDate(-1, 0, 0);
 
+  console.log(firstDay);
+  console.log(lastDay);
   return <Project type={"old"} firstDay={firstDay} lastDay={lastDay} />;
 }

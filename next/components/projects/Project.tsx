@@ -12,8 +12,8 @@ export default function Project({
   lastDay,
 }: {
   type: "current" | "old";
-  firstDay: Date;
-  lastDay: Date;
+  firstDay: Date | null;
+  lastDay: Date | null;
 }) {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [projectsData, setProjectsData] = useState<ProjectType[]>([]);
