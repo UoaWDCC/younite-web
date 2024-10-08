@@ -39,7 +39,7 @@ export default function ActiveSection({
       <div className="flex flex-col items-center md:items-left">
         <div className="flex flex-col md:items-end w-80 md:ml-5">
           <button
-            className={`text-wrap uppercase font-bold  md:text-7xl ${activeSection == "FAQ" ? "text-6xl" : "text-5xl"} mb-2`}
+            className={`text-wrap uppercase font-bold  md:text-7xl sm:text-6xl ${activeSection == "FAQ" ? "text-6xl" : "text-5xl"} mb-2`}
             disabled={true}
           >
             {activeSection == "FAQ" ? "FAQ" : "Contact"}
@@ -51,7 +51,7 @@ export default function ActiveSection({
               className="inline-block md:w-16 w-12"
             />
             <button
-              className = {`text-b-dark-blue ml-2 uppercase ${activeSection == "FAQ" ? "text-3xl" : "text-3xl"} font-bold`}
+              className = {`text-b-dark-blue ml-2 uppercase md:text-4xl text-3xl font-bold`}
               onClick={() => handleClick()}
             >
               {activeSection == "FAQ" ? "Contact" : "FAQ"}
