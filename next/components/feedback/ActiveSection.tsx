@@ -48,10 +48,10 @@ export default function ActiveSection({
             <Image
               src={selectionArrow}
               alt="Selection arrow"
-              className="inline-block md:w-16 w-12"
+              className="inline-block sm:w-16 w-12"
             />
             <button
-              className = {`text-b-dark-blue ml-2 uppercase md:text-4xl text-3xl font-bold`}
+              className = {`text-b-dark-blue ml-2 uppercase sm:text-4xl text-3xl font-bold`}
               onClick={() => handleClick()}
             >
               {activeSection == "FAQ" ? "Contact" : "FAQ"}

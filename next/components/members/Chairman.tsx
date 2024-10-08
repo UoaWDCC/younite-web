@@ -17,7 +17,7 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
           "radial-gradient(47.21% 33.08% at 23.96% 39.49%, #FD8D5D 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(66.83% 44.73% at 78.61% 81.23%, #FAAB36 0%, rgba(255, 255, 255, 0.00) 97.76%), linear-gradient(180deg, #FFF 0%, #FABD6E 100%)",
       }}
     >
-      <h2 className="text-7xl text-center mb-4">
+      <h2 className="md:text-7xl text-5xl text-center mb-4">
         Meet the <span className="font-bold">Chairs</span>
       </h2>
       <p className="text-center max-w-5xl mx-auto mb-20">

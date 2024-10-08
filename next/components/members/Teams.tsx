@@ -28,7 +28,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             <div key={i}>
               <button
                 onClick={() => setActive(i)}
-                className={`px-4 py-2 text-xl transform transition-transform duration-150 border-transparent border ${
+                className={`px-4 py-2 sm:text-xl text-lg transform transition-transform duration-150 border-transparent border ${
                   i === active ? "font-bold border-0" : "border-l-1 border-r-1"
                 }`}
               >
@@ -37,7 +37,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             </div>
           ))}
         </div>
-        <h2 className="text-5xl text-center mb-4">{activeTeam.SectionName}</h2>
+        <h2 className="sm:text-5xl text-4xl text-center mb-4">{activeTeam.SectionName}</h2>
         <p className="text-center max-w-5xl mx-auto mb-20">
           {activeTeam.Description}
         </p>
