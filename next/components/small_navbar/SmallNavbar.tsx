@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { getLargestImageUrl } from "@/util/image";
 import DownArrow from "../svg/DownArrow";
@@ -100,7 +101,11 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
       </div>
 
       {menuOpen && (
-        <div className="top-full relative left-0 w-full m-2 ml-0 mt-4 -mb-40">
+        <motion.div className="top-full relative left-0 w-full m-2 ml-0 mt-4 -mb-40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+        >
           <div className="flex flex-col justify-items-stretch ml-2">
             <div>
               <button onClick={toggleMembers} className="mb-2">
@@ -145,7 +150,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </header>
   );
