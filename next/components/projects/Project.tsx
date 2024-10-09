@@ -21,7 +21,7 @@ export default function Project({
   const [projectsData, setProjectsData] = useState<ProjectType[]>([]);
   const [nextPageAvailable, setNextPageAvailable] = useState<boolean>(true);
 
-  async function fetchNextProjects() {
+  async function getNextProjects() {
     try {
       const data = await fetchPaginationStrapi(
         pageNumber,
@@ -66,7 +66,7 @@ export default function Project({
       getFirstProjects();
     }
 
-    fetchNextProjects();
+    getNextProjects();
   }, [pageNumber]);
 
   function addPageNumber() {

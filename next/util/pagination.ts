@@ -19,7 +19,7 @@ export async function fetchPaginationStrapi(
       sort: `Date:${sort}`,
     });
 
-    const json = await fetchJsonNoErr(url);
+    const json = await fetchJsonWithMeta(url);
     const pagesRemaining =
       json.meta.pagination.pageCount - json.meta.pagination.page;
 
@@ -30,7 +30,7 @@ export async function fetchPaginationStrapi(
   }
 }
 
-async function fetchJsonNoErr(url: string) {
+async function fetchJsonWithMeta(url: string) {
   const res = await fetch(url, {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_KEY}`,
