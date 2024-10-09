@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { getLargestImageUrl } from "@/util/image";
+import DownArrow from "../svg/DownArrow";
+import UpArrow from "../svg/UpArrow";
 
 interface HeaderData {
   navigation: Array<{
@@ -104,6 +106,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
               <button onClick={toggleMembers} className="mb-2">
                 MEMBERS
               </button>
+            {membersOpen ? <UpArrow/> : <DownArrow/>}
               {membersOpen && (
                 <div className="flex flex-col">
                   {data.members.map(
@@ -129,6 +132,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
 
             <div>
               <button onClick={toggleProjects}>PROJECTS</button>
+              {projectsOpen ? <UpArrow/> : <DownArrow/>}
               {projectsOpen && (
                 <div className="flex top-full flex-col py-1 ml-4">
                   <Link href="/projects/active" className="my-1 min-w-16">
