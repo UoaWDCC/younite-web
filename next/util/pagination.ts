@@ -7,6 +7,7 @@ export async function fetchPaginationStrapi(
   pageSize: number,
   firstDay: Date,
   lastDay: Date,
+  sort: String,
 ) {
   try {
     //TODO: if possible, try to make first and last day optional, and make it so that either or can be applied (this means we don't have to make a ridiculous range for the date when calculating past and active projects)
@@ -15,7 +16,7 @@ export async function fetchPaginationStrapi(
       "filters[Date][$lte]": lastDay.toISOString().split("T")[0] ?? "",
       "pagination[page]": pageNumber.toString(),
       "pagination[pageSize]": pageSize.toString(),
-      sort: "Date:ASC",
+      sort: `Date:${sort}`,
     });
 
     const json = await fetchJsonNoErr(url);

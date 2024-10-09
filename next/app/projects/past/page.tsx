@@ -8,5 +8,7 @@ export default async function PastProjectPage() {
 
   console.log(firstDay);
   console.log(lastDay);
-  return <Project type={"old"} firstDay={firstDay} lastDay={lastDay} />;
+  return (
+    <Project type={"old"} firstDay={firstDay} lastDay={lastDay} sort={"DESC"} />
+  );
 }

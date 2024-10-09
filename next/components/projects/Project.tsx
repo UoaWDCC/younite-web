@@ -10,10 +10,12 @@ export default function Project({
   type,
   firstDay,
   lastDay,
+  sort,
 }: {
   type: "current" | "old";
   firstDay: Date;
   lastDay: Date;
+  sort: "ASC" | "DESC";
 }) {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [projectsData, setProjectsData] = useState<ProjectType[]>([]);
@@ -21,12 +23,12 @@ export default function Project({
 
   async function fetchNextProjects() {
     try {
-
       const data = await fetchPaginationStrapi(
         pageNumber,
         2,
         firstDay,
         lastDay,
+        sort
       );
 
       if (data?.pagesRemaining === 0) {
@@ -49,6 +51,7 @@ export default function Project({
         2,
         firstDay,
         lastDay,
+        sort
       );
 
       //TODO: this needs to be fixed so that data.unwrappedData and data.pagesRemaining always exists. (IE: We do not want the optional chaining operator)
@@ -93,6 +96,8 @@ export default function Project({
       </div>
       <div>
         <Timeline timelineElements={projectsData} />
+      </div>
+      <div className="flex flex-col items-center justify-center text-center w-full m-5">
         <SeeMore
           loadMore={addPageNumber}
           nextPageAvailable={nextPageAvailable}
