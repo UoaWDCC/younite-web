@@ -98,7 +98,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
       </div>
 
       {menuOpen && (
-        <div className="top-full absolute left-0 w-full m-2 -mt-4">
+        <div className="top-full relative left-0 w-full m-2 ml-0 mt-4 -mb-40">
           <div className="flex flex-col justify-items-stretch ml-2">
             <div>
               <button onClick={toggleMembers} className="mb-2">
@@ -130,7 +130,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
             <div>
               <button onClick={toggleProjects}>PROJECTS</button>
               {projectsOpen && (
-                <div className="flex absolute top-full items-center flex-col py-1 ml-4">
+                <div className="flex top-full flex-col py-1 ml-4">
                   <Link href="/projects/active" className="my-1 min-w-16">
                     ACTIVE
                   </Link>
