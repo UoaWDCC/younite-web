@@ -69,7 +69,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
         <div className="md:hidden">
           <button onClick={toggleMenu}>
             <svg
-              className={`w-6 h-6 ${menuOpen ? "hidden" : "visible"}`}
+              className={`w-6 h-6 mr-2 ${menuOpen ? "hidden" : "visible"}`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -83,7 +83,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
               />
             </svg>
             <svg
-              className={`w-6 h-6 ${menuOpen ? "visible" : "hidden"}`}
+              className={`w-6 h-6 mr-2 ${menuOpen ? "visible" : "hidden"}`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -101,17 +101,18 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
       </div>
 
       {menuOpen && (
-        <motion.div className="top-full relative left-0 w-full m-2 ml-0 mt-4 -mb-40"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+        <motion.div
+          className="top-full relative left-0 w-full m-2 ml-0 mt-4 -mb-40"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: "spring", bounce: 0, duration: 0.5 }}
         >
           <div className="flex flex-col justify-items-stretch ml-2">
             <div>
               <button onClick={toggleMembers} className="mb-2">
                 MEMBERS
               </button>
-            {membersOpen ? <UpArrow/> : <DownArrow/>}
+              {membersOpen ? <UpArrow /> : <DownArrow />}
               {membersOpen && (
                 <div className="flex flex-col">
                   {data.members.map(
@@ -131,17 +132,26 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
             </div>
 
             {links.map((link) => (
-              <Link className="mb-2" href={link.slug} key={link.title} onClick={toggleMenu}>
+              <Link
+                className="mb-2"
+                href={link.slug}
+                key={link.title}
+                onClick={toggleMenu}
+              >
                 {link.title.toLocaleUpperCase()}
               </Link>
             ))}
 
             <div>
               <button onClick={toggleProjects}>PROJECTS</button>
-              {projectsOpen ? <UpArrow/> : <DownArrow/>}
+              {projectsOpen ? <UpArrow /> : <DownArrow />}
               {projectsOpen && (
                 <div className="flex top-full flex-col py-1 ml-4">
-                  <Link href="/projects/active" className="my-1 min-w-16" onClick={toggleMenu}>
+                  <Link
+                    href="/projects/active"
+                    className="my-1 min-w-16"
+                    onClick={toggleMenu}
+                  >
                     ACTIVE
                   </Link>
                   <Link href="/projects/past" className="my-1 min-w-16">
