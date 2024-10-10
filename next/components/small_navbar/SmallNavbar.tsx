@@ -117,6 +117,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
                   {data.members.map(
                     ({ CommitteeYear }: { CommitteeYear: number }) => (
                       <Link
+                        onClick={toggleMenu}
                         href={`/members/${CommitteeYear}`}
                         key={CommitteeYear}
                         className="mb-2 ml-4 min-w-16"
@@ -130,7 +131,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
             </div>
 
             {links.map((link) => (
-              <Link className="mb-2" href={link.slug} key={link.title}>
+              <Link className="mb-2" href={link.slug} key={link.title} onClick={toggleMenu}>
                 {link.title.toLocaleUpperCase()}
               </Link>
             ))}
@@ -140,7 +141,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
               {projectsOpen ? <UpArrow/> : <DownArrow/>}
               {projectsOpen && (
                 <div className="flex top-full flex-col py-1 ml-4">
-                  <Link href="/projects/active" className="my-1 min-w-16">
+                  <Link href="/projects/active" className="my-1 min-w-16" onClick={toggleMenu}>
                     ACTIVE
                   </Link>
                   <Link href="/projects/past" className="my-1 min-w-16">
