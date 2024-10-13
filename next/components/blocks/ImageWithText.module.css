@@ -1,8 +1,14 @@
 .heading {
   color: #014788;
-  font-size: 3rem;
-  align-content: center;
   font-weight: bold;
+  align-content: center;
+  font-size: 3rem; /* default size for larger screens */
+}
+
+@media screen and (max-width: 768px) {
+  .heading {
+    font-size: 2rem; /* medium size for screens below 768px */
+  }
 }
 
 .content {

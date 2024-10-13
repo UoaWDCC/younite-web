@@ -36,7 +36,7 @@ export default async function MemberPage({
             src={getLargestImageUrl(team.teamPhoto)}
             alt=""
           />
-          <div className="md:absolute z-10 md:bottom-8 md:right-12 -mt-6 sm:-mt-10 md:mt-3 m-3 p-8 pr-16 max-w-lg bg-white shadow-lg rounded-3xl text-b-dark-blue __markdown">
+          <div className="md:absolute z-10 md:bottom-8 md:shadow-lg drop-shadow-lg md:right-12 -mt-6 sm:-mt-10 md:mt-3 m-3 p-8 pr-16 max-w-lg bg-white rounded-3xl text-b-dark-blue __markdown">
             <RichText text={team.description} />
             <a
               className="block mr-auto w-fit bg-b-blue px-5 py-3 rounded-full font-bold mt-8"
