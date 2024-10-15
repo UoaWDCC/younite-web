@@ -34,7 +34,7 @@ export default async function Home() {
   console.log(projects[0].title);
   console.log("----------");
 
-  const name = "Test";
+  // const name = "Test";
 
   return (
     <>
@@ -63,11 +63,11 @@ export default async function Home() {
               wrapperClass="flex mt-16 mb-32 py-8 w-full"
               innerClass="gap-8"
             >
-              {Array.from({ length: 5 }).map((_, i) => (
+              {projects.map((project, i) => (
                 <div key={i}>
-                  <ProjectCard name={name}
-                  // date={projects[i].Date}
-                  // src={event1}
+                  <ProjectCard name={project.title}
+                  date={project.Date}
+                  img={project.image}
                   />
                 </div>
 
