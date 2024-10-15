@@ -6,6 +6,7 @@ import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import styles from "./styles.module.css";
+import HistoryCarousel from "@/components/scrollers/HistoryCarousel";
 
 export default async function AboutPage() {
   const data = await fetchStrapi("about-page", aboutPageSchema);
@@ -49,7 +50,13 @@ export default async function AboutPage() {
         <h2 className="md:text-8xl sm:text-7xl text-6xl font-bold leading-[0.95] uppercase mb-12">
           Our History
         </h2>
-        <History timelineElements={timeline} />
+          <HistoryCarousel>
+            	{Array.from({ length: 5 }).map((_, i) => (
+                <div key={i}>
+                  <History timelineElements={timeline} />
+                </div>
+              ))}
+          </HistoryCarousel>
       </section>
     </>
   );

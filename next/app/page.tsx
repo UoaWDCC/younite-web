@@ -2,7 +2,7 @@ import event1 from "@/assets/home/event1.png";
 import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
-import CarouselBase from "@/components/home/CarouselBase";
+import CarouselBase from "@/components/scrollers/CarouselBase";
 import HomePageBlobs from "@/components/home/HomePageBlob";
 import BGWaves from "@/components/svg/BGWaves";
 import { homePageSchema } from "@/schemas/single/HomePage";
