@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./footer.module.css";
 import fetchStrapi from "@/util/strapi";
 import { footerSchema } from "@/schemas/single/Footer";
+import { z } from "zod";
 // socials
 import facebookLogo from "@/assets/footer/facebookLogo.svg";
 import instagramLogo from "@/assets/footer/instagramLogo.svg";

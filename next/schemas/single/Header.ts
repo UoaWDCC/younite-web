@@ -4,7 +4,7 @@ export const headerSchema = z.object({
   Logo: z.any(),
   navigation: z.array(
     z.object({
-      slug: z.string(),
+      url: z.string(),
       title: z.string(),
     }),
   ),

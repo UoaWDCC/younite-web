@@ -1,10 +1,10 @@
-import { headerSchema } from "@/schemas/single/Header";
 import { getLargestImageUrl } from "@/util/image";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import Link from "next/link";
 import { z } from "zod";
 import styles from "./header.module.css";
+import { headerSchema } from "@/schemas/single/Header";
 
 async function getHeaderData() {
   const resData = await fetchStrapi("header", headerSchema);
@@ -23,11 +23,11 @@ async function getHeaderData() {
   const projects = [
     {
       Title: new Date().getFullYear(),
-      slug: "current",
+      url: "current",
     },
     {
       Title: "Past",
-      slug: "past",
+      url: "past",
     },
   ];
   return {
@@ -95,7 +95,7 @@ export default async function Header() {
         </div>
 
         {links.map((link) => (
-          <Link href={link.slug} key={link.title}>
+          <Link href={link.url} key={link.title}>
             {link.title.toLocaleUpperCase()}
           </Link>
         ))}
