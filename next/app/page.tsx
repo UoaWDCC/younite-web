@@ -60,7 +60,7 @@ export default async function Home() {
         <div className="bg-white bg-opacity-50">
           <div className="overflow-hidden ml-20 mr-20 ">
             <CarouselBase
-              wrapperClass="flex mt-16 mb-32 py-8 w-full"
+              wrapperClass="flex mt-8 mb-32 py-8 w-full"
               innerClass="gap-8"
             >
               {projects.map((project, i) => (
