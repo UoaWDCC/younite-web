@@ -70,28 +70,6 @@ export default async function Home() {
                   img={project.image}
                   />
                 </div>
-
-                // <div>
-                //   key{i}
-                // </div>
-
-                // <div
-                //   key={i}
-                //   className="w-60 h-64 rounded-xl text-blue-800 overflow-hidden"
-                // >
-                //   {/* Image part of card */}
-                //   <div className={`h-48 relative -mb-2 z-10`}>
-                //     <Image src={event1} fill alt="event1" />
-                //   </div>
-
-                //   {/* white base of card */}
-                //   <div className="h-16" style={{ backgroundColor: "white" }}>
-                //     <div className="pl-3 pt-1.5 font-semibold text-lg">
-                //       Rainbow High Tea
-                //     </div>
-                //     <div className="pl-3 text-base">3rd May 2023</div>
-                //   </div>
-                // </div>
               ))}
             </CarouselBase>
           </div>
