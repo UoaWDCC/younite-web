@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "./footer.module.css";
+import fetchStrapi from "@/util/strapi";
+import { footerSchema } from "@/schemas/single/Footer";
 // socials
 import facebookLogo from "@/assets/footer/facebookLogo.svg";
 import instagramLogo from "@/assets/footer/instagramLogo.svg";
@@ -10,7 +12,13 @@ import lakeHouseLogo from "@/assets/footer/lakeHouseLogo.png";
 import localBoardLogo from "@/assets/footer/localBoardLogo.png";
 import shoreJunctionLogo from "@/assets/footer/shoreJunction.png";
 
-export default function Footer() {
+async function getFooterData() {
+  const resData = await fetchStrapi("footer", footerSchema);
+  return resData;
+}
+
+export default async function Footer() {
+  const data = await getFooterData();
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
