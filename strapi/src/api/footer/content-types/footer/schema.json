@@ -19,7 +19,7 @@
     },
     "younite": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "misc.links"
     },
     "CreditsPrivacy": {

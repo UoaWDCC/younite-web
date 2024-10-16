@@ -78,7 +78,7 @@ export default async function Footer() {
         <a href={younite.url} target="_blank" rel="noopener noreferrer">
           <span>{younite.title}</span>
         </a>
-        <span>Credits & Privacy</span>
+        <span>{CreditsPrivacy}</span>
       </div>
     </footer>
   );
