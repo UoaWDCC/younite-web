@@ -5,15 +5,14 @@ export const footerSchema = z.object({
     z.object({
       url: z.string(),
       title: z.string(),
+      image: z.any()
     }),
   ),
-  logo: z.array(
-    z.object({
+  younite: z.object({
       url: z.string(),
       title: z.string(),
     }),
-  ),
-  CreditsPrivacy: z.string()
+  CreditsPrivacy: z.string(),
 });
 
 export type FooterType = z.infer<typeof footerSchema>;
