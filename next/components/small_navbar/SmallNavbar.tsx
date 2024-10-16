@@ -5,10 +5,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { getLargestImageUrl } from "@/util/image";
-import DownArrow from "../svg/DownArrow";
 import UpArrow from "../svg/UpArrow";
+import Hamburger from "../svg/Hamburger";
+import Cross from "../svg/Cross";
 
-interface HeaderData {
+type HeaderData = {
   navigation: Array<{
     title: string;
     slug: string;
@@ -22,7 +23,7 @@ interface HeaderData {
     Title: string;
     slug: string;
   }>;
-}
+};
 
 interface SmallNavbarProps {
   data: HeaderData;
@@ -68,34 +69,7 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu}>
-            <svg
-              className={`w-6 h-6 mr-2 ${menuOpen ? "hidden" : "visible"}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16 M4 12h16 M4 18h16"
-              />
-            </svg>
-            <svg
-              className={`w-6 h-6 mr-2 ${menuOpen ? "visible" : "hidden"}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            {menuOpen ? <Cross /> : <Hamburger />}
           </button>
         </div>
       </div>
@@ -111,8 +85,12 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
             <div>
               <button onClick={toggleMembers} className="mb-2">
                 MEMBERS
+                {membersOpen ? (
+                  <UpArrow className="origin-center rotate-0" />
+                ) : (
+                  <UpArrow className="origin-[50%_40%] rotate-[180deg]" />
+                )}
               </button>
-              {membersOpen ? <UpArrow /> : <DownArrow />}
               {membersOpen && (
                 <div className="flex flex-col">
                   {data.members.map(
@@ -143,8 +121,14 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
             ))}
 
             <div>
-              <button onClick={toggleProjects}>PROJECTS</button>
-              {projectsOpen ? <UpArrow /> : <DownArrow />}
+              <button onClick={toggleProjects}>
+                PROJECTS
+                {projectsOpen ? (
+                  <UpArrow className="origin-center rotate-0" />
+                ) : (
+                  <UpArrow className="origin-[50%_40%] rotate-[180deg]" />
+                )}
+              </button>
               {projectsOpen && (
                 <div className="flex top-full flex-col py-1 ml-4">
                   <Link
