@@ -55,8 +55,6 @@ export default function Project({
       );
 
       //TODO: this needs to be fixed so that data.unwrappedData and data.pagesRemaining always exists. (IE: We do not want the optional chaining operator)
-      console.log("fetch return: " + data?.unwrappedData, data?.pagesRemaining);
-
       if (data?.unwrappedData) {
         setProjectsData(data?.unwrappedData as ProjectType[]);
       }
