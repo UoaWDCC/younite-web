@@ -1,14 +1,14 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { useState } from "react";
 import { getLargestImageUrl } from "@/util/image";
-import UpArrow from "../svg/UpArrow";
-import Hamburger from "../svg/Hamburger";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 import Cross from "../svg/Cross";
-import { HeaderData } from "../header/headerData";
+import Hamburger from "../svg/Hamburger";
+import UpArrow from "../svg/UpArrow";
+import { HeaderData } from "./headerTypes";
 interface SmallNavbarProps {
   data: HeaderData;
 }
@@ -94,17 +94,6 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
               )}
             </div>
 
-            {links.map((link) => (
-              <Link
-                className="mb-2"
-                href={link.slug}
-                key={link.title}
-                onClick={toggleMenu}
-              >
-                {link.title.toLocaleUpperCase()}
-              </Link>
-            ))}
-
             <div>
               <button onClick={toggleProjects}>
                 PROJECTS
@@ -123,12 +112,23 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
                   >
                     ACTIVE
                   </Link>
-                  <Link href="/projects/past" className="my-1 min-w-16">
+                  <Link href="/projects/past" className="mt-1 min-w-16">
                     PAST
                   </Link>
                 </div>
               )}
             </div>
+
+            {links.map((link) => (
+              <Link
+                className="mt-2"
+                href={link.slug}
+                key={link.title}
+                onClick={toggleMenu}
+              >
+                {link.title.toLocaleUpperCase()}
+              </Link>
+            ))}
           </div>
         </motion.div>
       )}

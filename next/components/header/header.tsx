@@ -2,7 +2,7 @@ import { getLargestImageUrl } from "@/util/image";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./header.module.css";
-import { getHeaderData } from "./headerDataFetcher"; // Adjust the path as necessary
+import { getHeaderData } from "./headerDataFetcher";
 
 export default async function Header() {
   const data = await getHeaderData();
