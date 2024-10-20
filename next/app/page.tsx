@@ -64,11 +64,13 @@ export default async function Home() {
               innerClass="gap-8"
             >
               {projects.map((project, i) => (
-                <div key={i}>
-                  <ProjectCard name={project.title}
-                  date={project.Date}
-                  img={project.image}
-                  />
+                <div key={i} >
+                  <a href="/projects/active">
+                    <ProjectCard name={project.title}
+                    date={project.Date}
+                    img={project.image}
+                    />
+                  </a>
                 </div>
               ))}
             </CarouselBase>
