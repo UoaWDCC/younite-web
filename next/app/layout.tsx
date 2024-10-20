@@ -3,6 +3,7 @@ import Header from "@/components/header/header";
 import Modal from "@/components/modal/Modal";
 import ModalContextProvider from "@/components/modal/ModalContextProvider";
 import "./globals.css";
+import SmallNavbarFetcher from "@/components/header/SmallNavbarFetcher";
 
 export const metadata = {
   title: "Create Next App",
@@ -23,8 +24,11 @@ export default async function RootLayout({
         <ModalContextProvider>
           <div className="bg-gradient-1 isolate flex flex-col min-h-svh overflow-y-auto">
             {/* @ts-ignore */}
-            <Header />
-            <main className="grow overflow-x-hidden">{children}</main>
+            <div className=" invisible sm:visible">
+              <Header />
+            </div>
+            <SmallNavbarFetcher />
+            <main className="grow overflow-y-auto overflow-x-hidden">{children}</main>
             <Footer />
           </div>
           <Modal />
