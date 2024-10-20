@@ -1,16 +1,23 @@
+import { footerSchema } from "@/schemas/single/Footer";
+import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import styles from "./footer.module.css";
 // socials
-import facebookLogo from "@/assets/footer/facebookLogo.svg";
-import instagramLogo from "@/assets/footer/instagramLogo.svg";
-import linkTreeLogo from "@/assets/footer/linkTreeLogo.svg";
-import tiktokLogo from "@/assets/footer/tiktokLogo.svg";
 // brands
 import lakeHouseLogo from "@/assets/footer/lakeHouseLogo.png";
 import localBoardLogo from "@/assets/footer/localBoardLogo.png";
 import shoreJunctionLogo from "@/assets/footer/shoreJunction.png";
+//lost links to socials
+async function getFooterData() {
+  const resData = await fetchStrapi("footer", footerSchema);
+  return resData;
+}
 
-export default function Footer() {
+export default async function Footer() {
+  const data = await getFooterData();
+  const { logoSection, younite, CreditsPrivacy } = data;
+  const links = data.logoSection;
+
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
@@ -51,59 +58,27 @@ export default function Footer() {
           />
         </a>
       </div>
+
       <div className={styles.bottom}>
-        <div className={styles.socialsContainer}>
+        {logoSection.map((item, index) => (
           <a
-            href="https://www.facebook.com/younitedt/"
+            key={index}
+            href={item.url}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
               height={32}
-              src={facebookLogo}
+              src={item.image}
               className={styles.socialLogo}
-              alt=""
+              alt={item.title}
             />
           </a>
-          <a
-            href="https://www.instagram.com/younitedt/?hl=en"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              height={32}
-              src={instagramLogo}
-              className={styles.socialLogo}
-              alt=""
-            />
-          </a>
-          <a
-            href="https://www.tiktok.com/@y0un1te"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              height={32}
-              src={tiktokLogo}
-              className={styles.socialLogo}
-              alt=""
-            />
-          </a>
-          <a
-            href="https://linktr.ee/younitedt?utm_source=linktree_profile_share&ltsid=f50e90c4-8dee-4350-8645-fe0822773924"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              height={32}
-              src={linkTreeLogo}
-              className={styles.socialLogo}
-              alt=""
-            />
-          </a>
-        </div>
-        <span>©Younite</span>
-        <span>Credits & Privacy</span>
+        ))}
+        <a href={younite.url} target="_blank" rel="noopener noreferrer">
+          <span>{younite.title}</span>
+        </a>
+        <span>{CreditsPrivacy}</span>
       </div>
     </footer>
   );

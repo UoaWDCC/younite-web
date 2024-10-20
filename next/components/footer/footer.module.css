@@ -25,19 +25,22 @@
 
 .top :nth-child(3),
 .bottom :nth-child(3) {
-  justify-self: right;
+  justify-self: end;
 }
 
 .brandLogo {
   object-fit: contain;
+  max-width: 100px;
 }
 
 .socialsContainer {
   display: flex;
   gap: 0.5rem;
-  object-fit: contain;
+  justify-content: center;
 }
 
 .socialLogo {
   object-fit: contain;
+  height: 32px;
+  width: 32px;
 }

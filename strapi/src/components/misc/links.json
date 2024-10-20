@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "slug": {
+    "url": {
       "type": "string",
       "required": true,
       "unique": false

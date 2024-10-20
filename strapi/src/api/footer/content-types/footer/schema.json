@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logoSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "misc.links"
+    },
+    "younite": {
+      "type": "component",
+      "repeatable": false,
+      "component": "misc.links"
+    },
+    "CreditsPrivacy": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
