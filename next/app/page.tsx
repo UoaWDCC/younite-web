@@ -1,12 +1,6 @@
 import event1 from "@/assets/home/event1.png";
 import ImageWithText from "@/components/blocks/ImageWithText";
-<<<<<<< HEAD
-import Footer from "@/components/footer/footer";
-import Header from "@/components/header/header";
-import CarouselBase from "@/components/scrollers/CarouselBase";
-=======
 import ProjectCard from "@/components/home/carousel/ProjectCard";
->>>>>>> 064_scrollable-carousel
 import HomePageBlobs from "@/components/home/HomePageBlob";
 import CarouselBase from "@/components/scrollers/CarouselBase";
 import BGWaves from "@/components/svg/BGWaves";
@@ -65,6 +59,9 @@ export default async function Home() {
       <div>
         <div className="bg-white bg-opacity-50">
           <div className="overflow-hidden ml-20 mr-20 ">
+            <div className="text-blue-800 font-semibold text-4xl pr-6 pt-28 flex flex-col sm:flex-row justify-between">
+            <p className="text-center sm:text-left sm:mb-0 mb-5">Upcoming Events</p>
+            </div>
             <CarouselBase
               wrapperClass="flex mt-16 mb-32 py-8 w-full"
               innerClass="gap-8"
