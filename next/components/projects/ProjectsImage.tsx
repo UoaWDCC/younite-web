@@ -25,17 +25,19 @@ export default function ImageComponent({
         />
       </div>
 
-      <div className="absolute top-[30%] bottom-[30%] left-[15%] bg-black opacity-70 rounded-[10px] z-10 flex items-center">
-        <div className="text-lg pt-2 pb-3 pl-5 pr-5 z-20 opacity-100 font-bold">
-          {title}
+      {type === "current" ? (
+        <div className="absolute top-[30%] bottom-[30%] left-[15%] bg-black opacity-70 rounded-[10px] z-10 flex items-center">
+          <div className="text-lg pt-2 pb-3 pl-5 pr-5 z-20 opacity-100 font-semibold">
+            {title}
+          </div>
         </div>
-      </div>
-
-      {/* <div className="absolute top-[15%] bottom-[15%] right-[15%] w-[35%] bg-black opacity-70 rounded-[15px] z-10">
-        <div className="text-lg pt-2 pb-3 pl-5 pr-4 z-20 opacity-100 text-right font-semibold">
-          {title}
+      ) : (
+        <div className="absolute top-[15%] bottom-[15%] right-[15%] w-[35%] bg-black opacity-70 rounded-[15px] z-10">
+          <div className="text-lg pt-2 pb-3 pl-5 pr-4 z-20 opacity-100 text-right font-semibold">
+            {title}
+          </div>
         </div>
-      </div> */}
+      )}
     </div>
   );
 }
