@@ -19,7 +19,7 @@ export default async function Home() {
   const data = await fetchStrapi("home-page", homePageSchema);
 
 
-  // active projects
+  // active projects --uncomment here
   // const firstDay = new Date(new Date().getFullYear(), 0, 1);
   // const lastDay = new Date(new Date().getFullYear(), 11, 31);
 
@@ -34,29 +34,6 @@ export default async function Home() {
   const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
     "filters[Date][$lt]": firstDay.toISOString().split("T")[0],
   });
-
-  // const { open } = useModal();
-
-  // function openModal() {
-  //   open(
-  //     <ProjectModal
-  //       title={title}
-  //       description={Description}
-  //       imageUrl={imageUrl}
-  //     />
-  //   );
-  // }
-
-  // function openModal() {
-  //   open(
-  //     <ProjectModal
-  //       title={title}
-  //       description={Description}
-  //       imageUrl={imageUrl}
-  //     />,
-  //   );
-  // }
-
 
   return (
     <>
@@ -80,25 +57,6 @@ export default async function Home() {
 
       <ProjectsCarousel projects={projects} />
 
-      {/* <div className="bg-white bg-opacity-50">
-        <div className="overflow-hidden ml-20 mr-20 ">
-          <CarouselBase
-            wrapperClass="flex mt-8 mb-32 py-8 w-full"
-            innerClass="gap-8"
-          >
-            {projects.map((project, i) => (
-              <div key={i}>
-              <ProjectCard
-                name={project.title}
-                date={project.Date}
-                img={project.image}
-                openModal={openModal}
-              />
-            </div>
-            ))}
-          </CarouselBase>
-        </div>
-      </div> */}
     </>
   );
 }
