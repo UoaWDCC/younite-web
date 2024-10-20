@@ -9,7 +9,7 @@ type TimelineProps = {
 const Timeline = ({ timelineElements, type }: TimelineProps) => {
   return (
     <div className="flex flex-col pl-[10%] pt-[5%] pb-[5%]">
-      <div className="h-4 w-4 bg-white rounded-full"></div>
+      <div className="h-4 w-4 ml-4 sm:ml-10 md:ml-0 bg-white rounded-full"></div>
       <div>
         {timelineElements.map((timelineElement, index) => (
           <ProjectsComponent
@@ -20,7 +20,7 @@ const Timeline = ({ timelineElements, type }: TimelineProps) => {
           />
         ))}
       </div>
-      <div className="h-4 w-4 bg-white rounded-full"></div>
+      <div className="h-4 w-4 ml-4 sm:ml-10 md:ml-0 bg-white rounded-full"></div>
     </div>
   );
 };
