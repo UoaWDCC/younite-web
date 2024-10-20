@@ -23,7 +23,8 @@
       "component": "misc.links"
     },
     "CreditsPrivacy": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }
