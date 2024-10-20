@@ -20,7 +20,7 @@ export default async function RootLayout({
     <html lang="en" className="h-full">
       <body className="bg-gradient-1 isolate flex flex-col min-h-svh">
         {/* @ts-ignore */}
-        <div className=" invisible sm:visible outline">
+        <div className=" invisible sm:visible">
           <Header />
         </div>
         <SmallNavbarFetcher />

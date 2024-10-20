@@ -31,7 +31,7 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
       <div className="grid grid-cols-[repeat(13,minmax(0,1fr))] grid-rows-2 max-w-6xl isolate mx-auto">
         <div className="relative col-span-12 ml-5 md:col-span-7 drop-shadow-xl">
           <Image
-            className="w-full max-md:hidden outline md:visible absolute top-0 -right-full h-72 object-contain"
+            className="w-full max-md:hidden md:visible absolute top-0 -right-full h-72 object-contain"
             src={Flair2}
             alt=""
           />
