@@ -3,16 +3,16 @@
 import React from "react";
 import CarouselBase from "@/components/scrollers/CarouselBase";
 import ProjectCard from "@/components/home/carousel/ProjectCard";
-import { ProjectType } from "@/schemas/collection/Project";  // Adjust this import to match your project's schema
+import { ProjectType } from "@/schemas/collection/Project";
 import { useModal } from "@/components/modal/ModalContextProvider";
 import ProjectModal from "@/components/projects/ProjectModal";
 import { getLargestImageUrl } from "@/util/image";
 
-interface ProjectsCarouselProps {
+type ProjectsCarouselProps = {
   projects: ProjectType[];
 }
 
-const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ projects }) => {
+export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
   const { open } = useModal();
 
   const openModalForProject = (project: ProjectType) => {
@@ -46,5 +46,3 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ projects }) => {
     </div>
   );
 };
-
-export default ProjectsCarousel;
