@@ -1,12 +1,11 @@
 import flair from "@/assets/about/flair.png";
 import valueFlair1 from "@/assets/about/value1.png";
 import valueFlair2 from "@/assets/about/value2.png";
-import HistoryText from "@/components/history/HistoryText";
+import History from "@/components/history/History";
 import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import styles from "./styles.module.css";
-import History from "@/components/history/History";
 
 export default async function AboutPage() {
   const data = await fetchStrapi("about-page", aboutPageSchema);

@@ -1,5 +1,7 @@
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import Modal from "@/components/modal/Modal";
+import ModalContextProvider from "@/components/modal/ModalContextProvider";
 import "./globals.css";
 import SmallNavbarFetcher from "@/components/header/SmallNavbarFetcher";
 
@@ -17,17 +19,20 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className="bg-gradient-1 isolate flex flex-col min-h-svh">
-        {/* @ts-ignore */}
-        <div className=" invisible sm:visible">
-          <Header />
-        </div>
-        <SmallNavbarFetcher />
-        <main className="grow overflow-y-auto overflow-x-hidden">
-          {children}
-        </main>
-        <Footer />
+    <html lang="en" className="h-full overflow-hidden">
+      <body className="h-full">
+        <ModalContextProvider>
+          <div className="bg-gradient-1 isolate flex flex-col min-h-svh overflow-y-auto">
+            {/* @ts-ignore */}
+            <div className=" invisible sm:visible">
+              <Header />
+            </div>
+            <SmallNavbarFetcher />
+            <main className="grow overflow-y-auto overflow-x-hidden">{children}</main>
+            <Footer />
+          </div>
+          <Modal />
+        </ModalContextProvider>
       </body>
     </html>
   );

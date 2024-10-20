@@ -12,5 +12,5 @@ const timelineElements: ProjectType[] = [
 ];
 
 export default async function TestPage() {
-  return <Timeline timelineElements={timelineElements} />;
+  return <Timeline timelineElements={timelineElements} type="current" />;
 }
