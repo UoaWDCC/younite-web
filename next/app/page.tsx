@@ -9,6 +9,11 @@ import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import { z } from "zod";
 import { projectSchema } from "@/schemas/collection/Project";
+import Link from "next/link";
+import { useModal } from "@/components/modal/ModalContextProvider";
+import ProjectModal from "@/components/projects/ProjectModal";
+import { getLargestImageUrl } from "@/util/image";
+import ProjectsCarousel from "@/components/home/carousel/ProjectsCarousel";
 
 export default async function Home() {
   const data = await fetchStrapi("home-page", homePageSchema);
@@ -30,11 +35,28 @@ export default async function Home() {
     "filters[Date][$lt]": firstDay.toISOString().split("T")[0],
   });
 
-  console.log("----------");
-  console.log(projects[0].title);
-  console.log("----------");
+  // const { open } = useModal();
 
-  // const name = "Test";
+  // function openModal() {
+  //   open(
+  //     <ProjectModal
+  //       title={title}
+  //       description={Description}
+  //       imageUrl={imageUrl}
+  //     />
+  //   );
+  // }
+
+  // function openModal() {
+  //   open(
+  //     <ProjectModal
+  //       title={title}
+  //       description={Description}
+  //       imageUrl={imageUrl}
+  //     />,
+  //   );
+  // }
+
 
   return (
     <>
@@ -56,27 +78,29 @@ export default async function Home() {
 
       <ImageWithText props={data.textWithImage} />
 
-      <div>
-        <div className="bg-white bg-opacity-50">
-          <div className="overflow-hidden ml-20 mr-20 ">
-            <CarouselBase
-              wrapperClass="flex mt-8 mb-32 py-8 w-full"
-              innerClass="gap-8"
-            >
-              {projects.map((project, i) => (
-                <div key={i} >
-                  <a href="/projects/active">
-                    <ProjectCard name={project.title}
-                    date={project.Date}
-                    img={project.image}
-                    />
-                  </a>
-                </div>
-              ))}
-            </CarouselBase>
-          </div>
+      <ProjectsCarousel projects={projects} />
+
+      {/* <div className="bg-white bg-opacity-50">
+        <div className="overflow-hidden ml-20 mr-20 ">
+          <CarouselBase
+            wrapperClass="flex mt-8 mb-32 py-8 w-full"
+            innerClass="gap-8"
+          >
+            {projects.map((project, i) => (
+              <div key={i}>
+              <ProjectCard
+                name={project.title}
+                date={project.Date}
+                img={project.image}
+                openModal={openModal}
+              />
+            </div>
+            ))}
+          </CarouselBase>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
+
+
