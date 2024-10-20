@@ -8,26 +8,11 @@ import { getLargestImageUrl } from "@/util/image";
 import UpArrow from "../svg/UpArrow";
 import Hamburger from "../svg/Hamburger";
 import Cross from "../svg/Cross";
-
-type HeaderData = {
-  navigation: Array<{
-    title: string;
-    slug: string;
-  }>;
-  Logo?: any;
-  members: Array<{
-    CommitteeYear: number;
-    // Add other member properties
-  }>;
-  projects?: Array<{
-    Title: string;
-    slug: string;
-  }>;
-};
-
+import { HeaderData } from "../header/headerData";
 interface SmallNavbarProps {
   data: HeaderData;
 }
+
 export default function SmallNavbar({ data }: SmallNavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
