@@ -7,7 +7,7 @@ import styles from "./footer.module.css";
 import lakeHouseLogo from "@/assets/footer/lakeHouseLogo.png";
 import localBoardLogo from "@/assets/footer/localBoardLogo.png";
 import shoreJunctionLogo from "@/assets/footer/shoreJunction.png";
-
+//lost links to socials
 async function getFooterData() {
   const resData = await fetchStrapi("footer", footerSchema);
   return resData;
