@@ -37,9 +37,9 @@ export default function ActiveSection({
       className={`flex flex-col md:flex-row w-full max-w-5xl mb-24 mx-auto gap-12 ${styleClick ? "animate-[fadeOut_0.3s_ease-in_forwards]" : "animate-[fadeIn_0.3s_ease-in_forwards]"}`}
     >
       <div className="flex flex-col items-center md:items-left">
-        <div className="flex flex-col md:items-end w-80 ml-5">
+        <div className="flex flex-col md:items-end w-80 md:ml-5">
           <button
-            className={`text-wrap uppercase font-bold text-7xl mb-2`}
+            className={`text-wrap uppercase font-bold  md:text-7xl sm:text-6xl ${activeSection == "FAQ" ? "text-6xl" : "text-5xl"} mb-2`}
             disabled={true}
           >
             {activeSection == "FAQ" ? "FAQ" : "Contact"}
@@ -48,10 +48,10 @@ export default function ActiveSection({
             <Image
               src={selectionArrow}
               alt="Selection arrow"
-              className="inline-block"
+              className="inline-block sm:w-16 w-12"
             />
             <button
-              className="text-b-dark-blue ml-2 uppercase text-4xl font-bold"
+              className = {`text-b-dark-blue ml-2 uppercase sm:text-4xl text-3xl font-bold`}
               onClick={() => handleClick()}
             >
               {activeSection == "FAQ" ? "Contact" : "FAQ"}

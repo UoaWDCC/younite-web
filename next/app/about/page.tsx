@@ -22,7 +22,7 @@ export default async function AboutPage() {
     <>
       <Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
       <section className="max-w-4xl mx-auto mt-header pt-24 flex flex-col items-center text-center">
-        <h1 className="md:text-8xl sm:text-7xl text-5xl font-bold leading-[0.95] uppercase mb-6">
+        <h1 className="lg:text-8xl md:text-7xl sm:text-6xl text-4xl font-bold leading-[0.95] uppercase mb-6">
           Our Values
         </h1>
         <p className="mb-2 mx-6">{data.Subtitle}</p>
@@ -46,7 +46,7 @@ export default async function AboutPage() {
         </div>
       </section>
       <section className="py-40 text-center px-4">
-        <h2 className="md:text-8xl sm:text-7xl text-6xl font-bold leading-[0.95] uppercase mb-12">
+        <h2 className="lg:text-8xl md:text-7xl sm:text-6xl text-4xl font-bold leading-[0.95] uppercase mb-12">
           Our History
         </h2>
         <History timelineElements={timeline} />
