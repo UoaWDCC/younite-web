@@ -18,8 +18,9 @@ const ProjectModal = ({
   signupobjects = [],
 }: ModalProps) => {
   return (
-    <>
-      <div className="relative w-full h-[7rem] z-10">
+    <div className="fixed inset-0 flex items-center justify-center">
+      <div className="relative w-[32rem] h-auto z-10 p-6 bg-white rounded-xl shadow-lg  overflow-hidden">
+      <div className="relative w-full h-[9rem] z-10">
         <Image
           src={imageUrl}
           alt="Project Image"
@@ -41,8 +42,8 @@ const ProjectModal = ({
           <div key={index} className="text-center">
             <a
               href={signupobject.signUpUrl}
-              className="mx-auto block w-48 text-[12.5px] mt-2 font-bold bg-white text-black text-center py-2 rounded-3xl relative"
-              target="_blank"
+              className="mx-auto block w-48 text-[12.5px] mt-2 font-bold bg-white text-black text-center py-2 rounded-3xl relative -10"
+              target="sign up button"
             >
               {signupobject.signUpText}
             </a>
@@ -50,15 +51,17 @@ const ProjectModal = ({
         ))}
 
         {/* Add the blobs */}
-        <div className="absolute bottom-10 top-43 -left-9">
+
+        <div className="absolute bottom-10 top-43 -left-9 z-0">
           <Image src={blobleft} alt="BlobLeft" width={140} height={140} />
         </div>
 
-        <div className="absolute -bottom-20 top-20 -right-5">
+        <div className="absolute -bottom-20 top-20 -right-5 z-0">
           <Image src={blobright} alt="BlobRight" width={140} height={140} />
         </div>
       </div>
-    </>
+      </div>
+    </div>
   );
 };
 

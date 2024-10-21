@@ -23,7 +23,7 @@ export default function Modal() {
           transition={{ type: "spring", bounce: 0, duration: 0.15 }}
         >
           <div
-            className="rounded-lg overflow-hidden w-[27rem] relative shadow-lg border-[12px] border-slate-200 hover:border-slate-100"
+            className="rounded-lg overflow-hidden relative shadow-lg border-[12px] border-slate-200 hover:border-slate-100"
             onClick={(e) => e.stopPropagation()}
           >
             <CloseButton onClick={close} />

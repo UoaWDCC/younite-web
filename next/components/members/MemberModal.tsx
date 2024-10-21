@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function MemberModal({ activeMember }: { activeMember: Member }) {
   return (
-    <div className="inset-0 flex  w-[60rem] justify-center items-center">
+    <div className="inset-0 flex w-[60rem] justify-center items-center">
       <div className="flex flex-row items-center w-[60rem] h-[29rem] bg-gradient-to-t from-[#F6D09E] to-[#e9e6e1] ">
       <Image
         className="max-h-[80vh] w-3/5 object-cover"
