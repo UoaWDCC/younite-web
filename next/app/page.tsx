@@ -1,11 +1,17 @@
 import ImageWithText from "@/components/blocks/ImageWithText";
-import ProjectsCarousel from "@/components/home/carousel/ProjectsCarousel";
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
+import CarouselBase from "@/components/home/CarouselBase";
 import HomePageBlobs from "@/components/home/HomePageBlob";
 import BGWaves from "@/components/svg/BGWaves";
 import { projectSchema } from "@/schemas/collection/Project";
 import { homePageSchema } from "@/schemas/single/HomePage";
 import fetchStrapi from "@/util/strapi";
+import Image from "next/image";
+import styles from "./page.module.css";
+import ProjectsCarousel from "@/components/home/carousel/ProjectsCarousel";
 import { z } from "zod";
+
 
 export default async function Home() {
   const data = await fetchStrapi("home-page", homePageSchema);

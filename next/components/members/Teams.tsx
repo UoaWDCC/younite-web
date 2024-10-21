@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import MemberModal from "./MemberModal";
 import { useModal } from "../modal/ModalContextProvider";
+import { getLargestImageUrl } from "@/util/image";
 
 export default function Teams({ teams }: { teams: RoleSection[] }) {
   const [active, setActive] = useState(0);
@@ -28,7 +29,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             <div key={i}>
               <button
                 onClick={() => setActive(i)}
-                className={`px-4 py-2 text-xl transform transition-transform duration-150 border-transparent border ${
+                className={`px-4 py-2 sm:text-xl text-lg transform transition-transform duration-150 border-transparent border ${
                   i === active ? "font-bold border-0" : "border-l-1 border-r-1"
                 }`}
               >
@@ -37,7 +38,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             </div>
           ))}
         </div>
-        <h2 className="text-5xl text-center mb-4">{activeTeam.SectionName}</h2>
+        <h2 className="sm:text-5xl text-4xl text-center mb-4">{activeTeam.SectionName}</h2>
         <p className="text-center max-w-5xl mx-auto mb-20">
           {activeTeam.Description}
         </p>
@@ -50,7 +51,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             >
               <Image
                 className="w-full"
-                src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png" //Instead or URL, supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
+                src={getLargestImageUrl(member.Photo)} //Instead or URL, supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
                 alt={member.Name}
                 objectFit="cover"
                 width={100}
