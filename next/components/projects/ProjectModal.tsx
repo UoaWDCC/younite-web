@@ -20,7 +20,11 @@ const ProjectModal = ({
 }: ModalProps) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center">
-      <div className="relative w-[32rem] h-auto z-10 p-6 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden">
+       <div
+        className="bg-white bg-opacity-67 rounded-lg overflow-hidden w-[32rem] relative shadow-lg"
+        style={{
+          border: '12px solid rgba(255, 255, 255, 0.6)', // 6px thick border with 30% opacity
+        }}>
         <div className="relative w-full h-[9rem] z-10">
           <Image
             src={imageUrl}
