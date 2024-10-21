@@ -24,6 +24,7 @@ const Timeline = ({
               <DateBlob
                 timelineElement={timelineElement}
                 isEven={index % 2 == 0}
+                type={type}
               />
               <ImageComponent
                 src={getLargestImageUrl(timelineElement.image)}
