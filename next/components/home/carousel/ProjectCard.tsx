@@ -1,14 +1,12 @@
-import Image from "next/image";
-import event1 from "@/assets/home/event1.png";
 import { ImageType } from "@/schemas/Image";
 import { getLargestImageUrl } from "@/util/image";
+import Image from "next/image";
 
 type ProjectCardProps = {
   name: string;
   date: Date;
   img: ImageType;
-}
-
+};
 
 export default function ProjectCard({ name, date, img }: ProjectCardProps) {
   return (
@@ -26,6 +24,5 @@ export default function ProjectCard({ name, date, img }: ProjectCardProps) {
         <div className="pl-3 pt-1 text-base">{date.toDateString().substring(3)}</div>
       </div>
     </div>
-
-  )
+  );
 }

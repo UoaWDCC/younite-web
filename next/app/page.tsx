@@ -1,23 +1,14 @@
-import event1 from "@/assets/home/event1.png";
 import ImageWithText from "@/components/blocks/ImageWithText";
-import ProjectCard from "@/components/home/carousel/ProjectCard";
+import ProjectsCarousel from "@/components/home/carousel/ProjectsCarousel";
 import HomePageBlobs from "@/components/home/HomePageBlob";
-import CarouselBase from "@/components/scrollers/CarouselBase";
 import BGWaves from "@/components/svg/BGWaves";
+import { projectSchema } from "@/schemas/collection/Project";
 import { homePageSchema } from "@/schemas/single/HomePage";
 import fetchStrapi from "@/util/strapi";
-import Image from "next/image";
 import { z } from "zod";
-import { projectSchema } from "@/schemas/collection/Project";
-import Link from "next/link";
-import { useModal } from "@/components/modal/ModalContextProvider";
-import ProjectModal from "@/components/projects/ProjectModal";
-import { getLargestImageUrl } from "@/util/image";
-import ProjectsCarousel from "@/components/home/carousel/ProjectsCarousel";
 
 export default async function Home() {
   const data = await fetchStrapi("home-page", homePageSchema);
-
 
   // active projects --uncomment here
   const firstDay = new Date(new Date().getFullYear(), 0, 1);
@@ -56,9 +47,6 @@ export default async function Home() {
       <ImageWithText props={data.textWithImage} />
 
       <ProjectsCarousel projects={projects} />
-
     </>
   );
 }
-
-
