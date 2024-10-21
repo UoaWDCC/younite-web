@@ -31,7 +31,7 @@ export default function ImageComponent({
       {type === "current" ? (
         <TextOverlay
           title={
-            title.length >= 25 ? title.substring(0, 25).concat("...") : title
+            title.length >= 28 ? title.substring(0, 25).concat("...") : title
           }
           className="top-[35%] bottom-[35%] w-[75%] flex items-center justify-center"
         />

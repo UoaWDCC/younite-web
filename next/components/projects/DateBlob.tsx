@@ -18,7 +18,6 @@ const DateBlob = ({
   type: "current" | "old";
 }) => {
   return (
-    // change outer height element to allow for photo height etc
     <div
       className={`flex flex-row items-center pl-[6px] ${type === "current" ? "h-96" : "h-48"}`}
     >
