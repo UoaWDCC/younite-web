@@ -23,7 +23,7 @@ export default function CarouselBase({
   return (
     <div>
       <div className="text-blue-800 font-semibold text-4xl pr-6 pt-28 flex flex-col sm:flex-row justify-between">
-        <p className="text-center sm:text-left sm:mb-0 mb-5">Upcoming Events</p>
+        <p className="text-center md:text-4xl sm:text-3xl text-2xl sm:text-left sm:mb-0 mb-5">Upcoming Events</p>
         <div className="flex justify-center -mb-10 sm:-mb-5 md:-mb-0">
           <button className="-mr-0.5" onClick={scrollPrev}>
             <svg

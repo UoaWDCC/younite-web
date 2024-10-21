@@ -7,7 +7,7 @@ export default function FAQ({
 }) {
   return (
     <div className="w-full">
-      <h1 className="text-2xl xs:text-3xl md:text-left text-center font-bold mb-10">
+      <h1 className="text-xl md:text-2xl md:text-left text-center font-bold mb-10">
         Frequently Asked Questions
       </h1>
       <div className="flex flex-col gap-6">

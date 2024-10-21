@@ -23,10 +23,11 @@ export default async function RootLayout({
       <body className="h-full">
         <ModalContextProvider>
           <div className="bg-gradient-1 isolate flex flex-col min-h-svh overflow-y-auto">
-            {/* @ts-ignore */}
             <div className=" invisible sm:visible">
+              {/* @ts-ignore */}
               <Header />
             </div>
+            {/* @ts-ignore */}
             <SmallNavbarFetcher />
             <main className="grow overflow-y-auto overflow-x-hidden">{children}</main>
             <Footer />

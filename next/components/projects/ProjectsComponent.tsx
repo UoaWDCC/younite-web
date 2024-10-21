@@ -33,9 +33,10 @@ export default function ProjectsComponent({
   }
 
   return (
-    <div className="flex items-center pl-[6px] p-4">
+    <div className="flex ml-4 sm:ml-10 md:ml-0 items-center pl-[6px] p-4">
       {/* Vertical line, -my-4 to 'undo' the p-4 */}
       <div className="bg-white w-1 self-stretch -my-4" />
+
       <DateBlob timelineElement={timelineElement} isEven={isEven} type={type} />
       <ImageComponent
         src={getLargestImageUrl(timelineElement.image)}
@@ -43,6 +44,16 @@ export default function ProjectsComponent({
         type={type}
         openModal={openModal}
       />
+
+      {/* <div className="flex flex-col gap-7 md:flex-row">
+        <DateBlob timelineElement={timelineElement} isEven={isEven} />
+        <ImageComponent
+          src={getLargestImageUrl(timelineElement.image)}
+          title={timelineElement.title}
+          type={type}
+          openModal={openModal}
+        />
+      </div> */}
     </div>
   );
 }
