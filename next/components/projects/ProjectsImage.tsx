@@ -32,11 +32,13 @@ export default function ImageComponent({
   type,
   openModal,
 }: ImageComponentProps) {
+  const heightstyle = type === "current" ? "h-[300px]" : "h-[100px]";
   const height = type === "current" ? 300 : 100;
 
   return (
     <div
-      className={`h-[${height}px] w-[600px] relative ml-8`}
+      // className={`h-96 w-[600px] relative ml-8`}
+      className={`${heightstyle} w-[600px] relative ml-8`}
       onClick={openModal}
     >
       <div>
