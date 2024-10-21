@@ -13,8 +13,12 @@ type ProjectCardProps = {
 export default function ProjectCard({ name, date, img }: ProjectCardProps) {
   return (
     <div className="w-60 h-84 rounded-xl text-blue-800 overflow-hidden">
-      <div className={`h-48 relative -mb-2 z-10`}>
-        <Image src={getLargestImageUrl(img)} fill alt="" />
+      <div className={`h-48 relative -mb-2 z-10 object-cover`}>
+        <Image src={getLargestImageUrl(img)}
+        fill
+        alt=""
+        objectFit="cover"
+        />
       </div>
 
       <div className="h-20 rounded-5x1 bg-white">
