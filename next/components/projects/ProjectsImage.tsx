@@ -32,7 +32,7 @@ export default function ImageComponent({
   type,
   openModal,
 }: ImageComponentProps) {
-  const height = type === "current" ? 350 : 100;
+  const height = type === "current" ? 300 : 100;
 
   return (
     <div
@@ -54,7 +54,7 @@ export default function ImageComponent({
           title={
             title.length >= 28 ? title.substring(0, 25).concat("...") : title
           }
-          className="top-[35%] bottom-[35%] w-[75%] flex items-center justify-center"
+          className="top-[35%] bottom-[35%] left-[12%] w-[75%] flex items-center justify-center"
         />
       ) : (
         <TextOverlay
