@@ -1,5 +1,6 @@
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import SmallNavbarFetcher from "@/components/header/SmallNavbarFetcher";
 import Modal from "@/components/modal/Modal";
 import ModalContextProvider from "@/components/modal/ModalContextProvider";
 import { GlobalPageScroller } from "@/components/scrollers/GlobalPageScroller";
@@ -25,8 +26,12 @@ export default async function RootLayout({
         <ScrollContextProvider>
           <ModalContextProvider>
             <GlobalPageScroller>
+              <div className="invisible sm:visible">
+                {/* @ts-ignore */}
+                <Header />
+              </div>
               {/* @ts-ignore */}
-              <Header />
+              <SmallNavbarFetcher />
               <main className="grow overflow-x-hidden">{children}</main>
               <Footer />
             </GlobalPageScroller>

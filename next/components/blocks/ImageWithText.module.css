@@ -26,6 +26,14 @@
   object-fit: cover;
   max-height: 80vh;
   width: 100%;
+  border-right: solid white 2px;
+
+}
+
+@media (max-width: 760px) {
+  .backgroundImg {
+    border-bottom: solid white 2px;
+  }
 }
 
 .Underline {
