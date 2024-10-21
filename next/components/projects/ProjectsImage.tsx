@@ -1,27 +1,48 @@
 import Image from "next/image";
 
-export default function ImageComponent({
-  src,
-  alt,
-  title,
-  type,
-}: {
+type ImageComponentProps = {
   src: string;
   alt?: string;
   title: string;
   type: "current" | "old";
-}) {
+
+  // }) {
+  //   const height = type === "current" ? 350 : 100;
+
+  //   return (
+  //     <div
+  //       className="w-[600px] relative flex justify-center"
+  //       style={{ height: `${height}px` }}
+  //     >
+  //       <div>
+  //         <Image
+  //           src={src}
+  //           alt={alt || ""}
+  //           className="absolute inset-0 -z-10 w-full h-full object-cover brightness-75 opacity-85 rounded-[50px]"
+  //           width={300}
+  //           height={height}
+
+  openModal: () => void;
+};
+
+export default function ImageComponent({
+  src,
+  alt = "",
+  title,
+  type,
+  openModal,
+}: ImageComponentProps) {
   const height = type === "current" ? 350 : 100;
 
   return (
     <div
-      className="w-[600px] relative flex justify-center"
-      style={{ height: `${height}px` }}
+      className={`h-[${height}px] w-[600px] relative ml-8`}
+      onClick={openModal}
     >
       <div>
         <Image
           src={src}
-          alt={alt || ""}
+          alt={alt}
           className="absolute inset-0 -z-10 w-full h-full object-cover brightness-75 opacity-85 rounded-[50px]"
           width={300}
           height={height}

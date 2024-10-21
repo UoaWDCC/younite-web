@@ -9,17 +9,19 @@ import ProjectsImage from "@/components/projects/ProjectsImage";
 export default function Page() {
   return (
     <div className="mt-96">
-      <ProjectsImage
+      {/* <ProjectsImage
         src={"/younitelogo.png"}
         alt={"a"}
         title={"Current Project"}
         type={"current"}
+        openModal={() => {}}
       />
       <ProjectsImage
         src={"/younitelogo.png"}
         title={"Old Project"}
         type={"old"}
-      />
+        openModal={() => {}}
+      /> */}
     </div>
   );
 }

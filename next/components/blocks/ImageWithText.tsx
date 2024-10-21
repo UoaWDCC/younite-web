@@ -17,7 +17,7 @@ export default function ImageWithText({ props }: ImageWithTextProps) {
   return (
     //
     // grid grid-cols-2 max-h-[80vh]
-    <div className="flex outline flex-col md:flex-row md:items-stretch">
+    <div className="flex border-solid border-2 border-white flex-col md:flex-row md:items-stretch">
       {/* <div className="flex"> */}
         <Image
           className={styles.backgroundImg}
