@@ -27,7 +27,7 @@ const ProjectModal: React.FC<ModalProps> = ({ title, description, imageUrl, sign
               &#x2715;
             </button>
 
-          <div className="relative w-full h-[7rem] relative z-20 ">
+          <div className="relative w-full h-[7rem] z-20 ">
             <Image
               src={imageUrl}
               alt="Project Image"
