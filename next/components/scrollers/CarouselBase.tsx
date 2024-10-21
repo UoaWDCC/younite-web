@@ -38,7 +38,7 @@ export default function CarouselBase({
       <div className="text-blue-800 font-semibold text-4xl pr-6 pt-28 flex flex-col sm:flex-row justify-between">
         <p className="text-center text-center md:text-left md:mb-0">Recent Projects</p>
         <Link
-        href="projects/past"
+        href="projects/active"
         className="text-[14px] px-4 border border-blue-800 rounded-full hover:bg-[#92E0FE] hover:border-[#92E0FE]">
           See More
         </Link>

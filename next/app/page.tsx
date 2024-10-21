@@ -20,20 +20,20 @@ export default async function Home() {
 
 
   // active projects --uncomment here
-  // const firstDay = new Date(new Date().getFullYear(), 0, 1);
-  // const lastDay = new Date(new Date().getFullYear(), 11, 31);
-
-  // const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
-  //   "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
-  //   "[$lte]": lastDay.toISOString().split("T")[0],
-  // });
-
-  // past projects
   const firstDay = new Date(new Date().getFullYear(), 0, 1);
+  const lastDay = new Date(new Date().getFullYear(), 11, 31);
 
   const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
-    "filters[Date][$lt]": firstDay.toISOString().split("T")[0],
+    "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
+    "[$lte]": lastDay.toISOString().split("T")[0],
   });
+
+  // past projects
+  // const firstDay = new Date(new Date().getFullYear(), 0, 1);
+
+  // const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
+  //   "filters[Date][$lt]": firstDay.toISOString().split("T")[0],
+  // });
 
   return (
     <>
