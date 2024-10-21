@@ -29,16 +29,18 @@
   padding: 3rem;
 }
 .backgroundImg {
-  object-fit: cover;
-  max-height: 80vh;
-  width: 100%;
+  object-fit: contain;
+  max-width: 50%;
   border-right: solid white 2px;
-
 }
 
 @media (max-width: 760px) {
   .backgroundImg {
     border-bottom: solid white 2px;
+    object-fit: cover;
+    max-width: 100%;
+    width: 100%;
+    border-right: transparent;
   }
 }
 
