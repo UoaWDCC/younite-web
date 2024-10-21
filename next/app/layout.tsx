@@ -27,6 +27,7 @@ export default async function RootLayout({
               {/* @ts-ignore */}
               <Header />
             </div>
+            {/* @ts-ignore */}
             <SmallNavbarFetcher />
             <main className="grow overflow-y-auto overflow-x-hidden">{children}</main>
             <Footer />
