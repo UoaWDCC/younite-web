@@ -1,13 +1,14 @@
 import { Member } from "@/schemas/collection/Team";
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
+import { getLargestImageUrl } from "@/util/image";
 
 function MemberModal({ activeMember }: { activeMember: Member }) {
   return (
     <div>
       <Image
         className="max-h-[80vh] w-full object-cover"
-        src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png" //Instead of URL, its supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
+        src={getLargestImageUrl(activeMember.Photo)}
         alt=""
         objectFit="cover"
         width={100}
