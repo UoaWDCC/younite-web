@@ -25,7 +25,7 @@ export default function History({ timelineElements }: HistoryComponentProps) {
   }
 
   return (
-    <div className="mx-16">
+    <div className="ml-16">
       <div className="flex items-end">
         {topTimeline.map((element) => (
           <HistoryComponent element={element} position="top" />

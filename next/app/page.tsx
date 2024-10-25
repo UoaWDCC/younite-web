@@ -1,7 +1,6 @@
 import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
-import CarouselBase from "@/components/home/CarouselBase";
 import HomePageBlobs from "@/components/home/HomePageBlob";
 import BGWaves from "@/components/svg/BGWaves";
 import { projectSchema } from "@/schemas/collection/Project";
@@ -24,13 +23,6 @@ export default async function Home() {
     "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
     "[$lte]": lastDay.toISOString().split("T")[0],
   });
-
-  // past projects
-  // const firstDay = new Date(new Date().getFullYear(), 0, 1);
-
-  // const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
-  //   "filters[Date][$lt]": firstDay.toISOString().split("T")[0],
-  // });
 
   return (
     <>
