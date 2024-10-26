@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type ValueCardProps = {
   name: string;
   description: string;
   index: number;
-  flairImages: [string, string];
+  flairImages: StaticImageData[];
 };
 
 export default function ValueCard({ name, description, index, flairImages }: ValueCardProps) {

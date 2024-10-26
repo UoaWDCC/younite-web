@@ -6,6 +6,7 @@ import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import styles from "./styles.module.css";
+import ValueCard from "@/components/about/valuecards/ValueCard";
 
 export default async function AboutPage() {
   const data = await fetchStrapi("about-page", aboutPageSchema);
@@ -33,17 +34,12 @@ export default async function AboutPage() {
         <div className="sm:grid sm:grid-cols-3 sm:grid-rows-2 text-black text-left mx-6">
           {data.Values.map((value, i) => (
             <div key={value.Name} className="relative rounded-lg border-2 border-black shadow-md p-8 aspect-square">
-              <h2 className="mb-1 text-sm text-center md:text-left sm:text-lg md:text-2xl font-black uppercase">
-                {value.Name}
-              </h2>
-              <p>{value.ValueDescription}</p>
-              {i !== 1 && (
-                <Image
-                  src={i === 0 ? valueFlair1 : valueFlair2}
-                  alt=""
-                  className="absolute bottom-0 right-0 opacity-20 w-40"
-                />
-              )}
+              <ValueCard
+                name={value.Name}
+                description={value.ValueDescription}
+                index={i}
+                flairImages={[valueFlair1, valueFlair2]}
+              />
             </div>
           ))}
         </div>
