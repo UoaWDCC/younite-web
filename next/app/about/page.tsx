@@ -50,16 +50,18 @@ export default async function AboutPage() {
         <h2 className="lg:text-8xl md:text-7xl sm:text-6xl text-4xl font-bold leading-[0.95] uppercase mb-12">
           Our History
         </h2>
-        <div className="flex ml-24">
+        <div className="flex h-full ml-24">
           <CarouselBase
-            wrapperClass="flex mt-8 mb-32 py-8 w-full"
-            innerClass="gap-2"
+            wrapperClass="flex mt-8 mb-0 py-8 w-full"
+            innerClass="gap-0"
             >
-              <div className="h-[415px] pl-0 pt-10 ml-2 flex items-center">2024</div>
-              <div className="">
-                <History timelineElements={timeline} />
-              </div>
+              <div className="h-[413px] pl-0 pt-10 ml-2 flex items-center">2024</div>
+              <History timelineElements={timeline} />
+
           </CarouselBase>
+          <div className="z-10 w-48 bg-[linear-gradient(270deg,_rgba(109,196,230,0.1)_5%,_rgba(109,196,230,0)_50%)] backdrop-blur-md flex items-center justify-center">
+            →
+          </div>
         </div>
       </section>
     </>
