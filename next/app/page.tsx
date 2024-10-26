@@ -1,7 +1,6 @@
 import ImageWithText from "@/components/blocks/ImageWithText";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
-import CarouselBase from "@/components/home/CarouselBase";
 import HomePageBlobs from "@/components/home/HomePageBlob";
 import BGWaves from "@/components/svg/BGWaves";
 import { projectSchema } from "@/schemas/collection/Project";

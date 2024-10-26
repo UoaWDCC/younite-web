@@ -25,11 +25,14 @@ export default async function AboutPage() {
         <h1 className="lg:text-8xl md:text-7xl sm:text-6xl text-4xl font-bold leading-[0.95] uppercase mb-6">
           Our Values
         </h1>
-        <p className="mb-2 mx-6">{data.Subtitle}</p>
-        <p className="mb-16 mx-6">Click Below!</p>
+        <p className="mb-16 mx-6">{data.Subtitle}</p>
+
+        {/* Cards are not clickable unfortunately... */}
+        {/* <p className="mb-16 mx-6">Click Below!</p> */}
+
         <div className="sm:grid sm:grid-cols-3 sm:grid-rows-2 text-black text-left mx-6">
           {data.Values.map((value, i) => (
-            <div key={value.Name} className={styles.valueCard}>
+            <div key={value.Name} className="relative rounded-lg border-2 border-black shadow-md p-8 aspect-square">
               <h2 className="mb-1 text-sm text-center md:text-left sm:text-lg md:text-2xl font-black uppercase">
                 {value.Name}
               </h2>
