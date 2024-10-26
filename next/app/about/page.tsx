@@ -6,6 +6,7 @@ import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import styles from "./styles.module.css";
+import CarouselBase from "@/components/scrollers/CarouselBase";
 
 export default async function AboutPage() {
   const data = await fetchStrapi("about-page", aboutPageSchema);
@@ -49,7 +50,15 @@ export default async function AboutPage() {
         <h2 className="lg:text-8xl md:text-7xl sm:text-6xl text-4xl font-bold leading-[0.95] uppercase mb-12">
           Our History
         </h2>
-        <History timelineElements={timeline} />
+        <CarouselBase
+          wrapperClass="flex mt-8 mb-32 py-8 w-full"
+          innerClass="gap-8"
+          >
+            <div className="ml-20">
+              <History timelineElements={timeline} />
+            </div>
+        </CarouselBase>
+
       </section>
     </>
   );
