@@ -29,7 +29,7 @@ export default function ValueCard({ name, description, index, flairImages }: Val
   }
 
   return (
-    <div className={`relative rounded-lg border-2 border-black shadow-md p-8 aspect-square ${styles}`}>
+    <div className={`relative rounded-lg border-2 border-black shadow-md p-12 sm:p-8 aspect-[5] sm:aspect-square ${styles}`}>
       <h2 className="text-sm text-center md:text-left sm:text-lg md:text-2xl font-black uppercase">
         {name}
       </h2>
