@@ -16,7 +16,7 @@ export default function ValueCard({ name, description, index, flairImages, image
 
   const { open } = useModal();
 
-  const openModal = () => {
+  const openValueModal = () => {
     open(
       <ValueModal
         title={name}
@@ -46,7 +46,7 @@ export default function ValueCard({ name, description, index, flairImages, image
   }
 
   return (
-    <div className={`relative rounded-lg border-2 border-black shadow-md p-12 sm:p-8 aspect-[5] sm:aspect-square ${styles}`} onClick={openModal}>
+    <div className={`relative rounded-lg border-2 border-black shadow-md p-12 sm:p-8 aspect-[5] sm:aspect-square ${styles}`} onClick={openValueModal}>
       <h2 className="text-sm text-center md:text-left sm:text-lg md:text-2xl font-black uppercase">
         {name}
       </h2>

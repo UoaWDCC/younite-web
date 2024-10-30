@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { useModal } from '../modal/ModalContextProvider';
 
 interface ModalProps {
   title: string;
@@ -8,6 +9,9 @@ interface ModalProps {
 }
 
 const ValueModal = ({ title, description, imageUrl }: ModalProps) => {
+
+  const { close } = useModal();
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="rounded-xl overflow-hidden w-[44rem] h-[27rem] relative flex"
@@ -17,7 +21,7 @@ const ValueModal = ({ title, description, imageUrl }: ModalProps) => {
       }}>
 
         <button
-          className="absolute top-2 right-4 text-2xl font-bold text-white z-30">
+          className="absolute top-2 right-4 text-2xl font-bold text-white z-30" onClick={close}>
             &#x2715;
           </button>
 
@@ -39,7 +43,7 @@ const ValueModal = ({ title, description, imageUrl }: ModalProps) => {
                 objectFit='cover'
               />
             </div>
-            
+
           {/* Transparent overlay on image*/}
           <div className="absolute inset-0 bg-white opacity-30 rounded-xl"></div>
           </div>
