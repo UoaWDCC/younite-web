@@ -14,7 +14,7 @@ const ValueModal = ({ title, description, imageUrl }: ModalProps) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="rounded-xl overflow-hidden w-[44rem] h-[27rem] relative flex"
+      <div className="rounded-xl overflow-hidden w-[30rem] sm:w-[36rem] md:w-[44rem] aspect-video relative flex"
       style = {{
         border: '12px solid rgba(255, 255, 255)',
         background: 'linear-gradient(to top, #A2D6E5, #FABD6E)'
@@ -33,7 +33,7 @@ const ValueModal = ({ title, description, imageUrl }: ModalProps) => {
 
         {/* Right side of the modal image */}
         <div className="flex-1 relative">
-          <div className="w-full h-full overflow-hidden rounded-lg" style={{clipPath: 'path("M 0 0 L 60% 0 Q 100% 25% 100% 50% Q 100% 75% 60% 100% L 0 100% Z")',}}>
+          <div className="w-full h-full justify-center items-center pt-[10%] overflow-hidden rounded-lg" style={{clipPath: 'path("M 0 0 L 60% 0 Q 100% 25% 100% 50% Q 100% 75% 60% 100% L 0 100% Z")',}}>
               <Image
                 src={imageUrl}
                 alt="Value Image"
