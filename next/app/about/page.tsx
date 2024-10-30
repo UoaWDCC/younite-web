@@ -7,6 +7,7 @@ import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 import styles from "./styles.module.css";
 import ValueCard from "@/components/about/valuecards/ValueCard";
+import { getLargestImageUrl } from "@/util/image";
 
 export default async function AboutPage() {
   const data = await fetchStrapi("about-page", aboutPageSchema);
@@ -18,6 +19,8 @@ export default async function AboutPage() {
       Date: date,
     };
   }).sort((a, b) => a.Date.getTime() - b.Date.getTime());
+
+  // console.log("Values data:", data.Values);
 
   return (
     <>
@@ -40,6 +43,7 @@ export default async function AboutPage() {
                 description={value.ValueDescription}
                 index={i}
                 flairImages={[valueFlair1, valueFlair2]}
+                imageUrl={valueFlair1.src}
               />
             </div>
           ))}
