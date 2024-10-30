@@ -22,7 +22,7 @@ export default async function AboutPage() {
   return (
     <>
       <Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
-      
+
       <section className="max-w-4xl mx-auto mt-header pt-24 flex flex-col items-center text-center">
         <h1 className="lg:text-8xl md:text-7xl sm:text-6xl text-4xl font-bold leading-[0.95] uppercase mb-6">
           Our Values
@@ -34,7 +34,7 @@ export default async function AboutPage() {
 
         <div className="sm:grid sm:grid-cols-3 sm:grid-rows-2 text-black text-left mx-6">
           {data.Values.map((value, i) => (
-            <div key={value.Name}>
+            <div key={value.Name} className={i === 3 ? "col-start-2" : ""}>
               <ValueCard
                 name={value.Name}
                 description={value.ValueDescription}

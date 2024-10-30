@@ -22,7 +22,7 @@ export default function ValueCard({ name, description, index, flairImages }: Val
       styles = "bg-gradient-to-b from-[#c8f2ff] to-[#ffc062] rotate-[-1.517deg]";
       break;
     case 3:
-      styles = "bg-gradient-to-b from-[#ace8ff] to-[#ace8ff] rotate-[-6deg] z-2 col-start-2";
+      styles = "bg-gradient-to-b from-[#ace8ff] to-[#ace8ff] rotate-[-6deg] z-2";
       break;
     default:
       styles = "";
