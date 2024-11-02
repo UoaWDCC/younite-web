@@ -26,6 +26,7 @@
     "sharp": "^0.33.4",
     "tailwindcss": "^3.4.7",
     "typescript": "5.0.2",
+    "younite-next": "file:",
     "zod": "^3.21.4"
   },
   "devDependencies": {
