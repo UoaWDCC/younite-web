@@ -17,19 +17,19 @@ export default function Modal() {
       transition={{ type: "spring", bounce: 0, duration: 0.3 }}
       onClick={close}
     >
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", bounce: 0, duration: 0.15 }}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", bounce: 0, duration: 0.15 }}
+      >
+        <div
+          className="rounded-lg overflow-hidden relative shadow-lg border-[12px] border-slate-200 hover:border-slate-100"
+          onClick={(e) => e.stopPropagation()}
         >
-          <div
-            className="rounded-lg overflow-hidden w-[27rem] relative shadow-lg border-[12px] border-slate-200 hover:border-slate-100"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <CloseButton onClick={close} />
-            {content}
-          </div>
-        </motion.div>
+          <CloseButton onClick={close} />
+          {content}
+        </div>
+      </motion.div>
     </motion.div>
   );
 }
