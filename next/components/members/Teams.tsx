@@ -1,10 +1,10 @@
 "use client";
 import { Member, RoleSection } from "@/schemas/collection/Team";
+import { getLargestImageUrl } from "@/util/image";
 import Image from "next/image";
 import { useState } from "react";
-import MemberModal from "./MemberModal";
 import { useModal } from "../modal/ModalContextProvider";
-import { getLargestImageUrl } from "@/util/image";
+import MemberModal from "./MemberModal";
 
 export default function Teams({ teams }: { teams: RoleSection[] }) {
   const [active, setActive] = useState(0);
@@ -38,7 +38,9 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             </div>
           ))}
         </div>
-        <h2 className="sm:text-5xl text-4xl text-center mb-4">{activeTeam.SectionName}</h2>
+        <h2 className="sm:text-5xl text-4xl text-center mb-4">
+          {activeTeam.SectionName}
+        </h2>
         <p className="text-center max-w-5xl mx-auto mb-20">
           {activeTeam.Description}
         </p>
@@ -51,7 +53,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             >
               <Image
                 className="w-full"
-                src={getLargestImageUrl(member.Photo)} //Instead or URL, supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
+                src={getLargestImageUrl(member.Photo)}
                 alt={member.Name}
                 objectFit="cover"
                 width={100}
