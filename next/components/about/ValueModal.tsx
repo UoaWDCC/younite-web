@@ -21,7 +21,7 @@ export default function ValueModal({
       </div>
 
       {/* Right side of the modal - image */}
-      <div className="flex-1 flex flex-col justify-center">
+      <div className="relative flex-1 flex flex-col justify-center">
         <div
           className="justify-center items-center overflow-hidden"
           style={{
