@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useCallback, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { useBodyLock } from "./ScrollContextProvider";
 
 // This is the div that goes in layout.tsx
@@ -9,14 +9,11 @@ export function GlobalPageScroller({ children }: { children: ReactNode }) {
   const { isBodyScrollLocked } = useBodyLock();
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const handleScroll = useCallback(
-    (event: Event) => {
-      if (isBodyScrollLocked) {
-        event.preventDefault();
-      }
-    },
-    [isBodyScrollLocked],
-  );
+  const handleScroll = (event: Event) => {
+    if (isBodyScrollLocked) {
+      event.preventDefault();
+    }
+  };
 
   // Equivalent to onWheel={handleScroll} but allows 'passive: false' which is necessary to preventDefault() on wheel events
   useEffect(() => {
@@ -26,7 +23,7 @@ export function GlobalPageScroller({ children }: { children: ReactNode }) {
     return () => {
       scrollElement.removeEventListener("wheel", handleScroll);
     };
-  }, [isBodyScrollLocked, handleScroll]);
+  }, [isBodyScrollLocked]);
 
   return (
     <div
