@@ -42,4 +42,7 @@ export const imageSchema = z.object({
   }),
 });
 
+// When image is absent in Strapi, data propery is null
+export const optionalImageSchema = z.object({ data: imageSchema.shape.data.nullable() });
+
 export type ImageType = z.infer<typeof imageSchema>;

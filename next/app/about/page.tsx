@@ -1,9 +1,11 @@
 import flair from "@/assets/about/flair.png";
-import valueFlair1 from "@/assets/about/value1.png";
-import valueFlair2 from "@/assets/about/value2.png";
 import ValueCard from "@/components/about/valuecards/ValueCard";
 import History from "@/components/history/History";
-import { aboutPageSchema, TimelineElement, Value } from "@/schemas/single/AboutPage";
+import {
+  aboutPageSchema,
+  TimelineElement,
+  Value,
+} from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
 
@@ -34,17 +36,10 @@ export default async function AboutPage() {
         <div className="sm:grid sm:grid-cols-3 sm:grid-rows-2 text-black text-left mx-6">
           {data.Values.map((value: Value, i) => (
             <div key={value.Name} className={i === 3 ? "col-start-2" : ""}>
-              <ValueCard
-                name={value.Name}
-                description={value.ValueDescription}
-                index={i}
-                flairImages={[valueFlair1, valueFlair2]}
-                imageUrl={valueFlair1.src}
-              />
+              <ValueCard value={value} index={i} />
             </div>
           ))}
         </div>
-
       </section>
       <section className="py-40 text-center px-4">
         <h2 className="lg:text-8xl md:text-7xl sm:text-6xl text-4xl font-bold leading-[0.95] uppercase mb-12">

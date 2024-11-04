@@ -20,7 +20,6 @@ export default function SmallNavbar({ data }: SmallNavbarProps) {
   const logoSrc = getLargestImageUrl(data?.Logo);
   const links = data?.navigation;
 
-  console.log(links);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     setProjectsOpen(false);

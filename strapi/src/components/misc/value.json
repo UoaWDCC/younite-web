@@ -11,23 +11,23 @@
       "required": true,
       "unique": false
     },
-    "ValueDescription": {
+    "CardDescription": {
       "type": "text",
       "required": true
     },
-    "Image": {
+    "CardImage": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ]
     },
-    "ExpandedDescription": {
+    "PopupDescription": {
       "type": "richtext",
       "required": true
     },
-    "ExpandedImage": {
+    "PopupImage": {
       "type": "media",
       "multiple": false,
       "required": true,
