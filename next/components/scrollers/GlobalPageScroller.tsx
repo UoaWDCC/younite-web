@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, UIEvent, useRef } from "react";
+import { ReactNode, useCallback, useEffect, useRef } from "react";
 import { useBodyLock } from "./ScrollContextProvider";
 
 // This is the div that goes in layout.tsx
@@ -8,20 +8,31 @@ import { useBodyLock } from "./ScrollContextProvider";
 export function GlobalPageScroller({ children }: { children: ReactNode }) {
   const { isBodyScrollLocked } = useBodyLock();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const scrollPosition = scrollRef.current?.scrollTop ?? 0;
 
-  function handleScroll(event: UIEvent<HTMLDivElement>) {
-    if (isBodyScrollLocked) {
-      // Reset the scroll position every time the scroll event is fired (i.e. lock it)
-      scrollRef.current?.scrollTo(0, scrollPosition);
-    }
-  }
+  const handleScroll = useCallback(
+    (event: Event) => {
+      if (isBodyScrollLocked) {
+        event.preventDefault();
+      }
+    },
+    [isBodyScrollLocked],
+  );
+
+  // Equivalent to onWheel={handleScroll} but allows 'passive: false' which is necessary to preventDefault() on wheel events
+  useEffect(() => {
+    const scrollElement = scrollRef.current;
+    if (!scrollElement) return;
+    scrollElement.addEventListener("wheel", handleScroll, { passive: false });
+    return () => {
+      scrollElement.removeEventListener("wheel", handleScroll);
+    };
+  }, [isBodyScrollLocked, handleScroll]);
 
   return (
     <div
       className="h-full overflow-y-auto disable-scrolling"
       ref={scrollRef}
-      onScroll={handleScroll}
+      // onWheel={handleScroll} // Can't use this because there's no way to set passive: false
     >
       <div className="bg-gradient-1 isolate flex flex-col min-h-svh">
         {children}

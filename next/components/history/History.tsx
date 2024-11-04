@@ -27,14 +27,14 @@ export default function History({ timelineElements }: HistoryComponentProps) {
   return (
     <div className="ml-2">
       <div className="flex items-end">
-        {topTimeline.map((element) => (
-          <HistoryComponent element={element} position="top" />
+        {topTimeline.map((element, index) => (
+          <HistoryComponent key={index} element={element} position="top" />
         ))}
       </div>
       <div className="bg-white h-1 w-full" />
       <div className="flex items-start ml-[12rem]">
-        {bottomTimeline.map((element) => (
-          <HistoryComponent element={element} position="bottom" />
+        {bottomTimeline.map((element, index) => (
+          <HistoryComponent key={index} element={element} position="bottom" />
         ))}
       </div>
     </div>
