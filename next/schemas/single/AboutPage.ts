@@ -1,20 +1,30 @@
 import { z } from "zod";
 import { imageSchema } from "../Image";
 
-export const imageTimelineSchema = z.object({
+const valueSchema = z.object({
+  Name: z.string(),
+  ValueDescription: z.string(),
+  Image: imageSchema,
+  ExpandedDescription: z.string(),
+  ExpandedImage: imageSchema,
+});
+
+export type Value = z.infer<typeof valueSchema>;
+
+const imageTimelineSchema = z.object({
   Date: z.date(),
   Image: imageSchema,
   __component: z.string(),
 });
 
-export const textTimelineSchema = z.object({
+const textTimelineSchema = z.object({
   Date: z.date(),
   Title: z.string(),
   Description: z.string(),
   __component: z.string(),
 });
 
-export const timelineElementSchema = z.union([
+const timelineElementSchema = z.union([
   imageTimelineSchema,
   textTimelineSchema,
 ]);
@@ -25,14 +35,8 @@ export type TimelineElement = z.infer<typeof timelineElementSchema>;
 
 export const aboutPageSchema = z.object({
   Subtitle: z.string(),
-  Values: z.array(
-    z.object({
-      Name: z.string(),
-      ValueDescription: z.string(),
-      ExpandedDescription: z.string(),
-    }),
-  ),
-  Timeline: z.array(z.any()),
+  Values: z.array(valueSchema),
+  Timeline: z.array(timelineElementSchema),
 });
 
 export type AboutPage = z.infer<typeof aboutPageSchema>;

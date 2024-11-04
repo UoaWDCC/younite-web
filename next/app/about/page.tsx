@@ -1,13 +1,11 @@
 import flair from "@/assets/about/flair.png";
 import valueFlair1 from "@/assets/about/value1.png";
 import valueFlair2 from "@/assets/about/value2.png";
+import ValueCard from "@/components/about/valuecards/ValueCard";
 import History from "@/components/history/History";
-import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
+import { aboutPageSchema, TimelineElement, Value } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
-import styles from "./styles.module.css";
-import ValueCard from "@/components/about/valuecards/ValueCard";
-import { getLargestImageUrl } from "@/util/image";
 
 export default async function AboutPage() {
   const data = await fetchStrapi("about-page", aboutPageSchema);
@@ -19,8 +17,6 @@ export default async function AboutPage() {
       Date: date,
     };
   }).sort((a, b) => a.Date.getTime() - b.Date.getTime());
-
-  // console.log("Values data:", data.Values);
 
   return (
     <>
@@ -36,7 +32,7 @@ export default async function AboutPage() {
         {/* <p className="mb-16 mx-6">Click Below!</p> */}
 
         <div className="sm:grid sm:grid-cols-3 sm:grid-rows-2 text-black text-left mx-6">
-          {data.Values.map((value, i) => (
+          {data.Values.map((value: Value, i) => (
             <div key={value.Name} className={i === 3 ? "col-start-2" : ""}>
               <ValueCard
                 name={value.Name}
