@@ -39,8 +39,6 @@ export async function fetchPaginationStrapi(
       parsedData.data.map((e) => e.attributes),
     ) as z.infer<typeof psArray>;
 
-    console.log(projects);
-
     return { projects, pagesRemaining };
   } catch (err) {
     console.error(err);

@@ -18,7 +18,9 @@ export default function Project({
   sort: "ASC" | "DESC";
 }) {
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const [projectsData, setProjectsData] = useState<ProjectType[]>([]);
+  const [projectsData, setProjectsData] = useState<ProjectType[] | undefined>(
+    [],
+  );
   const [nextPageAvailable, setNextPageAvailable] = useState<boolean>(true);
 
   async function getNextProjects() {
@@ -54,6 +56,8 @@ export default function Project({
       //TODO: this needs to be fixed so that data.unwrappedData and data.pagesRemaining always exists. (IE: We do not want the optional chaining operator)
       if (data) {
         setProjectsData(data.projects as ProjectType[]);
+      } else {
+        setProjectsData(undefined);
       }
     }
 
@@ -90,7 +94,11 @@ export default function Project({
         </div>
       </div>
       <div>
-        <Timeline timelineElements={projectsData} />
+        {projectsData ? (
+          <Timeline timelineElements={projectsData} />
+        ) : (
+          <p className="text-base p-32 text-wrap">No projects found!</p>
+        )}
       </div>
       <div className="flex flex-col items-center justify-center text-center w-full m-5">
         <SeeMore
