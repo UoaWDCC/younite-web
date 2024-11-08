@@ -1,4 +1,3 @@
-import { projectSchema } from "@/schemas/collection/Project";
 import { emailSchema } from "@/schemas/single/Email";
 import { z, ZodError } from "zod";
 
@@ -34,7 +33,6 @@ export default async function fetchStrapi<T>(
   const unwrappedData = unwrapJsonData<T>(json);
   return schema.parse(unwrappedData);
 }
-
 
 export function getQueryUrl(content: string, query: Record<string, string>) {
   const url = new URL(`${process.env.STRAPI_URL}/api/${content}`);

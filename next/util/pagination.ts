@@ -1,6 +1,8 @@
 "use server";
 
-import { getQueryUrl, unwrapJsonData } from "./strapi";
+import { projectSchema } from "@/schemas/collection/Project";
+import { z } from "zod";
+import { getQueryUrl } from "./strapi";
 
 export async function fetchPaginationStrapi(
   pageNumber: number,
@@ -23,8 +25,17 @@ export async function fetchPaginationStrapi(
     const pagesRemaining =
       json.meta.pagination.pageCount - json.meta.pagination.page;
 
-    const unwrappedData = unwrapJsonData(json); //TODO: note that unwrapped data has no type, it may be better to specify this.
-    return { unwrappedData, pagesRemaining };
+    const addBlocksToSchema = projectSchema.extend({
+      blocks: z.any().array(),
+    });
+
+    const schema = await addPaginationType(projectSchema);
+
+    // const unwrappedData = unwrapJsonData(json) as ; //TODO: note that unwrapped data has no type, it may be better to specify this.
+
+    let parsedData = schema.parse(json);
+
+    return { parsedData, pagesRemaining };
   } catch (err) {
     console.log(err);
   }
@@ -40,4 +51,25 @@ async function fetchJsonWithMeta(url: string) {
 
   const json = await res.json();
   return json;
+}
+
+async function addPaginationType<T>(schema: z.ZodType<T>) {
+  let schemaArray = z.object({
+    data: z.array(
+      z.object({
+        id: z.number(),
+        attributes: schema,
+      }),
+    ),
+    meta: z.object({
+      pagination: z.object({
+        page: z.number(),
+        pageSize: z.number(),
+        pageCount: z.number(),
+        total: z.number(),
+      }),
+    }),
+  });
+
+  return schemaArray;
 }

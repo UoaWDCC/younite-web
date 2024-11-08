@@ -37,7 +37,7 @@ export default function Project({
 
       setProjectsData([
         ...projectsData,
-        ...(data?.unwrappedData as ProjectType[]),
+        ...(data?.parsedData as ProjectType[]),
       ]);
     } catch (err) {
       console.log(err);
