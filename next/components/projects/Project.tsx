@@ -28,17 +28,14 @@ export default function Project({
         2,
         firstDay,
         lastDay,
-        sort
+        sort,
       );
 
       if (data?.pagesRemaining === 0) {
         setNextPageAvailable(false);
       }
 
-      setProjectsData([
-        ...projectsData,
-        ...(data?.parsedData as ProjectType[]),
-      ]);
+      setProjectsData([...projectsData, ...(data?.projects as ProjectType[])]);
     } catch (err) {
       console.log(err);
     }
@@ -51,12 +48,12 @@ export default function Project({
         2,
         firstDay,
         lastDay,
-        sort
+        sort,
       );
 
       //TODO: this needs to be fixed so that data.unwrappedData and data.pagesRemaining always exists. (IE: We do not want the optional chaining operator)
-      if (data?.unwrappedData) {
-        setProjectsData(data?.unwrappedData as ProjectType[]);
+      if (data) {
+        setProjectsData(data.projects as ProjectType[]);
       }
     }
 

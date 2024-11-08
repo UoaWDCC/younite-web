@@ -4,13 +4,20 @@ import { projectSchema } from "@/schemas/collection/Project";
 import { z } from "zod";
 import { getQueryUrl } from "./strapi";
 
+const psArray = z.array(projectSchema);
+
+type fetchPaginationReturn = {
+  projects: z.infer<typeof psArray>;
+  pagesRemaining: number;
+};
+
 export async function fetchPaginationStrapi(
   pageNumber: number,
   pageSize: number,
   firstDay: Date,
   lastDay: Date,
   sort: String,
-) {
+): Promise<fetchPaginationReturn | undefined> {
   try {
     //TODO: if possible, try to make first and last day optional, and make it so that either or can be applied (this means we don't have to make a ridiculous range for the date when calculating past and active projects)
     const url = getQueryUrl("project-pages", {
@@ -25,19 +32,18 @@ export async function fetchPaginationStrapi(
     const pagesRemaining =
       json.meta.pagination.pageCount - json.meta.pagination.page;
 
-    const addBlocksToSchema = projectSchema.extend({
-      blocks: z.any().array(),
-    });
-
     const schema = await addPaginationType(projectSchema);
-
-    // const unwrappedData = unwrapJsonData(json) as ; //TODO: note that unwrapped data has no type, it may be better to specify this.
-
     let parsedData = schema.parse(json);
 
-    return { parsedData, pagesRemaining };
+    const projects = psArray.parse(
+      parsedData.data.map((e) => e.attributes),
+    ) as z.infer<typeof psArray>;
+
+    console.log(projects);
+
+    return { projects, pagesRemaining };
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }
 
