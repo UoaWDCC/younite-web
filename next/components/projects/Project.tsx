@@ -25,19 +25,26 @@ export default function Project({
 
   async function getNextProjects() {
     try {
-      const data = await fetchPaginationStrapi(
-        pageNumber,
-        2,
-        firstDay,
-        lastDay,
-        sort,
-      );
+      if (nextPageAvailable) {
+        const data = await fetchPaginationStrapi(
+          pageNumber,
+          2,
+          firstDay,
+          lastDay,
+          sort,
+        );
 
-      if (data?.pagesRemaining === 0) {
-        setNextPageAvailable(false);
+        if (data?.pagesRemaining === 0) {
+          setNextPageAvailable(false);
+        }
+
+        if (projectsData) {
+          setProjectsData([
+            ...projectsData,
+            ...(data?.projects as ProjectType[]),
+          ]);
+        }
       }
-
-      setProjectsData([...projectsData, ...(data?.projects as ProjectType[])]);
     } catch (err) {
       console.log(err);
     }
@@ -53,11 +60,11 @@ export default function Project({
         sort,
       );
 
-      //TODO: this needs to be fixed so that data.unwrappedData and data.pagesRemaining always exists. (IE: We do not want the optional chaining operator)
       if (data) {
         setProjectsData(data.projects as ProjectType[]);
       } else {
         setProjectsData(undefined);
+        setNextPageAvailable(false);
       }
     }
 
