@@ -1,11 +1,12 @@
 import { z } from "zod";
+import { imageSchema, ImageType } from "../Image";
 
 export const memberSchema = z.object({
   Name: z.string(),
   Role: z.string(),
   About: z.string(),
   funFact: z.nullable(z.string()),
-  Photo: z.any(),
+  Photo: imageSchema,
 });
 
 export type Member = z.infer<typeof memberSchema>;

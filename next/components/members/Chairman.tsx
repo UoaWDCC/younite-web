@@ -3,6 +3,8 @@ import Flair2 from "@/assets/members/flair2.png";
 import { Member } from "@/schemas/collection/Team";
 import { getLargestImageUrl } from "@/util/image";
 import Image from "next/image";
+import FunFactArrow1 from "./FunFactArrow1";
+import FunFactArrow2 from "./FunFactArrow2";
 
 const Chairman = ({ chairs }: { chairs: Member[] }) => {
   const chair1 = chairs[0];
@@ -17,7 +19,7 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
           "radial-gradient(47.21% 33.08% at 23.96% 39.49%, #FD8D5D 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(66.83% 44.73% at 78.61% 81.23%, #FAAB36 0%, rgba(255, 255, 255, 0.00) 97.76%), linear-gradient(180deg, #FFF 0%, #FABD6E 100%)",
       }}
     >
-      <h2 className="text-7xl text-center mb-4">
+      <h2 className="md:text-7xl text-5xl text-center mb-4">
         Meet the <span className="font-bold">Chairs</span>
       </h2>
       <p className="text-center max-w-5xl mx-auto mb-20">
@@ -28,12 +30,12 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
         leadership in action!
       </p>
 
-      <div className="grid grid-cols-[repeat(13,minmax(0,1fr))] grid-rows-2 max-w-6xl isolate mx-auto">
+      <div className="grid relative grid-cols-[repeat(13,minmax(0,1fr))] grid-rows-[repeat(2),minmax(0))] max-w-6xl isolate mx-auto">
         <div className="relative col-span-12 ml-5 md:col-span-7 drop-shadow-xl">
-          <Image
-            className="w-full max-md:hidden outline md:visible absolute top-0 -right-full h-72 object-contain"
-            src={Flair2}
-            alt=""
+        <FunFactArrow1
+            funFact = {chair1.funFact}
+            imgSrc = {Flair2}
+            className = "absolute lg:-right-[24em] -right-[22em] max-md:hidden sm:visible"
           />
           <img
             className="w-full"
@@ -46,11 +48,10 @@ const Chairman = ({ chairs }: { chairs: Member[] }) => {
             <p>{chair1.About}</p>
           </div>
         </div>
-        <div className="md:relative ml-5 row-start-2 col-span-12 md:col-span-7 md:col-start-7 drop-shadow-xl md:-translate-y-[30%] -z-10">
-          <Image
-            className="w-full max-md:hidden absolute bottom-0 -left-full h-80 object-contain"
-            src={Flair1}
-            alt=""
+        <div className="md:relative ml-5 row-start-2 col-span-12 md:col-span-7 md:col-start-7 drop-shadow-xl md:-translate-y-[20%] -z-10">
+          <FunFactArrow2 funFact = {chair2.funFact}
+            imgSrc = {Flair1}
+            className = "absolute lg:-left-[22rem] -left-[22rem] top-[11rem] lg:top-[16rem] max-md:hidden sm:visible"
           />
           <img
             className="w-full"

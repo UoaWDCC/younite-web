@@ -29,7 +29,8 @@
     "strapi-provider-upload-minio-ce": "^1.2.0",
     "strapi-provider-upload-tp-minio": "^3.0.0",
     "strapi-provider-upload-ts-minio": "^3.1.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "younite-strapi": "file:"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.5.0"

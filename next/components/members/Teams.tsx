@@ -1,16 +1,19 @@
 "use client";
 import { Member, RoleSection } from "@/schemas/collection/Team";
-import { motion } from "framer-motion";
-import Image from 'next/image';
+import Image from "next/image";
 import { useState } from "react";
-import { IoClose } from "react-icons/io5";
+import MemberModal from "./MemberModal";
+import { useModal } from "../modal/ModalContextProvider";
+import { getLargestImageUrl } from "@/util/image";
 
 export default function Teams({ teams }: { teams: RoleSection[] }) {
   const [active, setActive] = useState(0);
-
   const activeTeam = teams[active];
+  const { open } = useModal();
 
-  const [selected, setSelected] = useState(-1);
+  function handleCardClick(member: Member) {
+    open(<MemberModal activeMember={member} />);
+  }
 
   return (
     <>
@@ -26,7 +29,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             <div key={i}>
               <button
                 onClick={() => setActive(i)}
-                className={`px-4 py-2 text-xl transform transition-transform duration-150 border-transparent border ${
+                className={`px-4 py-2 sm:text-xl text-lg transform transition-transform duration-150 border-transparent border ${
                   i === active ? "font-bold border-0" : "border-l-1 border-r-1"
                 }`}
               >
@@ -35,7 +38,7 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             </div>
           ))}
         </div>
-        <h2 className="text-5xl text-center mb-4">{activeTeam.SectionName}</h2>
+        <h2 className="sm:text-5xl text-4xl text-center mb-4">{activeTeam.SectionName}</h2>
         <p className="text-center max-w-5xl mx-auto mb-20">
           {activeTeam.Description}
         </p>
@@ -44,21 +47,16 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
             <button
               key={member.Name}
               className="relative shadow-lg"
-              onClick={() => setSelected(i)}
+              onClick={() => handleCardClick(member)}
             >
               <Image
-              className="w-full"
-              src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png" //Instead or URL, supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
-              alt={member.Name}
-              objectFit="cover"
-              width={100}
-              height={100}
-              />
-              {/* <img
-                src={getLargestImageUrl(member.Photo)}
-                alt={member.Name}
                 className="w-full"
-              /> */}
+                src={getLargestImageUrl(member.Photo)} //Instead or URL, supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
+                alt={member.Name}
+                objectFit="cover"
+                width={100}
+                height={100}
+              />
               <div className="absolute bottom-0 left-0 w-full bg-white text-center py-2 font-bold">
                 {member.Name}
               </div>
@@ -66,63 +64,6 @@ export default function Teams({ teams }: { teams: RoleSection[] }) {
           ))}
         </div>
       </section>
-      <MemberModal
-        activeMember={activeTeam.Members[selected] || undefined}
-        callback={() => setSelected(-1)}
-      />
     </>
-  );
-}
-
-function MemberModal({
-  activeMember,
-  callback,
-}: {
-  activeMember?: Member;
-  callback: () => void;
-}) {
-
-  if (!activeMember) return null;
-
-  return (
-    <div className="fixed inset-0 grid place-items-center isolate">
-      <motion.div
-        className="absolute -z-10 w-lvh h-lvh md:w-full md:h-full bg-black backdrop-blur-md bg-opacity-40"
-        onClick={callback}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ type: "spring", bounce: 0, duration: 0.3 }}
-      ></motion.div>
-      <motion.div
-        className="md:h-fit md:w-full h-lvh w-lvh md:max-w-6xl grid grid-cols-[2fr_3fr] text-b-dark-blue"
-        style={{
-          background:
-            "radial-gradient(47.21% 33.08% at 23.96% 39.49%, rgba(253, 141, 93, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(66.83% 44.73% at 78.61% 81.23%, rgba(250, 171, 54, 0.20) 0%, rgba(255, 255, 255, 0.00) 97.76%), linear-gradient(180deg, #FFF 0%, #F6D09E 100%)",
-        }}
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", bounce: 0, duration: 0.15 }}
-      >
-        <Image
-          className="max-h-[80vh] w-full object-cover"
-          src="http://127.0.0.1:1337/uploads/priscilla_du_preez_n_F8xh_L_Mmg0c_unsplash_1_7b7bcfcb87.png" //Instead of URL, its supposed to be src={getLargestImageUrl(member.Photo)}, but it does not work
-          alt=""
-          objectFit="cover"
-          width={100}
-          height={100}
-        />
-        <div className="px-8 py-12 w-[65%]">
-          <h2 className="mb-4 text-3xl font-bold">{activeMember.Name}</h2>
-          <h3 className="mb-8 text-lg font-bold max-w-[18ch]">
-            {activeMember.Role}
-          </h3>
-          <p className="mb-12 max-w-[75ch]">{activeMember.About}</p>
-          <p className="max-w-[75ch] italic text-[14px]">{activeMember.funFact}</p>
-        </div>
-      </motion.div>
-      <button onClick={callback} className="absolute top-4 right-4">
-        <IoClose className="w-10 h-10" />
-      </button>
-    </div>
   );
 }

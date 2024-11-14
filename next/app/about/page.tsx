@@ -1,6 +1,7 @@
 import flair from "@/assets/about/flair.png";
 import valueFlair1 from "@/assets/about/value1.png";
 import valueFlair2 from "@/assets/about/value2.png";
+import History from "@/components/history/History";
 import { aboutPageSchema, TimelineElement } from "@/schemas/single/AboutPage";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
@@ -21,7 +22,7 @@ export default async function AboutPage() {
     <>
       <Image src={flair} alt="" className="absolute -z-10 top-[70%]" />
       <section className="max-w-4xl mx-auto mt-header pt-24 flex flex-col items-center text-center">
-        <h1 className="md:text-8xl sm:text-7xl text-5xl font-bold leading-[0.95] uppercase mb-6">
+        <h1 className="lg:text-8xl md:text-7xl sm:text-6xl text-4xl font-bold leading-[0.95] uppercase mb-6">
           Our Values
         </h1>
         <p className="mb-2 mx-6">{data.Subtitle}</p>
@@ -45,41 +46,10 @@ export default async function AboutPage() {
         </div>
       </section>
       <section className="py-40 text-center px-4">
-        <h2 className="md:text-8xl sm:text-7xl text-6xl font-bold leading-[0.95] uppercase mb-12">
+        <h2 className="lg:text-8xl md:text-7xl sm:text-6xl text-4xl font-bold leading-[0.95] uppercase mb-12">
           Our History
         </h2>
-        <div className="text-left max-w-xl mx-auto">
-          <ol className="relative border-s border-gray-100 text-b-dark-blue">
-            {timeline.map((e, i) => {
-              const isImage = "Image" in e;
-
-              return (
-                <li key={i} className="mb-10 ms-4">
-                  <div className="absolute w-3 h-3 bg-gray-100 rounded-full mt-1.5 -start-1.5 border border-white"></div>
-                  <time className="mb-1 text-sm font-normal leading-none italic">
-                    {e.Date.toLocaleDateString()}
-                  </time>
-                  {isImage ? (
-                    <Image
-                      src={e.Image}
-                      alt=""
-                      className="w-full rounded-lg mb-4 shadow-xl"
-                      width={200}
-                      height={200}
-                    />
-                  ) : (
-                    <div>
-                      <h3 className="text-lg font-semibold">{e.Title}</h3>
-                      <p className="mb-4 text-base font-normal ">
-                        {e.Description}
-                      </p>
-                    </div>
-                  )}
-                </li>
-              );
-            })}
-          </ol>
-        </div>
+        <History timelineElements={timeline} />
       </section>
     </>
   );

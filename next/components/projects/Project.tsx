@@ -85,11 +85,11 @@ export default function Project({
         <BGBlob />
       </div>
       <div className="mt-header">
-        <div className="flex flex-col items-center justify-center text-center w-full">
+        <div className="max-w-4xl mx-auto mt-header pt-24 flex flex-col items-center text-center">
           {type == "current" ? (
-            <p className="text-6xl font-bold leading-[0.95]">ACTIVE PROJECTS</p>
+            <p className="md:text-8xl sm:text-7xl text-5xl font-bold leading-[0.95] uppercase mb-6">ACTIVE PROJECTS</p>
           ) : (
-            <p className="text-6xl font-bold leading-[0.95]">PAST PROJECTS</p>
+            <p className="md:text-8xl sm:text-7xl text-5xl font-bold leading-[0.95] uppercase mb-6">PAST PROJECTS</p>
           )}
           <div className="max-w-4xl">
             <p className="text-base p-10 text-wrap">
@@ -102,7 +102,7 @@ export default function Project({
       </div>
       <div>
         {projectsData ? (
-          <Timeline timelineElements={projectsData} />
+          <Timeline timelineElements={projectsData} type={type} />
         ) : (
           <p className="text-base p-32 text-wrap">No projects found!</p>
         )}
