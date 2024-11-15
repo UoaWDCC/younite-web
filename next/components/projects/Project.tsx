@@ -28,9 +28,13 @@ export default function Project({
   async function getNextProjects() {
     try {
       if (nextPageAvailable) {
+        let pages = 2;
+        if (type == "old") {
+          pages = 5;
+        }
         const data = await fetchPaginationStrapi(
           pageNumber,
-          2,
+          pages,
           firstDay,
           lastDay,
           sort,
