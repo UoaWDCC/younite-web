@@ -1,4 +1,3 @@
-"use client";
 import Project from "@/components/projects/Project";
 import { createDate } from "@/util/date";
 
