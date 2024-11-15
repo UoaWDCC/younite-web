@@ -11,15 +11,17 @@ export default function Project({
   firstDay,
   lastDay,
   sort,
+  firstProject,
 }: {
   type: "current" | "old";
   firstDay: Date;
   lastDay: Date;
   sort: "ASC" | "DESC";
+  firstProject: ProjectType[] | undefined;
 }) {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [projectsData, setProjectsData] = useState<ProjectType[] | undefined>(
-    [],
+    firstProject,
   );
   const [nextPageAvailable, setNextPageAvailable] = useState<boolean>(true);
 
@@ -51,28 +53,9 @@ export default function Project({
   }
 
   useEffect(() => {
-    async function getFirstProjects() {
-      const data = await fetchPaginationStrapi(
-        pageNumber,
-        2,
-        firstDay,
-        lastDay,
-        sort,
-      );
-
-      if (data) {
-        setProjectsData(data.projects as ProjectType[]);
-      } else {
-        setProjectsData(undefined);
-        setNextPageAvailable(false);
-      }
+    if (pageNumber != 1) {
+      getNextProjects();
     }
-
-    if (pageNumber === 1) {
-      getFirstProjects();
-    }
-
-    getNextProjects();
   }, [pageNumber]);
 
   function addPageNumber() {
@@ -87,9 +70,13 @@ export default function Project({
       <div className="mt-header">
         <div className="max-w-4xl mx-auto mt-header pt-24 flex flex-col items-center text-center">
           {type == "current" ? (
-            <p className="md:text-8xl sm:text-7xl text-5xl font-bold leading-[0.95] uppercase mb-6">ACTIVE PROJECTS</p>
+            <p className="md:text-8xl sm:text-7xl text-5xl font-bold leading-[0.95] uppercase mb-6">
+              ACTIVE PROJECTS
+            </p>
           ) : (
-            <p className="md:text-8xl sm:text-7xl text-5xl font-bold leading-[0.95] uppercase mb-6">PAST PROJECTS</p>
+            <p className="md:text-8xl sm:text-7xl text-5xl font-bold leading-[0.95] uppercase mb-6">
+              PAST PROJECTS
+            </p>
           )}
           <div className="max-w-4xl">
             <p className="text-base p-10 text-wrap">
@@ -104,10 +91,12 @@ export default function Project({
         {projectsData ? (
           <Timeline timelineElements={projectsData} type={type} />
         ) : (
-          <p className="text-base p-32 text-wrap">No projects found!</p>
+          <p className="md:text-3xl sm:text-7xl text-5xl font-bold leading-[0.95] mb-6 text-center">
+            No projects found!
+          </p>
         )}
       </div>
-      <div className="flex flex-col items-center justify-center text-center w-full m-5">
+      <div className="flex flex-col items-center justify-center w-full">
         <SeeMore
           loadMore={addPageNumber}
           nextPageAvailable={nextPageAvailable}
