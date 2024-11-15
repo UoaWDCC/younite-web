@@ -1,18 +1,18 @@
 import Project from "@/components/projects/Project";
-import { projectSchema } from "@/schemas/collection/Project";
-import fetchStrapi from "@/util/strapi";
-import { notFound } from "next/navigation";
-import { z } from "zod";
+import { createDate } from "@/util/date";
+import getFirstProject from "@/util/getFirstProjects";
 
 export default async function CurrentProjectPage() {
   const firstDay = new Date(new Date().getFullYear(), 0, 1);
-  const lastDay = new Date(new Date().getFullYear(), 11, 31);
+  const lastDay = createDate(0, 0, 10);
 
-  const projects = await fetchStrapi("project-pages", z.array(projectSchema), {
-    "filters[Date][$gte]": firstDay.toISOString().split("T")[0],
-    "[$lte]": lastDay.toISOString().split("T")[0],
-  });
-
-  if (projects.length === 0) notFound();
-  return <Project type={"current"} projects={projects} />;
+  return (
+    <Project
+      type={"current"}
+      firstDay={firstDay}
+      lastDay={lastDay}
+      sort={"ASC"}
+      firstProject={await getFirstProject(0, 2, firstDay, lastDay, "ASC")}
+    />
+  );
 }
