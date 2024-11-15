@@ -10,7 +10,7 @@ export default async function getFirstProject(
 ): Promise<ProjectType[] | undefined> {
   const data = await fetchPaginationStrapi(
     pageNumber,
-    2,
+    pageSize,
     firstDay,
     lastDay,
     sort,
