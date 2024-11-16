@@ -16,7 +16,7 @@ async function getFooterData() {
 export default async function Footer() {
   const data = await getFooterData();
   const { logoSection, younite, CreditsPrivacy } = data;
-  const links = data.logoSection;
+  const logos = data.logoSection;
 
   return (
     <footer className={styles.footer}>
@@ -60,18 +60,18 @@ export default async function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        {logoSection.map((item, index) => (
+        {logos.map((logo, index) => (
           <a
             key={index}
-            href={item.url}
+            href={logo.url}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
               height={32}
-              src={item.image}
+              src={logo.image}
               className={styles.socialLogo}
-              alt={item.title}
+              alt={logo.title}
             />
           </a>
         ))}

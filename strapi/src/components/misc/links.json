@@ -6,14 +6,22 @@
   },
   "options": {},
   "attributes": {
-    "url": {
-      "type": "string",
-      "required": true,
-      "unique": false
-    },
     "title": {
       "type": "string",
       "required": true
+    },
+    "url": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

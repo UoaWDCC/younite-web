@@ -5,7 +5,7 @@ export const footerSchema = z.object({
     z.object({
       url: z.string(),
       title: z.string(),
-      image: z.any()
+      image: z.any(),
     }),
   ),
   younite: z.object({
