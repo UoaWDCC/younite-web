@@ -1,17 +1,18 @@
 import { z } from "zod";
+import { imageSchema } from "../Image";
 
 export const footerSchema = z.object({
   logoSection: z.array(
     z.object({
       url: z.string(),
       title: z.string(),
-      image: z.any(),
+      image: imageSchema,
     }),
   ),
   younite: z.object({
-      url: z.string(),
-      title: z.string(),
-    }),
+    url: z.string(),
+    title: z.string(),
+  }),
   CreditsPrivacy: z.string(),
 });
 
