@@ -10,7 +10,7 @@ export default async function Header() {
   const links = data.navigation;
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} bg-white bg-opacity-20 backdrop-blur-sm`}>
       <Link href="/">
         <Image
           src={logoSrc}
