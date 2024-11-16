@@ -21,7 +21,12 @@ type ScrollProviderProps = {
   children: ReactNode;
 };
 
-// This 'component' goes in the layout so its context (fancy state) is available everywhere
+/**
+ * Global data for carousels to block vertical page-scrolling temporarily
+ * This 'component' goes in the layout so its context (fancy state) is available everywhere
+ *
+ * @param children The page content
+ */
 export const ScrollContextProvider = ({ children }: ScrollProviderProps) => {
   const [isBodyScrollLocked, setIsBodyScrollLocked] = useState<boolean>(false);
 

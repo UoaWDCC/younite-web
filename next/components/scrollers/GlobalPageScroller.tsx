@@ -3,8 +3,14 @@
 import { ReactNode, UIEvent, useRef } from "react";
 import { useBodyLock } from "./ScrollContextProvider";
 
-// This is the div that goes in layout.tsx
-// The only reason this is a separate component is to use "use client" so it can be dynamically scroll-locked
+/**
+ * The scrollable div on each page. Works with ScrollContextProvider.
+ *
+ * This is the div that goes in layout.tsx
+ * The only reason this is a separate component is to use "use client" so it can be dynamically scroll-locked
+ *
+ * @param children The scrollable page content
+ */
 export function GlobalPageScroller({ children }: { children: ReactNode }) {
   const { isBodyScrollLocked } = useBodyLock();
   const scrollRef = useRef<HTMLDivElement>(null);

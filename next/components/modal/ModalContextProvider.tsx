@@ -23,7 +23,12 @@ type ModalProviderProps = {
   children: React.ReactNode;
 };
 
-// This 'component' goes in the layout so its context (fancy state) is available everywhere
+/**
+ * Global data to manage/store modals (popups)
+ *
+ * This 'component' goes in the layout so its context (fancy state) is available everywhere
+ * @param children The page content
+ */
 export const ModalContextProvider = ({ children }: ModalProviderProps) => {
   const [content, setContent] = useState<React.ReactNode>(null);
   const isOpen = content !== null; // Just for convenience

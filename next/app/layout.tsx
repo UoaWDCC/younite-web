@@ -23,10 +23,12 @@ export default async function RootLayout({
   return (
     <html lang="en" className="h-full overflow-hidden">
       <body className="h-full overflow-hidden">
+        {/* Hover to see comments! */}
         <ScrollContextProvider>
           <ModalContextProvider>
             <GlobalPageScroller>
               <div className="invisible sm:visible">
+                {/* @ts-ignore is used as a temporary patch for a ts-next incompatibility bug during deployment */}
                 {/* @ts-ignore */}
                 <Header />
               </div>
