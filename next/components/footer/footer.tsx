@@ -1,3 +1,4 @@
+import { getLargestImageUrl } from "@/util/image";
 import { footerSchema } from "@/schemas/single/Footer";
 import fetchStrapi from "@/util/strapi";
 import Image from "next/image";
@@ -16,7 +17,7 @@ async function getFooterData() {
 export default async function Footer() {
   const data = await getFooterData();
   const { logoSection, younite, CreditsPrivacy } = data;
-  const logos = data.logoSection;
+  const links = data.logoSection;
 
   return (
     <footer className={styles.footer}>
@@ -60,18 +61,18 @@ export default async function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        {logos.map((logo, index) => (
+        {links.map((item, index) => (
           <a
             key={index}
-            href={logo.url}
+            href={item.url}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
               height={32}
-              src={logo.image}
+              src={getLargestImageUrl(item.image)}
               className={styles.socialLogo}
-              alt={logo.title}
+              alt={item.title}
             />
           </a>
         ))}

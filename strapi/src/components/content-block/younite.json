@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_block_younites",
+  "info": {
+    "displayName": "younite"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

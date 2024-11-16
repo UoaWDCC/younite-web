@@ -13,14 +13,16 @@
   "pluginOptions": {},
   "attributes": {
     "logoSection": {
+      "displayName": "logoSection",
       "type": "component",
       "repeatable": true,
-      "component": "misc.links"
+      "component": "content-block.logo-section"
     },
     "younite": {
+      "displayName": "younite",
       "type": "component",
       "repeatable": false,
-      "component": "misc.links"
+      "component": "content-block.younite"
     },
     "CreditsPrivacy": {
       "type": "string"
