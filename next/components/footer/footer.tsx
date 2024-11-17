@@ -70,6 +70,7 @@ export default async function Footer() {
           >
             <Image
               height={32}
+              width={32}
               src={getLargestImageUrl(item.image)}
               className={styles.socialLogo}
               alt={item.title}

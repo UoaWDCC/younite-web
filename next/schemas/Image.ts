@@ -39,7 +39,7 @@ export const imageSchema = z.object({
       createdAt: z.string(),
       updatedAt: z.string(),
     }),
-  }),
+  }).nullable(),
 });
 
 export type ImageType = z.infer<typeof imageSchema>;

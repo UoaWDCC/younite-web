@@ -1,6 +1,9 @@
 import { ImageType } from "@/schemas/Image";
 
 export const getLargestImageUrl = (img: ImageType) => {
+  if (!img.data || !img.data.attributes) {
+    return "";
+  }
   const { large, medium, small, thumbnail } = img.data.attributes.formats;
   const largestFormat = large ?? medium ?? small ?? thumbnail ?? { url: "" };
   const isRelativeUrl = process.env.NODE_ENV === "development";
