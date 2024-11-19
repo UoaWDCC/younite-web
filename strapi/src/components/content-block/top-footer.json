@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_content_block_top_footers",
+  "info": {
+    "displayName": "topFooter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

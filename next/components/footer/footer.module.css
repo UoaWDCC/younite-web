@@ -4,8 +4,10 @@
 }
 
 .top {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
+  /* gap: 1rem; */
+  /* grid-template-columns: repeat(3, 1fr); */
   align-items: center;
   background-color: white;
   padding: 1.5rem calc(var(--gutter) + 2rem);
@@ -14,26 +16,16 @@
 .bottom {
   @apply bg-b-orange text-b-dark-blue;
   display: flex;
-  /* grid-template-columns: 1fr 1fr 1fr; */
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   padding: 1rem var(--gutter);
 }
 
-/* .top :nth-child(2),
-.bottom :nth-child(2) {
-  justify-self: center;
-} */
-
-/* .top :nth-child(3),
-.bottom :nth-child(3) {
-  justify-self: end;
-} */
-
 .brandLogo {
   object-fit: contain;
   max-width: 100px;
+  flex: 1 0 auto;
 }
 
 .bottom .younite {

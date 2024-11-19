@@ -12,14 +12,17 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "topFooter": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content-block.top-footer"
+    },
     "logoSection": {
-      "displayName": "logoSection",
       "type": "component",
       "repeatable": true,
       "component": "content-block.logo-section"
     },
     "younite": {
-      "displayName": "younite",
       "type": "component",
       "repeatable": false,
       "component": "content-block.younite"

@@ -16,49 +16,31 @@ async function getFooterData() {
 
 export default async function Footer() {
   const data = await getFooterData();
-  const { logoSection, younite, CreditsPrivacy } = data;
+  const { topFooter, logoSection, younite, CreditsPrivacy } = data;
+  const brands = data.topFooter;
   const links = data.logoSection;
 
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
-        <a
-          href="https://www.aucklandcouncil.govt.nz/about-auckland-council/how-auckland-council-works/local-boards/all-local-boards/devonport-takapuna-local-board/Pages/default.aspx"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            height={4 * 16}
-            src={localBoardLogo}
-            className={styles.brandLogo}
-            alt=""
-          />
-        </a>
-        <a
-          href="https://shorejunction.nz/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            height={4 * 16}
-            src={shoreJunctionLogo}
-            className={styles.brandLogo}
-            alt=""
-          />
-        </a>
-        <a
-          href="https://lakehousearts.org.nz/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            height={4 * 16}
-            src={lakeHouseLogo}
-            className={styles.brandLogo}
-            alt=""
-          />
-        </a>
-      </div>
+      {brands.map((item, index) => (
+          <a
+            key={index}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              height={4 * 16}
+              width={100}
+              src={getLargestImageUrl(item.image)}
+              className={styles.brandLogo}
+              alt=""
+            />
+          </a>
+        ))}
+        </div>
+
 
       <div className={styles.bottom}>
         <div className={styles.socialsContainer}>
