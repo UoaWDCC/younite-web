@@ -61,6 +61,7 @@ export default async function Footer() {
       </div>
 
       <div className={styles.bottom}>
+        <div className={styles.socialsContainer}>
         {links.map((item, index) => (
           <a
             key={index}
@@ -77,10 +78,11 @@ export default async function Footer() {
             />
           </a>
         ))}
-        <a href={younite.url} target="_blank" rel="noopener noreferrer">
+        </div>
+        <a href={younite.url} target="_blank" rel="noopener noreferrer" className={styles.younite}>
           <span>{younite.title}</span>
         </a>
-        <span>{CreditsPrivacy}</span>
+        <span className={styles.creditsPrivacy}>{CreditsPrivacy}</span>
       </div>
     </footer>
   );
