@@ -6,11 +6,11 @@
 .top {
   display: flex;
   justify-content: space-between;
-  /* gap: 1rem; */
-  /* grid-template-columns: repeat(3, 1fr); */
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   background-color: white;
-  padding: 1.5rem calc(var(--gutter) + 2rem);
+  padding: 0.75rem calc(var(--gutter) + 1rem);
 }
 
 .bottom {
@@ -24,8 +24,9 @@
 
 .brandLogo {
   object-fit: contain;
-  max-width: 100px;
-  flex: 1 0 auto;
+  height: 80px;
+  width: 80px;
+  flex-shrink: 0;
 }
 
 .bottom .younite {
