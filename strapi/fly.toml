@@ -1,19 +1,20 @@
-# fly.toml app configuration file generated for younite on 2024-01-23T20:03:27+13:00
+# fly.toml app configuration file generated for younite-strapi on 2024-01-17T22:25:22+13:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "younite-staging"
+app = "younite-strapi"
 primary_region = "syd"
 
 [[vm]]
   memory = "512mb"
-  vm = "shared-cpu-4x"
+  cpu_kind = 'shared'
+  cpus = 1
 
 [http_service]
-  internal_port = 3000
+  internal_port = 1337
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
   processes = ["app"]
