@@ -34,7 +34,7 @@ export default async function fetchStrapi<T>(
   return schema.parse(unwrappedData);
 }
 
-function getQueryUrl(content: string, query: Record<string, string>) {
+export function getQueryUrl(content: string, query: Record<string, string>) {
   const url = new URL(`${process.env.STRAPI_URL}/api/${content}`);
   url.searchParams.append("populate", "deep,10"); // Populate all fields
   Object.entries(query).forEach(([key, value]) => {
@@ -45,6 +45,7 @@ function getQueryUrl(content: string, query: Record<string, string>) {
 
 async function fetchJson<T>(url: string) {
   // Fetch data from Strapi API
+  console.log("key json:" + process.env.STRAPI_KEY);
   const res = await fetch(url, {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_KEY}`,
@@ -60,7 +61,7 @@ async function fetchJson<T>(url: string) {
   return json;
 }
 
-function unwrapJsonData<T>(json: StrapiJson<T>) {
+export function unwrapJsonData<T>(json: StrapiJson<T>) {
   const data = json.data;
   const unwrappedData = Array.isArray(data)
     ? data.map((item) => item.attributes)
@@ -70,7 +71,6 @@ function unwrapJsonData<T>(json: StrapiJson<T>) {
 
 export async function sendEmail<T>(name: string, email: string, body: string) {
   const url = new URL(`${process.env.STRAPI_URL}/api/email`);
-
   const data = { name: name, senderEmail: email, body: body };
 
   try {
